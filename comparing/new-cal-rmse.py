@@ -16,9 +16,9 @@ rmse_direction=[]
 
 names=[
 'paper2validation','redata_5min_plus1',
-        'redata_5min_normaldepth'
+        'redata_5min_normaldepth','redata_30min_normaldepth','redata_30min_plus1'
       ]
-
+names30min = ['redata_30min_normaldepth','redata_30min_plus1']
 for filename in names:
 	stationnames=['B5']
 	for stationname in stationnames:
@@ -42,7 +42,7 @@ for filename in names:
 		    velocity_magnitude.append(float(both[i][0]))
 		    velocity_direction.append(float(both[i][1]))
 
-		det_file = "../outputs/"+filename+"/diagnostic_detectors.hdf5"
+		det_file = "../../outputs/"+filename+"/diagnostic_detectors.hdf5"
 		df = h5py.File(det_file, 'r+')
 		xvelocity=[]
 		yvelocity=[]
@@ -53,7 +53,7 @@ for filename in names:
 		
 		thetis_xvelocity3=[]
 		thetis_yvelocity3=[]
-		if filename == 'redata-dgdg':
+		if filename in names30min:
 			# for i in range(147,198):
 			# 	thetis_xvelocity3.append(xvelocity[0][i])
 			# 	thetis_yvelocity3.append(yvelocity[0][i])

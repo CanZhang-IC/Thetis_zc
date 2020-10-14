@@ -76,72 +76,19 @@ for stationname in stationnames:
         velocity_direction.append(float(both[i][1]))
     
     for i in range(3):
-        axs[i].plot( data_time[i], velocity_direction[151*i:151*(i+1)], 'ko', label='Measurement')
-
-
-        
-    # ### Read OTF data ###
-    # file_name = 'v_otf.csv'
-    # otf_v = np.loadtxt(file_name, dtype=str, delimiter=',', usecols=(3),skiprows=0) 
-    # # data formatting:
-    # all_otf_v = []
-    # # remove empty values
-    # for i in range(len(otf_v)):
-    #     if otf_v[i] != '-':
-    #         all_otf_v.append(float(otf_v[i]))
-
-    # axs[0].plot(otf_time[0], all_otf_v[149:200], '.-' , color='r',label='OTF_NF')
-    # axs[1].plot(otf_time[1], all_otf_v[300:351], '.-' , color='r', label='OTF_NF')
-    # axs[2].plot(otf_time[2], all_otf_v[484:535], '.-' , color='r', label='OTF_NF')
-
-    # ### Far-field B5 Read OTF data ###
-    # file_name = 'v_otf.csv'
-    # otf_xv = np.loadtxt(file_name, dtype=str, delimiter=',', usecols=(5),skiprows=0) 
-    # otf_yv = np.loadtxt(file_name, dtype=str, delimiter=',', usecols=(6),skiprows=0)
-    # # data formatting:
-    # all_otf_v = []
-    # # remove empty values
-    # for i in range(len(otf_xv)):
-    #     one_direction = np.arctan2(float(otf_xv[i]),float(otf_yv[i]))* 180 / np.pi
-    #     if one_direction < 0:
-    #         all_otf_v.append(one_direction+360)
-    #     else:
-    #         all_otf_v.append(one_direction)
-
-    # axs[0].plot(otf_time[0], all_otf_v[147:198], '.-' , color='orange',label='OTF_FF')
-    # axs[1].plot(otf_time[1], all_otf_v[298:349], '.-' , color='orange', label='OTF_FF')
-    # axs[2].plot(otf_time[2], all_otf_v[482:533], '.-' , color='orange', label='OTF_FF')
-
-    # ### Far-field A4 Read OTF data ###
-    # file_name = 'v_otf.csv'
-    # otf_xv = np.loadtxt(file_name, dtype=str, delimiter=',', usecols=(8),skiprows=0) 
-    # otf_yv = np.loadtxt(file_name, dtype=str, delimiter=',', usecols=(9),skiprows=0)
-    # # data formatting:
-    # all_otf_v = []
-    # # remove empty values
-    # for i in range(len(otf_xv)):
-    #     one_direction = np.arctan2(float(otf_xv[i]),float(otf_yv[i]))* 180 / np.pi
-    #     if one_direction < 0:
-    #         all_otf_v.append(one_direction+360)
-    #     elif one_direction < 140:
-    #         all_otf_v.append(360-one_direction)
-    #     else:
-    #         all_otf_v.append(one_direction)
-
-    # axs[0].plot(otf_time[0], all_otf_v[147:198], '.-' , color='orange',label='OTF_FF')
-    # axs[1].plot(otf_time[1], all_otf_v[298:349], '.-' , color='orange', label='OTF_FF')
-    # axs[2].plot(otf_time[2], all_otf_v[482:533], '.-' , color='orange', label='OTF_FF')
-        
+        axs[i].plot( otf_time[i], velocity_direction[151*i:151*(i+1):3], 'ko', label='Measurement')
 
     thetisfilenames=[
-        'paper2validation','redata_5min_plus1',
-        'redata_5min_normaldepth'
+        'paper2validation',
+        'redata_5min_normaldepth',
+        'redata_30min_normaldepth',
       ]
+    names30min = ['redata_30min_normaldepth','redata_30min_plus1']
    
 
     for (ii,thetisfilename) in enumerate(thetisfilenames):    
         ### Read Thetis data ###        
-        det_file = "../outputs/"+thetisfilename+"/diagnostic_detectors.hdf5"
+        det_file = "../../outputs/"+thetisfilename+"/diagnostic_detectors.hdf5"
         df = h5py.File(det_file, 'r+')
         xvelocity=[]
         yvelocity=[]
@@ -152,7 +99,7 @@ for stationname in stationnames:
 
         thetis_xvelocity3=[]
         thetis_yvelocity3=[]
-        if thetisfilename == 'redata-dgdg-normaldepth' or thetisfilename == 'redata-dgdg-Latitude-30':
+        if thetisfilename in names30min:
             for i in range(340,392):
                 thetis_xvelocity3.append(np.mean(xvelocity[0][i]))
                 thetis_yvelocity3.append(np.mean(yvelocity[0][i]))
@@ -186,16 +133,15 @@ for stationname in stationnames:
 
     
         
-        # for i in range(len(thetis_direction)):
-        #     if thetis_direction[i] < 140:
-        #         thetis_direction[i] = 360 - thetis_direction[i]
-        #     if velocity_direction[i] < 140:
-        #         velocity_direction[i] = 360 - velocity_direction[i]
+        for i in range(len(thetis_direction)):
+            if thetis_direction[i] < 60:
+                thetis_direction[i] = (thetis_direction[i-3] + thetis_direction[i+3])/2
+                
         
         tidenames = ['Neap','Intermediate','Spring']
         for i in range(3):
-            if thetisfilename == 'redata-dgdg-normaldepth' or thetisfilename == 'redata-dgdg-Latitude-30':
-                axs[i].plot( otf_time[i], thetis_direction[51*i:51*(i+1)],  label=thetisfilename)
+            if thetisfilename in names30min:
+                axs[i].plot( otf_time[i], thetis_direction[51*i:51*(i+1)], '.-' , label=thetisfilename)
             else:
                 axs[i].plot(otf_time[i], thetis_direction[151*i:151*(i+1):3], '.-' ,label=thetisfilename)
             

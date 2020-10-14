@@ -250,7 +250,7 @@ class CableCostGA(object):
         n_breaks = n_routes - 1
         converged = False
         convergence_counter = 0
-        print ('Running Genetic Algorithm...')
+        #print ('Running Genetic Algorithm...')
         pop = self.initialise_population(n, min_route, n_routes, n_breaks)
         C = self.construct_cost_matrix(vertices)
         D = self.evaluate_population(pop, C, n)    
@@ -276,7 +276,7 @@ class CableCostGA(object):
                     converged = True
         if self.show_result:
             self.produce_plot(vertices, best_chromosome, global_min)
-        print ('GA Complete, Routing Length is: ', global_min)
+        #print ('GA Complete, Routing Length is: ', global_min)
         return best_chromosome, global_min
         
     def compute_cable_cost(self):

@@ -77,38 +77,20 @@ for stationname in stationnames:
             measured_velocity.append(float(velocity[i]))
     
     for i in range(3):
-        axs[i].plot( data_time[i], measured_velocity[151*i:151*(i+1)], 'ko', label='Measurement')
+        axs[i].plot( otf_time[i], measured_velocity[151*i:151*(i+1):3], 'ko', label='Measurement')
 
-
-
-    # ### Read OTF data ###
-    # file_name = 'v_otf.csv'
-    # otf_v = np.loadtxt(file_name, dtype=str, delimiter=',', usecols=(2),skiprows=0) 
-    # # data formatting:
-    # all_otf_v = []
-    # # remove empty values
-    # for i in range(len(otf_v)):
-    #     if otf_v[i] != '-':
-    #         all_otf_v.append(float(otf_v[i]))
-
-    # axs[0].plot(otf_time[0], all_otf_v[147:198], 'r', label='OTF-large')
-    # axs[1].plot(otf_time[1], all_otf_v[298:349], 'r',label='OTF-large')
-    # axs[2].plot(otf_time[2], all_otf_v[482:533], 'r',label='OTF-large')
-       
-        
 
     thetisfilenames=[
         'paper2validation',
-        'redata_5min_plus1',
-        'redata_5min_normaldepth'
+        'redata_5min_normaldepth',
+        'redata_30min_normaldepth',
       ]
-    legendnames = ['LargeDomain-5min','SmallDomain-5min','SmallDomain-30min']
-    names_30min = ['redata_30min_plus1','redata-dgdg-Latitude-30']
+    names_30min = ['redata_30min_normaldepth','redata_30min_plus1']
    
 
     for (ii,thetisfilename) in enumerate(thetisfilenames):    
         ### Read Thetis data ###        
-        det_file = "../outputs/"+thetisfilename+"/diagnostic_detectors.hdf5"
+        det_file = "../../outputs/"+thetisfilename+"/diagnostic_detectors.hdf5"
         df = h5py.File(det_file, 'r+')
         xvelocity=[]
         yvelocity=[]

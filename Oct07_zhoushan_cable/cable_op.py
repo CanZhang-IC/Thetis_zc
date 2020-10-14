@@ -122,7 +122,6 @@ farm_options.turbine_coordinates = [[Constant(x), Constant(y)] for x in numpy.ar
 # the farm_options.turbine_axis would be an empty list, 
 # so only the coordinates are optimised.
 farm_options.considering_yaw = False
-farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbine_coordinates))]
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
 
@@ -158,15 +157,6 @@ order_w = comm.bcast(order_w, root=0)
 landpointlocation_con = [Constant(x) for x in landpointlocation]
 order_con = [Constant(i) for j in order_w for i in j]
 cablecost = cablelength([x for xy in farm_options.turbine_coordinates for x in xy],landpointlocation_con,order_con)
-# specifies the control we want to vary in the optimisation
-# optimise_angle_only = False
-# if optimise_angle_only:
-#     if farm_options.considering_yaw:
-#         c = [Control(x) for x in farm_options.turbine_axis]
-#     else:
-#         raise Exception('You should turn on the yaw considering!')      
-# else:
-#     c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy] + [Control(x) for x in farm_options.turbine_axis]
 
 c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy] 
 turbine_density = Function(solver_obj.function_spaces.P1_2d, name='turbine_density')
@@ -211,7 +201,7 @@ def derivative_cb_pre(controls):
 rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list,
         eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
 
-if 1:
+if 0:
     # whenever the forward model is changed - for example different terms in the equation,
     # different types of boundary conditions, etc. - it is a good idea to test whether the
     # gradient computed by the adjoint is still correct, as some steps in the model may
@@ -233,28 +223,24 @@ if 1:
 
     assert minconv > 1.95
 
-if 0:
+if 1:
     # Optimise the control for minimal functional (i.e. maximum profit)
     # with a gradient based optimisation algorithm using the reduced functional
     # to replay the model, and computing its derivative via the adjoint
     # By default scipy's implementation of L-BFGS-B is used, see
     #   https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fmin_l_bfgs_b.html
     # options, such as maxiter and pgtol can be passed on.
-    if optimise_angle_only:
-        lb = [0]*len(farm_options.turbine_coordinates)
-        ub = [360]*len(farm_options.turbine_coordinates)
-        td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 100, 'ptol': 1e-3})
-    else:
-        r = farm_options.turbine_options.diameter/2.
 
-        lb = np.array([[site_x1+r, site_y1+r] for _ in farm_options.turbine_coordinates]).flatten()
-        ub = np.array([[site_x2-r, site_y2-r] for _ in farm_options.turbine_coordinates]).flatten()
-        
-        if farm_options.considering_yaw:
-            lb = list(lb) + [0]*len(farm_options.turbine_coordinates)
-            ub = list(ub) + [360]*len(farm_options.turbine_coordinates)
+    r = farm_options.turbine_options.diameter/2.
 
-        mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
-        
-        td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
-                options={'maxiter': 5, 'pgtol': 1e-3})
+    lb = np.array([[site_x1+r, site_y1+r] for _ in farm_options.turbine_coordinates]).flatten()
+    ub = np.array([[site_x2-r, site_y2-r] for _ in farm_options.turbine_coordinates]).flatten()
+    
+    if farm_options.considering_yaw:
+        lb = list(lb) + [0]*len(farm_options.turbine_coordinates)
+        ub = list(ub) + [360]*len(farm_options.turbine_coordinates)
+
+    mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
+    
+    td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
+            options={'maxiter': 5, 'pgtol': 1e-3})
