@@ -5,17 +5,17 @@ import numpy
 op2.init(log_level=INFO)
 import sys
 sys.path.append('..')
-import prepare.utm, prepare.myboundary
+import prepare.utm, prepare.myboundary_30min
 
-ouput_dir = '../../outputs/testcscsasrfeafe'
+ouput_dir = '../../outputs/middle'
 
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
-dt = 5*60 # reduce this if solver does not converge
+dt = 30*60 # reduce this if solver does not converge
 t_export = 30*60 
 #t_end = 1555200
-t_end = 1216800+ 10*60 # spring
-#t_end = 885600 + 13*60*60 # middle
+#t_end = 1216800+ 13*60*60 # spring
+t_end = 885600 + 13*60*60 # middle
 #t_end = 612000 + 13*60*60 # neap
 #t_end = 30*60
 
@@ -99,9 +99,9 @@ solver_obj.bnd_functions['shallow_water'] = {
 def update_forcings(t):
   with timed_stage('update forcings'):
     print_output("Updating tidal field at t={}".format(t))
-    elev = prepare.myboundary.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
+    elev = prepare.myboundary_30min.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
     tidal_elev.project(elev) 
-    v = prepare.myboundary.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
+    v = prepare.myboundary_30min.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
     tidal_v.project(v)
     print_output("Done updating tidal field")
 
@@ -122,7 +122,7 @@ farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbin
 options.discrete_tidal_turbine_farms[2] = farm_options
 
 ###spring:676,middle:492,neap:340###
-solver_obj.load_state(676, outputdir='../../outputs/redata_5min_normaldepth')
+solver_obj.load_state(492, outputdir='../../outputs/redata_5min_normaldepth')
 #solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
 
 # Operation of tidal turbine farm through a callback
@@ -185,7 +185,7 @@ def derivative_cb_pre(controls):
 rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list,
         eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
 
-if 1:
+if 0:
     # whenever the forward model is changed - for example different terms in the equation,
     # different types of boundary conditions, etc. - it is a good idea to test whether the
     # gradient computed by the adjoint is still correct, as some steps in the model may
@@ -206,7 +206,7 @@ if 1:
 
     assert minconv > 1.95
 
-if 0:
+if 1:
     # Optimise the control for minimal functional (i.e. maximum profit)
     # with a gradient based optimisation algorithm using the reduced functional
     # to replay the model, and computing its derivative via the adjoint
