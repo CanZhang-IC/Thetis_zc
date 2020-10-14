@@ -2,40 +2,42 @@ from thetis import *
 from firedrake_adjoint import *
 from pyadjoint import minimize
 op2.init(log_level=INFO)
-from os.path import join
-import detectors
-import tidal_forcing
-import utm
+import sys
+sys.path.append('..')
+import prepare.utm, prepare.myboundary
+import prepare_cable.Hybrid_Code
+from prepare_cable.cable_overloaded import cablelength
 import numpy
-import Hybrid_Code
-from cable_overloaded import cablelength
 
 
-ouput_dir = 'outputs/opcable_cost'
+ouput_dir = '../../outputs/testcscsasrfeafe'
 
-mesh2d = Mesh('./mesh/mesh.msh')
+mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
-dt = 30*60 # reduce this if solver does not converge
+dt = 5*60 # reduce this if solver does not converge
 t_export = 30*60 
-#t_end = 530*30*60 
-t_end = 484*30*60 
+#t_end = 1555200
+t_end = 1216800+ 60*60 # spring
+#t_end = 885600 + 13*60*60 # middle
+#t_end = 612000 + 13*60*60 # neap
+#t_end = 30*60
 
 P1 = FunctionSpace(mesh2d, "CG", 1)
 
-# # read bathymetry code
-chk = DumbCheckpoint('bathymetry', mode=FILE_READ)
+# read bathymetry code
+chk = DumbCheckpoint('../prepare/bathymetry', mode=FILE_READ)
 bathymetry2d = Function(P1)
 chk.load(bathymetry2d, name='bathymetry')
 chk.close()
 
 #read viscosity / manning boundaries code
-chk = DumbCheckpoint('viscosity', mode=FILE_READ)
+chk = DumbCheckpoint('../prepare/viscosity', mode=FILE_READ)
 h_viscosity = Function(P1, name='viscosity')
 chk.load(h_viscosity)
 chk.close()
 
-#manning = Function(P1,name='manning').assign(0.02)
-chk = DumbCheckpoint('manning', mode=FILE_READ)
+#manning = Function(P1,name='manning')
+chk = DumbCheckpoint('../prepare/manning', mode=FILE_READ)
 manning = Function(bathymetry2d.function_space(), name='manning')
 chk.load(manning)
 chk.close()
@@ -48,11 +50,11 @@ def coriolis(mesh, lat,):
     f0 = 2 * Omega * sin(lat_r)
     beta = (1 / R) * 2 * Omega * cos(lat_r)
     x = SpatialCoordinate(mesh)
-    x_0, y_0, utm_zone, zone_letter = utm.from_latlon(lat, 0)
+    x_0, y_0, utm_zone, zone_letter = prepare.utm.from_latlon(lat, 0)
     coriolis_2d = Function(FunctionSpace(mesh, 'CG', 1), name="coriolis_2d")
     coriolis_2d.interpolate(f0 + beta * (x[1] - y_0))
     return coriolis_2d
-coriolis_2d =coriolis(mesh2d, 29)
+coriolis_2d =coriolis(mesh2d, 30)
 
 # --- create solver ---
 solver_obj = solver2d.FlowSolver2d(mesh2d, bathymetry2d)
@@ -66,7 +68,7 @@ options.output_directory = ouput_dir
 options.check_volume_conservation_2d = True
 options.fields_to_export = ['uv_2d', 'elev_2d']
 options.fields_to_export_hdf5 = ['uv_2d', 'elev_2d']
-options.element_family = "dg-cg"
+options.element_family = "dg-dg"
 options.timestepper_type = 'CrankNicolson'
 options.timestepper_options.implicitness_theta = 1 #Implicitness parameter, default 0.5
 options.timestepper_options.use_semi_implicit_linearization = True#If True use a linearized semi-implicit scheme
@@ -89,6 +91,7 @@ options.timestepper_options.solver_parameters = {'snes_monitor': None,
     
 # set boundary/initial conditions code
 tidal_elev = Function(bathymetry2d.function_space())
+tidal_v = Function(VectorFunctionSpace(mesh2d,"CG",1))
 solver_obj.bnd_functions['shallow_water'] = {
         200: {'elev': tidal_elev},  #set open boundaries to tidal_elev function
   }
@@ -96,8 +99,10 @@ solver_obj.bnd_functions['shallow_water'] = {
 def update_forcings(t):
   with timed_stage('update forcings'):
     print_output("Updating tidal field at t={}".format(t))
-    elev = tidal_forcing.set_tidal_field(Function(bathymetry2d.function_space()), t)
+    elev = prepare.myboundary.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
     tidal_elev.project(elev) 
+    v = prepare.myboundary.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
+    tidal_v.project(v)
     print_output("Done updating tidal field")
 
 
@@ -110,9 +115,9 @@ farm_options.turbine_options.thrust_coefficient = 0.6
 farm_options.turbine_options.diameter = 20
 farm_options.upwind_correction = False
 
+site_x1, site_y1, site_x2, site_y2 = 443342 ,3322632, 443591, 3322845
 
-# farm_options.turbine_coordinates =[[Constant(positions[i]), Constant(positions[i+1])] for i in range(0,len(positions),2)]
-farm_options.turbine_coordinates = [[Constant(x), Constant(y)] for x in numpy.arange(443032+20, 443288-20, 60) for y in numpy.arange(3322891+20, 3323091-20, 40)]
+farm_options.turbine_coordinates = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 40)]
 # when 'farm_options.considering_yaw' is False, 
 # the farm_options.turbine_axis would be an empty list, 
 # so only the coordinates are optimised.
@@ -121,9 +126,9 @@ farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbin
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
 
-# run as normal (this run will be annotated by firedrake_adjoint)
+###spring:676,middle:492,neap:340###
+solver_obj.load_state(676, outputdir='../../outputs/redata_5min_normaldepth')
 #solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
-solver_obj.load_state(483,outputdir='./outputs/redata')
 
 # Operation of tidal turbine farm through a callback
 cb = turbines.TurbineFunctionalCallback(solver_obj)
@@ -139,11 +144,11 @@ power_output= sum(cb.integrated_power)
 
 ###cable length###
 turbine_locations = [float(x) for xy in farm_options.turbine_coordinates for x in xy]
-landpointlocation = [442500,3322750]
+landpointlocation = [444000,3323000]
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
-    cableclass = Hybrid_Code.CableCostGA(turbine_locations, landpointlocation)
+    cableclass = prepare_cable.Hybrid_Code.CableCostGA(turbine_locations, landpointlocation)
     order_w = cableclass.compute_cable_cost_order()
 else:
     order_w = []
@@ -172,6 +177,7 @@ File('turbinedensity2.pvd').write(turbine_density)
 
 
 interest_functional =power_output - cablecost
+print(power_output, cablecost, interest_functional)
 # a number of callbacks to provide output during the optimisation iterations:
 # - ControlsExportOptimisationCallback export the turbine_friction values (the control)
 #            to outputs/control_turbine_friction.pvd. This can also be used to checkpoint
@@ -217,7 +223,7 @@ if 1:
     # values between 0 and 1 and choose a random direction dtd to vary it in
 
     # this tests whether the above Taylor series residual indeed converges to zero at 2nd order in h as h->0
-    m1 = [[Constant(x), Constant(y)] for x in numpy.arange(443032+20, 443288-20, 60) for y in numpy.arange(3322891+20, 3323091-20, 40)]
+    m1 =[[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 40)]
     m0 = [i for j in m1 for i in j]
 
     h0 = [Constant(1) for i in range(len(farm_options.turbine_coordinates)*2)]
@@ -239,10 +245,6 @@ if 0:
         ub = [360]*len(farm_options.turbine_coordinates)
         td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 100, 'ptol': 1e-3})
     else:
-        site_x1 = 443032.
-        site_x2 = 443288.
-        site_y1 = 3322891.
-        site_y2 = 3323091.
         r = farm_options.turbine_options.diameter/2.
 
         lb = np.array([[site_x1+r, site_y1+r] for _ in farm_options.turbine_coordinates]).flatten()

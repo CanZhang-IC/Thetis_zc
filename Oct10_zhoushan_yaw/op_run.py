@@ -1,33 +1,20 @@
-"""
-Discrete turbines optimisation example
-=======================================
-Test 1: Forward example
-Test 2: Forward example (change interpolate to project)
-Test 3: Taylor test
-"""
-# to enable a gradient-based optimisation using the adjoint to compute
-# gradients, we need to import from thetis_adjoint instead of thetis. This
-# ensure all firedrake operations in the Thetis model are annotated
-# automatically, in such a way that we can rerun the model with different input
-# parameters, and also derive the adjoint-based gradient of a specified input
-# (the functional) with respect to a specified input (the control)
 from thetis import *
 from firedrake_adjoint import *
 from pyadjoint import minimize
 import numpy
 op2.init(log_level=INFO)
-import detectors
-import myboundary
-import utm
+import sys
+sys.path.append('..')
+import prepare.utm, prepare.myboundary
 
-ouput_dir = 'outputs/spring_test'
+ouput_dir = '../../outputs/testcscsasrfeafe'
 
-mesh2d = Mesh('../Oct08_domain_large_to_small/mesh/mesh.msh')
+mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
 dt = 5*60 # reduce this if solver does not converge
 t_export = 30*60 
 #t_end = 1555200
-t_end = 1216800+ 13*60*60 # spring
+t_end = 1216800+ 10*60 # spring
 #t_end = 885600 + 13*60*60 # middle
 #t_end = 612000 + 13*60*60 # neap
 #t_end = 30*60
@@ -36,19 +23,19 @@ t_end = 1216800+ 13*60*60 # spring
 P1 = FunctionSpace(mesh2d, "CG", 1)
 
 # read bathymetry code
-
-chk = DumbCheckpoint('bathymetry', mode=FILE_READ)
+chk = DumbCheckpoint('../prepare/bathymetry', mode=FILE_READ)
 bathymetry2d = Function(P1)
 chk.load(bathymetry2d, name='bathymetry')
 chk.close()
 
 #read viscosity / manning boundaries code
-chk = DumbCheckpoint('viscosity', mode=FILE_READ)
+chk = DumbCheckpoint('../prepare/viscosity', mode=FILE_READ)
 h_viscosity = Function(P1, name='viscosity')
 chk.load(h_viscosity)
 chk.close()
 
-chk = DumbCheckpoint('manning', mode=FILE_READ)
+#manning = Function(P1,name='manning')
+chk = DumbCheckpoint('../prepare/manning', mode=FILE_READ)
 manning = Function(bathymetry2d.function_space(), name='manning')
 chk.load(manning)
 chk.close()
@@ -61,7 +48,7 @@ def coriolis(mesh, lat,):
     f0 = 2 * Omega * sin(lat_r)
     beta = (1 / R) * 2 * Omega * cos(lat_r)
     x = SpatialCoordinate(mesh)
-    x_0, y_0, utm_zone, zone_letter = utm.from_latlon(lat, 0)
+    x_0, y_0, utm_zone, zone_letter = prepare.utm.from_latlon(lat, 0)
     coriolis_2d = Function(FunctionSpace(mesh, 'CG', 1), name="coriolis_2d")
     coriolis_2d.interpolate(f0 + beta * (x[1] - y_0))
     return coriolis_2d
@@ -112,9 +99,9 @@ solver_obj.bnd_functions['shallow_water'] = {
 def update_forcings(t):
   with timed_stage('update forcings'):
     print_output("Updating tidal field at t={}".format(t))
-    elev = myboundary.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
+    elev = prepare.myboundary.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
     tidal_elev.project(elev) 
-    v = myboundary.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
+    v = prepare.myboundary.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
     tidal_v.project(v)
     print_output("Done updating tidal field")
 
@@ -126,16 +113,16 @@ farm_options.turbine_options.thrust_coefficient = 0.6
 farm_options.turbine_options.diameter = 20
 farm_options.upwind_correction = False
 
+site_x1, site_y1, site_x2, site_y2 = 443342 ,3322632, 443591, 3322845
 
-# farm_options.turbine_coordinates =[[Constant(positions[i]), Constant(positions[i+1])] for i in range(0,len(positions),2)]
-farm_options.turbine_coordinates = [[Constant(x), Constant(y)] for x in numpy.arange(443342+20, 443591-20, 60) for y in numpy.arange(3322632+20, 3322845-20, 40)]
+farm_options.turbine_coordinates = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 40)]
 farm_options.considering_yaw = True
 farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbine_coordinates))]
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
 
 ###spring:676,middle:492,neap:340###
-solver_obj.load_state(676, outputdir='../Oct08_domain_large_to_small/outputs/redata-5min-dgdg')
+solver_obj.load_state(676, outputdir='../../outputs/redata_5min_normaldepth')
 #solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
 
 # Operation of tidal turbine farm through a callback
@@ -198,7 +185,7 @@ def derivative_cb_pre(controls):
 rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list,
         eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
 
-if 0:
+if 1:
     # whenever the forward model is changed - for example different terms in the equation,
     # different types of boundary conditions, etc. - it is a good idea to test whether the
     # gradient computed by the adjoint is still correct, as some steps in the model may
@@ -210,7 +197,7 @@ if 0:
     # values between 0 and 1 and choose a random direction dtd to vary it in
 
     # this tests whether the above Taylor series residual indeed converges to zero at 2nd order in h as h->0
-    m1 = [[Constant(x), Constant(y)] for x in numpy.arange(443342+20, 443591-20, 60) for y in numpy.arange(3322632+20, 3322845-20, 40)]
+    m1 = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 40)]
     m0 = [i for j in m1 for i in j]+[Constant(90) for i in range(len(farm_options.turbine_coordinates))]
     h0 = [Constant(1) for i in range(len(farm_options.turbine_coordinates)*2)]+[Constant(1) for i in range(len(farm_options.turbine_coordinates))]
 
@@ -219,7 +206,7 @@ if 0:
 
     assert minconv > 1.95
 
-if 1:
+if 0:
     # Optimise the control for minimal functional (i.e. maximum profit)
     # with a gradient based optimisation algorithm using the reduced functional
     # to replay the model, and computing its derivative via the adjoint
@@ -231,10 +218,6 @@ if 1:
         ub = [360]*len(farm_options.turbine_coordinates)
         td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 100, 'ptol': 1e-3})
     else:
-        site_x1 = 443342.
-        site_x2 = 443591.
-        site_y1 = 3322632.
-        site_y2 = 3322845.
         r = farm_options.turbine_options.diameter/2.
 
         lb = np.array([[site_x1+r, site_y1+r] for _ in farm_options.turbine_coordinates]).flatten()
