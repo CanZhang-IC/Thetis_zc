@@ -49,9 +49,9 @@ def get_bathymetry(bathymetry_file,bathymetry_file2, mesh2d):
       
       
       if lat <= lat2.max() and lat >= lat2.min() and lon <= lon2.max() and lon >= lon2.min():
-        bvector[i] = max(-interpolator2((lat, lon)), minimum_depth)+1
+        bvector[i] = max(-interpolator2((lat, lon)), minimum_depth)
       else:
-        bvector[i] = max(-interpolator((lat, lon)) ,minimum_depth)+1
+        bvector[i] = max(-interpolator((lat, lon)) ,minimum_depth)
   return bathymetry2d
 
 

@@ -27,7 +27,7 @@ def set_tidal_field(elev, t, dt):
 
     ele_l_xy = ele_large.at(gridxy,dont_raise=True)
     ele_l_xy = [np.array([0]) if x == None else x for x in ele_l_xy]
-    ele_l_xy = np.array(ele_l_xy)
+    ele_l_xy = np.array(ele_l_xy, dtype=object)
     ele_l_xy.astype(np.float64)
 
     interpolator = scipy.interpolate.LinearNDInterpolator(gridxy, ele_l_xy)
@@ -57,11 +57,11 @@ def set_velocity_field(uv_2d,t,dt):
     
 
     v_l_x = [x[0] if isinstance(x,np.ndarray) else np.array([0]) for x in v_l_xy]
-    v_l_x = np.array(v_l_x)
+    v_l_x = np.array(v_l_x, dtype=object)
     v_l_x.astype(np.float64)
 
     v_l_y = [x[1] if isinstance(x,np.ndarray) else np.array([0]) for x in v_l_xy]
-    v_l_y = np.array(v_l_y)
+    v_l_y = np.array(v_l_y, dtype=object)
     v_l_y.astype(np.float64)
 
     xinterpolator = scipy.interpolate.LinearNDInterpolator(gridxy, v_l_x)
