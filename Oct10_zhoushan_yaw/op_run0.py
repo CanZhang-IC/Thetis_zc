@@ -7,7 +7,8 @@ import sys
 sys.path.append('..')
 import prepare.utm, prepare.myboundary_30min
 
-ouput_dir = '../../outputs/fwfrtgqthwt'
+turbine_i = 0
+output_dir = '../../outputs/middle-'+str(turbine_i)
 
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
@@ -64,7 +65,7 @@ options.use_nonlinear_equations = True
 options.simulation_export_time = t_export
 options.simulation_end_time = t_end
 options.coriolis_frequency = coriolis_2d
-options.output_directory = ouput_dir
+options.output_directory = output_dir
 options.check_volume_conservation_2d = True
 options.fields_to_export = ['uv_2d', 'elev_2d']
 options.fields_to_export_hdf5 = ['uv_2d', 'elev_2d']
@@ -82,28 +83,28 @@ options.use_grad_div_viscosity_term = True
 options.use_grad_depth_viscosity_term = False
 options.timestep = dt
 options.timestepper_options.solver_parameters = {'snes_monitor': None,
-                                                 'snes_rtol': 1e-5,
-                                                 'ksp_type': 'preonly',
-                                                 'pc_type': 'lu',
-                                                 'pc_factor_mat_solver_type': 'mumps',
-                                                 'mat_type': 'aij'
-                                                 }
+                                                'snes_rtol': 1e-5,
+                                                'ksp_type': 'preonly',
+                                                'pc_type': 'lu',
+                                                'pc_factor_mat_solver_type': 'mumps',
+                                                'mat_type': 'aij'
+                                                }
 
 # set boundary/initial conditions code
 tidal_elev = Function(bathymetry2d.function_space())
 tidal_v = Function(VectorFunctionSpace(mesh2d,"CG",1))
 solver_obj.bnd_functions['shallow_water'] = {
         200: {'elev': tidal_elev},  #set open boundaries to tidal_elev function
-  }
+}
 
 def update_forcings(t):
-  with timed_stage('update forcings'):
-    print_output("Updating tidal field at t={}".format(t))
-    elev = prepare.myboundary_30min.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
-    tidal_elev.project(elev) 
-    v = prepare.myboundary_30min.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
-    tidal_v.project(v)
-    print_output("Done updating tidal field")
+    with timed_stage('update forcings'):
+        print_output("Updating tidal field at t={}".format(t))
+        elev = prepare.myboundary_30min.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
+        tidal_elev.project(elev) 
+        v = prepare.myboundary_30min.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
+        tidal_v.project(v)
+        print_output("Done updating tidal field")
 
 
 # Initialise Discrete turbine farm characteristics
@@ -115,9 +116,22 @@ farm_options.upwind_correction = False
 
 site_x1, site_y1, site_x2, site_y2 = 443342 ,3322632, 443591, 3322845
 
-farm_options.turbine_coordinates = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 50)]
+result_data = [
+    #coordinates
+    443352.0043705619, 3322644.1629965617, 443352.0122342324, 3322799.450609269, 443370.31995533407, 3322834.996868706, 443411.3543687607, 3322834.997093671, 443372.47104486695, 3322765.0921290177, 443391.99641387124, 3322800.0006775623, 443432.0850964185, 3322800.7873772974, 443452.80674162763, 3322834.991809594, 443412.717000017, 3322765.8103313134, 443454.8542512895, 3322767.9002753766, 443475.5730007839, 3322802.110115035, 443498.3295186138, 3322834.9976365957, 443498.43958796025, 3322769.306694436, 443527.5304163555, 3322796.755821515, 443539.2458143787, 3322834.996980921, 443579.2437566546, 3322834.994147486, 
+    #axis
+    98.7853450133773, 96.96724845629258, 99.39606422784149, 100.84025011975066, 97.21645454443502, 98.70007953470264, 100.39378575107612, 102.59048255890724, 99.00757109799288, 100.76036689149754, 102.12600223513881, 104.50320818883975, 102.17993144003603, 103.92182058574265, 105.83277446803879, 107.1900159058449
+    ]
+
+result_data.pop(2*turbine_i)
+result_data.pop(2*turbine_i)
+result_data.pop(30+turbine_i)
+
+
+farm_options.turbine_coordinates = [[Constant(result_data[2*i]), Constant(result_data[2*i+1])] for i in range(int(len(result_data)/3))]
 farm_options.considering_yaw = True
-farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbine_coordinates))]
+farm_options.turbine_axis = [Constant(i) for i in result_data[int(len(result_data)/3*2):]]
+# print(len(farm_options.turbine_coordinates),len(farm_options.turbine_axis))
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
 
@@ -140,7 +154,7 @@ power_output= sum(cb.integrated_power)
 interest_functional = power_output
 
 # specifies the control we want to vary in the optimisation
-optimise_angle_only = False
+optimise_angle_only = True
 if optimise_angle_only:
     if farm_options.considering_yaw:
         c = [Control(x) for x in farm_options.turbine_axis]
@@ -185,7 +199,7 @@ def derivative_cb_pre(controls):
 rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list,
         eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
 
-print(interest_functional)
+
 if 0:
     # whenever the forward model is changed - for example different terms in the equation,
     # different types of boundary conditions, etc. - it is a good idea to test whether the
@@ -198,16 +212,23 @@ if 0:
     # values between 0 and 1 and choose a random direction dtd to vary it in
 
     # this tests whether the above Taylor series residual indeed converges to zero at 2nd order in h as h->0
-    m1 = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 40)]
-    m0 = [i for j in m1 for i in j]+[Constant(90) for i in range(len(farm_options.turbine_coordinates))]
-    h0 = [Constant(1) for i in range(len(farm_options.turbine_coordinates)*2)]+[Constant(1) for i in range(len(farm_options.turbine_coordinates))]
+    if optimise_angle_only:
+        m0 = [Constant(90) for i in range(len(farm_options.turbine_coordinates))]
+        h0 = [Constant(1) for i in range(len(farm_options.turbine_coordinates))]
+        minconv = taylor_test(rf, m0, h0)
+        print_output("Order of convergence with taylor test (should be 2) = {}".format(minconv))
+        assert minconv > 1.95
+    else:
+        m1 = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 40)]
+        m0 = [i for j in m1 for i in j]+[Constant(90) for i in range(len(farm_options.turbine_coordinates))]
+        h0 = [Constant(1) for i in range(len(farm_options.turbine_coordinates)*2)]+[Constant(1) for i in range(len(farm_options.turbine_coordinates))]
 
-    minconv = taylor_test(rf, m0, h0)
-    print_output("Order of convergence with taylor test (should be 2) = {}".format(minconv))
+        minconv = taylor_test(rf, m0, h0)
+        print_output("Order of convergence with taylor test (should be 2) = {}".format(minconv))
 
-    assert minconv > 1.95
+        assert minconv > 1.95
 
-if 0:
+if 1:
     # Optimise the control for minimal functional (i.e. maximum profit)
     # with a gradient based optimisation algorithm using the reduced functional
     # to replay the model, and computing its derivative via the adjoint
