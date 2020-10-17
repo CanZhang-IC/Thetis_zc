@@ -7,7 +7,7 @@ import sys
 sys.path.append('..')
 import prepare.utm, prepare.myboundary_30min
 
-ouput_dir = '../../outputs/fwfrtgqthwt'
+ouput_dir = '../../outputs/middle_30min'
 
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
@@ -122,7 +122,7 @@ farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbin
 options.discrete_tidal_turbine_farms[2] = farm_options
 
 ###spring:676,middle:492,neap:340###
-solver_obj.load_state(492, outputdir='../../outputs/redata_5min_normaldepth')
+solver_obj.load_state(492, outputdir='../../outputs/redata_30min_normaldepth')
 #solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
 
 # Operation of tidal turbine farm through a callback
@@ -207,7 +207,7 @@ if 0:
 
     assert minconv > 1.95
 
-if 0:
+if 1:
     # Optimise the control for minimal functional (i.e. maximum profit)
     # with a gradient based optimisation algorithm using the reduced functional
     # to replay the model, and computing its derivative via the adjoint

@@ -6,9 +6,13 @@ op2.init(log_level=INFO)
 import sys
 sys.path.append('..')
 import prepare.utm, prepare.myboundary_30min
+# import h5py
+import time
+
+t_start = time.time()
 
 turbine_i = 0
-output_dir = '../../outputs/middle-'+str(turbine_i)
+output_dir = '../../outputs/middle_30min-'+str(turbine_i)
 
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
@@ -20,6 +24,8 @@ t_end = 885600 + 13*60*60 # middle
 #t_end = 612000 + 13*60*60 # neap
 #t_end = 30*60
 
+do_taylor_test = False
+do_optimisation = 1
 
 P1 = FunctionSpace(mesh2d, "CG", 1)
 
@@ -116,11 +122,18 @@ farm_options.upwind_correction = False
 
 site_x1, site_y1, site_x2, site_y2 = 443342 ,3322632, 443591, 3322845
 
+# result_data = []
+# df = h5py.File('../../outputs/middle_30min/diagnostic_controls.hdf5','r+')
+# for name, data in df.items():
+#     for i in data:
+#         result_data.append(i)
+# print(result_data)
+
 result_data = [
     #coordinates
-    443352.0043705619, 3322644.1629965617, 443352.0122342324, 3322799.450609269, 443370.31995533407, 3322834.996868706, 443411.3543687607, 3322834.997093671, 443372.47104486695, 3322765.0921290177, 443391.99641387124, 3322800.0006775623, 443432.0850964185, 3322800.7873772974, 443452.80674162763, 3322834.991809594, 443412.717000017, 3322765.8103313134, 443454.8542512895, 3322767.9002753766, 443475.5730007839, 3322802.110115035, 443498.3295186138, 3322834.9976365957, 443498.43958796025, 3322769.306694436, 443527.5304163555, 3322796.755821515, 443539.2458143787, 3322834.996980921, 443579.2437566546, 3322834.994147486, 
+    443352.00212005526, 3322646.308409128, 443352.006525044, 3322799.502752303, 443370.4567628371, 3322834.992831582, 443416.5186574596, 3322834.9959139726, 443374.8678731752, 3322766.8210353497, 443393.4028281948, 3322802.2879163884, 443440.54927117965, 3322802.996771269, 443464.6564190777, 3322834.998411545, 443417.2545525552, 3322770.4474302097, 443462.86742582766, 3322769.75287414, 443491.6995552, 3322797.5118418285, 443505.6663923886, 3322834.9991843486, 443530.14065815165, 3322725.349804717, 443545.1703302105, 3322762.4326752005, 443555.93797414476, 3322800.967399174, 443576.9362127845, 3322834.996947221,
     #axis
-    98.7853450133773, 96.96724845629258, 99.39606422784149, 100.84025011975066, 97.21645454443502, 98.70007953470264, 100.39378575107612, 102.59048255890724, 99.00757109799288, 100.76036689149754, 102.12600223513881, 104.50320818883975, 102.17993144003603, 103.92182058574265, 105.83277446803879, 107.1900159058449
+    99.59111587277175, 97.7452236884505, 100.3367661071047, 102.15562685125745, 98.20284924701546, 99.72541950526949, 101.95277663314398, 104.61209667439944, 100.36181525387029, 102.29380671174125, 103.5866105384266, 106.33249440850874, 102.70327494351393, 104.51145377273231, 106.97282031956618, 109.0279970709512
     ]
 
 result_data.pop(2*turbine_i)
@@ -136,7 +149,7 @@ farm_options.turbine_axis = [Constant(i) for i in result_data[int(len(result_dat
 options.discrete_tidal_turbine_farms[2] = farm_options
 
 ###spring:676,middle:492,neap:340###
-solver_obj.load_state(492, outputdir='../../outputs/redata_5min_normaldepth')
+solver_obj.load_state(492, outputdir='../../outputs/redata_30min_normaldepth')
 #solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
 
 # Operation of tidal turbine farm through a callback
@@ -200,7 +213,7 @@ rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list
         eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
 
 
-if 0:
+if do_taylor_test:
     # whenever the forward model is changed - for example different terms in the equation,
     # different types of boundary conditions, etc. - it is a good idea to test whether the
     # gradient computed by the adjoint is still correct, as some steps in the model may
@@ -228,7 +241,7 @@ if 0:
 
         assert minconv > 1.95
 
-if 1:
+if do_optimisation:
     # Optimise the control for minimal functional (i.e. maximum profit)
     # with a gradient based optimisation algorithm using the reduced functional
     # to replay the model, and computing its derivative via the adjoint
@@ -252,4 +265,7 @@ if 1:
         mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
         
         td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
-                options={'maxiter': 100, 'pgtol': 1e-3})
+                options={'maxiter': 5, 'pgtol': 1e-3})
+
+t_end = time.time()
+print('time cost:', t_end - t_start, 's')
