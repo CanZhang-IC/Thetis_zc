@@ -14,7 +14,7 @@ gridxy = np.reshape(gridxy1, (n*n, 2))
 gridx, gridy = gridxy.T
 
 ###Read in the large domain's mesh
-large_mesh2d = Mesh('/media/can/can_disk/thetis_new/paper2/continuemethod/mesh/mesh.msh') # this is where you should make changes 
+large_mesh2d = Mesh('../../../paper2/continuemethod/mesh/mesh.msh') # this is where you should make changes 
 
 ###Functionspace for elevation
 P1 = FunctionSpace(large_mesh2d, "DG", 1)
@@ -22,7 +22,7 @@ P1 = FunctionSpace(large_mesh2d, "DG", 1)
 VP = VectorFunctionSpace(large_mesh2d, "DG", 1)
 
 #location where the elevation and velocity outputs from the large domain stores
-h5file_dir = '/media/can/can_disk/thetis_new/paper2/continuemethod/outputs/paper2validation_5min/hdf5' # this is where you should make changes 
+h5file_dir = '../../../paper2/continuemethod/outputs/paper2validation_5min/hdf5' # this is where you should make changes 
 
 # Be careful here!!!
 # The 'dt' in the small domain's script must be the same with 't_export' in the large domain's script

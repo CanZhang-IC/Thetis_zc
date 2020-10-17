@@ -9,11 +9,11 @@ gridxy1 = np.mgrid[min_x:max_x:100j, min_y:max_y:100j].T
 gridxy = np.reshape(gridxy1, (n*n, 2))
 gridx, gridy = gridxy.T
 
-large_mesh2d = Mesh('/media/can/can_disk/thetis_new/paper2/continuemethod/mesh/mesh.msh')
+large_mesh2d = Mesh('../../../paper2/continuemethod/mesh/mesh.msh')
 P1 = FunctionSpace(large_mesh2d, "DG", 1)
 VP = VectorFunctionSpace(large_mesh2d, "DG", 1)
 
-h5file_dir = '/media/can/can_disk/thetis_new/paper2/continuemethod/outputs/paper2validation/hdf5'
+h5file_dir = '../../../paper2/continuemethod/outputs/paper2validation/hdf5' # this is where you should make changes 
 
 def set_tidal_field(elev, t, dt):
     num = str(int(t/dt))
