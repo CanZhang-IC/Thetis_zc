@@ -1,4 +1,3 @@
-nohup: ignoring input
 Using default SIPG parameters
 dt = 1800
 Using time integrator: CrankNicolson

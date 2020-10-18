@@ -1,4 +1,3 @@
-mpirun -np 8 python op_run2.py 
 Using default SIPG parameters
 dt = 1800
 Using time integrator: CrankNicolson
