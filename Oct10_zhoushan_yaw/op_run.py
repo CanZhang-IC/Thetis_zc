@@ -7,7 +7,7 @@ import sys
 sys.path.append('..')
 import prepare.utm, prepare.myboundary_30min
 
-ouput_dir = '../../outputs/middle_30min'
+ouput_dir = '../../outputs/fgegsgrehe'
 
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
@@ -15,7 +15,7 @@ dt = 30*60 # reduce this if solver does not converge
 t_export = 30*60 
 #t_end = 1555200
 #t_end = 1216800+ 13*60*60 # spring
-t_end = 885600 + 13*60*60 # middle
+t_end = 885600 + 1*60*60 # middle
 #t_end = 612000 + 13*60*60 # neap
 #t_end = 30*60
 
@@ -169,6 +169,7 @@ callback_list = optimisation.OptimisationCallbackList([
     optimisation.DerivativeConstantControlOptimisationCallback(solver_obj, array_dim=len(c)),
     optimisation.UserExportOptimisationCallback(solver_obj, [turbine_density, solver_obj.fields.uv_2d]),
     optimisation.FunctionalOptimisationCallback(solver_obj),
+    turbines.TurbineOptimisationCallback(solver_obj,cb)
 ])
 # callbacks to indicate start of forward and adjoint runs in log
 def eval_cb_pre(controls):
@@ -231,4 +232,4 @@ if 1:
         mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
         
         td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
-                options={'maxiter': 100, 'pgtol': 1e-3})
+                options={'maxiter': 5, 'pgtol': 1e-3})
