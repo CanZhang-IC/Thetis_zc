@@ -129,6 +129,9 @@ solver_obj.load_state(492, outputdir='../../outputs/redata_30min_normaldepth')
 cb = turbines.TurbineFunctionalCallback(solver_obj)
 solver_obj.add_callback(cb, 'timestep')
 
+cb2 = turbines.EachTurbineFunctionalCallback(solver_obj)
+solver_obj.add_callback(cb2,'timestep')
+
 
 # start computer forward model
 
@@ -169,7 +172,8 @@ callback_list = optimisation.OptimisationCallbackList([
     optimisation.DerivativeConstantControlOptimisationCallback(solver_obj, array_dim=len(c)),
     optimisation.UserExportOptimisationCallback(solver_obj, [turbine_density, solver_obj.fields.uv_2d]),
     optimisation.FunctionalOptimisationCallback(solver_obj),
-    turbines.TurbineOptimisationCallback(solver_obj,cb)
+    turbines.TurbineOptimisationCallback(solver_obj, cb),
+    turbines.EachTurbineOptimisationCallback(solver_obj,cb2),
 ])
 # callbacks to indicate start of forward and adjoint runs in log
 def eval_cb_pre(controls):
