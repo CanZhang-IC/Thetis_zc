@@ -82,12 +82,12 @@ class CableCostGA(object):
         plt.title('Total distance='+str(global_min))
         V = np.array((vertices))
         plt.plot(V[:,0],V[:,1],'o')
-        for i in range(len(R)):
-            plt.plot(R[i][:,0], R[i][:,1], '-')
+        # for i in range(len(R)):
+        #     plt.plot(R[i][:,0], R[i][:,1], '-')
         for i in range(len(V)):
             plt.text(V[i][0], V[i][1], '%s' % (str(i)))
         plt.axis('equal')
-        plt.show()
+        plt.savefig('cable_result.jpg',dpi=300)
         
     
     def rand_breaks(self, n, min_route, n_routes, n_breaks):
@@ -282,7 +282,6 @@ class CableCostGA(object):
     def compute_cable_cost(self):
         out = self.run_GA()
         self.best_chromosome = out[0]
-        print(self.best_chromosome)
         return out[1]
 
     def compute_cable_cost_order(self):
@@ -329,17 +328,17 @@ class Clarke_Wright(object):
         return chromosome
     
     
-    def produce_plot(self, R, vertices):
-        '''Display with matplotlib'''
-        R = self.routing_indexes(R, vertices)
-        R = self.routing_coordinates(vertices, R)
-        R = np.array(([R])) 
-        V = np.array((vertices))
-        plt.plot(V[:,0],V[:,1],'o')
-        plt.plot(R[0][:,0], R[0][:,1], '-')
-        plt.text(V[0][0], V[0][1], '%s' % (str(0)))
-        plt.axis('equal')
-        plt.show() 
+    # def produce_plot(self, R, vertices):
+    #     '''Display with matplotlib'''
+    #     R = self.routing_indexes(R, vertices)
+    #     R = self.routing_coordinates(vertices, R)
+    #     R = np.array(([R])) 
+    #     V = np.array((vertices))
+    #     plt.plot(V[:,0],V[:,1],'o')
+    #     plt.plot(R[0][:,0], R[0][:,1], '-')
+    #     plt.text(V[0][0], V[0][1], '%s' % (str(0)))
+    #     plt.axis('equal')
+    #     plt.savefig('cable_result.jpg',dpi=300) 
         
 
     def construct_cost_matrix(self, vertices):
@@ -502,9 +501,8 @@ class Clarke_Wright(object):
         
         
 if __name__ == '__main__':
-    turbine_locations = [[1,1],[1.3,3.4],[1.5,4.6],[2.2,2.8],[2.1,3.1],[2.2,4.3],[3.4,2.5],[3.6,3.7],[3.8,4.9],[4.1,2.2],[4.3,3.4],[4.5,4.6],[5.7,2.6],[5.9,3.1],[5.2,4.3],[6.4,2.5],[6.6,3.7],[6.8,4.9]]
-    turbine_locations = [[x,y] for x in np.arange(443032+20, 443288-20, 60) for y in np.arange(3322891+20, 3323091-20, 40)]
-    landpointlocation = [[442500,3322750]]
+    turbine_locations = [443352.00212005526, 3322646.308409128, 443352.006525044, 3322799.502752303, 443370.4567628371, 3322834.992831582, 443416.5186574596, 3322834.9959139726, 443374.8678731752, 3322766.8210353497, 443393.4028281948, 3322802.2879163884, 443440.54927117965, 3322802.996771269, 443464.6564190777, 3322834.998411545, 443417.2545525552, 3322770.4474302097, 443462.86742582766, 3322769.75287414, 443491.6995552, 3322797.5118418285, 443505.6663923886, 3322834.9991843486, 443530.14065815165, 3322725.349804717, 443545.1703302105, 3322762.4326752005, 443555.93797414476, 3322800.967399174, 443576.9362127845, 3322834.996947221]
+    landpointlocation = [444000,3323000]
     CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = False, show_result = True)
     
     print (CC.compute_cable_cost())

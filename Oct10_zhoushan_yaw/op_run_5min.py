@@ -7,7 +7,7 @@ import sys
 sys.path.append('..')
 import prepare.utm, prepare.myboundary
 
-ouput_dir = '../../outputs/middle_5min'
+output_dir = '../../outputs/middle_5min'
 
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
@@ -64,7 +64,7 @@ options.use_nonlinear_equations = True
 options.simulation_export_time = t_export
 options.simulation_end_time = t_end
 options.coriolis_frequency = coriolis_2d
-options.output_directory = ouput_dir
+options.output_directory = output_dir
 options.check_volume_conservation_2d = True
 options.fields_to_export = ['uv_2d', 'elev_2d']
 options.fields_to_export_hdf5 = ['uv_2d', 'elev_2d']
