@@ -12,7 +12,7 @@ import time
 
 t_start = time.time()
 
-ouput_dir = '../../outputs/cable-middle'
+ouput_dir = '../../outputs/cable_only-interest_functional-middle'
 
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
@@ -166,7 +166,7 @@ c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy]
 turbine_density = Function(solver_obj.function_spaces.P1_2d, name='turbine_density')
 turbine_density.interpolate(solver_obj.tidal_farms[0].turbine_density)
 
-interest_functional =power_output/5e7 - cablecost/2e3
+interest_functional =-cablecost
 # print(power_output, cablecost, interest_functional)
 # a number of callbacks to provide output during the optimisation iterations:
 # - ControlsExportOptimisationCallback export the turbine_friction values (the control)

@@ -279,17 +279,12 @@ class EachTurbineFunctionalCallback(DiagnosticCallback):
         if not hasattr(solver_obj, 'tidal_farms'):
             solver_obj.create_equations()
         self.farms = solver_obj.tidal_farms
-        nfarms = len(self.farms)
-        super().__init__(solver_obj, array_dim=16, **kwargs)
+        nturbines = round(self.farms[0].number_of_turbines())
+        super().__init__(solver_obj, array_dim=nturbines, **kwargs)
 
         self.uv, eta = split(solver_obj.fields.solution_2d)
         self.dt = solver_obj.options.timestep
         self.depth = solver_obj.fields.bathymetry_2d
-
-        self.cost = [farm.number_of_turbines() for farm in self.farms]
-        if self.append_to_log:
-            print_output('Number of turbines = {}'.format(sum(self.cost)))
-        self.break_even_wattage = [getattr(farm, 'break_even_wattage', 0) for farm in self.farms]
 
         # time-integrated quantities:
         self.integrated_power = []
@@ -297,11 +292,12 @@ class EachTurbineFunctionalCallback(DiagnosticCallback):
         self.average_profit = []
         for farm in self.farms:
             original_list = []
-            for i in range(int(sum(self.cost))):
+            for i in range(round(farm.number_of_turbines())):
                 original_list.append(0)
             self.integrated_power.append(original_list)
             self.average_power.append(original_list)
         self.time_period = 0.
+        
 
     def _evaluate_timestep(self):
         """Perform time integration and return current power and time-averaged power and profit."""
@@ -325,7 +321,7 @@ class EachTurbineFunctionalCallback(DiagnosticCallback):
         return self._evaluate_timestep()
 
     def message_str(self, integrated_power):
-        return 'Integrated power for each farm: {}.'.format(integrated_power)
+        return 'Integrated power for each turbine: {}.'.format(integrated_power)
 
 
 class TurbineOptimisationCallback(DiagnosticOptimisationCallback):
@@ -334,7 +330,7 @@ class TurbineOptimisationCallback(DiagnosticOptimisationCallback):
 
     See the :py:mod:`optimisation` module for more info about the use of OptimisationCallbacks."""
     name = 'farm_optimisation'
-    variable_names = ['cost', 'average_power', 'average_profit']
+    variable_names = ['cost', 'average_power', 'integrated_power','average_profit']
 
     def __init__(self, solver_obj, turbine_functional_callback, **kwargs):
         """
@@ -345,13 +341,44 @@ class TurbineOptimisationCallback(DiagnosticOptimisationCallback):
         super().__init__(solver_obj, **kwargs)
 
     def compute_values(self, *args):
-        costs = [farm.cost.block_variable.saved_output for farm in self.tfc.farms]
-        powers = [farm.average_power.block_variable.saved_output for farm in self.tfc.farms]
-        profits = [farm.average_profit.block_variable.saved_output for farm in self.tfc.farms]
-        return costs, powers, profits
+        costs = [cost.block_variable.saved_output for cost in self.tfc.cost]
+        powers = [average_power.block_variable.saved_output for average_power in self.tfc.average_power]
+        integrated_power = [integrated_power.block_variable.saved_output for integrated_power in self.tfc.integrated_power]
+        profits = [average_profit.block_variable.saved_output for average_profit in self.tfc.average_profit]
+        return costs, powers, integrated_power, profits
 
-    def message_str(self, cost, average_power, average_profit):
-        return 'Costs, average power and profit for each farm: {}, {}, {}'.format(cost, average_power, average_profit)
+    def message_str(self, cost, average_power, integrated_power, average_profit):
+        return 'Costs, average power, integrated power and profit for each farm: {}, {}, {}, {}'.format(cost, average_power, integrated_power, average_profit)
+
+class EachTurbineOptimisationCallback(DiagnosticOptimisationCallback):
+    """
+    :class:`DiagnosticOptimisationCallback` that evaluates the performance of each tidal turbine farm during an optimisation.
+
+    See the :py:mod:`optimisation` module for more info about the use of OptimisationCallbacks."""
+    name = 'each_farm_optimisation'
+    variable_names = ['cost', 'average_power', 'integrated_power','average_profit']
+
+    def __init__(self, solver_obj, turbine_functional_callback, **kwargs):
+        """
+        :arg solver_obj: a :class:`.FlowSolver2d` object
+        :arg turbine_functional_callback: a :class:`.TurbineFunctionalCallback` used in the forward model
+        :args kwargs: see :class:`.DiagnosticOptimisationCallback`"""
+        self.tfc = turbine_functional_callback
+        if not hasattr(solver_obj, 'tidal_farms'):
+            solver_obj.create_equations()
+        self.farms = solver_obj.tidal_farms
+        nturbines = round(self.farms[0].number_of_turbines())
+        super().__init__(solver_obj, array_dim=nturbines, **kwargs)
+
+    def compute_values(self, *args):
+        costs = 0
+        powers = 0
+        integrated_power = [each.block_variable.saved_output for integrated_power in self.tfc.integrated_power for each in integrated_power]
+        profits = 0
+        return costs, powers, integrated_power, profits
+
+    def message_str(self, cost, average_power, integrated_power, average_profit):
+        return 'Costs, average power, integrated power and profit for each farm: {}, {}, {}, {}'.format(cost, average_power, integrated_power, average_profit)
 
 
 class MinimumDistanceConstraints(pyadjoint.InequalityConstraint):

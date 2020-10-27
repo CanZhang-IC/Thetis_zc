@@ -1,24 +1,28 @@
 from thetis import *
 from firedrake_adjoint import *
 from pyadjoint import minimize
-import numpy
 op2.init(log_level=INFO)
 import sys
 sys.path.append('..')
 import prepare.utm, prepare.myboundary_30min
+import prepare_cable.Hybrid_Code
+from prepare_cable.cable_overloaded import cablelength
+import numpy
+import time
 
-ouput_dir = '../../outputs/middle_30min_5e7'
+t_start = time.time()
+
+ouput_dir = '../../outputs/energy_only-interest_functional-middle'
 
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
 dt = 30*60 # reduce this if solver does not converge
 t_export = 30*60 
 #t_end = 1555200
-#t_end = 1216800+ 13*60*60 # spring
+#t_end = 1216800+ 60*60 # spring
 t_end = 885600 + 13*60*60 # middle
 #t_end = 612000 + 13*60*60 # neap
 #t_end = 30*60
-
 
 P1 = FunctionSpace(mesh2d, "CG", 1)
 
@@ -54,8 +58,6 @@ def coriolis(mesh, lat,):
     return coriolis_2d
 coriolis_2d =coriolis(mesh2d, 30)
 
-
-
 # --- create solver ---
 solver_obj = solver2d.FlowSolver2d(mesh2d, bathymetry2d)
 options = solver_obj.options
@@ -88,7 +90,7 @@ options.timestepper_options.solver_parameters = {'snes_monitor': None,
                                                  'pc_factor_mat_solver_type': 'mumps',
                                                  'mat_type': 'aij'
                                                  }
-
+    
 # set boundary/initial conditions code
 tidal_elev = Function(bathymetry2d.function_space())
 tidal_v = Function(VectorFunctionSpace(mesh2d,"CG",1))
@@ -106,6 +108,8 @@ def update_forcings(t):
     print_output("Done updating tidal field")
 
 
+
+
 # Initialise Discrete turbine farm characteristics
 farm_options = DiscreteTidalTurbineFarmOptions()
 farm_options.turbine_type = 'constant'
@@ -116,8 +120,10 @@ farm_options.upwind_correction = False
 site_x1, site_y1, site_x2, site_y2 = 443342 ,3322632, 443591, 3322845
 
 farm_options.turbine_coordinates = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 50)]
-farm_options.considering_yaw = True
-farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbine_coordinates))]
+# when 'farm_options.considering_yaw' is False, 
+# the farm_options.turbine_axis would be an empty list, 
+# so only the coordinates are optimised.
+farm_options.considering_yaw = False
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
 
@@ -132,29 +138,19 @@ solver_obj.add_callback(cb, 'timestep')
 cb2 = turbines.EachTurbineFunctionalCallback(solver_obj)
 solver_obj.add_callback(cb2,'timestep')
 
-
 # start computer forward model
-
 solver_obj.iterate(update_forcings=update_forcings)
 
 #File('turbinedensity.pvd').write(solver_obj.fields.turbine_density_2d)
 ###set up interest functional and control###
 power_output= sum(cb.integrated_power)
-interest_functional = power_output/5e7
 
-# specifies the control we want to vary in the optimisation
-optimise_angle_only = False
-if optimise_angle_only:
-    if farm_options.considering_yaw:
-        c = [Control(x) for x in farm_options.turbine_axis]
-    else:
-        raise Exception('You should turn on the yaw considering!')      
-else:
-    c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy] + [Control(x) for x in farm_options.turbine_axis]
-
+c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy] 
 turbine_density = Function(solver_obj.function_spaces.P1_2d, name='turbine_density')
 turbine_density.interpolate(solver_obj.tidal_farms[0].turbine_density)
-# File('turbinedensity2.pvd').write(turbine_density)
+
+interest_functional =power_output
+# print(power_output, cablecost, interest_functional)
 # a number of callbacks to provide output during the optimisation iterations:
 # - ControlsExportOptimisationCallback export the turbine_friction values (the control)
 #            to outputs/control_turbine_friction.pvd. This can also be used to checkpoint
@@ -190,7 +186,6 @@ def derivative_cb_pre(controls):
 rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list,
         eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
 
-print(interest_functional)
 if 0:
     # whenever the forward model is changed - for example different terms in the equation,
     # different types of boundary conditions, etc. - it is a good idea to test whether the
@@ -203,9 +198,10 @@ if 0:
     # values between 0 and 1 and choose a random direction dtd to vary it in
 
     # this tests whether the above Taylor series residual indeed converges to zero at 2nd order in h as h->0
-    m1 = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 40)]
-    m0 = [i for j in m1 for i in j]+[Constant(90) for i in range(len(farm_options.turbine_coordinates))]
-    h0 = [Constant(1) for i in range(len(farm_options.turbine_coordinates)*2)]+[Constant(1) for i in range(len(farm_options.turbine_coordinates))]
+    m1 =[[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 50)]
+    m0 = [i for j in m1 for i in j]
+
+    h0 = [Constant(1) for i in range(len(farm_options.turbine_coordinates)*2)]
 
     minconv = taylor_test(rf, m0, h0)
     print_output("Order of convergence with taylor test (should be 2) = {}".format(minconv))
@@ -219,21 +215,20 @@ if 1:
     # By default scipy's implementation of L-BFGS-B is used, see
     #   https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fmin_l_bfgs_b.html
     # options, such as maxiter and pgtol can be passed on.
-    if optimise_angle_only:
-        lb = [0]*len(farm_options.turbine_coordinates)
-        ub = [360]*len(farm_options.turbine_coordinates)
-        td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 100, 'ptol': 1e-3})
-    else:
-        r = farm_options.turbine_options.diameter/2.
 
-        lb = np.array([[site_x1+r, site_y1+r] for _ in farm_options.turbine_coordinates]).flatten()
-        ub = np.array([[site_x2-r, site_y2-r] for _ in farm_options.turbine_coordinates]).flatten()
-        
-        if farm_options.considering_yaw:
-            lb = list(lb) + [0]*len(farm_options.turbine_coordinates)
-            ub = list(ub) + [360]*len(farm_options.turbine_coordinates)
+    r = farm_options.turbine_options.diameter/2.
 
-        mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
-        
-        td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
-                options={'maxiter': 200, 'pgtol': 1e-3})
+    lb = np.array([[site_x1+r, site_y1+r] for _ in farm_options.turbine_coordinates]).flatten()
+    ub = np.array([[site_x2-r, site_y2-r] for _ in farm_options.turbine_coordinates]).flatten()
+    
+    if farm_options.considering_yaw:
+        lb = list(lb) + [0]*len(farm_options.turbine_coordinates)
+        ub = list(ub) + [360]*len(farm_options.turbine_coordinates)
+
+    mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
+    
+    td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
+            options={'maxiter': 100, 'pgtol': 1e-3})
+
+t_end = time.time()
+print('time cost:', t_end - t_start, 's')

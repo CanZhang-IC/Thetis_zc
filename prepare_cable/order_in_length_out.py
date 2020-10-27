@@ -72,10 +72,10 @@ def convergence_rates(E_values, eps_values, show=True):
 
 if __name__ == "__main__":
     ###link order and turbine locations
-    order_w1 = [[0, 12, 11, 10, 9], [0, 8, 7, 6, 5], [0, 4, 3, 2, 1], [0, 13, 14, 15, 16]]
+    order_w1 = [[0, 1, 6, 10, 11, 7, 8, 4], [0, 5, 9, 13, 14, 15, 16, 12], [0, 2, 3]]
     turbine_locations1 = [[x,y] for x in numpy.arange(443032+20, 443288-20, 60) for y in numpy.arange(3322891+20, 3323091-20, 40)]
     #substation_location is the location on the island, not a location for turbine.
-    substation_location1 = [[443032,3322891]]
+    substation_location1 = [[442500,3322750]]
     order_w = [Constant(i) for j in order_w1 for i in j]
     turbine_locations = [Constant(i)for j in turbine_locations1 for i in j]
     substation_location = [Constant(i) for j in substation_location1 for i in j]
@@ -94,6 +94,7 @@ if __name__ == "__main__":
 
     #begin taylor test
     Jm = cablelength(turbine_locations,substation_location,order_w)
+    print(Jm)
     print(dlength_dx(turbine_locations,substation_location,order_w))
     dJdm = numpy.dot(dlength_dx(turbine_locations,substation_location,order_w),Delta_x.T)
 

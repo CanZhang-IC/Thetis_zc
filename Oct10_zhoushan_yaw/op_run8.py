@@ -5,14 +5,19 @@ import numpy
 op2.init(log_level=INFO)
 import sys
 sys.path.append('..')
+import os
 import prepare.utm, prepare.myboundary_30min
 # import h5py
 import time
 
 t_start = time.time()
-
-turbine_i = 8
-output_dir = '../../outputs/middle_30min-'+str(turbine_i)
+get_turbine_index = os.path.basename(sys.argv[0]) 
+if len(get_turbine_index) == 10:
+    del_index = get_turbine_index[-4]
+else:
+    del_index = get_turbine_index[-5:-3]
+turbine_i = int(del_index)
+output_dir = '../../outputs/del_one_turbine/middle_30min-'+str(turbine_i)
 
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
@@ -122,18 +127,12 @@ farm_options.upwind_correction = False
 
 site_x1, site_y1, site_x2, site_y2 = 443342 ,3322632, 443591, 3322845
 
-# result_data = []
-# df = h5py.File('../../outputs/middle_30min/diagnostic_controls.hdf5','r+')
-# for name, data in df.items():
-#     for i in data:
-#         result_data.append(i)
-# print(result_data)
 
 result_data = [
     #coordinates
-    443352.00212005526, 3322646.308409128, 443352.006525044, 3322799.502752303, 443370.4567628371, 3322834.992831582, 443416.5186574596, 3322834.9959139726, 443374.8678731752, 3322766.8210353497, 443393.4028281948, 3322802.2879163884, 443440.54927117965, 3322802.996771269, 443464.6564190777, 3322834.998411545, 443417.2545525552, 3322770.4474302097, 443462.86742582766, 3322769.75287414, 443491.6995552, 3322797.5118418285, 443505.6663923886, 3322834.9991843486, 443530.14065815165, 3322725.349804717, 443545.1703302105, 3322762.4326752005, 443555.93797414476, 3322800.967399174, 443576.9362127845, 3322834.996947221,
+    443352.0014672894, 3322661.2249424085, 443352.00360414607, 3322799.4023007597, 443370.24033160694, 3322835.0, 443412.747696928, 3322834.998605353, 443373.21377413854, 3322765.489792042, 443391.9741800234, 3322800.817274995, 443433.9590554587, 3322801.0884508095, 443455.17338239006, 3322834.9980192194, 443413.1878277575, 3322766.9040195737, 443456.8741346038, 3322768.30120755, 443478.0871860666, 3322802.2139794477, 443500.9999548514, 3322834.999785881, 443501.1198651514, 3322769.510135885, 443530.80403638876, 3322796.3215907435, 443540.9999975333, 3322834.998255678, 443580.99752880324, 3322834.9969152194, 
     #axis
-    99.59111587277175, 97.7452236884505, 100.3367661071047, 102.15562685125745, 98.20284924701546, 99.72541950526949, 101.95277663314398, 104.61209667439944, 100.36181525387029, 102.29380671174125, 103.5866105384266, 106.33249440850874, 102.70327494351393, 104.51145377273231, 106.97282031956618, 109.0279970709512
+    99.31049255675143, 97.79287314524697, 100.21135081450862, 101.81294766091462, 98.1446667237933, 99.56009623162055, 101.43650213959047, 103.91391264074014, 100.02038449487331, 101.9470124097927, 103.31352373072824, 106.09853933715259, 103.42342515732167, 105.4148131263235, 107.67334339092514, 109.17335840499666
     ]
 
 result_data.pop(2*turbine_i)
@@ -156,7 +155,8 @@ solver_obj.load_state(492, outputdir='../../outputs/redata_30min_normaldepth')
 cb = turbines.TurbineFunctionalCallback(solver_obj)
 solver_obj.add_callback(cb, 'timestep')
 
-
+cb2 = turbines.EachTurbineFunctionalCallback(solver_obj)
+solver_obj.add_callback(cb2, 'timestep')
 # start computer forward model
 
 solver_obj.iterate(update_forcings=update_forcings)
@@ -196,6 +196,8 @@ callback_list = optimisation.OptimisationCallbackList([
     optimisation.DerivativeConstantControlOptimisationCallback(solver_obj, array_dim=len(c)),
     optimisation.UserExportOptimisationCallback(solver_obj, [turbine_density, solver_obj.fields.uv_2d]),
     optimisation.FunctionalOptimisationCallback(solver_obj),
+    turbines.TurbineOptimisationCallback(solver_obj, cb),
+    turbines.EachTurbineOptimisationCallback(solver_obj,cb2),
 ])
 # callbacks to indicate start of forward and adjoint runs in log
 def eval_cb_pre(controls):
@@ -265,7 +267,7 @@ if do_optimisation:
         mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
         
         td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
-                options={'maxiter': 5, 'pgtol': 1e-3})
+                options={'maxiter': 100, 'pgtol': 1e-3})
 
 t_end = time.time()
 print('time cost:', t_end - t_start, 's')
