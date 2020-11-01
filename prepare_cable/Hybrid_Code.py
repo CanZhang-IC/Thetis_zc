@@ -87,7 +87,7 @@ class CableCostGA(object):
         for i in range(len(V)):
             plt.text(V[i][0], V[i][1], '%s' % (str(i)))
         plt.axis('equal')
-        plt.savefig('cable_result.jpg',dpi=300)
+        plt.savefig('original.jpg',dpi=300)
         
     
     def rand_breaks(self, n, min_route, n_routes, n_breaks):
@@ -501,23 +501,13 @@ class Clarke_Wright(object):
         
         
 if __name__ == '__main__':
-    turbine_locations = [443385.99720289, 3322700.09545879,  443376.01031829,
-       3322738.83872393,  443407.96810518, 3322763.13091122,
-        443444.89211644, 3322778.55065306,  443390.01864795,
-       3322660.13542838,  443479.42479969, 3322729.58659348,
-        443511.46742687, 3322754.55513032,  443479.35876705,
-       3322798.88406141,  443508.89193841, 3322677.24078952,
-        443470.92587751, 3322689.90137038,  443542.65315462,
-       3322780.08048008,  443522.41981957, 3322833.8237314 ,
-        443524.80768068, 3322714.81132684,  443559.53115376,
-       3322734.82718092,  443580.99999972, 3322768.57839107,
-        443580.26835083, 3322808.59605869]
+    turbine_locations = [443362.0, 3322652.0, 443362.0, 3322702.0, 443362.0, 3322752.0, 443362.0, 3322802.0, 443422.0, 3322652.0, 443422.0, 3322702.0, 443422.0, 3322752.0, 443422.0, 3322802.0, 443482.0, 3322652.0, 443482.0, 3322702.0, 443482.0, 3322752.0, 443482.0, 3322802.0, 443542.0, 3322652.0, 443542.0, 3322702.0, 443542.0, 3322752.0, 443542.0, 3322802.0]
     landpointlocation = [444000,3323000]
     CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = False, show_result = True)
     
     print (CC.compute_cable_cost())
     print(CC.compute_cable_cost_order())
-    print (CC.compute_cable_cost_derivative())
+    # print (CC.compute_cable_cost_derivative())
 
 
 

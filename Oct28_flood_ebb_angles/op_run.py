@@ -7,7 +7,7 @@ import sys
 sys.path.append('..')
 import prepare.utm, prepare.myboundary_30min
 
-ouput_dir = '../../outputs/middle_30min_from100'
+ouput_dir = '../../outputs/middle_30min-flood-ebb-angle'
 
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
@@ -117,7 +117,7 @@ site_x1, site_y1, site_x2, site_y2 = 443342 ,3322632, 443591, 3322845
 
 farm_options.turbine_coordinates = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 50)]
 farm_options.considering_yaw = True
-farm_options.turbine_axis = [Constant(100) for i in range(len(farm_options.turbine_coordinates))]
+farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbine_coordinates)*2)]
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
 
@@ -203,9 +203,9 @@ if 0:
     # values between 0 and 1 and choose a random direction dtd to vary it in
 
     # this tests whether the above Taylor series residual indeed converges to zero at 2nd order in h as h->0
-    m1 = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 40)]
-    m0 = [i for j in m1 for i in j]+[Constant(90) for i in range(len(farm_options.turbine_coordinates))]
-    h0 = [Constant(1) for i in range(len(farm_options.turbine_coordinates)*2)]+[Constant(1) for i in range(len(farm_options.turbine_coordinates))]
+    m1 = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 50)]
+    m0 = [i for j in m1 for i in j]+[Constant(90) for i in range(len(farm_options.turbine_coordinates)*2)]
+    h0 = [Constant(1) for i in range(len(farm_options.turbine_coordinates)*2)]+[Constant(1) for i in range(len(farm_options.turbine_coordinates)*2)]
 
     minconv = taylor_test(rf, m0, h0)
     print_output("Order of convergence with taylor test (should be 2) = {}".format(minconv))
@@ -220,8 +220,8 @@ if 1:
     #   https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fmin_l_bfgs_b.html
     # options, such as maxiter and pgtol can be passed on.
     if optimise_angle_only:
-        lb = [0]*len(farm_options.turbine_coordinates)
-        ub = [360]*len(farm_options.turbine_coordinates)
+        lb = [0]*len(farm_options.turbine_coordinates)*2
+        ub = [360]*len(farm_options.turbine_coordinates)*2
         td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 100, 'ptol': 1e-3})
     else:
         r = farm_options.turbine_options.diameter/2.
@@ -230,8 +230,8 @@ if 1:
         ub = np.array([[site_x2-r, site_y2-r] for _ in farm_options.turbine_coordinates]).flatten()
         
         if farm_options.considering_yaw:
-            lb = list(lb) + [0]*len(farm_options.turbine_coordinates)
-            ub = list(ub) + [360]*len(farm_options.turbine_coordinates)
+            lb = list(lb) + [0]*len(farm_options.turbine_coordinates)*2
+            ub = list(ub) + [360]*len(farm_options.turbine_coordinates)*2
 
         mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
         

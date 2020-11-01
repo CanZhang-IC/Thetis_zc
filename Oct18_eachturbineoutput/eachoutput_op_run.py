@@ -7,7 +7,7 @@ import sys
 sys.path.append('..')
 import prepare.utm, prepare.myboundary_30min
 
-output_dir = '../../outputs/fgegsgrehe'
+output_dir = '../../outputs/EnergyFirstAngleThen'
 
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
@@ -15,7 +15,7 @@ dt = 30*60 # reduce this if solver does not converge
 t_export = 30*60 
 #t_end = 1555200
 #t_end = 1216800+ 13*60*60 # spring
-t_end = 885600 + 1*60*60 # middle
+t_end = 885600 + 13*60*60 # middle
 #t_end = 612000 + 13*60*60 # neap
 #t_end = 30*60
 
@@ -115,7 +115,12 @@ farm_options.upwind_correction = False
 
 site_x1, site_y1, site_x2, site_y2 = 443342 ,3322632, 443591, 3322845
 
-farm_options.turbine_coordinates = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 50)]
+result_data = [
+    443352.00160061, 3322797.171050528, 443365.00638289703, 3322834.999843611, 443405.68398250913, 3322834.9991671797, 443445.68429296976, 3322834.999946211, 443377.5641681314, 3322760.1072894726, 443392.00066300837, 3322797.415097625, 443472.0234393873, 3322804.895454316, 443498.3610167388, 3322834.999885376, 443431.9981176266, 3322797.4148921478, 443454.99276498886, 3322764.681122834, 443528.73905413185, 3322796.1741007944, 443538.35913243814, 3322834.999744694, 443482.3157205273, 3322735.4524149382, 443496.1497521716, 3322772.982134663, 443568.7319408938, 3322796.927419629, 443580.9998284126, 3322834.999591386
+    ]
+
+
+farm_options.turbine_coordinates = [[Constant(result_data[2*i]), Constant(result_data[2*i+1])] for i in range(int(len(result_data)/2))]
 farm_options.considering_yaw = True
 farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbine_coordinates))]
 #add turbines to SW_equations
@@ -143,7 +148,7 @@ power_output= sum(cb.integrated_power)
 interest_functional = power_output
 
 # specifies the control we want to vary in the optimisation
-optimise_angle_only = False
+optimise_angle_only = True
 if optimise_angle_only:
     if farm_options.considering_yaw:
         c = [Control(x) for x in farm_options.turbine_axis]
@@ -236,4 +241,4 @@ if 1:
         mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
         
         td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
-                options={'maxiter': 5, 'pgtol': 1e-3})
+                options={'maxiter': 100, 'pgtol': 1e-3})

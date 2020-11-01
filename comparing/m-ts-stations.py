@@ -142,8 +142,6 @@ for stationname in stationnames:
             axs[i].yaxis.set_tick_params(labelsize=15)
             axs[i].set_title('Velocity magnitude time series at '+stationname+'--'+tidenames[i]+' tide',fontsize=18)
             axs[0].legend(loc='best',fontsize=14.5,ncol=4)
-        #plt.savefig('hulu-velocity.png', dpi =300)
+        plt.savefig('velocity.png', dpi =300)
 
-
-show()
 

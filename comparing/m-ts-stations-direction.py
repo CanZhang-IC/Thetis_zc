@@ -125,6 +125,7 @@ for stationname in stationnames:
         for i in range(len(thetis_xvelocity3)):
             thetis_velocity.append(sqrt(thetis_xvelocity3[i]**2+thetis_yvelocity3[i]**2))
             one_direction = np.arctan2(thetis_xvelocity3[i],thetis_yvelocity3[i])* 180 / np.pi
+            print(one_direction)
             if one_direction < 0:
                 thetis_direction.append(one_direction + 360)
             else:
@@ -156,6 +157,6 @@ for stationname in stationnames:
             #axs[i].set_ylim((0,360))
             axs[i].set_title('Velocity direction time series at B2 -- '+tidenames[i]+' tide',fontsize=18)
             axs[2].legend(loc='lower right', fontsize=14.5,ncol=4)
-        #plt.savefig('taohua-direction.png', dpi =300)
-show()
+        plt.savefig('direction.png', dpi =300)
+
 
