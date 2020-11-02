@@ -171,21 +171,12 @@ class DiscreteTidalTurbineFarm(TidalTurbineFarm):
         if self.considering_yaw:
             if len(options.turbine_axis) == 0:
                 print_output("None turbine axis angle is given when considering yaw effect, applying the default angle 0 for each turbine!!!")
-                options.turbine_axis = [Constant(0) for i in range(len(options.turbine_coordinates)*2)]
-            self.alpha_flood = sum((conditional((x[0]-xi)**2+(x[1]-yi)**2 < 2*radius**2, alphai/180*pi, 0) \
-                for alphai,(xi,yi) in zip(options.turbine_axis[:len(options.turbine_coordinates)],options.turbine_coordinates)))
-            self.alpha_ebb = sum((conditional((x[0]-xi)**2+(x[1]-yi)**2 < 2*radius**2, alphai/180*pi, 0) \
-                for alphai,(xi,yi) in zip(options.turbine_axis[len(options.turbine_coordinates):],options.turbine_coordinates)))
+                options.turbine_axis = [Constant(0) for i in range(len(options.turbine_coordinates))]
+            self.alpha = sum((conditional((x[0]-xi)**2+(x[1]-yi)**2 < 2*radius**2, alphai/180*pi, 0) for alphai,(xi,yi) in zip(options.turbine_axis,options.turbine_coordinates)))
         else:
             if len(options.turbine_axis) != 0:
                 print_output("Turbine axis angle isn't needed when not considering yaw effect, emptying the list automatically!!!")
             options.turbine_axis = []
-
-        # V = FunctionSpace(self.mesh, 'CG', 1)
-        # test_angle = Function(V, name='angle')
-        # test_angle.interpolate(self.alpha)
-        # File('test_angle.pvd').write(test_angle)
-
 
     def add_turbines(self, coordinates):
         """
@@ -251,10 +242,7 @@ class TurbineFunctionalCallback(DiagnosticCallback):
         current_power = []
         for i, farm in enumerate(self.farms):
             if farm.considering_yaw:
-                flow_direction = atan_2(self.uv[0],self.uv[1])
-                # flow_direction = conditional(flow_direction < 0, flow_direction + 360, flow_direction)
-                n = conditional(flow_direction > 0, as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood))) , \
-                    as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb))))
+                n = as_vector((cos(farm.alpha),sin(farm.alpha)))
                 uv_eff = dot(self.uv,n)
             else:
                 uv_eff = self.uv 
@@ -311,13 +299,10 @@ class EachTurbineFunctionalCallback(DiagnosticCallback):
         current_power = []
         for i, farm in enumerate(self.farms):
             if farm.considering_yaw:
-                flow_direction = atan_2(self.uv[0],self.uv[1])
-                # flow_direction = conditional(flow_direction < 0, flow_direction + 360, flow_direction)
-                n = conditional(flow_direction > 0, as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood))) , \
-                    as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb))))
+                n = as_vector((cos(farm.alpha),sin(farm.alpha)))
                 uv_eff = dot(self.uv,n)
             else:
-                uv_eff = self.uv
+                uv_eff = self.uv 
             powerlist = farm.each_turbine_power_output(uv_eff, self.depth)
             current_power.append(powerlist)
             for ii,power in enumerate(powerlist):

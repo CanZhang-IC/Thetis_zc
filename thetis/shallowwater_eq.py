@@ -723,7 +723,10 @@ class TurbineDragTerm(ShallowWaterMomentumTerm):
         for farm in self.tidal_farms:
             if farm.considering_yaw:
                 density = farm.turbine_density
-                n = as_vector((cos(farm.alpha),sin(farm.alpha)))
+                flow_direction = atan_2(uv[0],uv[1])
+                # flow_direction = conditional(flow_direction < 0, flow_direction + 360, flow_direction)
+                n = conditional(flow_direction > 0, as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood))) ,\
+                     as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb))))
                 #n = as_vector((1,0))
                 c_t = farm.friction_coefficient(uv_old, total_h)
                 unorm = abs(dot(uv_old, n))
