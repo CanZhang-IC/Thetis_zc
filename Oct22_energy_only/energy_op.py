@@ -12,7 +12,7 @@ import time
 
 t_start = time.time()
 
-ouput_dir = '../../outputs/energy_only-interest_functional-middle'
+ouput_dir = '../../outputs/energy_only_1e7-interest_functional-middle'
 
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
@@ -149,7 +149,7 @@ c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy]
 turbine_density = Function(solver_obj.function_spaces.P1_2d, name='turbine_density')
 turbine_density.interpolate(solver_obj.tidal_farms[0].turbine_density)
 
-interest_functional =power_output
+interest_functional =power_output/1e7
 # print(power_output, cablecost, interest_functional)
 # a number of callbacks to provide output during the optimisation iterations:
 # - ControlsExportOptimisationCallback export the turbine_friction values (the control)
@@ -228,7 +228,7 @@ if 1:
     mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
     
     td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
-            options={'maxiter': 100, 'pgtol': 1e-3})
+            options={'maxiter': 1000, 'pgtol': 1e-3})
 
 t_end = time.time()
 print('time cost:', t_end - t_start, 's')

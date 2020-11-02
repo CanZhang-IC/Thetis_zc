@@ -18,6 +18,10 @@ class CableCostGA(object):
         self.turbine_locations = []
         for i in range(int(len(turbine_locations)/2)):
             self.turbine_locations.append([turbine_locations[2*i],turbine_locations[2*i+1]])      
+        self.turbine_locations_check = []
+        for i in self.turbine_locations:
+            if i not in self.turbine_locations_check:
+                self.turbine_locations_check.append(i)
         self.substation_location = [[substation_location[0],substation_location[1]]]
         self.capacity = capacity
         self.pop_size = pop_size
@@ -87,7 +91,7 @@ class CableCostGA(object):
         for i in range(len(V)):
             plt.text(V[i][0], V[i][1], '%s' % (str(i)))
         plt.axis('equal')
-        plt.savefig('original.jpg',dpi=300)
+        plt.savefig('cable_result.jpg',dpi=300)
         
     
     def rand_breaks(self, n, min_route, n_routes, n_breaks):
@@ -152,7 +156,7 @@ class CableCostGA(object):
     def clarke_wright(self, route, breaks, vertices):
         '''apply clarke and wright algorithm to chromosome'''
         rting = self.routing(route, breaks)
-        rting_coords = self.routing_coordinates(vertices, rting)      
+        rting_coords = self.routing_coordinates(vertices, rting)     
         rting = []
         for i in range(len(rting_coords)):
             temp_r = rting_coords[i].tolist()
@@ -280,14 +284,26 @@ class CableCostGA(object):
         return best_chromosome, global_min
         
     def compute_cable_cost(self):
-        out = self.run_GA()
-        self.best_chromosome = out[0]
-        return out[1]
+        if len(self.turbine_locations) != len(self.turbine_locations_check):
+            cost_out = 1e10
+        else:
+            out = self.run_GA()
+            cost_out = out[1]
+        return cost_out
 
     def compute_cable_cost_order(self):
-        out = self.run_GA()
-        self.best_chromosome = out[0]
-        rting = self.routing(self.best_chromosome[0],self.best_chromosome[1])
+        if len(self.turbine_locations) != len(self.turbine_locations_check):
+            vertices = self.substation_location + self.turbine_locations
+            n_routes = int(math.ceil(float(len(vertices)) / self.capacity))
+            min_route = len(vertices) / n_routes
+            n = len(self.turbine_locations)
+            n_breaks = n_routes - 1
+            pop = self.initialise_population(n, min_route, n_routes, n_breaks)
+            rting = self.routing(pop[0][0],pop[1][0])
+        else:
+            out = self.run_GA()
+            self.best_chromosome = out[0]
+            rting = self.routing(self.best_chromosome[0],self.best_chromosome[1])
         return rting
         
     def compute_cable_cost_derivative(self):
@@ -501,7 +517,17 @@ class Clarke_Wright(object):
         
         
 if __name__ == '__main__':
-    turbine_locations = [443362.0, 3322652.0, 443362.0, 3322702.0, 443362.0, 3322752.0, 443362.0, 3322802.0, 443422.0, 3322652.0, 443422.0, 3322702.0, 443422.0, 3322752.0, 443422.0, 3322802.0, 443482.0, 3322652.0, 443482.0, 3322702.0, 443482.0, 3322752.0, 443482.0, 3322802.0, 443542.0, 3322652.0, 443542.0, 3322702.0, 443542.0, 3322752.0, 443542.0, 3322802.0]
+    turbine_locations = [ 443352.        , 3322768.33475836,  443352.        ,
+       3322835.        ,  443374.11132701, 3322801.66766039,
+        443437.56298443, 3322834.9998673 ,  443417.74072179,
+       3322800.25748646,  443396.22270362, 3322834.99997242,
+        443506.38903723, 3322806.18888704,  443478.63952298,
+       3322835.        ,  443459.95853205, 3322799.63034438,
+        443486.30872563, 3322769.53348984,  443564.57303151,
+       3322798.5286971 ,  443534.13864377, 3322835.        ,
+        443394.84348918, 3322767.45965693,  443439.59754965,
+       3322765.19743417,  443531.93248311, 3322775.40604717,
+        443580.99988956, 3322835.        ]
     landpointlocation = [444000,3323000]
     CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = False, show_result = True)
     
