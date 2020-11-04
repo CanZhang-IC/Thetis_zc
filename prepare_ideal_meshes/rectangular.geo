@@ -12,13 +12,13 @@ site_x_end = basin_x/2+site_x/2;
 site_y_start = basin_y/2 - 50;
 site_y_end = site_y_start+site_y;
 
-element_size = 4;
-element_size_coarse = 40;
+element_size = 2;
+element_size_coarse = 20;
 
-Point(1) = {0, 0, 0, element_size_coarse};
-Point(2) = {basin_x, 0, 0, element_size_coarse};
-Point(3) = {basin_x, basin_y, 0, element_size_coarse};
-Point(4) = {0, basin_y, 0, element_size_coarse};
+Point(1) = {0, 150, 0, element_size_coarse};
+Point(2) = {basin_x, 150, 0, element_size_coarse};
+Point(3) = {basin_x, 450, 0, element_size_coarse};
+Point(4) = {0, 450, 0, element_size_coarse};
 
 
 Line(100) = {3, 4};
