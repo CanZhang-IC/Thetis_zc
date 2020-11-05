@@ -15,10 +15,10 @@ site_y_end = site_y_start+site_y;
 element_size = 2;
 element_size_coarse = 20;
 
-Point(1) = {0, 150, 0, element_size_coarse};
-Point(2) = {basin_x, 150, 0, element_size_coarse};
-Point(3) = {basin_x, 450, 0, element_size_coarse};
-Point(4) = {0, 450, 0, element_size_coarse};
+Point(1) = {0, 200, 0, element_size_coarse};
+Point(2) = {basin_x, 200, 0, element_size_coarse};
+Point(3) = {basin_x, 400, 0, element_size_coarse};
+Point(4) = {0, 400, 0, element_size_coarse};
 
 
 Line(100) = {3, 4};
