@@ -18,21 +18,27 @@ import numpy
 import time
 
 t_start = time.time()
-get_angle_index = os.path.basename(sys.argv[0])
-if len(get_angle_index) == 22:
-    angle = get_angle_index[-4]
-elif len(get_angle_index) == 23:
-    angle = get_angle_index[-5:-3]
+get_index = os.path.basename(sys.argv[0])
+if len(get_index) == 28:
+    angle = int(get_index[-4])
+    H = int(get_index[-10:-8])
+elif len(get_index) == 29:
+    try:
+        angle = int(get_index[-5:-3])
+        H = int(get_index[-11:-9])
+    except ValueError:
+        angle = int(get_index[-4])
+        H = int(get_index[-11:-8])
 else:
-    angle = get_angle_index[-6:-3]
+    angle = int(get_index[-5:-3])
+    H = int(get_index[-12:-9])
 
-angle = int(angle)
-print(angle)
-output_dir = '../../outputs/ideal_yaw_f12/yaw'+str(angle)+'_D100'
-
+# print(H, angle)
+# H, angle = 40, 0
+output_dir = '../../outputs/ideal_H_yaw_fine/H'+str(H)+'_yaw'+str(angle)+'_D100'
 #Comment for testing forward model
 test_gradient = False
-optimise = 0
+optimise = False
 
 ### set up the Thetis solver obj as usual ###
 mesh2d = Mesh('../prepare_ideal_meshes/rectangular.msh')
@@ -40,11 +46,9 @@ mesh2d = Mesh('../prepare_ideal_meshes/rectangular.msh')
 tidal_amplitude = 5.
 tidal_period = 12.42*60*60
 timestep = 60
-# t_end = 60*60
-t_end = tidal_period
+t_export = 2 * timestep
+t_end = tidal_period/2
 
-#set up depth
-H = 100
 
 #set viscosity bumps at in-flow boundaries.
 P1_2d = FunctionSpace(mesh2d, 'CG', 1)
@@ -58,7 +62,7 @@ h_viscosity = Function(P1_2d).interpolate(conditional(le(x[0], 50), 50.001-x[0],
 solver_obj = solver2d.FlowSolver2d(mesh2d, Constant(H))
 options = solver_obj.options
 options.timestep = timestep
-options.simulation_export_time = timestep
+options.simulation_export_time = t_export
 options.simulation_end_time = t_end
 options.output_directory = output_dir
 options.check_volume_conservation_2d = True
@@ -106,11 +110,11 @@ def update_forcings(t):
 # Initialise Discrete turbine farm characteristics
 farm_options = DiscreteTidalTurbineFarmOptions()
 farm_options.turbine_type = 'constant'
-farm_options.turbine_options.thrust_coefficient = 1
-farm_options.turbine_options.diameter = H
+farm_options.turbine_options.thrust_coefficient = 0.6
+farm_options.turbine_options.diameter = 20
 farm_options.upwind_correction = False
 
-farm_options.turbine_coordinates =[[Constant(1000),Constant(300)]]#[[Constant(x), Constant(y)] for x in numpy.arange(940, 1001, 30) for y in numpy.arange(260, 341, 40)]
+farm_options.turbine_coordinates =[[Constant(1000),Constant(150)]]
 
 farm_options.considering_yaw = True
 farm_options.turbine_axis = [Constant(angle) for i in range(len(farm_options.turbine_coordinates)*2)]
@@ -118,7 +122,7 @@ farm_options.turbine_axis = [Constant(angle) for i in range(len(farm_options.tur
 options.discrete_tidal_turbine_farms[2] = farm_options
 
 #set initial condition
-solver_obj.assign_initial_conditions(elev=tidal_elev, uv=(as_vector((x[1]/1e5, 0.0))))
+solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=tidal_elev)
 
 # Operation of tidal turbine farm through a callback
 cb = turbines.TurbineFunctionalCallback(solver_obj)

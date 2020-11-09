@@ -1,0 +1,1872 @@
+Using default SIPG parameters
+dt = 60
+29
+Using time integrator: CrankNicolson
+Number of turbines = 1.0000091629430201
+    0     0 T=      0.00 eta norm:     0.0000 u norm:     0.0001  0.00
+volume2d rel. error  0.0000e+00
+Updating tidal elevation at t = 60
+  0 SNES Function norm 6.248228291678e+03 
+  1 SNES Function norm 1.631699714669e-10 
+Current power, average power, integrated power and profit for each farm: [0.00019820427250625915], [0.00019820427250625915], [0.011892256350375548], [0.00019820427250625915]
+Updating tidal elevation at t = 120
+  0 SNES Function norm 3.445322813288e+03 
+  1 SNES Function norm 1.548455178325e-10 
+Current power, average power, integrated power and profit for each farm: [0.0019579167972531737], [0.0010780605348797163], [0.12936726418556596], [0.0010780605348797163]
+    1     2 T=    120.00 eta norm:    89.4444 u norm:    27.3434 44.54
+volume2d rel. error  1.9030e-03
+Updating tidal elevation at t = 180
+  0 SNES Function norm 3.441103343320e+03 
+  1 SNES Function norm 1.216489361734e-10 
+Current power, average power, integrated power and profit for each farm: [0.0066069598825328054], [0.0029210269840974127], [0.5257848571375343], [0.0029210269840974127]
+Updating tidal elevation at t = 240
+  0 SNES Function norm 3.440456130182e+03 
+  1 SNES Function norm 1.215763312307e-10 
+Current power, average power, integrated power and profit for each farm: [0.015376031545988822], [0.006034778124570265], [1.4483467498968636], [0.006034778124570265]
+    2     4 T=    240.00 eta norm:   153.9130 u norm:    53.2949 31.78
+volume2d rel. error  3.2998e-03
+Updating tidal elevation at t = 300
+  0 SNES Function norm 3.440342377092e+03 
+  1 SNES Function norm 1.306702901730e-10 
+Current power, average power, integrated power and profit for each farm: [0.02962388881367722], [0.010752600262391656], [3.225780078717497], [0.010752600262391656]
+Updating tidal elevation at t = 360
+  0 SNES Function norm 3.440188299823e+03 
+  1 SNES Function norm 1.447706369847e-10 
+Current power, average power, integrated power and profit for each farm: [0.05070991467322787], [0.01741215266419769], [6.268374959111169], [0.01741215266419769]
+    3     6 T=    360.00 eta norm:   218.5665 u norm:    79.8649 42.80
+volume2d rel. error  4.6944e-03
+Updating tidal elevation at t = 420
+  0 SNES Function norm 3.439749680958e+03 
+  1 SNES Function norm 1.598210643260e-10 
+Current power, average power, integrated power and profit for each farm: [0.08002339782805247], [0.026356616259034085], [11.069778828794316], [0.026356616259034085]
+Updating tidal elevation at t = 480
+  0 SNES Function norm 3.439017991576e+03 
+  1 SNES Function norm 1.751866749281e-10 
+Current power, average power, integrated power and profit for each farm: [0.11897119126485939], [0.03793343813476225], [18.20805030468588], [0.03793343813476225]
+    4     8 T=    480.00 eta norm:   283.7483 u norm:   106.5177 46.23
+volume2d rel. error  6.0988e-03
+Updating tidal elevation at t = 540
+  0 SNES Function norm 3.438030659356e+03 
+  1 SNES Function norm 1.888393195169e-10 
+Current power, average power, integrated power and profit for each farm: [0.16895657544766626], [0.05249156450286269], [28.345444831545855], [0.05249156450286269]
+Updating tidal elevation at t = 600
+  0 SNES Function norm 3.436800975805e+03 
+  1 SNES Function norm 2.015813646988e-10 
+Current power, average power, integrated power and profit for each farm: [0.2313780436676128], [0.0703802124193377], [42.228127451602624], [0.0703802124193377]
+    5    10 T=    600.00 eta norm:   348.7723 u norm:   133.2288 43.33
+volume2d rel. error  7.4991e-03
+Updating tidal elevation at t = 660
+  0 SNES Function norm 3.435326964663e+03 
+  1 SNES Function norm 2.194332887020e-10 
+Current power, average power, integrated power and profit for each farm: [0.30763206115906705], [0.09194856230476765], [60.68605112114665], [0.09194856230476765]
+Updating tidal elevation at t = 720
+  0 SNES Function norm 3.433605752820e+03 
+  1 SNES Function norm 2.470843262849e-10 
+Current power, average power, integrated power and profit for each farm: [0.3991124020610292], [0.11754554895112276], [84.63279524480839], [0.11754554895112276]
+    6    12 T=    720.00 eta norm:   413.7254 u norm:   159.9727 44.03
+volume2d rel. error  8.8975e-03
+Updating tidal elevation at t = 780
+  0 SNES Function norm 3.431636642188e+03 
+  1 SNES Function norm 2.608356122184e-10 
+Current power, average power, integrated power and profit for each farm: [0.5072075303582939], [0.14751954752090515], [115.06524706630603], [0.14751954752090515]
+Updating tidal elevation at t = 840
+  0 SNES Function norm 3.429419788595e+03 
+  1 SNES Function norm 2.756030588076e-10 
+Current power, average power, integrated power and profit for each farm: [0.633297663314279], [0.18221798436328898], [153.06310686516275], [0.18221798436328898]
+    7    14 T=    840.00 eta norm:   478.5718 u norm:   186.7278 27.28
+volume2d rel. error  1.0293e-02
+Updating tidal elevation at t = 900
+  0 SNES Function norm 3.426955288071e+03 
+  1 SNES Function norm 2.980742049550e-10 
+Current power, average power, integrated power and profit for each farm: [0.778751959606217], [0.22198691604615084], [199.78822444153576], [0.22198691604615084]
+Updating tidal elevation at t = 960
+  0 SNES Function norm 3.424243096854e+03 
+  1 SNES Function norm 3.234986055686e-10 
+Current power, average power, integrated power and profit for each farm: [0.9449258262573196], [0.26717059793434894], [256.48377401697496], [0.26717059793434894]
+    8    16 T=    960.00 eta norm:   543.2883 u norm:   213.4745 45.02
+volume2d rel. error  1.1686e-02
+Updating tidal elevation at t = 1020
+  0 SNES Function norm 3.421283152150e+03 
+  1 SNES Function norm 3.388196255445e-10 
+Current power, average power, integrated power and profit for each farm: [1.1331582820379245], [0.3181110499404416], [324.4732709392504], [0.3181110499404416]
+Updating tidal elevation at t = 1080
+  0 SNES Function norm 3.418075423449e+03 
+  1 SNES Function norm 3.526495472727e-10 
+Current power, average power, integrated power and profit for each farm: [1.344769367361743], [0.37514762313051386], [405.159432980955], [0.37514762313051386]
+    9    18 T=   1080.00 eta norm:   607.8550 u norm:   240.1941 46.49
+volume2d rel. error  1.3076e-02
+Updating tidal elevation at t = 1140
+  0 SNES Function norm 3.414619909627e+03 
+  1 SNES Function norm 3.608249667767e-10 
+Current power, average power, integrated power and profit for each farm: [1.5810576190581458], [0.43861657028459977], [500.02289012444373], [0.43861657028459977]
+Updating tidal elevation at t = 1200
+  0 SNES Function norm 3.410916629876e+03 
+  1 SNES Function norm 3.789402263390e-10 
+Current power, average power, integrated power and profit for each farm: [1.843297631667326], [0.5088506233537361], [610.6207480244833], [0.5088506233537361]
+   10    20 T=   1200.00 eta norm:   672.2521 u norm:   266.8682 38.84
+volume2d rel. error  1.4462e-02
+Updating tidal elevation at t = 1260
+  0 SNES Function norm 3.406965621329e+03 
+  1 SNES Function norm 3.890694262938e-10 
+Current power, average power, integrated power and profit for each farm: [2.1327377112083648], [0.5861785799182422], [738.5850106969851], [0.5861785799182422]
+Updating tidal elevation at t = 1320
+  0 SNES Function norm 3.402766939783e+03 
+  1 SNES Function norm 3.936628171228e-10 
+Current power, average power, integrated power and profit for each farm: [2.4505976291039704], [0.6709249003357752], [885.6208684432233], [0.6709249003357752]
+   11    22 T=   1320.00 eta norm:   736.4603 u norm:   293.4785 41.58
+volume2d rel. error  1.5844e-02
+Updating tidal elevation at t = 1380
+  0 SNES Function norm 3.398320660327e+03 
+  1 SNES Function norm 4.208445724649e-10 
+Current power, average power, integrated power and profit for each farm: [2.798066471703588], [0.763409316482202], [1053.5048567454387], [0.763409316482202]
+Updating tidal elevation at t = 1440
+  0 SNES Function norm 3.393626877486e+03 
+  1 SNES Function norm 4.718184004795e-10 
+Current power, average power, integrated power and profit for each farm: [3.1763005757416365], [0.8639464522846784], [1244.082891289937], [0.8639464522846784]
+   12    24 T=   1440.00 eta norm:   800.4609 u norm:   320.0070 46.24
+volume2d rel. error  1.7221e-02
+Updating tidal elevation at t = 1500
+  0 SNES Function norm 3.388685705244e+03 
+  1 SNES Function norm 4.940962622436e-10 
+Current power, average power, integrated power and profit for each farm: [3.5864215378566233], [0.9728454557075562], [1459.2681835613344], [0.9728454557075562]
+Updating tidal elevation at t = 1560
+  0 SNES Function norm 3.383497277109e+03 
+  1 SNES Function norm 5.048468656812e-10 
+Current power, average power, integrated power and profit for each farm: [4.029514284521886], [1.0904096414311844], [1701.0390406326476], [1.0904096414311844]
+   13    26 T=   1560.00 eta norm:   864.2352 u norm:   346.4359 48.98
+volume2d rel. error  1.8593e-02
+Updating tidal elevation at t = 1620
+  0 SNES Function norm 3.378061746162e+03 
+  1 SNES Function norm 5.163726656482e-10 
+Current power, average power, integrated power and profit for each farm: [4.506625189021883], [1.2169361431938028], [1971.4365519739606], [1.2169361431938028]
+Updating tidal elevation at t = 1680
+  0 SNES Function norm 3.372379285056e+03 
+  1 SNES Function norm 5.270592977131e-10 
+Current power, average power, integrated power and profit for each farm: [5.018760207832241], [1.352715574073747], [2272.562164443895], [1.352715574073747]
+   14    28 T=   1680.00 eta norm:   927.7648 u norm:   372.7474 32.29
+volume2d rel. error  1.9960e-02
+Updating tidal elevation at t = 1740
+  0 SNES Function norm 3.366450086014e+03 
+  1 SNES Function norm 5.460667379559e-10 
+Current power, average power, integrated power and profit for each farm: [5.566882990579132], [1.4980316918842778], [2606.5751438786433], [1.4980316918842778]
+Updating tidal elevation at t = 1800
+  0 SNES Function norm 3.360274360860e+03 
+  1 SNES Function norm 5.859448914342e-10 
+Current power, average power, integrated power and profit for each farm: [6.151912871619111], [1.6531610645421055], [2975.68991617579], [1.6531610645421055]
+   15    30 T=   1800.00 eta norm:   991.0314 u norm:   398.9240 44.06
+volume2d rel. error  2.1322e-02
+Updating tidal elevation at t = 1860
+  0 SNES Function norm 3.353852341098e+03 
+  1 SNES Function norm 6.250065255000e-10 
+Current power, average power, integrated power and profit for each farm: [6.774722555696043], [1.8183727255470714], [3382.173269517553], [1.8183727255470714]
+Updating tidal elevation at t = 1920
+  0 SNES Function norm 3.347184277979e+03 
+  1 SNES Function norm 6.442943801755e-10 
+Current power, average power, integrated power and profit for each farm: [7.436135175973185], [1.9939278021228874], [3828.341380075944], [1.9939278021228874]
+   16    32 T=   1920.00 eta norm:  1054.0168 u norm:   424.9480 37.62
+volume2d rel. error  2.2677e-02
+Updating tidal elevation at t = 1980
+  0 SNES Function norm 3.340270442549e+03 
+  1 SNES Function norm 6.624375154105e-10 
+Current power, average power, integrated power and profit for each farm: [8.13692026016022], [2.1800790887300794], [4316.556595685557], [2.1800790887300794]
+Updating tidal elevation at t = 2040
+  0 SNES Function norm 3.333111125645e+03 
+  1 SNES Function norm 6.780877845201e-10 
+Current power, average power, integrated power and profit for each farm: [8.877788101930996], [2.377070530294812], [4849.223881801417], [2.377070530294812]
+   17    34 T=   2040.00 eta norm:  1116.7031 u norm:   450.8024 39.35
+volume2d rel. error  2.4026e-02
+Updating tidal elevation at t = 2100
+  0 SNES Function norm 3.325706637885e+03 
+  1 SNES Function norm 6.848630368614e-10 
+Current power, average power, integrated power and profit for each farm: [9.659382259798367], [2.585136579709199], [5428.7868173893185], [2.585136579709199]
+Updating tidal elevation at t = 2160
+  0 SNES Function norm 3.318057309673e+03 
+  1 SNES Function norm 6.921959908494e-10 
+Current power, average power, integrated power and profit for each farm: [10.482270575301989], [2.8045014129201102], [6057.723051907438], [2.8045014129201102]
+   18    36 T=   2160.00 eta norm:  1179.0722 u norm:   476.4700 46.87
+volume2d rel. error  2.5368e-02
+Updating tidal elevation at t = 2220
+  0 SNES Function norm 3.310163491225e+03 
+  1 SNES Function norm 7.025991327614e-10 
+Current power, average power, integrated power and profit for each farm: [11.346936159046175], [3.035378027680274], [6738.539221450209], [3.035378027680274]
+Updating tidal elevation at t = 2280
+  0 SNES Function norm 3.302025552607e+03 
+  1 SNES Function norm 7.224657916470e-10 
+Current power, average power, integrated power and profit for each farm: [12.253770916913671], [3.2779673142390475], [7473.765476465029], [3.2779673142390475]
+   19    38 T=   2280.00 eta norm:  1241.1064 u norm:   501.9341 47.08
+volume2d rel. error  2.6703e-02
+Updating tidal elevation at t = 2340
+  0 SNES Function norm 3.293643883781e+03 
+  1 SNES Function norm 7.372788590045e-10 
+Current power, average power, integrated power and profit for each farm: [13.203074730457189], [3.5324572479882312], [8265.94996029246], [3.5324572479882312]
+Updating tidal elevation at t = 2400
+  0 SNES Function norm 3.285018894614e+03 
+  1 SNES Function norm 7.527123734896e-10 
+Current power, average power, integrated power and profit for each farm: [14.195062730670646], [3.799022385055291], [9117.653724132699], [3.799022385055291]
+   20    40 T=   2400.00 eta norm:  1302.7879 u norm:   527.1780 37.03
+volume2d rel. error  2.8030e-02
+Updating tidal elevation at t = 2460
+  0 SNES Function norm 3.276151014858e+03 
+  1 SNES Function norm 7.620335191775e-10 
+Current power, average power, integrated power and profit for each farm: [15.229881035380151], [4.077823815551019], [10031.446586255508], [4.077823815551019]
+Updating tidal elevation at t = 2520
+  0 SNES Function norm 3.267040694109e+03 
+  1 SNES Function norm 7.693933330052e-10 
+Current power, average power, integrated power and profit for each farm: [16.307628442158634], [4.369009639994058], [11009.904292785026], [4.369009639994058]
+   21    42 T=   2520.00 eta norm:  1364.0992 u norm:   552.1856 40.47
+volume2d rel. error  2.9349e-02
+Updating tidal elevation at t = 2580
+  0 SNES Function norm 3.257688401791e+03 
+  1 SNES Function norm 7.778272758912e-10 
+Current power, average power, integrated power and profit for each farm: [17.428379089692573], [4.6727159062661165], [12055.607038166581], [4.6727159062661165]
+Updating tidal elevation at t = 2640
+  0 SNES Function norm 3.248094627179e+03 
+  1 SNES Function norm 7.815181751204e-10 
+Current power, average power, integrated power and profit for each farm: [18.59220023781817], [4.9890678228923], [13171.139052435672], [4.9890678228923]
+   22    44 T=   2640.00 eta norm:  1425.0227 u norm:   576.9408 40.71
+volume2d rel. error  3.0660e-02
+Updating tidal elevation at t = 2700
+  0 SNES Function norm 3.238259879498e+03 
+  1 SNES Function norm 7.882662760779e-10 
+Current power, average power, integrated power and profit for each farm: [19.79916059844236], [5.318180995682301], [14359.088688342214], [5.318180995682301]
+Updating tidal elevation at t = 2760
+  0 SNES Function norm 3.228184688039e+03 
+  1 SNES Function norm 7.898600091782e-10 
+Current power, average power, integrated power and profit for each farm: [21.04932757332743], [5.660162443022412], [15622.048342741859], [5.660162443022412]
+   23    46 T=   2760.00 eta norm:  1485.5412 u norm:   601.4279 29.00
+volume2d rel. error  3.1963e-02
+Updating tidal elevation at t = 2820
+  0 SNES Function norm 3.217869602261e+03 
+  1 SNES Function norm 8.004106986352e-10 
+Current power, average power, integrated power and profit for each farm: [22.342755064131964], [6.015111222194956], [16962.613646589776], [6.015111222194956]
+Updating tidal elevation at t = 2880
+  0 SNES Function norm 3.207315191822e+03 
+  1 SNES Function norm 8.560354802716e-10 
+Current power, average power, integrated power and profit for each farm: [23.679465892683993], [6.383118611163478], [18383.381600150817], [6.383118611163478]
+   24    48 T=   2880.00 eta norm:  1545.6374 u norm:   625.6316 30.33
+volume2d rel. error  3.3256e-02
+Updating tidal elevation at t = 2940
+  0 SNES Function norm 3.196522046542e+03 
+  1 SNES Function norm 9.420739382271e-10 
+Current power, average power, integrated power and profit for each farm: [25.059433567723985], [6.764267895991243], [19886.947614214256], [6.764267895991243]
+Updating tidal elevation at t = 3000
+  0 SNES Function norm 3.185490776316e+03 
+  1 SNES Function norm 9.800676127218e-10 
+Current power, average power, integrated power and profit for each farm: [26.482567247288394], [7.1586338830171865], [21475.90164905156], [7.1586338830171865]
+   25    50 T=   3000.00 eta norm:  1605.2942 u norm:   649.5367 47.45
+volume2d rel. error  3.4539e-02
+Updating tidal elevation at t = 3060
+  0 SNES Function norm 3.174222010991e+03 
+  1 SNES Function norm 9.862034125000e-10 
+Current power, average power, integrated power and profit for each farm: [27.94870196775588], [7.566282276835592], [23152.82376711691], [7.566282276835592]
+Updating tidal elevation at t = 3120
+  0 SNES Function norm 3.162716400251e+03 
+  1 SNES Function norm 9.979806152778e-10 
+Current power, average power, integrated power and profit for each farm: [29.457594381331056], [7.987269048075889], [24920.279429996775], [7.987269048075889]
+   26    52 T=   3120.00 eta norm:  1664.4947 u norm:   673.1286 37.52
+volume2d rel. error  3.5813e-02
+Updating tidal elevation at t = 3180
+  0 SNES Function norm 3.150974613522e+03 
+  1 SNES Function norm 1.012863518348e-09 
+Current power, average power, integrated power and profit for each farm: [31.008922955755292], [8.42163987652267], [26780.814807342093], [8.42163987652267]
+Updating tidal elevation at t = 3240
+  0 SNES Function norm 3.138997339931e+03 
+  1 SNES Function norm 1.021049690313e-09 
+Current power, average power, integrated power and profit for each farm: [32.60229104840402], [8.869429713038992], [28736.952270246333], [8.869429713038992]
+   27    54 T=   3240.00 eta norm:  1723.2219 u norm:   696.3929 46.07
+volume2d rel. error  3.7077e-02
+Updating tidal elevation at t = 3300
+  0 SNES Function norm 3.126785288330e+03 
+  1 SNES Function norm 1.032791902762e-09 
+Current power, average power, integrated power and profit for each farm: [34.237231324628354], [9.330662469613344], [30791.186149724035], [9.330662469613344]
+Updating tidal elevation at t = 3360
+  0 SNES Function norm 3.114339187417e+03 
+  1 SNES Function norm 1.040355189777e-09 
+Current power, average power, integrated power and profit for each farm: [35.91321038356124], [9.805350825219557], [32945.97877273771], [9.805350825219557]
+   28    56 T=   3360.00 eta norm:  1781.4592 u norm:   719.3161 28.17
+volume2d rel. error  3.8330e-02
+Updating tidal elevation at t = 3420
+  0 SNES Function norm 3.101659785959e+03 
+  1 SNES Function norm 1.043209152751e-09 
+Current power, average power, integrated power and profit for each farm: [37.62963291894797], [10.29349612510953], [35203.75674787459], [10.29349612510953]
+Updating tidal elevation at t = 3480
+  0 SNES Function norm 3.088747853089e+03 
+  1 SNES Function norm 1.052250577062e-09 
+Current power, average power, integrated power and profit for each farm: [39.38584512295821], [10.795088349210369], [37566.90745525208], [10.795088349210369]
+   29    58 T=   3480.00 eta norm:  1839.1896 u norm:   741.8847 32.26
+volume2d rel. error  3.9572e-02
+Updating tidal elevation at t = 3540
+  0 SNES Function norm 3.075604178614e+03 
+  1 SNES Function norm 1.064550724760e-09 
+Current power, average power, integrated power and profit for each farm: [41.18113728742722], [11.310106127824213], [40037.775692497715], [11.310106127824213]
+Updating tidal elevation at t = 3600
+  0 SNES Function norm 3.062229573255e+03 
+  1 SNES Function norm 1.073810966479e-09 
+Current power, average power, integrated power and profit for each farm: [43.0147456882521], [11.838516787164679], [42618.660433792844], [11.838516787164679]
+   30    60 T=   3600.00 eta norm:  1896.3969 u norm:   764.0863 46.38
+volume2d rel. error  4.0803e-02
+Updating tidal elevation at t = 3660
+  0 SNES Function norm 3.048624868728e+03 
+  1 SNES Function norm 1.121839891222e-09 
+Current power, average power, integrated power and profit for each farm: [44.885853896806154], [12.3802764119129], [45311.811667601214], [12.3802764119129]
+Updating tidal elevation at t = 3720
+  0 SNES Function norm 3.034790917608e+03 
+  1 SNES Function norm 1.180987542876e-09 
+Current power, average power, integrated power and profit for each farm: [46.79359368383967], [12.935329916298816], [48119.427288631596], [12.935329916298816]
+   31    62 T=   3720.00 eta norm:  1953.0645 u norm:   785.9087 42.02
+volume2d rel. error  4.2022e-02
+Updating tidal elevation at t = 3780
+  0 SNES Function norm 3.020728592977e+03 
+  1 SNES Function norm 1.234769263566e-09 
+Current power, average power, integrated power and profit for each farm: [48.73704568555764], [13.503611118985464], [51043.65002976506], [13.503611118985464]
+Updating tidal elevation at t = 3840
+  0 SNES Function norm 3.006438787917e+03 
+  1 SNES Function norm 1.271931788546e-09 
+Current power, average power, integrated power and profit for each farm: [50.71523999379808], [14.085042820154412], [54086.56442939294], [14.085042820154412]
+   32    64 T=   3840.00 eta norm:  2009.1763 u norm:   807.3404 32.47
+volume2d rel. error  4.3230e-02
+Updating tidal elevation at t = 3900
+  0 SNES Function norm 2.991922414945e+03 
+  1 SNES Function norm 1.293576033691e-09 
+Current power, average power, integrated power and profit for each farm: [52.727156811334886], [14.679536881557189], [57250.193838073035], [14.679536881557189]
+Updating tidal elevation at t = 3960
+  0 SNES Function norm 2.977180405510e+03 
+  1 SNES Function norm 1.299220189050e-09 
+Current power, average power, integrated power and profit for each farm: [54.77172727929746], [15.28699431182598], [60536.49747483088], [15.28699431182598]
+   33    66 T=   3960.00 eta norm:  2064.7166 u norm:   828.3699 43.01
+volume2d rel. error  4.4425e-02
+Updating tidal elevation at t = 4020
+  0 SNES Function norm 2.962213709656e+03 
+  1 SNES Function norm 1.313688308324e-09 
+Current power, average power, integrated power and profit for each farm: [56.847834540610876], [15.9073053600168], [63947.36754726753], [15.9073053600168]
+Updating tidal elevation at t = 4080
+  0 SNES Function norm 2.947023295882e+03 
+  1 SNES Function norm 1.318778631859e-09 
+Current power, average power, integrated power and profit for each farm: [58.95431505874805], [16.54034962029226], [67484.62645079242], [16.54034962029226]
+   34    68 T=   4080.00 eta norm:  2119.6697 u norm:   848.9865 43.34
+volume2d rel. error  4.5607e-02
+Updating tidal elevation at t = 4140
+  0 SNES Function norm 2.931610151205e+03 
+  1 SNES Function norm 1.326806588647e-09 
+Current power, average power, integrated power and profit for each farm: [61.08996017309039], [17.185996150042957], [71150.02406117784], [17.185996150042957]
+Updating tidal elevation at t = 4200
+  0 SNES Function norm 2.915975281368e+03 
+  1 SNES Function norm 1.346150490674e-09 
+Current power, average power, integrated power and profit for each farm: [63.253517846758285], [17.844103602853178], [74945.23513198334], [17.844103602853178]
+   35    70 T=   4200.00 eta norm:  2174.0201 u norm:   869.1794 45.97
+volume2d rel. error  4.6777e-02
+Updating tidal elevation at t = 4260
+  0 SNES Function norm 2.900119711110e+03 
+  1 SNES Function norm 1.358187970499e-09 
+Current power, average power, integrated power and profit for each farm: [65.44369455173928], [18.51452037678115], [78871.8568050877], [18.51452037678115]
+Updating tidal elevation at t = 4320
+  0 SNES Function norm 2.884044484439e+03 
+  1 SNES Function norm 1.367106482947e-09 
+Current power, average power, integrated power and profit for each farm: [67.65915723777543], [19.197084777628294], [82931.40623935423], [19.197084777628294]
+   36    72 T=   4320.00 eta norm:  2227.7524 u norm:   888.9382 39.91
+volume2d rel. error  4.7933e-02
+Updating tidal elevation at t = 4380
+  0 SNES Function norm 2.867750664840e+03 
+  1 SNES Function norm 1.375044587246e-09 
+Current power, average power, integrated power and profit for each farm: [69.89853534157584], [19.891625196312507], [87125.31835984878], [19.891625196312507]
+Updating tidal elevation at t = 4440
+  0 SNES Function norm 2.851239335392e+03 
+  1 SNES Function norm 1.383834302175e-09 
+Current power, average power, integrated power and profit for each farm: [72.16042280668154], [20.597960299155332], [91454.94372824968], [20.597960299155332]
+   37    74 T=   4440.00 eta norm:  2280.8515 u norm:   908.2531 45.70
+volume2d rel. error  4.9075e-02
+Updating tidal elevation at t = 4500
+  0 SNES Function norm 2.834511598800e+03 
+  1 SNES Function norm 1.397436562347e-09 
+Current power, average power, integrated power and profit for each farm: [74.44338009812039], [21.3158992298082], [95921.5465341369], [21.3158992298082]
+Updating tidal elevation at t = 4560
+  0 SNES Function norm 2.817568577348e+03 
+  1 SNES Function norm 1.396895489113e-09 
+Current power, average power, integrated power and profit for each farm: [76.74593620491052], [22.04524182158586], [100526.30270643152], [22.04524182158586]
+   38    76 T=   4560.00 eta norm:  2333.3022 u norm:   927.1147 47.17
+volume2d rel. error  5.0204e-02
+Updating tidal elevation at t = 4620
+  0 SNES Function norm 2.800411412803e+03 
+  1 SNES Function norm 1.400702253316e-09 
+Current power, average power, integrated power and profit for each farm: [79.06659063306041], [22.78577881913748], [105270.29814441515], [22.78577881913748]
+Updating tidal elevation at t = 4680
+  0 SNES Function norm 2.783041266290e+03 
+  1 SNES Function norm 1.408621314001e-09 
+Current power, average power, integrated power and profit for each farm: [81.40381539252027], [23.537292108539823], [110154.52706796637], [23.537292108539823]
+   39    78 T=   4680.00 eta norm:  2385.0896 u norm:   945.5139 35.59
+volume2d rel. error  5.1318e-02
+Updating tidal elevation at t = 4740
+  0 SNES Function norm 2.765459318158e+03 
+  1 SNES Function norm 1.419235440653e-09 
+Current power, average power, integrated power and profit for each farm: [83.75605698348006], [24.299554955058053], [115179.89048697517], [24.299554955058053]
+Updating tidal elevation at t = 4800
+  0 SNES Function norm 2.747666767851e+03 
+  1 SNES Function norm 1.428779810869e-09 
+Current power, average power, integrated power and profit for each farm: [86.12173838629066], [25.072332247948463], [120347.19479015261], [25.072332247948463]
+   40    80 T=   4800.00 eta norm:  2436.1991 u norm:   963.4423 30.48
+volume2d rel. error  5.2418e-02
+Updating tidal elevation at t = 4860
+  0 SNES Function norm 2.729664833784e+03 
+  1 SNES Function norm 1.426917295497e-09 
+Current power, average power, integrated power and profit for each farm: [88.49926105767301], [25.85538075177222], [125657.150453613], [25.85538075177222]
+Updating tidal elevation at t = 4920
+  0 SNES Function norm 2.711454753234e+03 
+  1 SNES Function norm 1.446418868357e-09 
+Current power, average power, integrated power and profit for each farm: [90.88700693422267], [26.648449363753326], [131110.37086966637], [26.648449363753326]
+   41    82 T=   4920.00 eta norm:  2486.6159 u norm:   980.8920 43.72
+volume2d rel. error  5.3503e-02
+Updating tidal elevation at t = 4980
+  0 SNES Function norm 2.693037782239e+03 
+  1 SNES Function norm 1.462139624330e-09 
+Current power, average power, integrated power and profit for each farm: [93.28334044280707], [27.45127937675397], [136707.37129623478], [27.45127937675397]
+Updating tidal elevation at t = 5040
+  0 SNES Function norm 2.674415195500e+03 
+  1 SNES Function norm 1.476821443932e-09 
+Current power, average power, integrated power and profit for each farm: [95.68661051633855], [28.263604747463315], [142448.5679272151], [28.263604747463315]
+   42    84 T=   5040.00 eta norm:  2536.3260 u norm:   997.8555 46.02
+volume2d rel. error  5.4573e-02
+Updating tidal elevation at t = 5100
+  0 SNES Function norm 2.655588286291e+03 
+  1 SNES Function norm 1.493471675313e-09 
+Current power, average power, integrated power and profit for each farm: [98.09515261270303], [29.085152369407307], [148334.27708397727], [29.085152369407307]
+Updating tidal elevation at t = 5160
+  0 SNES Function norm 2.636558366376e+03 
+  1 SNES Function norm 1.506318412522e-09 
+Current power, average power, integrated power and profit for each farm: [100.5072907341451], [29.91564235039263], [154364.71452802597], [29.91564235039263]
+   43    86 T=   5160.00 eta norm:  2585.3149 u norm:  1014.3259 40.29
+volume2d rel. error  5.5627e-02
+Updating tidal elevation at t = 5220
+  0 SNES Function norm 2.617326765912e+03 
+  1 SNES Function norm 1.516761169080e-09 
+Current power, average power, integrated power and profit for each farm: [102.92133944426398], [30.75478829400035], [160539.99489468182], [30.75478829400035]
+Updating tidal elevation at t = 5280
+  0 SNES Function norm 2.597894833367e+03 
+  1 SNES Function norm 1.527383260061e-09 
+Current power, average power, integrated power and profit for each farm: [105.33560587961118], [31.602297584745926], [166860.13124745848], [31.602297584745926]
+   44    88 T=   5280.00 eta norm:  2633.5690 u norm:  1030.2968 45.54
+volume2d rel. error  5.6665e-02
+Updating tidal elevation at t = 5340
+  0 SNES Function norm 2.578263935430e+03 
+  1 SNES Function norm 1.529621918080e-09 
+Current power, average power, integrated power and profit for each farm: [107.74839175289134], [32.45787167652284], [173325.03475263197], [32.45787167652284]
+Updating tidal elevation at t = 5400
+  0 SNES Function norm 2.558435456911e+03 
+  1 SNES Function norm 1.530455169511e-09 
+Current power, average power, integrated power and profit for each farm: [110.15799534487935], [33.321206383949026], [179934.51447332473], [33.321206383949026]
+   45    90 T=   5400.00 eta norm:  2681.0743 u norm:  1045.7621 33.24
+volume2d rel. error  5.7687e-02
+Updating tidal elevation at t = 5460
+  0 SNES Function norm 2.538410800658e+03 
+  1 SNES Function norm 1.548257846191e-09 
+Current power, average power, integrated power and profit for each farm: [112.56271348205303], [34.19199217623588], [186688.2772822479], [34.19199217623588]
+Updating tidal elevation at t = 5520
+  0 SNES Function norm 2.518191387452e+03 
+  1 SNES Function norm 1.539880405790e-09 
+Current power, average power, integrated power and profit for each farm: [114.96084349726884], [35.06991447320363], [193585.92789208403], [35.06991447320363]
+   46    92 T=   5520.00 eta norm:  2727.8174 u norm:  1060.7165 47.26
+volume2d rel. error  5.8693e-02
+Updating tidal elevation at t = 5580
+  0 SNES Function norm 2.497778655913e+03 
+  1 SNES Function norm 1.554164759427e-09 
+Current power, average power, integrated power and profit for each farm: [117.3506851706201], [35.95465394306832], [200626.96900232125], [35.95465394306832]
+Updating tidal elevation at t = 5640
+  0 SNES Function norm 2.477174062396e+03 
+  1 SNES Function norm 1.554182932634e-09 
+Current power, average power, integrated power and profit for each farm: [119.73054264794301], [36.84588680163082], [207810.80156119782], [36.84588680163082]
+   47    94 T=   5640.00 eta norm:  2773.7851 u norm:  1075.1549 47.92
+volume2d rel. error  5.9682e-02
+Updating tidal elevation at t = 5700
+  0 SNES Function norm 2.456379080890e+03 
+  1 SNES Function norm 1.562356663993e-09 
+Current power, average power, integrated power and profit for each farm: [122.09872633434883], [37.74328511250153], [215136.72514125874], [37.74328511250153]
+Updating tidal elevation at t = 5760
+  0 SNES Function norm 2.435395202912e+03 
+  1 SNES Function norm 1.561077920326e-09 
+Current power, average power, integrated power and profit for each farm: [124.45355476036526], [38.64651708800012], [222603.93842688066], [38.64651708800012]
+   48    96 T=   5760.00 eta norm:  2818.9642 u norm:  1089.0728 42.74
+volume2d rel. error  6.0654e-02
+Updating tidal elevation at t = 5820
+  0 SNES Function norm 2.414223937399e+03 
+  1 SNES Function norm 1.574992152879e-09 
+Current power, average power, integrated power and profit for each farm: [126.79335641826597], [39.55524739037399], [230211.53981197663], [39.55524739037399]
+Updating tidal elevation at t = 5880
+  0 SNES Function norm 2.392866810600e+03 
+  1 SNES Function norm 1.574880432174e-09 
+Current power, average power, integrated power and profit for each farm: [129.11647156642934], [40.4691374329868], [237958.52810596238], [40.4691374329868]
+   49    98 T=   5880.00 eta norm:  2863.3419 u norm:  1102.4661 43.64
+volume2d rel. error  6.1609e-02
+Updating tidal elevation at t = 5940
+  0 SNES Function norm 2.371325365960e+03 
+  1 SNES Function norm 1.578975516026e-09 
+Current power, average power, integrated power and profit for each farm: [131.42125399945877], [41.38784568113298], [245843.80334592992], [41.38784568113298]
+Updating tidal elevation at t = 6000
+  0 SNES Function norm 2.349601164012e+03 
+  1 SNES Function norm 1.577454396672e-09 
+Current power, average power, integrated power and profit for each farm: [133.706072782075], [42.3110279521424], [253866.16771285443], [42.3110279521424]
+   50   100 T=   6000.00 eta norm:  2906.9055 u norm:  1115.3313 40.09
+volume2d rel. error  6.2546e-02
+Updating tidal elevation at t = 6060
+  0 SNES Function norm 2.327695782255e+03 
+  1 SNES Function norm 1.590842195435e-09 
+Current power, average power, integrated power and profit for each farm: [135.96931394481777], [43.238337714446125], [262024.3265495435], [43.238337714446125]
+Updating tidal elevation at t = 6120
+  0 SNES Function norm 2.305610815039e+03 
+  1 SNES Function norm 1.590174363861e-09 
+Current power, average power, integrated power and profit for each farm: [138.20938213971397], [44.16942638528209], [270316.88947792636], [44.16942638528209]
+   51   102 T=   6120.00 eta norm:  2949.6428 u norm:  1127.6652 34.20
+volume2d rel. error  6.3466e-02
+Updating tidal elevation at t = 6180
+  0 SNES Function norm 2.283347873445e+03 
+  1 SNES Function norm 1.596563927259e-09 
+Current power, average power, integrated power and profit for each farm: [140.42470225418197], [45.10394362672772], [278742.3716131773], [45.10394362672772]
+Updating tidal elevation at t = 6240
+  0 SNES Function norm 2.260908585163e+03 
+  1 SNES Function norm 1.587773107821e-09 
+Current power, average power, integrated power and profit for each farm: [142.61372098152174], [46.04153763975458], [287299.1948720686], [46.04153763975458]
+   52   104 T=   6240.00 eta norm:  2991.5414 u norm:  1139.4651 47.87
+volume2d rel. error  6.4367e-02
+Updating tidal elevation at t = 6300
+  0 SNES Function norm 2.238294594366e+03 
+  1 SNES Function norm 1.602784946126e-09 
+Current power, average power, integrated power and profit for each farm: [144.77490834652502], [46.981855456009534], [295985.68937286007], [46.981855456009534]
+Updating tidal elevation at t = 6360
+  0 SNES Function norm 2.215507561584e+03 
+  1 SNES Function norm 1.603223709402e-09 
+Current power, average power, integrated power and profit for each farm: [146.90675918479474], [47.92454322703581], [304800.09492394776], [47.92454322703581]
+   53   106 T=   6360.00 eta norm:  3032.5896 u norm:  1150.7287 41.41
+volume2d rel. error  6.5251e-02
+Updating tidal elevation at t = 6420
+  0 SNES Function norm 2.192549163581e+03 
+  1 SNES Function norm 1.603709984953e-09 
+Current power, average power, integrated power and profit for each farm: [149.0077945744233], [48.869246510656254], [313740.56259841315], [48.869246510656254]
+Updating tidal elevation at t = 6480
+  0 SNES Function norm 2.169421093217e+03 
+  1 SNES Function norm 1.614778639133e-09 
+Current power, average power, integrated power and profit for each farm: [151.07656321888592], [49.81561055425097], [322805.1563915463], [49.81561055425097]
+   54   108 T=   6480.00 eta norm:  3072.7756 u norm:  1161.4541 34.27
+volume2d rel. error  6.6115e-02
+Updating tidal elevation at t = 6540
+  0 SNES Function norm 2.146125059325e+03 
+  1 SNES Function norm 1.680878245477e-09 
+Current power, average power, integrated power and profit for each farm: [153.11164278008462], [50.76328057467146], [331991.85495835135], [50.76328057467146]
+Updating tidal elevation at t = 6600
+  0 SNES Function norm 2.122662786573e+03 
+  1 SNES Function norm 1.856704710227e-09 
+Current power, average power, integrated power and profit for each farm: [155.11164116052794], [51.71190203454288], [341298.553427983], [51.71190203454288]
+   55   110 T=   6600.00 eta norm:  3112.0881 u norm:  1171.6398 42.69
+volume2d rel. error  6.6961e-02
+Updating tidal elevation at t = 6660
+  0 SNES Function norm 2.099036015329e+03 
+  1 SNES Function norm 1.945392384561e-09 
+Current power, average power, integrated power and profit for each farm: [157.07519773381122], [52.66112091471647], [350723.0652920117], [52.66112091471647]
+Updating tidal elevation at t = 6720
+  0 SNES Function norm 2.075246501527e+03 
+  1 SNES Function norm 1.953028170592e-09 
+Current power, average power, integrated power and profit for each farm: [159.00098452256077], [53.610583982643654], [360263.12436336535], [53.610583982643654]
+   56   112 T=   6720.00 eta norm:  3150.5157 u norm:  1181.2848 47.71
+volume2d rel. error  6.7788e-02
+Updating tidal elevation at t = 6780
+  0 SNES Function norm 2.051296016526e+03 
+  1 SNES Function norm 1.959822259240e-09 
+Current power, average power, integrated power and profit for each farm: [160.88770732333987], [54.55993905645512], [369916.3868027657], [54.55993905645512]
+Updating tidal elevation at t = 6840
+  0 SNES Function norm 2.027186346975e+03 
+  1 SNES Function norm 1.961278159440e-09 
+Current power, average power, integrated power and profit for each farm: [162.734106777747], [55.50883526453663], [379680.43320943054], [55.50883526453663]
+   57   114 T=   6840.00 eta norm:  3188.0477 u norm:  1190.3884 40.34
+volume2d rel. error  6.8596e-02
+Updating tidal elevation at t = 6900
+  0 SNES Function norm 2.002919294666e+03 
+  1 SNES Function norm 1.959135990608e-09 
+Current power, average power, integrated power and profit for each farm: [164.53895938938862], [56.45692330040491], [389552.77077279385], [56.45692330040491]
+Updating tidal elevation at t = 6960
+  0 SNES Function norm 1.978496676397e+03 
+  1 SNES Function norm 1.963790324838e-09 
+Current power, average power, integrated power and profit for each farm: [166.30107848631084], [57.4038556726972], [399530.8354819725], [57.4038556726972]
+   58   116 T=   6960.00 eta norm:  3224.6733 u norm:  1198.9503 28.46
+volume2d rel. error  6.9384e-02
+Updating tidal elevation at t = 7020
+  0 SNES Function norm 1.953920323827e+03 
+  1 SNES Function norm 1.974043559037e-09 
+Current power, average power, integrated power and profit for each farm: [168.01931512860685], [58.34928695009813], [409611.9943896889], [58.34928695009813]
+Updating tidal elevation at t = 7080
+  0 SNES Function norm 1.929192083328e+03 
+  1 SNES Function norm 1.970137865344e-09 
+Current power, average power, integrated power and profit for each farm: [169.69255896106353], [59.29287400103852], [419793.5479273527], [59.29287400103852]
+   59   118 T=   7080.00 eta norm:  3260.3821 u norm:  1206.9706 32.38
+volume2d rel. error  7.0152e-02
+Updating tidal elevation at t = 7140
+  0 SNES Function norm 1.904313815847e+03 
+  1 SNES Function norm 1.973828689834e-09 
+Current power, average power, integrated power and profit for each farm: [171.31973901065092], [60.23427622801005], [430072.73226799176], [60.23427622801005]
+Updating tidal elevation at t = 7200
+  0 SNES Function norm 1.879287396750e+03 
+  1 SNES Function norm 1.990287825669e-09 
+Current power, average power, integrated power and profit for each farm: [172.8998244289583], [61.17315579635128], [440446.72173372924], [61.17315579635128]
+   60   120 T=   7200.00 eta norm:  3295.1639 u norm:  1214.4496 42.96
+volume2d rel. error  7.0900e-02
+Updating tidal elevation at t = 7260
+  0 SNES Function norm 1.854114715683e+03 
+  1 SNES Function norm 1.988582331264e-09 
+Current power, average power, integrated power and profit for each farm: [174.43182517960267], [62.10917785736989], [450912.6312445054], [62.10917785736989]
+Updating tidal elevation at t = 7320
+  0 SNES Function norm 1.828797676420e+03 
+  1 SNES Function norm 1.991904111073e-09 
+Current power, average power, integrated power and profit for each farm: [175.91479267079592], [63.04201076567666], [461467.51880475314], [63.04201076567666]
+   61   122 T=   7320.00 eta norm:  3329.0089 u norm:  1221.3880 42.84
+volume2d rel. error  7.1629e-02
+Updating tidal elevation at t = 7380
+  0 SNES Function norm 1.803338196715e+03 
+  1 SNES Function norm 1.979785511932e-09 
+Current power, average power, integrated power and profit for each farm: [177.34782033320752], [63.97132629061593], [472108.38802474557], [63.97132629061593]
+Updating tidal elevation at t = 7440
+  0 SNES Function norm 1.777738208155e+03 
+  1 SNES Function norm 1.989515981575e-09 
+Current power, average power, integrated power and profit for each farm: [178.7300441435874], [64.89679982168829], [482832.19067336083], [64.89679982168829]
+   62   124 T=   7440.00 eta norm:  3361.9075 u norm:  1227.7870 47.53
+volume2d rel. error  7.2337e-02
+Updating tidal elevation at t = 7500
+  0 SNES Function norm 1.751999656009e+03 
+  1 SNES Function norm 1.985606406397e-09 
+Current power, average power, integrated power and profit for each farm: [180.06064309443985], [65.81811056787029], [493635.8292590272], [65.81811056787029]
+Updating tidal elevation at t = 7560
+  0 SNES Function norm 1.726124499084e+03 
+  1 SNES Function norm 1.995708443388e-09 
+Current power, average power, integrated power and profit for each farm: [181.3388396101708], [66.73494175074569], [504516.1596356374], [66.73494175074569]
+   63   126 T=   7560.00 eta norm:  3393.8502 u norm:  1233.6479 29.46
+volume2d rel. error  7.3024e-02
+Updating tidal elevation at t = 7620
+  0 SNES Function norm 1.700114709572e+03 
+  1 SNES Function norm 1.991057927807e-09 
+Current power, average power, integrated power and profit for each farm: [182.5638999103299], [67.64698079137234], [515469.9936302572], [67.64698079137234]
+Updating tidal elevation at t = 7680
+  0 SNES Function norm 1.673972272908e+03 
+  1 SNES Function norm 2.002314671230e-09 
+Current power, average power, integrated power and profit for each farm: [183.73513432042438], [68.55391949081806], [526494.1016894827], [68.55391949081806]
+   64   128 T=   7680.00 eta norm:  3424.8280 u norm:  1238.9724 35.46
+volume2d rel. error  7.3690e-02
+Updating tidal elevation at t = 7740
+  0 SNES Function norm 1.647699187619e+03 
+  1 SNES Function norm 2.001370059713e-09 
+Current power, average power, integrated power and profit for each farm: [184.85189753102367], [69.45545420430803], [537585.2155413441], [69.45545420430803]
+Updating tidal elevation at t = 7800
+  0 SNES Function norm 1.621297465183e+03 
+  1 SNES Function norm 1.993481583828e-09 
+Current power, average power, integrated power and profit for each farm: [185.9135888058373], [70.35128600893518], [548740.0308696944], [70.35128600893518]
+   65   130 T=   7800.00 eta norm:  3454.8320 u norm:  1243.7625 31.90
+volume2d rel. error  7.4336e-02
+Updating tidal elevation at t = 7860
+  0 SNES Function norm 1.594769129888e+03 
+  1 SNES Function norm 2.005470115453e-09 
+Current power, average power, integrated power and profit for each farm: [186.919652139479], [71.24112086489353], [559955.2099980632], [71.24112086489353]
+Updating tidal elevation at t = 7920
+  0 SNES Function norm 1.568116218689e+03 
+  1 SNES Function norm 1.993893382778e-09 
+Current power, average power, integrated power and profit for each farm: [187.86957636577975], [72.12466977020328], [571227.38458001], [72.12466977020328]
+   66   132 T=   7920.00 eta norm:  3483.8538 u norm:  1248.0205 48.29
+volume2d rel. error  7.4960e-02
+Updating tidal elevation at t = 7980
+  0 SNES Function norm 1.541340781070e+03 
+  1 SNES Function norm 2.012905801155e-09 
+Current power, average power, integrated power and profit for each farm: [188.7628952174965], [73.00164890890474], [582553.1582930598], [73.00164890890474]
+Updating tidal elevation at t = 8040
+  0 SNES Function norm 1.514444878917e+03 
+  1 SNES Function norm 2.013630182249e-09 
+Current power, average power, integrated power and profit for each farm: [189.59918733822752], [73.87177979270565], [593929.1095333535], [73.87177979270565]
+   67   134 T=   8040.00 eta norm:  3511.8851 u norm:  1251.7487 41.95
+volume2d rel. error  7.5564e-02
+Updating tidal elevation at t = 8100
+  0 SNES Function norm 1.487430586381e+03 
+  1 SNES Function norm 2.025611401071e-09 
+Current power, average power, integrated power and profit for each farm: [190.37807624762357], [74.73478939607543], [605351.794108211], [74.73478939607543]
+Updating tidal elevation at t = 8160
+  0 SNES Function norm 1.460299989764e+03 
+  1 SNES Function norm 2.017325443178e-09 
+Current power, average power, integrated power and profit for each farm: [191.09923026077448], [75.59041028478644], [616817.7479238574], [75.59041028478644]
+   68   136 T=   8160.00 eta norm:  3538.9179 u norm:  1254.9501 34.04
+volume2d rel. error  7.6145e-02
+Updating tidal elevation at t = 8220
+  0 SNES Function norm 1.433055187392e+03 
+  1 SNES Function norm 2.032196033302e-09 
+Current power, average power, integrated power and profit for each farm: [191.7623623628047], [76.43838073791068], [628323.4896656257], [76.43838073791068]
+Updating tidal elevation at t = 8280
+  0 SNES Function norm 1.405698289516e+03 
+  1 SNES Function norm 2.028133844063e-09 
+Current power, average power, integrated power and profit for each farm: [192.36723003973498], [77.27844486328621], [639865.5234680098], [77.27844486328621]
+   69   138 T=   8280.00 eta norm:  3564.9445 u norm:  1257.6277 35.86
+volume2d rel. error  7.6705e-02
+Updating tidal elevation at t = 8340
+  0 SNES Function norm 1.378231418203e+03 
+  1 SNES Function norm 2.041919062470e-09 
+Current power, average power, integrated power and profit for each farm: [192.91363506670024], [78.11035270647623], [651440.3415720118], [78.11035270647623]
+Updating tidal elevation at t = 8400
+  0 SNES Function norm 1.350656707251e+03 
+  1 SNES Function norm 2.045085684747e-09 
+Current power, average power, integrated power and profit for each farm: [193.4014232546342], [78.93386035324879], [663044.4269672899], [78.93386035324879]
+   70   140 T=   8400.00 eta norm:  3589.9575 u norm:  1259.7846 42.47
+volume2d rel. error  7.7243e-02
+Updating tidal elevation at t = 8460
+  0 SNES Function norm 1.322976302112e+03 
+  1 SNES Function norm 2.036721313256e-09 
+Current power, average power, integrated power and profit for each farm: [193.83048415653687], [79.74873002561255], [674674.2560166821], [79.74873002561255]
+Updating tidal elevation at t = 8520
+  0 SNES Function norm 1.295192359825e+03 
+  1 SNES Function norm 2.033020571897e-09 
+Current power, average power, integrated power and profit for each farm: [194.20075073449507], [80.55473017144975], [686326.3010607519], [80.55473017144975]
+   71   142 T=   8520.00 eta norm:  3613.9498 u norm:  1261.4243 35.88
+volume2d rel. error  7.7760e-02
+Updating tidal elevation at t = 8580
+  0 SNES Function norm 1.267307048977e+03 
+  1 SNES Function norm 2.052415711158e-09 
+Current power, average power, integrated power and profit for each farm: [194.51219898863422], [81.35163554779369], [697997.0330000699], [81.35163554779369]
+Updating tidal elevation at t = 8640
+  0 SNES Function norm 1.239322549674e+03 
+  1 SNES Function norm 2.050876690705e-09 
+Current power, average power, integrated power and profit for each farm: [194.7648475491661], [82.13922729780322], [709682.9238530198], [82.13922729780322]
+   72   144 T=   8640.00 eta norm:  3636.9145 u norm:  1262.5505 38.48
+volume2d rel. error  7.8254e-02
+Updating tidal elevation at t = 8700
+  0 SNES Function norm 1.211241053543e+03 
+  1 SNES Function norm 2.043282607406e-09 
+Current power, average power, integrated power and profit for each farm: [194.95875723280778], [82.91729302149291], [721380.4492869884], [82.91729302149291]
+Updating tidal elevation at t = 8760
+  0 SNES Function norm 1.183064763761e+03 
+  1 SNES Function norm 2.056382316091e-09 
+Current power, average power, integrated power and profit for each farm: [195.09403056474395], [83.68562684028231], [733086.091120873], [83.68562684028231]
+   73   146 T=   8760.00 eta norm:  3658.8452 u norm:  1263.1672 38.38
+volume2d rel. error  7.8726e-02
+Updating tidal elevation at t = 8820
+  0 SNES Function norm 1.154795895114e+03 
+  1 SNES Function norm 2.058583070697e-09 
+Current power, average power, integrated power and profit for each farm: [195.1708112673261], [84.44402945543226], [744796.3397969125], [84.44402945543226]
+Updating tidal elevation at t = 8880
+  0 SNES Function norm 1.126436674108e+03 
+  1 SNES Function norm 2.043115926027e-09 
+Current power, average power, integrated power and profit for each farm: [195.18928371690208], [85.19230820044218], [756507.6968199266], [85.19230820044218]
+   74   148 T=   8880.00 eta norm:  3679.7355 u norm:  1263.2782 38.75
+volume2d rel. error  7.9175e-02
+Updating tidal elevation at t = 8940
+  0 SNES Function norm 1.097989339115e+03 
+  1 SNES Function norm 2.070877822788e-09 
+Current power, average power, integrated power and profit for each farm: [195.14967236979456], [85.93027708748482], [768216.6771621143], [85.93027708748482]
+Updating tidal elevation at t = 9000
+  0 SNES Function norm 1.069456140590e+03 
+  1 SNES Function norm 2.066446075673e-09 
+Current power, average power, integrated power and profit for each farm: [195.0522411587801], [86.65775684796013], [779919.8116316411], [86.65775684796013]
+   75   150 T=   9000.00 eta norm:  3699.5796 u norm:  1262.8880 28.30
+volume2d rel. error  7.9602e-02
+Updating tidal elevation at t = 9060
+  0 SNES Function norm 1.040839341347e+03 
+  1 SNES Function norm 2.067992611772e-09 
+Current power, average power, integrated power and profit for each farm: [194.89729286175705], [87.37457496725679], [791613.6492033466], [87.37457496725679]
+Updating tidal elevation at t = 9120
+  0 SNES Function norm 1.012141216931e+03 
+  1 SNES Function norm 2.053547305996e-09 
+Current power, average power, integrated power and profit for each farm: [194.68516844280384], [88.08056571380645], [803294.7593099148], [88.08056571380645]
+   76   152 T=   9120.00 eta norm:  3718.3718 u norm:  1262.0008 37.72
+volume2d rel. error  8.0007e-02
+Updating tidal elevation at t = 9180
+  0 SNES Function norm 9.833640560890e+02 
+  1 SNES Function norm 2.062637509868e-09 
+Current power, average power, integrated power and profit for each farm: [194.4162463678913], [88.77557016252595], [814959.7340919883], [88.77557016252595]
+Updating tidal elevation at t = 9240
+  0 SNES Function norm 9.545101613623e+02 
+  1 SNES Function norm 2.064539699727e-09 
+Current power, average power, integrated power and profit for each farm: [194.09094189611307], [89.45943621274405], [826605.1906057551], [89.45943621274405]
+   77   154 T=   9240.00 eta norm:  3736.1067 u norm:  1260.6213 47.45
+volume2d rel. error  8.0388e-02
+Updating tidal elevation at t = 9300
+  0 SNES Function norm 9.255818498440e+02 
+  1 SNES Function norm 2.073155353466e-09 
+Current power, average power, integrated power and profit for each farm: [193.70970634755346], [90.13201860071057], [838227.7729866083], [90.13201860071057]
+Updating tidal elevation at t = 9360
+  0 SNES Function norm 8.965814541203e+02 
+  1 SNES Function norm 2.063768071626e-09 
+Current power, average power, integrated power and profit for each farm: [193.2730263493225], [90.79317890679141], [849824.1545675676], [90.79317890679141]
+   78   156 T=   9360.00 eta norm:  3752.7793 u norm:  1258.7541 32.96
+volume2d rel. error  8.0747e-02
+Updating tidal elevation at t = 9420
+  0 SNES Function norm 8.675113234531e+02 
+  1 SNES Function norm 2.073431731084e-09 
+Current power, average power, integrated power and profit for each farm: [192.7814230606505], [91.44278555745294], [861391.0399512067], [91.44278555745294]
+Updating tidal elevation at t = 9480
+  0 SNES Function norm 8.383738252569e+02 
+  1 SNES Function norm 2.069329219885e-09 
+Current power, average power, integrated power and profit for each farm: [192.23545137856377], [92.08071382214352], [872925.1670339205], [92.08071382214352]
+   79   158 T=   9480.00 eta norm:  3768.3848 u norm:  1256.4041 44.58
+volume2d rel. error  8.1083e-02
+Updating tidal elevation at t = 9540
+  0 SNES Function norm 8.091713469529e+02 
+  1 SNES Function norm 2.079443480289e-09 
+Current power, average power, integrated power and profit for each farm: [191.6356991251232], [92.70684580518112], [884423.3089814279], [92.70684580518112]
+Updating tidal elevation at t = 9600
+  0 SNES Function norm 7.799062982938e+02 
+  1 SNES Function norm 2.073470605339e-09 
+Current power, average power, integrated power and profit for each farm: [190.98278621759985], [93.32107043275875], [895882.2761544839], [93.32107043275875]
+   80   160 T=   9600.00 eta norm:  3782.9189 u norm:  1253.5762 33.00
+volume2d rel. error  8.1395e-02
+Updating tidal elevation at t = 9660
+  0 SNES Function norm 7.505811142987e+02 
+  1 SNES Function norm 2.083718319437e-09 
+Current power, average power, integrated power and profit for each farm: [190.27736382254213], [93.92328343517975], [907298.9179838364], [93.92328343517975]
+Updating tidal elevation at t = 9720
+  0 SNES Function norm 7.211982589658e+02 
+  1 SNES Function norm 2.058747121073e-09 
+Current power, average power, integrated power and profit for each farm: [189.52011349516226], [94.51338732443891], [918670.1247935462], [94.51338732443891]
+   81   162 T=   9720.00 eta norm:  3796.3773 u norm:  1250.2755 39.76
+volume2d rel. error  8.1685e-02
+Updating tidal elevation at t = 9780
+  0 SNES Function norm 6.917602300083e+02 
+  1 SNES Function norm 2.070122147107e-09 
+Current power, average power, integrated power and profit for each farm: [188.71174630502492], [95.09129136726459], [929992.8295718477], [95.09129136726459]
+Updating tidal elevation at t = 9840
+  0 SNES Function norm 6.622695649286e+02 
+  1 SNES Function norm 2.070209812134e-09 
+Current power, average power, integrated power and profit for each farm: [187.85300194915655], [95.65691155373953], [941264.009688797], [95.65691155373953]
+   82   164 T=   9840.00 eta norm:  3808.7562 u norm:  1246.5073 43.67
+volume2d rel. error  8.1951e-02
+Updating tidal elevation at t = 9900
+  0 SNES Function norm 6.327288488774e+02 
+  1 SNES Function norm 2.061765479272e-09 
+Current power, average power, integrated power and profit for each farm: [186.94464785380305], [96.21017056161871], [952480.6885600252], [96.21017056161871]
+Updating tidal elevation at t = 9960
+  0 SNES Function norm 6.031407249170e+02 
+  1 SNES Function norm 2.067710666224e-09 
+Current power, average power, integrated power and profit for each farm: [185.98747826581922], [96.75099771646329], [963639.9372559744], [96.75099771646329]
+   83   166 T=   9960.00 eta norm:  3820.0522 u norm:  1242.2768 40.85
+volume2d rel. error  8.2194e-02
+Updating tidal elevation at t = 10020
+  0 SNES Function norm 5.735079075657e+02 
+  1 SNES Function norm 2.060377466947e-09 
+Current power, average power, integrated power and profit for each farm: [184.9823133348699], [97.27932894771124], [974738.8760560666], [97.27932894771124]
+Updating tidal elevation at t = 10080
+  0 SNES Function norm 5.438332008868e+02 
+  1 SNES Function norm 2.068289475194e-09 
+Current power, average power, integrated power and profit for each farm: [183.92999818740856], [97.79510674080467], [985774.6759473111], [97.79510674080467]
+   84   168 T=  10080.00 eta norm:  3830.2619 u norm:  1237.5894 46.24
+volume2d rel. error  8.2414e-02
+Updating tidal elevation at t = 10140
+  0 SNES Function norm 5.141195229732e+02 
+  1 SNES Function norm 2.066052457284e-09 
+Current power, average power, integrated power and profit for each farm: [182.83140199349123], [98.29828008549512], [996744.5600669206], [98.29828008549512]
+Updating tidal elevation at t = 10200
+  0 SNES Function norm 4.843699395927e+02 
+  1 SNES Function norm 2.063468642115e-09 
+Current power, average power, integrated power and profit for each farm: [181.68741702748395], [98.788804420448], [1007645.8050885696], [98.788804420448]
+   85   170 T=  10200.00 eta norm:  3839.3825 u norm:  1232.4506 33.44
+volume2d rel. error  8.2610e-02
+Updating tidal elevation at t = 10260
+  0 SNES Function norm 4.545877112143e+02 
+  1 SNES Function norm 2.074248320125e-09 
+Current power, average power, integrated power and profit for each farm: [180.49895772367094], [99.26664157426802], [1018475.7425519899], [99.26664157426802]
+Updating tidal elevation at t = 10320
+  0 SNES Function norm 4.247763600123e+02 
+  1 SNES Function norm 2.060254316873e-09 
+Current power, average power, integrated power and profit for each farm: [179.26695972757065], [99.73175970306629], [1029231.7601356441], [99.73175970306629]
+   86   172 T=  10320.00 eta norm:  3847.4114 u norm:  1226.8659 34.90
+volume2d rel. error  8.2783e-02
+Updating tidal elevation at t = 10380
+  0 SNES Function norm 3.949397674320e+02 
+  1 SNES Function norm 2.065089740669e-09 
+Current power, average power, integrated power and profit for each farm: [177.99237894410592], [100.1841332246908], [1039911.3028722905], [100.1841332246908]
+Updating tidal elevation at t = 10440
+  0 SNES Function norm 3.650823198385e+02 
+  1 SNES Function norm 2.067000520242e-09 
+Current power, average power, integrated power and profit for each farm: [176.6761905834682], [100.62374274974124], [1050511.8743072986], [100.62374274974124]
+   87   174 T=  10440.00 eta norm:  3854.3462 u norm:  1220.8410 29.33
+volume2d rel. error  8.2932e-02
+Updating tidal elevation at t = 10500
+  0 SNES Function norm 3.352091322384e+02 
+  1 SNES Function norm 2.076808964641e-09 
+Current power, average power, integrated power and profit for each farm: [175.31938820558022], [101.0505750094889], [1061031.0375996334], [101.0505750094889]
+Updating tidal elevation at t = 10560
+  0 SNES Function norm 3.053264035025e+02 
+  1 SNES Function norm 2.073333449727e-09 
+Current power, average power, integrated power and profit for each farm: [173.92298276398105], [101.46462278082123], [1071466.4165654723], [101.46462278082123]
+   88   176 T=  10560.00 eta norm:  3860.1851 u norm:  1214.3815 40.02
+volume2d rel. error  8.3058e-02
+Updating tidal elevation at t = 10620
+  0 SNES Function norm 2.754420027038e+02 
+  1 SNES Function norm 2.062846451087e-09 
+Current power, average power, integrated power and profit for each farm: [172.48800165011122], [101.86588480833134], [1081815.6966644789], [101.86588480833134]
+Updating tidal elevation at t = 10680
+  0 SNES Function norm 2.455664826239e+02 
+  1 SNES Function norm 2.068978585157e-09 
+Current power, average power, integrated power and profit for each farm: [171.01548773869166], [102.25436572367045], [1092076.6259288003], [102.25436572367045]
+   89   178 T=  10680.00 eta norm:  3864.9263 u norm:  1207.4932 39.59
+volume2d rel. error  8.3160e-02
+Updating tidal elevation at t = 10740
+  0 SNES Function norm 2.157149319155e+02 
+  1 SNES Function norm 2.056374082300e-09 
+Current power, average power, integrated power and profit for each farm: [169.50649843510274], [102.63007596228178], [1102247.0158349064], [102.63007596228178]
+Updating tidal elevation at t = 10800
+  0 SNES Function norm 1.859105999254e+02 
+  1 SNES Function norm 2.061172055716e-09 
+Current power, average power, integrated power and profit for each farm: [167.96210472547412], [102.99303167763284], [1112324.7421184347], [102.99303167763284]
+   90   180 T=  10800.00 eta norm:  3868.5686 u norm:  1200.1819 39.76
+volume2d rel. error  8.3238e-02
+Updating tidal elevation at t = 10860
+  0 SNES Function norm 1.561926313831e+02 
+  1 SNES Function norm 2.071625649426e-09 
+Current power, average power, integrated power and profit for each farm: [166.38339023027774], [103.34325465306182], [1122307.7455322514], [103.34325465306182]
+Updating tidal elevation at t = 10920
+  0 SNES Function norm 1.266345370074e+02 
+  1 SNES Function norm 2.058365490765e-09 
+Current power, average power, integrated power and profit for each farm: [164.77145026214714], [103.68077221135351], [1132194.0325479803], [103.68077221135351]
+   91   182 T=  10920.00 eta norm:  3871.1108 u norm:  1192.4534 32.65
+volume2d rel. error  8.3293e-02
+Updating tidal elevation at t = 10980
+  0 SNES Function norm 9.739557226432e+01 
+  1 SNES Function norm 2.067359438471e-09 
+Current power, average power, integrated power and profit for each farm: [163.12739088863282], [104.00561712215831], [1141981.6760012982], [104.00561712215831]
+Updating tidal elevation at t = 11040
+  0 SNES Function norm 6.889835956217e+01 
+  1 SNES Function norm 2.057461606636e-09 
+Current power, average power, integrated power and profit for each farm: [161.45232800052835], [104.31782750736684], [1151668.81568133], [104.31782750736684]
+   92   184 T=  11040.00 eta norm:  3872.5522 u norm:  1184.3136 31.91
+volume2d rel. error  8.3324e-02
+Updating tidal elevation at t = 11100
+  0 SNES Function norm 4.267393079769e+01 
+  1 SNES Function norm 2.059667810498e-09 
+Current power, average power, integrated power and profit for each farm: [159.74738638650365], [104.61744674455137], [1161253.6588645203], [104.61744674455137]
+Updating tidal elevation at t = 11160
+  0 SNES Function norm 2.662827584360e+01 
+  1 SNES Function norm 2.069317098020e-09 
+Current power, average power, integrated power and profit for each farm: [158.01369881465678], [104.90452336858421], [1170734.4807933997], [104.90452336858421]
+   93   186 T=  11160.00 eta norm:  3872.8924 u norm:  1175.7684 34.47
+volume2d rel. error  8.3331e-02
+Updating tidal elevation at t = 11220
+  0 SNES Function norm 3.756779651027e+01 
+  1 SNES Function norm 2.069819702968e-09 
+Current power, average power, integrated power and profit for each farm: [156.25240512150802], [105.17911097154101], [1180109.6251006902], [105.17911097154101]
+Updating tidal elevation at t = 11280
+  0 SNES Function norm 6.267110375428e+01 
+  1 SNES Function norm 2.048393377429e-09 
+Current power, average power, integrated power and profit for each farm: [154.46465130913515], [105.44126810099631], [1189377.5041792383], [105.44126810099631]
+   94   188 T=  11280.00 eta norm:  3872.1313 u norm:  1166.8237 41.33
+volume2d rel. error  8.3315e-02
+Updating tidal elevation at t = 11340
+  0 SNES Function norm 9.086944371163e+01 
+  1 SNES Function norm 2.057461082634e-09 
+Current power, average power, integrated power and profit for each farm: [152.65158865096421], [105.69105815681624], [1198536.5994982962], [105.69105815681624]
+Updating tidal elevation at t = 11400
+  0 SNES Function norm 1.199947463789e+02 
+  1 SNES Function norm 2.059025464501e-09 
+Current power, average power, integrated power and profit for each farm: [150.81437280672435], [105.9285492865526], [1207585.4618666996], [105.9285492865526]
+   95   190 T=  11400.00 eta norm:  3870.2692 u norm:  1157.4854 33.48
+volume2d rel. error  8.3275e-02
+Updating tidal elevation at t = 11460
+  0 SNES Function norm 1.494997629240e+02 
+  1 SNES Function norm 2.049507950830e-09 
+Current power, average power, integrated power and profit for each farm: [148.95416294713613], [106.15381427953994], [1216522.7116435277], [106.15381427953994]
+Updating tidal elevation at t = 11520
+  0 SNES Function norm 1.791900269607e+02 
+  1 SNES Function norm 2.057599072250e-09 
+Current power, average power, integrated power and profit for each farm: [147.07212088877026], [106.36693045979635], [1225347.038896854], [106.36693045979635]
+   96   192 T=  11520.00 eta norm:  3867.3065 u norm:  1147.7596 33.37
+volume2d rel. error  8.3211e-02
+Updating tidal elevation at t = 11580
+  0 SNES Function norm 2.089792294884e+02 
+  1 SNES Function norm 2.062154069771e-09 
+Current power, average power, integrated power and profit for each farm: [145.1694102395954], [106.5679795778264], [1234057.2035112297], [106.5679795778264]
+Updating tidal elevation at t = 11640
+  0 SNES Function norm 2.388227090893e+02 
+  1 SNES Function norm 2.063655092461e-09 
+Current power, average power, integrated power and profit for each farm: [143.24719555563266], [106.75704770142335], [1242652.0352445678], [106.75704770142335]
+   97   194 T=  11640.00 eta norm:  3863.2441 u norm:  1137.6522 42.17
+volume2d rel. error  8.3124e-02
+Updating tidal elevation at t = 11700
+  0 SNES Function norm 2.686945305953e+02 
+  1 SNES Function norm 2.063294744747e-09 
+Current power, average power, integrated power and profit for each farm: [141.30664150907063], [106.93422510556512], [1251130.433735112], [106.93422510556512]
+Updating tidal elevation at t = 11760
+  0 SNES Function norm 2.985781730507e+02 
+  1 SNES Function norm 2.042607729015e-09 
+Current power, average power, integrated power and profit for each farm: [139.3489120684344], [107.09960616149813], [1259491.368459218], [107.09960616149813]
+   98   196 T=  11760.00 eta norm:  3858.0831 u norm:  1127.1692 41.13
+volume2d rel. error  8.3013e-02
+Updating tidal elevation at t = 11820
+  0 SNES Function norm 3.284622638603e+02 
+  1 SNES Function norm 2.045419477244e-09 
+Current power, average power, integrated power and profit for each farm: [137.37516969099158], [107.25328922509962], [1267733.8786406775], [107.25328922509962]
+Updating tidal elevation at t = 11880
+  0 SNES Function norm 3.583384373935e+02 
+  1 SNES Function norm 2.045895651913e-09 
+Current power, average power, integrated power and profit for each farm: [135.3865745278324], [107.39537652460837], [1275857.0731123474], [107.39537652460837]
+   99   198 T=  11880.00 eta norm:  3851.8251 u norm:  1116.3166 43.55
+volume2d rel. error  8.2878e-02
+Updating tidal elevation at t = 11940
+  0 SNES Function norm 3.882001797265e+02 
+  1 SNES Function norm 2.049054630655e-09 
+Current power, average power, integrated power and profit for each farm: [133.38428364198612], [107.52597404781127], [1283860.1301308665], [107.52597404781127]
+Updating tidal elevation at t = 12000
+  0 SNES Function norm 4.180421680338e+02 
+  1 SNES Function norm 2.043612944935e-09 
+Current power, average power, integrated power and profit for each farm: [131.36945023983753], [107.6451914287714], [1291742.2971452568], [107.6451914287714]
+  100   200 T=  12000.00 eta norm:  3844.4717 u norm:  1105.1003 38.21
+volume2d rel. error  8.2720e-02
+Updating tidal elevation at t = 12060
+  0 SNES Function norm 4.478598742369e+02 
+  1 SNES Function norm 2.046546498676e-09 
+Current power, average power, integrated power and profit for each farm: [129.3432229161517], [107.75314183418126], [1299502.890520226], [107.75314183418126]
+Updating tidal elevation at t = 12120
+  0 SNES Function norm 4.776493174259e+02 
+  1 SNES Function norm 2.041077632301e-09 
+Current power, average power, integrated power and profit for each farm: [127.3067449130708], [107.84994184942329], [1307141.2952150102], [107.84994184942329]
+  101   202 T=  12120.00 eta norm:  3836.0251 u norm:  1093.5264 34.89
+volume2d rel. error  8.2538e-02
+Updating tidal elevation at t = 12180
+  0 SNES Function norm 5.074069038053e+02 
+  1 SNES Function norm 2.048612013257e-09 
+Current power, average power, integrated power and profit for each farm: [125.26115339315498], [107.93571136441703], [1314656.9644185994], [107.93571136441703]
+Updating tidal elevation at t = 12240
+  0 SNES Function norm 5.371293201364e+02 
+  1 SNES Function norm 2.027182989681e-09 
+Current power, average power, integrated power and profit for each farm: [123.20757872691466], [108.01057345933124], [1322049.4191422143], [108.01057345933124]
+  102   204 T=  12240.00 eta norm:  3826.4877 u norm:  1081.6008 37.87
+volume2d rel. error  8.2333e-02
+Updating tidal elevation at t = 12300
+  0 SNES Function norm 5.668134609423e+02 
+  1 SNES Function norm 2.047639988153e-09 
+Current power, average power, integrated power and profit for each farm: [121.14714379490495], [108.07465429023648], [1329318.2477699087], [108.07465429023648]
+Updating tidal elevation at t = 12360
+  0 SNES Function norm 5.964563776601e+02 
+  1 SNES Function norm 2.047977004865e-09 
+Current power, average power, integrated power and profit for each farm: [119.08096330465025], [108.12808297477247], [1336463.1055681878], [108.12808297477247]
+  103   206 T=  12360.00 eta norm:  3815.8621 u norm:  1069.3294 34.57
+volume2d rel. error  8.2104e-02
+Updating tidal elevation at t = 12420
+  0 SNES Function norm 6.260552424058e+02 
+  1 SNES Function norm 2.035811716092e-09 
+Current power, average power, integrated power and profit for each farm: [117.01014312257331], [108.17099147790195], [1343483.7141555422], [108.17099147790195]
+Updating tidal elevation at t = 12480
+  0 SNES Function norm 6.556073217079e+02 
+  1 SNES Function norm 2.030638986883e-09 
+Current power, average power, integrated power and profit for each farm: [114.93577962107192], [108.20351449782103], [1350379.8609328065], [108.20351449782103]
+  104   208 T=  12480.00 eta norm:  3804.1514 u norm:  1056.7182 35.49
+volume2d rel. error  8.1852e-02
+Updating tidal elevation at t = 12540
+  0 SNES Function norm 6.851099571585e+02 
+  1 SNES Function norm 2.036994727297e-09 
+Current power, average power, integrated power and profit for each farm: [112.85895904094403], [108.22578935209434], [1357151.398475263], [108.22578935209434]
+Updating tidal elevation at t = 12600
+  0 SNES Function norm 7.145605509736e+02 
+  1 SNES Function norm 2.032801219590e-09 
+Current power, average power, integrated power and profit for each farm: [110.78075686923015], [108.2379558640807], [1363798.2438874168], [108.2379558640807]
+  105   210 T=  12600.00 eta norm:  3791.3590 u norm:  1043.7731 32.51
+volume2d rel. error  8.1577e-02
+Updating tidal elevation at t = 12660
+  0 SNES Function norm 7.439565550761e+02 
+  1 SNES Function norm 2.026478598717e-09 
+Current power, average power, integrated power and profit for each farm: [108.70223723263055], [108.24015624971364], [1370320.3781213746], [108.24015624971364]
+Updating tidal elevation at t = 12720
+  0 SNES Function norm 7.732954627543e+02 
+  1 SNES Function norm 2.019461654207e-09 
+Current power, average power, integrated power and profit for each farm: [106.62445230659108], [108.2325350046989], [1376717.84525977], [108.2325350046989]
+  106   212 T=  12720.00 eta norm:  3777.4884 u norm:  1030.5000 42.28
+volume2d rel. error  8.1279e-02
+Updating tidal elevation at t = 12780
+  0 SNES Function norm 8.025748022317e+02 
+  1 SNES Function norm 2.031188324152e-09 
+Current power, average power, integrated power and profit for each farm: [104.54844174014396], [108.21523879218925], [1382990.7517641787], [108.21523879218925]
+Updating tidal elevation at t = 12840
+  0 SNES Function norm 8.317921316586e+02 
+  1 SNES Function norm 2.022882920083e-09 
+Current power, average power, integrated power and profit for each farm: [102.47523209657733], [108.18841633099483], [1389139.2656899735], [108.18841633099483]
+  107   214 T=  12840.00 eta norm:  3762.5437 u norm:  1016.9048 42.86
+volume2d rel. error  8.0957e-02
+Updating tidal elevation at t = 12900
+  0 SNES Function norm 8.609450351933e+02 
+  1 SNES Function norm 2.015298392672e-09 
+Current power, average power, integrated power and profit for each farm: [100.40583630995329], [108.15221828438533], [1395163.6158685707], [108.15221828438533]
+Updating tidal elevation at t = 12960
+  0 SNES Function norm 8.900311199077e+02 
+  1 SNES Function norm 2.010395365740e-09 
+Current power, average power, integrated power and profit for each farm: [98.34125315759546], [108.10679714953909], [1401064.0910580265], [108.10679714953909]
+  108   216 T=  12960.00 eta norm:  3746.5290 u norm:  1002.9931 47.57
+volume2d rel. error  8.0612e-02
+Updating tidal elevation at t = 13020
+  0 SNES Function norm 9.190480133401e+02 
+  1 SNES Function norm 2.018300618568e-09 
+Current power, average power, integrated power and profit for each farm: [96.28246674847495], [108.05230714769085], [1406841.039062935], [108.05230714769085]
+Updating tidal elevation at t = 13080
+  0 SNES Function norm 9.479933615432e+02 
+  1 SNES Function norm 2.011098798491e-09 
+Current power, average power, integrated power and profit for each farm: [94.23044602760916], [107.98890411502992], [1412494.8658245914], [107.98890411502992]
+  109   218 T=  13080.00 eta norm:  3729.4489 u norm:   988.7710 33.91
+volume2d rel. error  8.0245e-02
+Updating tidal elevation at t = 13140
+  0 SNES Function norm 9.768648275299e+02 
+  1 SNES Function norm 1.993037255416e-09 
+Current power, average power, integrated power and profit for each farm: [92.1861442963955], [107.91674539439688], [1418026.034482375], [107.91674539439688]
+Updating tidal elevation at t = 13200
+  0 SNES Function norm 1.005660090032e+03 
+  1 SNES Function norm 1.993616076547e-09 
+Current power, average power, integrated power and profit for each farm: [90.15049874891402], [107.8359897278265], [1423435.0644073098], [107.8359897278265]
+  110   220 T=  13200.00 eta norm:  3711.3082 u norm:   974.2441 37.56
+volume2d rel. error  7.9855e-02
+Updating tidal elevation at t = 13260
+  0 SNES Function norm 1.034376842507e+03 
+  1 SNES Function norm 1.981434193608e-09 
+Current power, average power, integrated power and profit for each farm: [88.1244300241596], [107.74679714998184], [1428722.5302087592], [107.74679714998184]
+Updating tidal elevation at t = 13320
+  0 SNES Function norm 1.063012792344e+03 
+  1 SNES Function norm 1.984034652674e-09 
+Current power, average power, integrated power and profit for each farm: [86.10884177418015], [107.64932888252328], [1433889.0607152102], [107.64932888252328]
+  111   222 T=  13320.00 eta norm:  3692.1122 u norm:   959.4181 36.39
+volume2d rel. error  7.9442e-02
+Updating tidal elevation at t = 13380
+  0 SNES Function norm 1.091565660241e+03 
+  1 SNES Function norm 1.980592442682e-09 
+Current power, average power, integrated power and profit for each farm: [84.10462024807903], [107.54374722945403], [1438935.337930095], [107.54374722945403]
+Updating tidal elevation at t = 13440
+  0 SNES Function norm 1.120033179700e+03 
+  1 SNES Function norm 1.977986783746e-09 
+Current power, average power, integrated power and profit for each farm: [82.11263389179632], [107.43021547348233], [1443862.0959636027], [107.43021547348233]
+  112   224 T=  13440.00 eta norm:  3671.8662 u norm:   944.2987 37.02
+volume2d rel. error  7.9006e-02
+Updating tidal elevation at t = 13500
+  0 SNES Function norm 1.148413096645e+03 
+  1 SNES Function norm 1.966106413301e-09 
+Current power, average power, integrated power and profit for each farm: [80.1337329636303], [107.30889777343855], [1448670.1199414204], [107.30889777343855]
+Updating tidal elevation at t = 13560
+  0 SNES Function norm 1.176703169120e+03 
+  1 SNES Function norm 1.957644218432e-09 
+Current power, average power, integrated power and profit for each farm: [78.16874916541134], [107.17995906278355], [1453360.244891345], [107.17995906278355]
+  113   226 T=  13560.00 eta norm:  3650.5761 u norm:   928.8915 38.74
+volume2d rel. error  7.8548e-02
+Updating tidal elevation at t = 13620
+  0 SNES Function norm 1.204901167063e+03 
+  1 SNES Function norm 1.946632450978e-09 
+Current power, average power, integrated power and profit for each farm: [76.21849528925965], [107.0435649492438], [1457933.3546087006], [107.0435649492438]
+Updating tidal elevation at t = 13680
+  0 SNES Function norm 1.233004872145e+03 
+  1 SNES Function norm 1.952171740575e-09 
+Current power, average power, integrated power and profit for each farm: [74.2837648797999], [106.89988161560589], [1462390.3805014887], [106.89988161560589]
+  114   228 T=  13680.00 eta norm:  3628.2479 u norm:   913.2022 41.77
+volume2d rel. error  7.8067e-02
+Updating tidal elevation at t = 13740
+  0 SNES Function norm 1.261012077651e+03 
+  1 SNES Function norm 1.943978082625e-09 
+Current power, average power, integrated power and profit for each farm: [72.36533191171682], [106.74907572170245], [1466732.3004161918], [106.74907572170245]
+Updating tidal elevation at t = 13800
+  0 SNES Function norm 1.288920588413e+03 
+  1 SNES Function norm 1.939301824773e-09 
+Current power, average power, integrated power and profit for each farm: [70.46395048259618], [106.5913143076194], [1470960.1374451476], [106.5913143076194]
+  115   230 T=  13800.00 eta norm:  3604.8879 u norm:   897.2363 36.84
+volume2d rel. error  7.7565e-02
+Updating tidal elevation at t = 13860
+  0 SNES Function norm 1.316728220774e+03 
+  1 SNES Function norm 1.939372868470e-09 
+Current power, average power, integrated power and profit for each farm: [68.58035452087927], [106.426764698153], [1475074.9587164004], [106.426764698153]
+Updating tidal elevation at t = 13920
+  0 SNES Function norm 1.344432802582e+03 
+  1 SNES Function norm 1.927808438269e-09 
+Current power, average power, integrated power and profit for each farm: [66.71525750879873], [106.25559440854371], [1479077.8741669285], [106.25559440854371]
+  116   232 T=  13920.00 eta norm:  3580.5028 u norm:   880.9992 41.62
+volume2d rel. error  7.7040e-02
+Updating tidal elevation at t = 13980
+  0 SNES Function norm 1.372032173210e+03 
+  1 SNES Function norm 1.921388882798e-09 
+Current power, average power, integrated power and profit for each farm: [64.86935222019261], [106.07797105151216], [1482970.03530014], [106.07797105151216]
+Updating tidal elevation at t = 14040
+  0 SNES Function norm 1.399524183597e+03 
+  1 SNES Function norm 1.922232321281e-09 
+Current power, average power, integrated power and profit for each farm: [63.04331047299995], [105.89406224562109], [1486752.6339285201], [105.89406224562109]
+  117   234 T=  14040.00 eta norm:  3555.0995 u norm:   864.4964 40.96
+volume2d rel. error  7.6493e-02
+Updating tidal elevation at t = 14100
+  0 SNES Function norm 1.426906696311e+03 
+  1 SNES Function norm 1.912090651350e-09 
+Current power, average power, integrated power and profit for each farm: [61.23778289631277], [105.70403552498574], [1490426.900902299], [105.70403552498574]
+Updating tidal elevation at t = 14160
+  0 SNES Function norm 1.454177585620e+03 
+  1 SNES Function norm 1.906394039624e-09 
+Current power, average power, integrated power and profit for each farm: [59.45339871184998], [105.50805825035381], [1493994.10482501], [105.50805825035381]
+  118   236 T=  14160.00 eta norm:  3528.6853 u norm:   847.7333 44.78
+volume2d rel. error  7.5925e-02
+Updating tidal elevation at t = 14220
+  0 SNES Function norm 1.481334737580e+03 
+  1 SNES Function norm 1.891101460000e-09 
+Current power, average power, integrated power and profit for each farm: [57.69076552958872], [105.30629752157421], [1497455.5507567853], [105.30629752157421]
+Updating tidal elevation at t = 14280
+  0 SNES Function norm 1.508376050138e+03 
+  1 SNES Function norm 1.886070001785e-09 
+Current power, average power, integrated power and profit for each farm: [55.950469157521255], [105.09892009147316], [1500812.5789062367], [105.09892009147316]
+  119   238 T=  14280.00 eta norm:  3501.2676 u norm:   830.7152 42.88
+volume2d rel. error  7.5335e-02
+Updating tidal elevation at t = 14340
+  0 SNES Function norm 1.535299433236e+03 
+  1 SNES Function norm 1.894471185492e-09 
+Current power, average power, integrated power and profit for each farm: [54.23307342521676], [104.88609228115409], [1504066.5633117496], [104.88609228115409]
+Updating tidal elevation at t = 14400
+  0 SNES Function norm 1.562102808928e+03 
+  1 SNES Function norm 1.882332030641e-09 
+Current power, average power, integrated power and profit for each farm: [52.539120021090774], [104.66797989673715], [1507218.910513015], [104.66797989673715]
+  120   240 T=  14400.00 eta norm:  3472.8542 u norm:   813.4474 41.80
+volume2d rel. error  7.4724e-02
+Updating tidal elevation at t = 14460
+  0 SNES Function norm 1.588784111505e+03 
+  1 SNES Function norm 1.867379290331e-09 
+Current power, average power, integrated power and profit for each farm: [50.86912834315887], [104.44474814755219], [1510271.0582136046], [104.44474814755219]
+Updating tidal elevation at t = 14520
+  0 SNES Function norm 1.615341287623e+03 
+  1 SNES Function norm 1.851816222846e-09 
+Current power, average power, integrated power and profit for each farm: [49.22359536307241], [104.21656156579814], [1513224.473935389], [104.21656156579814]
+  121   242 T=  14520.00 eta norm:  3443.4533 u norm:   795.9350 48.08
+volume2d rel. error  7.4091e-02
+Updating tidal elevation at t = 14580
+  0 SNES Function norm 1.641772296433e+03 
+  1 SNES Function norm 1.847784266104e-09 
+Current power, average power, integrated power and profit for each farm: [47.602995503247556], [103.98358392768064], [1516080.6536655838], [103.98358392768064]
+Updating tidal elevation at t = 14640
+  0 SNES Function norm 1.668075109723e+03 
+  1 SNES Function norm 1.843055158817e-09 
+Current power, average power, integrated power and profit for each farm: [46.00778052688209], [103.74597817603802], [1518841.1204971967], [103.74597817603802]
+  122   244 T=  14640.00 eta norm:  3413.0732 u norm:   778.1833 33.97
+volume2d rel. error  7.3438e-02
+Updating tidal elevation at t = 14700
+  0 SNES Function norm 1.694247712055e+03 
+  1 SNES Function norm 1.790767358681e-09 
+Current power, average power, integrated power and profit for each farm: [44.43837944061307], [103.50390634446485], [1521507.4232636334], [103.50390634446485]
+Updating tidal elevation at t = 14760
+  0 SNES Function norm 1.720288100907e+03 
+  1 SNES Function norm 1.748324586045e-09 
+Current power, average power, integrated power and profit for each farm: [42.89519840965097], [103.25752948294122], [1524081.1351682125], [103.25752948294122]
+  123   246 T=  14760.00 eta norm:  3381.7225 u norm:   760.1973 38.33
+volume2d rel. error  7.2763e-02
+Updating tidal elevation at t = 14820
+  0 SNES Function norm 1.746194286823e+03 
+  1 SNES Function norm 1.743532798544e-09 
+Current power, average power, integrated power and profit for each farm: [41.37862068513158], [103.00700758497439], [1526563.8524093204], [103.00700758497439]
+Updating tidal elevation at t = 14880
+  0 SNES Function norm 1.771964293554e+03 
+  1 SNES Function norm 1.747584807984e-09 
+Current power, average power, integrated power and profit for each farm: [39.889006543465165], [102.75249951625862], [1528957.1928019284], [102.75249951625862]
+  124   248 T=  14880.00 eta norm:  3349.4101 u norm:   741.9820 35.76
+volume2d rel. error  7.2068e-02
+Updating tidal elevation at t = 14940
+  0 SNES Function norm 1.797596158211e+03 
+  1 SNES Function norm 1.743035100839e-09 
+Current power, average power, integrated power and profit for each farm: [38.42669323748698], [102.49416294485795], [1531262.7943961776], [102.49416294485795]
+Updating tidal elevation at t = 15000
+  0 SNES Function norm 1.823087931409e+03 
+  1 SNES Function norm 1.727535044742e-09 
+Current power, average power, integrated power and profit for each farm: [36.991994959116155], [102.23215427291497], [1533482.3140937246], [102.23215427291497]
+  125   250 T=  15000.00 eta norm:  3316.1453 u norm:   723.5424 40.66
+volume2d rel. error  7.1352e-02
+Updating tidal elevation at t = 15060
+  0 SNES Function norm 1.848437677421e+03 
+  1 SNES Function norm 1.723223962994e-09 
+Current power, average power, integrated power and profit for each farm: [35.585202813358165], [101.96662856988885], [1535617.426262526], [101.96662856988885]
+Updating tidal elevation at t = 15120
+  0 SNES Function norm 1.873643474323e+03 
+  1 SNES Function norm 1.717852713136e-09 
+Current power, average power, integrated power and profit for each farm: [34.20658480335385], [101.69773950732323], [1537669.8213507272], [101.69773950732323]
+  126   252 T=  15120.00 eta norm:  3281.9375 u norm:   704.8834 30.89
+volume2d rel. error  7.0616e-02
+Updating tidal elevation at t = 15180
+  0 SNES Function norm 1.898703414149e+03 
+  1 SNES Function norm 1.705349339885e-09 
+Current power, average power, integrated power and profit for each farm: [32.85638582626998], [101.42563929514515], [1539641.2045003034], [101.42563929514515]
+Updating tidal elevation at t = 15240
+  0 SNES Function norm 1.923615603038e+03 
+  1 SNES Function norm 1.703317668101e-09 
+Current power, average power, integrated power and profit for each farm: [31.53482767977261], [101.15047861949408], [1541533.2941610897], [101.15047861949408]
+  127   254 T=  15240.00 eta norm:  3246.7964 u norm:   686.0097 46.56
+volume2d rel. error  6.9860e-02
+Updating tidal elevation at t = 15300
+  0 SNES Function norm 1.948378161379e+03 
+  1 SNES Function norm 1.693133912191e-09 
+Current power, average power, integrated power and profit for each farm: [30.242109078833845], [100.87240658207972], [1543347.8207058196], [100.87240658207972]
+Updating tidal elevation at t = 15360
+  0 SNES Function norm 1.972989223971e+03 
+  1 SNES Function norm 1.698838463407e-09 
+Current power, average power, integrated power and profit for each farm: [28.978405682646404], [100.5915706410663], [1545086.5250467784], [100.5915706410663]
+  128   256 T=  15360.00 eta norm:  3210.7321 u norm:   666.9262 34.44
+volume2d rel. error  6.9084e-02
+Updating tidal elevation at t = 15420
+  0 SNES Function norm 1.997446940158e+03 
+  1 SNES Function norm 1.685858579782e-09 
+Current power, average power, integrated power and profit for each farm: [27.743870131343535], [100.30811655347983], [1546751.157254659], [100.30811655347983]
+Updating tidal elevation at t = 15480
+  0 SNES Function norm 2.021749473984e+03 
+  1 SNES Function norm 1.680323928362e-09 
+Current power, average power, integrated power and profit for each farm: [26.538632092344276], [100.02218831913436], [1548343.4751801998], [100.02218831913436]
+  129   258 T=  15480.00 eta norm:  3173.7547 u norm:   647.6374 42.80
+volume2d rel. error  6.8288e-02
+Updating tidal elevation at t = 15540
+  0 SNES Function norm 2.045895004338e+03 
+  1 SNES Function norm 1.672893644911e-09 
+Current power, average power, integrated power and profit for each farm: [25.36279831600974], [99.7339281260721], [1549865.2430791603], [99.7339281260721]
+Updating tidal elevation at t = 15600
+  0 SNES Function norm 2.069881725100e+03 
+  1 SNES Function norm 1.674222619599e-09 
+Current power, average power, integrated power and profit for each farm: [24.21645270036654], [99.44347629751168], [1551318.2302411823], [99.44347629751168]
+  130   260 T=  15600.00 eta norm:  3135.8748 u norm:   628.1481 44.54
+volume2d rel. error  6.7473e-02
+Updating tidal elevation at t = 15660
+  0 SNES Function norm 2.093707845281e+03 
+  1 SNES Function norm 1.659921361774e-09 
+Current power, average power, integrated power and profit for each farm: [23.09965636470022], [99.15097124029785], [1552704.2096230644], [99.15097124029785]
+Updating tidal elevation at t = 15720
+  0 SNES Function norm 2.117371589169e+03 
+  1 SNES Function norm 1.521396758544e-09 
+Current power, average power, integrated power and profit for each farm: [22.012447731585752], [98.85654939484475], [1554024.9564869595], [98.85654939484475]
+  131   262 T=  15720.00 eta norm:  3097.1032 u norm:   608.4627 39.63
+volume2d rel. error  6.6639e-02
+Updating tidal elevation at t = 15780
+  0 SNES Function norm 2.140871196471e+03 
+  1 SNES Function norm 1.320640494260e-09 
+Current power, average power, integrated power and profit for each farm: [20.954842617329675], [98.56034518656521], [1555282.2470439991], [98.56034518656521]
+Updating tidal elevation at t = 15840
+  0 SNES Function norm 2.164204922449e+03 
+  1 SNES Function norm 1.245265080936e-09 
+Current power, average power, integrated power and profit for each farm: [19.92683433043239], [98.26249097877684], [1556477.857103825], [98.26249097877684]
+  132   264 T=  15840.00 eta norm:  3057.4509 u norm:   588.5856 30.13
+volume2d rel. error  6.5786e-02
+Updating tidal elevation at t = 15900
+  0 SNES Function norm 2.187371038062e+03 
+  1 SNES Function norm 1.245958048969e-09 
+Current power, average power, integrated power and profit for each farm: [18.928393777784017], [97.96311702707499], [1557613.5607304922], [97.96311702707499]
+Updating tidal elevation at t = 15960
+  0 SNES Function norm 2.210367830103e+03 
+  1 SNES Function norm 1.242552166158e-09 
+Current power, average power, integrated power and profit for each farm: [17.959469578398952], [97.66235143516268], [1558691.1289051962], [97.66235143516268]
+  133   266 T=  15960.00 eta norm:  3016.9292 u norm:   568.5213 33.92
+volume2d rel. error  6.4914e-02
+Updating tidal elevation at t = 16020
+  0 SNES Function norm 2.233193601331e+03 
+  1 SNES Function norm 1.239216068457e-09 
+Current power, average power, integrated power and profit for each farm: [17.019988184376903], [97.36032011212602], [1559712.3281962587], [97.36032011212602]
+Updating tidal elevation at t = 16080
+  0 SNES Function norm 2.255846670605e+03 
+  1 SNES Function norm 1.234528534893e-09 
+Current power, average power, integrated power and profit for each farm: [16.109854008863458], [97.05714673114369], [1560678.9194367905], [97.05714673114369]
+  134   268 T=  16080.00 eta norm:  2975.5496 u norm:   548.2741 47.81
+volume2d rel. error  6.4023e-02
+Updating tidal elevation at t = 16140
+  0 SNES Function norm 2.278325373020e+03 
+  1 SNES Function norm 1.226759947691e-09 
+Current power, average power, integrated power and profit for each farm: [15.2289495605524], [96.75295268961732], [1561592.6564104236], [96.75295268961732]
+Updating tidal elevation at t = 16200
+  0 SNES Function norm 2.300628060031e+03 
+  1 SNES Function norm 1.226360057759e-09 
+Current power, average power, integrated power and profit for each farm: [14.377135585180422], [96.44785707071199], [1562455.2845455343], [96.44785707071199]
+  135   270 T=  16200.00 eta norm:  2933.3238 u norm:   527.8480 43.55
+volume2d rel. error  6.3115e-02
+Updating tidal elevation at t = 16260
+  0 SNES Function norm 2.322753099583e+03 
+  1 SNES Function norm 1.217341659723e-09 
+Current power, average power, integrated power and profit for each farm: [13.554251212594366], [96.1419766062909], [1563268.53961829], [96.1419766062909]
+Updating tidal elevation at t = 16320
+  0 SNES Function norm 2.344698876240e+03 
+  1 SNES Function norm 1.209912519307e-09 
+Current power, average power, integrated power and profit for each farm: [12.760114109956028], [95.83542564123084], [1564034.1464648873], [95.83542564123084]
+  136   272 T=  16320.00 eta norm:  2890.2640 u norm:   507.2474 38.79
+volume2d rel. error  6.2188e-02
+Updating tidal elevation at t = 16380
+  0 SNES Function norm 2.366463791305e+03 
+  1 SNES Function norm 1.207548207854e-09 
+Current power, average power, integrated power and profit for each farm: [11.994520640656278], [95.52831609910419], [1564753.8177033267], [95.52831609910419]
+Updating tidal elevation at t = 16440
+  0 SNES Function norm 2.388046262944e+03 
+  1 SNES Function norm 1.196019433366e-09 
+Current power, average power, integrated power and profit for each farm: [11.257246028582738], [95.22075744921177], [1565429.2524650416], [95.22075744921177]
+  137   274 T=  16440.00 eta norm:  2846.3823 u norm:   486.4761 30.71
+volume2d rel. error  6.1244e-02
+Updating tidal elevation at t = 16500
+  0 SNES Function norm 2.409444726306e+03 
+  1 SNES Function norm 1.189497349695e-09 
+Current power, average power, integrated power and profit for each farm: [10.548044527532996], [94.91285667495112], [1566062.1351366935], [94.91285667495112]
+Updating tidal elevation at t = 16560
+  0 SNES Function norm 2.430657633642e+03 
+  1 SNES Function norm 1.185878329298e-09 
+Current power, average power, integrated power and profit for each farm: [9.866649595479332], [94.60471824350377], [1566654.1341124224], [94.60471824350377]
+  138   276 T=  16560.00 eta norm:  2801.6912 u norm:   465.5382 47.40
+volume2d rel. error  6.0282e-02
+Updating tidal elevation at t = 16620
+  0 SNES Function norm 2.451683454420e+03 
+  1 SNES Function norm 1.181400416667e-09 
+Current power, average power, integrated power and profit for each farm: [9.212774073424114], [94.29644407682478], [1567206.900556828], [94.29644407682478]
+Updating tidal elevation at t = 16680
+  0 SNES Function norm 2.472520675438e+03 
+  1 SNES Function norm 1.176140630902e-09 
+Current power, average power, integrated power and profit for each farm: [8.586110368589809], [93.98813352391745], [1567722.0671789432], [93.98813352391745]
+  139   278 T=  16680.00 eta norm:  2756.2034 u norm:   444.4377 29.75
+volume2d rel. error  5.9304e-02
+Updating tidal elevation at t = 16740
+  0 SNES Function norm 2.493167800938e+03 
+  1 SNES Function norm 1.167805092180e-09 
+Current power, average power, integrated power and profit for each farm: [7.986330641692271], [93.67988333437543], [1568201.2470174448], [93.67988333437543]
+Updating tidal elevation at t = 16800
+  0 SNES Function norm 2.513623352715e+03 
+  1 SNES Function norm 1.156284604074e-09 
+Current power, average power, integrated power and profit for each farm: [7.413086997968765], [93.371787633174], [1568646.032237323], [93.371787633174]
+  140   280 T=  16800.00 eta norm:  2709.9319 u norm:   423.1781 43.13
+volume2d rel. error  5.8308e-02
+Updating tidal elevation at t = 16860
+  0 SNES Function norm 2.533885870222e+03 
+  1 SNES Function norm 1.140370127844e-09 
+Current power, average power, integrated power and profit for each farm: [6.866011681663115], [93.06393789669174], [1569057.9929382228], [93.06393789669174]
+Updating tidal elevation at t = 16920
+  0 SNES Function norm 2.553953910682e+03 
+  1 SNES Function norm 1.120741631642e-09 
+Current power, average power, integrated power and profit for each farm: [6.3447172745516704], [92.75642292994657], [1569438.675974696], [92.75642292994657]
+  141   282 T=  16920.00 eta norm:  2662.8898 u norm:   401.7634 40.40
+volume2d rel. error  5.7296e-02
+Updating tidal elevation at t = 16980
+  0 SNES Function norm 2.573826049182e+03 
+  1 SNES Function norm 1.104130796431e-09 
+Current power, average power, integrated power and profit for each farm: [5.8487968962368395], [92.4493288450218], [1569789.6037884702], [92.4493288450218]
+Updating tidal elevation at t = 17040
+  0 SNES Function norm 2.593500878781e+03 
+  1 SNES Function norm 1.086972658286e-09 
+Current power, average power, integrated power and profit for each farm: [5.37782440800247], [92.1427390406661], [1570112.2732529503], [92.1427390406661]
+  142   284 T=  17040.00 eta norm:  2615.0905 u norm:   380.1971 33.56
+volume2d rel. error  5.6267e-02
+Updating tidal elevation at t = 17100
+  0 SNES Function norm 2.612977010606e+03 
+  1 SNES Function norm 1.067505736313e-09 
+Current power, average power, integrated power and profit for each farm: [4.931354619026408], [91.83673418304632], [1570408.154530092], [91.83673418304632]
+Updating tidal elevation at t = 17160
+  0 SNES Function norm 2.632253073948e+03 
+  1 SNES Function norm 1.056774393475e-09 
+Current power, average power, integrated power and profit for each farm: [4.508923494773435], [91.53139218763276], [1570678.6899397783], [91.53139218763276]
+  143   286 T=  17160.00 eta norm:  2566.5476 u norm:   358.4827 36.08
+volume2d rel. error  5.5223e-02
+Updating tidal elevation at t = 17220
+  0 SNES Function norm 2.651327716358e+03 
+  1 SNES Function norm 1.045486567853e-09 
+Current power, average power, integrated power and profit for each farm: [4.110048367551242], [91.22678820219694], [1570925.2928418315], [91.22678820219694]
+Updating tidal elevation at t = 17280
+  0 SNES Function norm 2.670199603736e+03 
+  1 SNES Function norm 1.028107936428e-09 
+Current power, average power, integrated power and profit for each farm: [3.7342281484417352], [90.9229945908992], [1571149.346530738], [90.9229945908992]
+  144   288 T=  17280.00 eta norm:  2517.2749 u norm:   336.6237 46.69
+volume2d rel. error  5.4163e-02
+Updating tidal elevation at t = 17340
+  0 SNES Function norm 2.688867420422e+03 
+  1 SNES Function norm 1.012723384042e-09 
+Current power, average power, integrated power and profit for each farm: [3.3809435411211006], [90.62008091944666], [1571352.2031432053], [90.62008091944666]
+Updating tidal elevation at t = 17400
+  0 SNES Function norm 2.707329869286e+03 
+  1 SNES Function norm 1.004011604863e-09 
+Current power, average power, integrated power and profit for each farm: [3.0496572563696187], [90.31811394129812], [1571535.1825785874], [90.31811394129812]
+  145   290 T=  17400.00 eta norm:  2467.2865 u norm:   314.6235 47.11
+volume2d rel. error  5.3087e-02
+Updating tidal elevation at t = 17460
+  0 SNES Function norm 2.725585671807e+03 
+  1 SNES Function norm 1.002073132913e-09 
+Current power, average power, integrated power and profit for each farm: [2.739814227961324], [90.01715758489492], [1571699.5714322652], [90.01715758489492]
+Updating tidal elevation at t = 17520
+  0 SNES Function norm 2.743633568161e+03 
+  1 SNES Function norm 9.981222579522e-10 
+Current power, average power, integrated power and profit for each farm: [2.450841828865275], [89.71727294189482], [1571846.6219419972], [89.71727294189482]
+  146   292 T=  17520.00 eta norm:  2416.5965 u norm:   292.4854 32.76
+volume2d rel. error  5.1996e-02
+Updating tidal elevation at t = 17580
+  0 SNES Function norm 2.761472317297e+03 
+  1 SNES Function norm 9.919702974093e-10 
+Current power, average power, integrated power and profit for each farm: [2.1821500878785054], [89.41851825638622], [1571977.55094727], [89.41851825638622]
+Updating tidal elevation at t = 17640
+  0 SNES Function norm 2.779100697018e+03 
+  1 SNES Function norm 9.873230458263e-10 
+Current power, average power, integrated power and profit for each farm: [1.9331319065191515], [89.12094891506014], [1572093.538861661], [89.12094891506014]
+  147   294 T=  17640.00 eta norm:  2365.2193 u norm:   270.2126 41.58
+volume2d rel. error  5.0891e-02
+Updating tidal elevation at t = 17700
+  0 SNES Function norm 2.796517504054e+03 
+  1 SNES Function norm 9.765963439024e-10 
+Current power, average power, integrated power and profit for each farm: [1.7031632754035804], [88.82461743831554], [1572195.728658185], [88.82461743831554]
+Updating tidal elevation at t = 17760
+  0 SNES Function norm 2.813721554138e+03 
+  1 SNES Function norm 9.723824886971e-10 
+Current power, average power, integrated power and profit for each farm: [1.491603490287235], [88.5295734722749], [1572285.2248676023], [88.5295734722749]
+  148   296 T=  17760.00 eta norm:  2313.1697 u norm:   247.8083 30.90
+volume2d rel. error  4.9771e-02
+Updating tidal elevation at t = 17820
+  0 SNES Function norm 2.830711682075e+03 
+  1 SNES Function norm 9.702328590245e-10 
+Current power, average power, integrated power and profit for each farm: [1.297795367310464], [88.23586378168581], [1572363.092589641], [88.23586378168581]
+Updating tidal elevation at t = 17880
+  0 SNES Function norm 2.847486741807e+03 
+  1 SNES Function norm 9.678121871122e-10 
+Current power, average power, integrated power and profit for each farm: [1.1210654567662928], [87.94353224368271], [1572430.356517047], [87.94353224368271]
+  149   298 T=  17880.00 eta norm:  2260.4623 u norm:   225.2757 34.50
+volume2d rel. error  4.8637e-02
+Updating tidal elevation at t = 17940
+  0 SNES Function norm 2.864045606485e+03 
+  1 SNES Function norm 9.611761170517e-10 
+Current power, average power, integrated power and profit for each farm: [0.9607242554136572], [87.65261984238415], [1572487.9999723719], [87.65261984238415]
+Updating tidal elevation at t = 18000
+  0 SNES Function norm 2.880387168532e+03 
+  1 SNES Function norm 9.553062337173e-10 
+Current power, average power, integrated power and profit for each farm: [0.8160664168217611], [87.36316466429895], [1572536.9639573812], [87.36316466429895]
+  150   300 T=  18000.00 eta norm:  2207.1121 u norm:   202.6178 40.70
+volume2d rel. error  4.7489e-02
+Updating tidal elevation at t = 18060
+  0 SNES Function norm 2.896510339696e+03 
+  1 SNES Function norm 9.464763783235e-10 
+Current power, average power, integrated power and profit for each farm: [0.6863709590114369], [87.07520189451395], [1572578.146214922], [87.07520189451395]
+Updating tidal elevation at t = 18120
+  0 SNES Function norm 2.912414051120e+03 
+  1 SNES Function norm 9.340307651130e-10 
+Current power, average power, integrated power and profit for each farm: [0.5709014691623049], [86.7887638136353], [1572612.4003030716], [86.7887638136353]
+  151   302 T=  18120.00 eta norm:  2153.1344 u norm:   179.8380 42.32
+volume2d rel. error  4.6327e-02
+Updating tidal elevation at t = 18180
+  0 SNES Function norm 2.928097253389e+03 
+  1 SNES Function norm 9.236809107506e-10 
+Current power, average power, integrated power and profit for each farm: [0.4689063043892091], [86.50387979545296], [1572640.5346813349], [86.50387979545296]
+Updating tidal elevation at t = 18240
+  0 SNES Function norm 2.943558916592e+03 
+  1 SNES Function norm 9.138675420917e-10 
+Current power, average power, integrated power and profit for each farm: [0.37961878769322194], [86.22057630529585], [1572663.3118085964], [86.22057630529585]
+  152   304 T=  18240.00 eta norm:  2098.5445 u norm:   156.9396 43.68
+volume2d rel. error  4.5153e-02
+Updating tidal elevation at t = 18300
+  0 SNES Function norm 2.958798030365e+03 
+  1 SNES Function norm 9.124923649645e-10 
+Current power, average power, integrated power and profit for each farm: [0.3022573980380526], [85.93887689904255], [1572681.4472524787], [85.93887689904255]
+Updating tidal elevation at t = 18360
+  0 SNES Function norm 2.973813603948e+03 
+  1 SNES Function norm 9.060641816900e-10 
+Current power, average power, integrated power and profit for each farm: [0.23602595265313184], [85.65880222274716], [1572695.6088096378], [85.65880222274716]
+  153   306 T=  18360.00 eta norm:  2043.3580 u norm:   133.9264 46.11
+volume2d rel. error  4.3965e-02
+Updating tidal elevation at t = 18420
+  0 SNES Function norm 2.988604666227e+03 
+  1 SNES Function norm 9.121070916554e-10 
+Current power, average power, integrated power and profit for each farm: [0.1801137790976459], [85.380370012833], [1572706.4156363837], [85.380370012833]
+Updating tidal elevation at t = 18480
+  0 SNES Function norm 3.003170265778e+03 
+  1 SNES Function norm 9.052292744195e-10 
+Current power, average power, integrated power and profit for each farm: [0.1336958733982104], [85.10359509679586], [1572714.4373887875], [85.10359509679586]
+  154   308 T=  18480.00 eta norm:  1987.5904 u norm:   110.8034 38.66
+volume2d rel. error  4.2765e-02
+Updating tidal elevation at t = 18540
+  0 SNES Function norm 3.017509470914e+03 
+  1 SNES Function norm 8.805945542884e-10 
+Current power, average power, integrated power and profit for each farm: [0.09593303781706027], [84.82848939433963], [1572720.1933710566], [84.82848939433963]
+Updating tidal elevation at t = 18600
+  0 SNES Function norm 3.031621369717e+03 
+  1 SNES Function norm 8.499437035084e-10 
+Current power, average power, integrated power and profit for each farm: [0.06597198848252413], [84.55506191883686], [1572724.1516903655], [84.55506191883686]
+  155   310 T=  18600.00 eta norm:  1931.2577 u norm:    87.5782 43.60
+volume2d rel. error  4.1553e-02
+Updating tidal elevation at t = 18660
+  0 SNES Function norm 3.045505070082e+03 
+  1 SNES Function norm 8.408472424582e-10 
+Current power, average power, integrated power and profit for each farm: [0.042945415247347817], [84.28331877895393], [1572726.7284152803], [84.28331877895393]
+Updating tidal elevation at t = 18720
+  0 SNES Function norm 3.059159699749e+03 
+  1 SNES Function norm 8.327059558626e-10 
+Current power, average power, integrated power and profit for each farm: [0.025971961492257424], [84.01326318018], [1572728.2867329698], [84.01326318018]
+  156   312 T=  18720.00 eta norm:  1874.3759 u norm:    64.2656 34.02
+volume2d rel. error  4.0329e-02
+Updating tidal elevation at t = 18780
+  0 SNES Function norm 3.072584406335e+03 
+  1 SNES Function norm 8.236257167829e-10 
+Current power, average power, integrated power and profit for each farm: [0.014156061173202051], [83.74489542580619], [1572729.1360966403], [83.74489542580619]
+Updating tidal elevation at t = 18840
+  0 SNES Function norm 3.085778357374e+03 
+  1 SNES Function norm 8.200204246896e-10 
+Current power, average power, integrated power and profit for each farm: [0.0065875022382045], [83.47821291649547], [1572729.5313467747], [83.47821291649547]
+  157   314 T=  18840.00 eta norm:  1816.9612 u norm:    40.9104 36.55
+volume2d rel. error  3.9094e-02
+Updating tidal elevation at t = 18900
+  0 SNES Function norm 3.098740740314e+03 
+  1 SNES Function norm 8.143196267154e-10 
+Current power, average power, integrated power and profit for each farm: [0.0023404213571902137], [83.21321014666962], [1572729.671772056], [83.21321014666962]
+Updating tidal elevation at t = 18960
+  0 SNES Function norm 3.111470762582e+03 
+  1 SNES Function norm 8.098604005207e-10 
+Current power, average power, integrated power and profit for each farm: [0.0004710034955217675], [82.94987869368491], [1572729.7000322659], [82.94987869368491]
+  158   316 T=  18960.00 eta norm:  1759.0299 u norm:    17.7837 38.36
+volume2d rel. error  3.7847e-02
+Updating tidal elevation at t = 19020
+  0 SNES Function norm 3.123967651609e+03 
+  1 SNES Function norm 8.075293266369e-10 
+Current power, average power, integrated power and profit for each farm: [1.1940261747739932e-05], [82.68820718973089], [1572729.7007486816], [82.68820718973089]
+Updating tidal elevation at t = 19080
+  0 SNES Function norm 3.136230654436e+03 
+  1 SNES Function norm 7.959898239877e-10 
+Current power, average power, integrated power and profit for each farm: [4.176457376146316e-05], [82.42818151229329], [1572729.703254556], [82.42818151229329]
+  159   318 T=  19080.00 eta norm:  1700.5985 u norm:     8.5502 32.62
+volume2d rel. error  3.6590e-02
+Updating tidal elevation at t = 19140
+  0 SNES Function norm 3.148259000422e+03 
+  1 SNES Function norm 7.871482913607e-10 
+Current power, average power, integrated power and profit for each farm: [0.0007592651475518837], [82.16978833910476], [1572729.748810465], [82.16978833910476]
+Updating tidal elevation at t = 19200
+  0 SNES Function norm 3.160051908131e+03 
+  1 SNES Function norm 7.856007435085e-10 
+Current power, average power, integrated power and profit for each farm: [0.003265708733799452], [81.91301795588485], [1572729.944752989], [81.91301795588485]
+  160   320 T=  19200.00 eta norm:  1641.6849 u norm:    30.9655 34.03
+volume2d rel. error  3.5323e-02
+Updating tidal elevation at t = 19260
+  0 SNES Function norm 3.171608756160e+03 
+  1 SNES Function norm 7.852297001359e-10 
+Current power, average power, integrated power and profit for each farm: [0.008715021834850805], [81.65786436418999], [1572730.4676542992], [81.65786436418999]
+Updating tidal elevation at t = 19320
+  0 SNES Function norm 3.182928850471e+03 
+  1 SNES Function norm 7.811030449346e-10 
+Current power, average power, integrated power and profit for each farm: [0.01829681737397278], [81.4043253345415], [1572731.5654633418], [81.4043253345415]
+  161   322 T=  19320.00 eta norm:  1582.3047 u norm:    54.6451 41.30
+volume2d rel. error  3.4045e-02
+Updating tidal elevation at t = 19380
+  0 SNES Function norm 3.194011517933e+03 
+  1 SNES Function norm 7.217146923303e-10 
+Current power, average power, integrated power and profit for each farm: [0.03325026592560624], [81.15240250151173], [1572733.5604792973], [81.15240250151173]
+Updating tidal elevation at t = 19440
+  0 SNES Function norm 3.204856126260e+03 
+  1 SNES Function norm 6.054040405525e-10 
+Current power, average power, integrated power and profit for each farm: [0.05485010764935498], [80.90210141387635], [1572736.8514857562], [80.90210141387635]
+  162   324 T=  19440.00 eta norm:  1522.4748 u norm:    78.5138 31.98
+volume2d rel. error  3.2757e-02
+Updating tidal elevation at t = 19500
+  0 SNES Function norm 3.215462067556e+03 
+  1 SNES Function norm 5.548977379446e-10 
+Current power, average power, integrated power and profit for each farm: [0.08437453022485344], [80.65343148500358], [1572741.9139575697], [80.65343148500358]
+Updating tidal elevation at t = 19560
+  0 SNES Function norm 3.225828750084e+03 
+  1 SNES Function norm 5.518713403085e-10 
+Current power, average power, integrated power and profit for each farm: [0.12308279327602054], [80.40640587551975], [1572749.2989251663], [80.40640587551975]
+  163   326 T=  19560.00 eta norm:  1462.2120 u norm:   102.4717 33.65
+volume2d rel. error  3.1461e-02
+Updating tidal elevation at t = 19620
+  0 SNES Function norm 3.235955601022e+03 
+  1 SNES Function norm 5.486635287934e-10 
+Current power, average power, integrated power and profit for each farm: [0.17220775284653464], [80.16104135526693], [1572759.6313903371], [80.16104135526693]
+Updating tidal elevation at t = 19680
+  0 SNES Function norm 3.245842067948e+03 
+  1 SNES Function norm 5.505689919775e-10 
+Current power, average power, integrated power and profit for each farm: [0.23295327896429496], [79.91735815991235], [1572773.608587075], [79.91735815991235]
+  164   328 T=  19680.00 eta norm:  1401.5333 u norm:   126.4824 33.90
+volume2d rel. error  3.0155e-02
+Updating tidal elevation at t = 19740
+  0 SNES Function norm 3.255487618832e+03 
+  1 SNES Function norm 5.461924791368e-10 
+Current power, average power, integrated power and profit for each farm: [0.306488235223586], [79.67537983187378], [1572791.9978811885], [79.67537983187378]
+Updating tidal elevation at t = 19800
+  0 SNES Function norm 3.264891742054e+03 
+  1 SNES Function norm 5.385685888953e-10 
+Current power, average power, integrated power and profit for each farm: [0.39393321175813956], [79.43513302393404], [1572815.633873894], [79.43513302393404]
+  165   330 T=  19800.00 eta norm:  1340.4562 u norm:   150.5220 30.00
+volume2d rel. error  2.8841e-02
+Updating tidal elevation at t = 19860
+  0 SNES Function norm 3.274053946436e+03 
+  1 SNES Function norm 5.302781380245e-10 
+Current power, average power, integrated power and profit for each farm: [0.4963398032301199], [79.19664724381107], [1572845.414262088], [79.19664724381107]
+Updating tidal elevation at t = 19920
+  0 SNES Function norm 3.282973761267e+03 
+  1 SNES Function norm 5.265101612908e-10 
+Current power, average power, integrated power and profit for each farm: [0.6146667143182991], [78.95995453137284], [1572882.294264947], [78.95995453137284]
+  166   332 T=  19920.00 eta norm:  1278.9981 u norm:   174.5713 28.14
+volume2d rel. error  2.7518e-02
+Updating tidal elevation at t = 19980
+  0 SNES Function norm 3.291650736198e+03 
+  1 SNES Function norm 5.190949718900e-10 
+Current power, average power, integrated power and profit for each farm: [0.7497650054355307], [78.72508909736102], [1572927.2801652732], [78.72508909736102]
+Updating tidal elevation at t = 20040
+  0 SNES Function norm 3.300084441015e+03 
+  1 SNES Function norm 5.193660459565e-10 
+Current power, average power, integrated power and profit for each farm: [0.9023926305263881], [78.49208701213098], [1572981.4237231049], [78.49208701213098]
+  167   334 T=  20040.00 eta norm:  1217.1766 u norm:   198.6126 32.58
+volume2d rel. error  2.6188e-02
+Updating tidal elevation at t = 20100
+  0 SNES Function norm 3.308274465422e+03 
+  1 SNES Function norm 5.238310589430e-10 
+Current power, average power, integrated power and profit for each farm: [1.073267523746777], [78.26098605843431], [1573045.8197745297], [78.26098605843431]
+Updating tidal elevation at t = 20160
+  0 SNES Function norm 3.316220418950e+03 
+  1 SNES Function norm 5.306364151836e-10 
+Current power, average power, integrated power and profit for each farm: [1.2631309256696797], [78.03182577530109], [1573121.6076300698], [78.03182577530109]
+  168   336 T=  20160.00 eta norm:  1155.0092 u norm:   222.6288 42.72
+volume2d rel. error  2.4850e-02
+Updating tidal elevation at t = 20220
+  0 SNES Function norm 3.323921931006e+03 
+  1 SNES Function norm 5.294614852920e-10 
+Current power, average power, integrated power and profit for each farm: [1.472766982357182], [77.80464755929827], [1573209.9736490112], [77.80464755929827]
+Updating tidal elevation at t = 20280
+  0 SNES Function norm 3.331378650925e+03 
+  1 SNES Function norm 5.340971195566e-10 
+Current power, average power, integrated power and profit for each farm: [1.7029590776673433], [77.5794946347964], [1573312.1511936712], [77.5794946347964]
+  169   338 T=  20280.00 eta norm:  1092.5139 u norm:   246.6038 35.63
+volume2d rel. error  2.3506e-02
+Updating tidal elevation at t = 20340
+  0 SNES Function norm 3.338590247993e+03 
+  1 SNES Function norm 5.315752941527e-10 
+Current power, average power, integrated power and profit for each farm: [1.9544334154184229], [77.35641185833806], [1573429.4171985963], [77.35641185833806]
+Updating tidal elevation at t = 20400
+  0 SNES Function norm 3.345556411425e+03 
+  1 SNES Function norm 5.335630666422e-10 
+Current power, average power, integrated power and profit for each farm: [2.227862062319058], [77.1354455354086], [1573563.0889223355], [77.1354455354086]
+  170   340 T=  20400.00 eta norm:  1029.7084 u norm:   270.5215 27.18
+volume2d rel. error  2.2154e-02
+Updating tidal elevation at t = 20460
+  0 SNES Function norm 3.352276850328e+03 
+  1 SNES Function norm 5.280751898829e-10 
+Current power, average power, integrated power and profit for each farm: [2.523938603402656], [76.91664346229422], [1573714.5252385398], [76.91664346229422]
+Updating tidal elevation at t = 20520
+  0 SNES Function norm 3.358751293678e+03 
+  1 SNES Function norm 5.185335344974e-10 
+Current power, average power, integrated power and profit for each farm: [2.8434651172756142], [76.70005522151932], [1573885.1331455763], [76.70005522151932]
+  171   342 T=  20520.00 eta norm:   966.6108 u norm:   294.3663 29.22
+volume2d rel. error  2.0797e-02
+Updating tidal elevation at t = 20580
+  0 SNES Function norm 3.364979490298e+03 
+  1 SNES Function norm 5.099971152914e-10 
+Current power, average power, integrated power and profit for each farm: [3.1873781916118875], [76.48573254796273], [1574076.375837073], [76.48573254796273]
+Updating tidal elevation at t = 20640
+  0 SNES Function norm 3.370961208825e+03 
+  1 SNES Function norm 5.053833930059e-10 
+Current power, average power, integrated power and profit for each farm: [3.556695741146809], [76.27372953398942], [1574289.7775815418], [76.27372953398942]
+  172   344 T=  20640.00 eta norm:   903.2391 u norm:   318.1229 35.65
+volume2d rel. error  1.9433e-02
+Updating tidal elevation at t = 20700
+  0 SNES Function norm 3.376696237674e+03 
+  1 SNES Function norm 5.029917097787e-10 
+Current power, average power, integrated power and profit for each farm: [3.952423761964623], [76.06410256073718], [1574526.9230072596], [76.06410256073718]
+Updating tidal elevation at t = 20760
+  0 SNES Function norm 3.382184384950e+03 
+  1 SNES Function norm 5.052186135326e-10 
+Current power, average power, integrated power and profit for each farm: [4.375475314970855], [75.85690999644305], [1574789.4515261578], [75.85690999644305]
+  173   346 T=  20760.00 eta norm:   839.6115 u norm:   341.7762 33.24
+volume2d rel. error  1.8064e-02
+Updating tidal elevation at t = 20820
+  0 SNES Function norm 3.387425478343e+03 
+  1 SNES Function norm 5.069618566793e-10 
+Current power, average power, integrated power and profit for each farm: [4.826628468898847], [75.65221177878443], [1575079.0492342918], [75.65221177878443]
+Updating tidal elevation at t = 20880
+  0 SNES Function norm 3.392419365062e+03 
+  1 SNES Function norm 4.876466053722e-10 
+Current power, average power, integrated power and profit for each farm: [5.306518489226638], [75.45006898197535], [1575397.4403436454], [75.45006898197535]
+  174   348 T=  20880.00 eta norm:   775.7463 u norm:   365.3113 27.98
+volume2d rel. error  1.6689e-02
+Updating tidal elevation at t = 20940
+  0 SNES Function norm 3.397165911815e+03 
+  1 SNES Function norm 4.467601204758e-10 
+Current power, average power, integrated power and profit for each farm: [5.81564261501145], [75.25054340499265], [1575746.378900546], [75.25054340499265]
+Updating tidal elevation at t = 21000
+  0 SNES Function norm 3.401665004794e+03 
+  1 SNES Function norm 4.540899568194e-10 
+Current power, average power, integrated power and profit for each farm: [6.354351414850911], [75.05369714216368], [1576127.6399854373], [75.05369714216368]
+  175   350 T=  21000.00 eta norm:   711.6620 u norm:   388.7137 27.61
+volume2d rel. error  1.5310e-02
+Updating tidal elevation at t = 21060
+  0 SNES Function norm 3.405916549597e+03 
+  1 SNES Function norm 4.844182747080e-10 
+Current power, average power, integrated power and profit for each farm: [6.922800706462559], [74.85959202411325], [1576543.008027825], [74.85959202411325]
+Updating tidal elevation at t = 21120
+  0 SNES Function norm 3.409920471051e+03 
+  1 SNES Function norm 5.079443423171e-10 
+Current power, average power, integrated power and profit for each farm: [7.5208424230885464], [74.66828875820124], [1576994.2585732103], [74.66828875820124]
+  176   352 T=  21120.00 eta norm:   647.3771 u norm:   411.9692 28.29
+volume2d rel. error  1.3927e-02
+Updating tidal elevation at t = 21180
+  0 SNES Function norm 3.413676712974e+03 
+  1 SNES Function norm 5.175582915323e-10 
+Current power, average power, integrated power and profit for each farm: [8.147849638885214], [74.47984558789156], [1577483.1295515434], [74.47984558789156]
+Updating tidal elevation at t = 21240
+  0 SNES Function norm 3.417185237982e+03 
+  1 SNES Function norm 5.285935739768e-10 
+Current power, average power, integrated power and profit for each farm: [8.802506432587021], [74.29431638123816], [1578011.2799374985], [74.29431638123816]
+  177   354 T=  21240.00 eta norm:   582.9105 u norm:   435.0640 31.36
+volume2d rel. error  1.2539e-02
+Updating tidal elevation at t = 21300
+  0 SNES Function norm 3.420446027399e+03 
+  1 SNES Function norm 5.396101308361e-10 
+Current power, average power, integrated power and profit for each farm: [9.482641915602162], [74.11174828415186], [1578580.2384524345], [74.11174828415186]
+Updating tidal elevation at t = 21360
+  0 SNES Function norm 3.423459081323e+03 
+  1 SNES Function norm 5.469941259813e-10 
+Current power, average power, integrated power and profit for each farm: [10.185227579759609], [73.93217940576874], [1579191.35210722], [73.93217940576874]
+  178   356 T=  21360.00 eta norm:   518.2814 u norm:   457.9846 28.52
+volume2d rel. error  1.1149e-02
+Updating tidal elevation at t = 21420
+  0 SNES Function norm 3.426224418798e+03 
+  1 SNES Function norm 5.499725679081e-10 
+Current power, average power, integrated power and profit for each farm: [10.906654695332298], [73.7556373197451], [1579845.75138894], [73.7556373197451]
+Updating tidal elevation at t = 21480
+  0 SNES Function norm 3.428742078053e+03 
+  1 SNES Function norm 5.511125468245e-10 
+Current power, average power, integrated power and profit for each farm: [11.643337979368685], [73.58213927689489], [1580544.3516677022], [73.58213927689489]
+  179   358 T=  21480.00 eta norm:   453.5095 u norm:   480.7181 27.68
+volume2d rel. error  9.7544e-03
+Updating tidal elevation at t = 21540
+  0 SNES Function norm 3.431012116699e+03 
+  1 SNES Function norm 5.572274849214e-10 
+Current power, average power, integrated power and profit for each farm: [12.392561436485012], [73.41169477037563], [1581287.9053538912], [73.41169477037563]
+Updating tidal elevation at t = 21600
+  0 SNES Function norm 3.433034611806e+03 
+  1 SNES Function norm 5.648932803679e-10 
+Current power, average power, integrated power and profit for each farm: [13.153346142663631], [73.24431046863198], [1582077.106122451], [73.24431046863198]
+  180   360 T=  21600.00 eta norm:   388.6155 u norm:   503.2518 33.95
+volume2d rel. error  8.3576e-03
+Updating tidal elevation at t = 21660
+  0 SNES Function norm 3.434809659811e+03 
+  1 SNES Function norm 5.616466894354e-10 
+Current power, average power, integrated power and profit for each farm: [13.927054226540227], [73.07999673942952], [1582912.7293760434], [73.07999673942952]
+Updating tidal elevation at t = 21720
+  0 SNES Function norm 3.436337376268e+03 
+  1 SNES Function norm 5.668821958898e-10 
+Current power, average power, integrated power and profit for each farm: [14.71749727326825], [72.91877436521361], [1583795.7792124394], [72.91877436521361]
+  181   362 T=  21720.00 eta norm:   323.6220 u norm:   525.5736 26.04
+volume2d rel. error  6.9583e-03
+Updating tidal elevation at t = 21780
+  0 SNES Function norm 3.437617895504e+03 
+  1 SNES Function norm 5.679393060532e-10 
+Current power, average power, integrated power and profit for each farm: [15.530474896475784], [72.76067987631902], [1584727.607706228], [72.76067987631902]
+Updating tidal elevation at t = 21840
+  0 SNES Function norm 3.438651370279e+03 
+  1 SNES Function norm 5.753842423078e-10 
+Current power, average power, integrated power and profit for each farm: [16.372857712189454], [72.60576827696701], [1585709.9791689594], [72.60576827696701]
+  182   364 T=  21840.00 eta norm:   258.5556 u norm:   547.6716 23.16
+volume2d rel. error  5.5571e-03
+Updating tidal elevation at t = 21900
+  0 SNES Function norm 3.439437971481e+03 
+  1 SNES Function norm 5.736619378918e-10 
+Current power, average power, integrated power and profit for each farm: [17.251466368093837], [72.45411265529886], [1586745.067151045], [72.45411265529886]
+Updating tidal elevation at t = 21960
+  0 SNES Function norm 3.439977887917e+03 
+  1 SNES Function norm 5.751979759646e-10 
+Current power, average power, integrated power and profit for each farm: [18.17203777926021], [72.30580097530968], [1587835.3894178006], [72.30580097530968]
+  183   366 T=  21960.00 eta norm:   193.4540 u norm:   569.5342 24.00
+volume2d rel. error  4.1543e-03
+Updating tidal elevation at t = 22020
+  0 SNES Function norm 3.440271326188e+03 
+  1 SNES Function norm 5.761082864293e-10 
+Current power, average power, integrated power and profit for each farm: [19.13851299326463], [72.1609309808082], [1588983.7001973966], [72.1609309808082]
+Updating tidal elevation at t = 22080
+  0 SNES Function norm 3.440318510645e+03 
+  1 SNES Function norm 5.765405135205e-10 
+Current power, average power, integrated power and profit for each farm: [20.152763399543105], [72.01960443846781], [1590192.8660013692], [72.01960443846781]
+  184   368 T=  22080.00 eta norm:   128.3943 u norm:   591.1497 23.97
+volume2d rel. error  2.7503e-03
+Updating tidal elevation at t = 22140
+  0 SNES Function norm 3.440119683392e+03 
+  1 SNES Function norm 5.797890120326e-10 
+Current power, average power, integrated power and profit for each farm: [21.21473993910815], [71.88192187884894], [1591465.7503977157], [71.88192187884894]
+Updating tidal elevation at t = 22200
+  0 SNES Function norm 3.439675104275e+03 
+  1 SNES Function norm 5.789310955271e-10 
+Current power, average power, integrated power and profit for each farm: [22.32292549894007], [71.74797864538974], [1592805.1259276522], [71.74797864538974]
+  185   370 T=  22200.00 eta norm:    63.6925 u norm:   612.5070 21.85
+volume2d rel. error  1.3455e-03
+Updating tidal elevation at t = 22260
+  0 SNES Function norm 3.438985050817e+03 
+  1 SNES Function norm 5.798109340053e-10 
+Current power, average power, integrated power and profit for each farm: [23.474920433260845], [71.61786258551876], [1594213.6211536478], [71.61786258551876]
+Updating tidal elevation at t = 22320
+  0 SNES Function norm 3.438049818074e+03 
+  1 SNES Function norm 5.877110445788e-10 
+Current power, average power, integrated power and profit for each farm: [24.66800049804352], [71.49165327883202], [1595693.7011835305], [71.49165327883202]
+  186   372 T=  22320.00 eta norm:    12.3886 u norm:   633.5955 19.68
+volume2d rel. error -5.9679e-05
+Updating tidal elevation at t = 22380
+  0 SNES Function norm 3.436869718438e+03 
+  1 SNES Function norm 5.891374571031e-10 
+Current power, average power, integrated power and profit for each farm: [25.89953919530316], [71.36942240997537], [1597247.6735352487], [71.36942240997537]
+time cost: 118.25min

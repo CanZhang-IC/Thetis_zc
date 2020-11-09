@@ -1,4 +1,7 @@
-for i in 0 30 45 60 90 120 135 150
+for i in 10 20 40 60 80 100
 do
-    nohup python angle_optimisation$i.py > logs/$i.out 2>&1 &
+for j in 0 30
+do
+    mpirun -np 4 python angle_optimisation$i-yaw$j.py
+done
 done

@@ -1,24 +1,19 @@
 basin_x = 2000;
-basin_y = 600;
-
-headland_x_scale = 0.2;
-headland_y = 200;
+basin_y = 300;
 
 site_x = 160;
 site_y = 100;
-site_x_start = basin_x/2-site_x/2;
-site_x_end = basin_x/2+site_x/2;
 
-site_y_start = basin_y/2 - 50;
-site_y_end = site_y_start+site_y;
+site_x_start = basin_x/2 - site_x/2;
+site_y_start = basin_y/2 - site_y/2;
 
-element_size = 2;
-element_size_coarse = 20;
+element_size = 1;
+element_size_coarse = 5;
 
-Point(1) = {0, 200, 0, element_size_coarse};
-Point(2) = {basin_x, 200, 0, element_size_coarse};
-Point(3) = {basin_x, 400, 0, element_size_coarse};
-Point(4) = {0, 400, 0, element_size_coarse};
+Point(1) = {0, 0, 0, element_size_coarse};
+Point(2) = {basin_x, 0, 0, element_size_coarse};
+Point(3) = {basin_x, basin_y, 0, element_size_coarse};
+Point(4) = {0, basin_y, 0, element_size_coarse};
 
 
 Line(100) = {3, 4};
