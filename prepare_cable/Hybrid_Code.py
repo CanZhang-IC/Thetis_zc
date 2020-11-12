@@ -10,11 +10,12 @@ from firedrake import *
 from firedrake_adjoint import *
 
 import random
+import h5py
 
 
 class CableCostGA(object):
     
-    def __init__(self, turbine_locations, substation_location = [[0,0]], capacity = 7, pop_size = 80, num_iter = 200, convergence_definition = 20, converged = False, show_prog = False, show_result = False): 
+    def __init__(self, turbine_locations, substation_location = [[0,0]], capacity = 9, pop_size = 80, num_iter = 200, convergence_definition = 20, converged = False, show_prog = False, show_result = False, figname ='fig'): 
         self.turbine_locations = []
         for i in range(int(len(turbine_locations)/2)):
             self.turbine_locations.append([turbine_locations[2*i],turbine_locations[2*i+1]])      
@@ -29,6 +30,7 @@ class CableCostGA(object):
         self.convergence_definition = convergence_definition
         self.show_prog = show_prog
         self.show_result = show_result
+        self.figname = figname
 
 
     def convert_to_adnumber(self, coordinate_list):
@@ -86,12 +88,12 @@ class CableCostGA(object):
         plt.title('Total distance='+str(global_min))
         V = np.array((vertices))
         plt.plot(V[:,0],V[:,1],'o')
-        # for i in range(len(R)):
-        #     plt.plot(R[i][:,0], R[i][:,1], '-')
+        for i in range(len(R)):
+            plt.plot(R[i][:,0], R[i][:,1], '-')
         for i in range(len(V)):
             plt.text(V[i][0], V[i][1], '%s' % (str(i)))
         plt.axis('equal')
-        plt.savefig('cable_result.jpg',dpi=300)
+        plt.savefig('./'+self.figname + '.jpg',dpi=300)
         
     
     def rand_breaks(self, n, min_route, n_routes, n_breaks):
@@ -292,18 +294,18 @@ class CableCostGA(object):
         return cost_out
 
     def compute_cable_cost_order(self):
-        if len(self.turbine_locations) != len(self.turbine_locations_check):
-            vertices = self.substation_location + self.turbine_locations
-            n_routes = int(math.ceil(float(len(vertices)) / self.capacity))
-            min_route = len(vertices) / n_routes
-            n = len(self.turbine_locations)
-            n_breaks = n_routes - 1
-            pop = self.initialise_population(n, min_route, n_routes, n_breaks)
-            rting = self.routing(pop[0][0],pop[1][0])
-        else:
-            out = self.run_GA()
-            self.best_chromosome = out[0]
-            rting = self.routing(self.best_chromosome[0],self.best_chromosome[1])
+        # if len(self.turbine_locations) != len(self.turbine_locations_check):
+        #     vertices = self.substation_location + self.turbine_locations
+        #     n_routes = int(math.ceil(float(len(vertices)) / self.capacity))
+        #     min_route = len(vertices) / n_routes
+        #     n = len(self.turbine_locations)
+        #     n_breaks = n_routes - 1
+        #     pop = self.initialise_population(n, min_route, n_routes, n_breaks)
+        #     rting = self.routing(pop[0][0],pop[1][0])
+        # else:
+        out = self.run_GA()
+        self.best_chromosome = out[0]
+        rting = self.routing(self.best_chromosome[0],self.best_chromosome[1])
         return rting
         
     def compute_cable_cost_derivative(self):
@@ -517,28 +519,61 @@ class Clarke_Wright(object):
         
         
 if __name__ == '__main__':
-    turbine_locations = [ 443352.        , 3322768.33475836,  443352.        ,
-       3322835.        ,  443374.11132701, 3322801.66766039,
-        443437.56298443, 3322834.9998673 ,  443417.74072179,
-       3322800.25748646,  443396.22270362, 3322834.99997242,
-        443506.38903723, 3322806.18888704,  443478.63952298,
-       3322835.        ,  443459.95853205, 3322799.63034438,
-        443486.30872563, 3322769.53348984,  443564.57303151,
-       3322798.5286971 ,  443534.13864377, 3322835.        ,
-        443394.84348918, 3322767.45965693,  443439.59754965,
-       3322765.19743417,  443531.93248311, 3322775.40604717,
-        443580.99988956, 3322835.        ]
-    landpointlocation = [444000,3323000]
-    CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = False, show_result = True)
+    turbine_locations = []
+    df = h5py.File('./diagnostic_controls.hdf5','r+')
+    for name, data in df.items():
+        for i in data[-1]:
+            turbine_locations.append(i)
     
+    landpointlocation = [500,0]
+    CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = False, show_result = True, figname='ideal_cable')
     print (CC.compute_cable_cost())
     print(CC.compute_cable_cost_order())
-    # print (CC.compute_cable_cost_derivative())
 
 
+    # count = 0
+    # a = []
+    # b = []
+    # c = []
+    # plt.figure()
+    # while count < 2000:
+    #     np.random.seed()
+    #     turbine_locations = []
+    #     # df = h5py.File('../../outputs/ideal_cable/only_cable/diagnostic_controls.hdf5','r+')
+    #     # for name, data in df.items():
+    #     #     for i in data[-1]:
+    #     #         turbine_locations.append(i)
+    #     xall, yall = 0, 0
+    #     turbine_number =16
+    #     for i in range(turbine_number):
+    #         x = np.random.random_sample()
+    #         turbine_locations.append(750+x*500)
+    #         xall += 750+x*500
+    #         y = np.random.random_sample()
+    #         turbine_locations.append(150+y*300)
+    #         yall += 150+y*300
+    #     x_centre = xall/turbine_number
+    #     y_centre = yall/turbine_number
+    #     disall = 0
+    #     for i in range(int(len(turbine_locations)/2)):
+    #         dis = np.sqrt((x_centre-turbine_locations[2*i])**2+(y_centre-turbine_locations[2*i+1])**2)
+    #         disall += dis
 
+    #     landpointlocation = [500,0]
+    #     centretoland = np.sqrt((x_centre-landpointlocation[0])**2+(y_centre-landpointlocation[1])**2)
+    #     c.append(centretoland) 
+    #     CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = False, show_result = False)
 
+    #     minimum = CC.compute_cable_cost()
+    #     a.append(minimum)
+    #     b.append(centretoland)
+    #     print(count, minimum,disall,centretoland)
+        
+    #     plt.plot(minimum,0.5*disall/turbine_number+0.5*centretoland,'.')
+    #     plt.savefig('cscs.jpg',dpi=300)
+    #     count +=1
 
-
-
+    # plt.figure()
+    # plt.plot(a,b,'.')
+    # plt.savefig('cs.jpg',dpi=300)
 

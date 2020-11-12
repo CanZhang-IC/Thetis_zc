@@ -1,4 +1,4 @@
-for i in 10 20 40 60 80 100
+for i in 40
 do
 for j in 0 30
 do

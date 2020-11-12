@@ -7,6 +7,7 @@ sys.path.append('..')
 import prepare.utm, prepare.myboundary_30min
 import prepare_cable.Hybrid_Code
 from prepare_cable.cable_overloaded import cablelength
+from prepare_cable.centretoland_overloaded import two_length
 import numpy
 import time
 
@@ -21,7 +22,7 @@ optimise = 0
 tidal_amplitude = 5.
 tidal_period = 12.42*60*60
 timestep = 60
-t_end = 5*60
+t_end = 2*60
 # t_end = tidal_period/2
 
 #set up depth
@@ -93,7 +94,7 @@ farm_options.upwind_correction = False
 
 site_x1, site_y1, site_x2, site_y2 = 750 ,150, 1250, 450
 
-farm_options.turbine_coordinates = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+80, site_x2-80, 100) for y in numpy.arange(site_y1+80, site_y2-80, 50)]
+farm_options.turbine_coordinates = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+50, site_x2-50, 100) for y in numpy.arange(site_y1+50, site_y2-50, 50)]
 
 # when 'farm_options.considering_yaw' is False, 
 # the farm_options.turbine_axis would be an empty list, 
@@ -135,11 +136,13 @@ landpointlocation_con = [Constant(x) for x in landpointlocation]
 order_con = [Constant(i) for j in order_w for i in j]
 cablecost = cablelength([x for xy in farm_options.turbine_coordinates for x in xy],landpointlocation_con,order_con)
 
+cablepenalty = two_length([x for xy in farm_options.turbine_coordinates for x in xy],landpointlocation_con)
+
 c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy] 
 turbine_density = Function(solver_obj.function_spaces.P1_2d, name='turbine_density')
 turbine_density.interpolate(solver_obj.tidal_farms[0].turbine_density)
 
-interest_functional = -cablecost
+interest_functional = -cablecost-0.1*cablepenalty
 # print(power_output, cablecost, interest_functional)
 # a number of callbacks to provide output during the optimisation iterations:
 # - ControlsExportOptimisationCallback export the turbine_friction values (the control)
@@ -188,7 +191,7 @@ if 0:
     # values between 0 and 1 and choose a random direction dtd to vary it in
 
     # this tests whether the above Taylor series residual indeed converges to zero at 2nd order in h as h->0
-    m1 =[[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 50)]
+    m1 = farm_options.turbine_coordinates
     m0 = [i for j in m1 for i in j]
 
     h0 = [Constant(1) for i in range(len(farm_options.turbine_coordinates)*2)]
@@ -217,8 +220,9 @@ if 1:
 
     mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, r*3.)
     
-    td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
-            options={'maxiter': 1000, 'pgtol': 1e-3})
+    td_opt, res = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
+            options={'maxiter': 1000, 'ftol': 1e-6, 'disp':True})
+    print(res)
 
 t_end = time.time()
 print('time cost:', (t_end - t_start)/60, 'min')

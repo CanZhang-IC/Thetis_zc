@@ -18,10 +18,6 @@ class CablelengthBlock(Block):
         self.order = order_w
         for location in self.turbine_locations:
             self.add_dependency(location)
-        # for sublocation in self.substation_location:
-        #     self.add_dependency(sublocation)
-        # for order in order_w:
-        #     self.add_dependency(order)
 
     def __str__(self):
         return "CablelengthBlock"
@@ -48,21 +44,26 @@ class CablelengthBlock(Block):
         for i in inputs[:]:
             t_location_float.append(float(i.values()))
         l_location_float = [float(self.substation_location[0].values()),float(self.substation_location[1].values())]
-        # print(t_location_float)
-        # print(l_location_float)
-        cableclass = prepare_cable.Hybrid_Code.CableCostGA(t_location_float,l_location_float)
-        order_w = cableclass.compute_cable_cost_order()
-        order_con = [i for j in order_w for i in j]
-        # print(order_con)
-        for i,order in enumerate(self.order):
-            order.assign(order_con[i])
-        relevant_outputs = self.order
+        check_t_location = []
+        for i in t_location_float:
+            if i not in check_t_location:
+                check_t_location.append(i)
+        
+        if len(t_location_float) != len(check_t_location):
+            relevant_outputs = self.order
+        else:
+            cableclass = prepare_cable.Hybrid_Code.CableCostGA(t_location_float,l_location_float)
+            order_w = cableclass.compute_cable_cost_order()
+            order_con = [i for j in order_w for i in j]
+            # print(order_con)
+            for i,order in enumerate(self.order):
+                order.assign(order_con[i])
+            relevant_outputs = self.order
         return relevant_outputs
          
 
     def recompute_component(self,inputs,block_variable,idx,prepared):
         turbine_index = len(self.turbine_locations)
-        # substation_index = len(self.turbine_locations)+len(self.substation_location)
         return backend_cablelength(inputs[:],self.substation_location,prepared)
     
 

@@ -7,8 +7,8 @@ site_y = 100;
 site_x_start = basin_x/2 - site_x/2;
 site_y_start = basin_y/2 - site_y/2;
 
-element_size = 1;
-element_size_coarse = 5;
+element_size = 2;
+element_size_coarse = 10;
 
 Point(1) = {0, 0, 0, element_size_coarse};
 Point(2) = {basin_x, 0, 0, element_size_coarse};
