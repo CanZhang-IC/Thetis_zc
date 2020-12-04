@@ -1,0 +1,1 @@
+nohup sh mycopy.sh >logs2/reverse_sincos.out 2>&1

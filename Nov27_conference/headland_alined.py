@@ -110,7 +110,7 @@ for i in range(940,1080,40):
 farm_options.turbine_coordinates =[[Constant(i[0]),Constant(i[1])] for i in turbinelocation]
 
 farm_options.considering_yaw = True
-farm_options.turbine_axis = [Constant(0) for i in range(len(farm_options.turbine_coordinates)*2)]
+farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbine_coordinates)*2)]
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
 

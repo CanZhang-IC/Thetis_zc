@@ -14,7 +14,10 @@ df = h5py.File('./diagnostic_'+filenames[-3]+'.hdf5','r+')
 for name,data in df.items():
     # for i,ii in enumerate(data):
     #     print(i, ii)
-    print(len(data),data[-1])
+    # print('1',data[1])
+    print(len(data)-1,data[-1])
+    incremet = (float(data[-1])-float(data[0]))/float(data[0])*100
+    print('The increment is {0:0.2f}%.'.format(incremet))
     a = len(data)
     b = np.linspace(1,a,a)
     plt.plot(b,data,'.-',)

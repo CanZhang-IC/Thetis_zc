@@ -21,12 +21,12 @@ optimise = 0
 
 tidal_amplitude = 5.
 tidal_period = 12.42*60*60
-timestep = 60
-t_end = 2*60
-# t_end = tidal_period/2
+timestep = 5*60
+t_end = 2*timestep
+
 
 #set up depth
-H = 100
+H = 40
 
 #set viscosity bumps at in-flow boundaries.
 P1_2d = FunctionSpace(mesh2d, 'CG', 1)
@@ -136,13 +136,13 @@ landpointlocation_con = [Constant(x) for x in landpointlocation]
 order_con = [Constant(i) for j in order_w for i in j]
 cablecost = cablelength([x for xy in farm_options.turbine_coordinates for x in xy],landpointlocation_con,order_con)
 
-cablepenalty = two_length([x for xy in farm_options.turbine_coordinates for x in xy],landpointlocation_con)
+cablepenalty = -two_length([x for xy in farm_options.turbine_coordinates for x in xy])
 
 c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy] 
 turbine_density = Function(solver_obj.function_spaces.P1_2d, name='turbine_density')
 turbine_density.interpolate(solver_obj.tidal_farms[0].turbine_density)
 
-interest_functional = -cablecost-0.1*cablepenalty
+interest_functional = cablecost #300*power_output - (cablecost+0.1*cablepenalty)*2000
 # print(power_output, cablecost, interest_functional)
 # a number of callbacks to provide output during the optimisation iterations:
 # - ControlsExportOptimisationCallback export the turbine_friction values (the control)

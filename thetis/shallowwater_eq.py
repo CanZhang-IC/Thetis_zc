@@ -650,12 +650,22 @@ class QuadraticDragTerm(ShallowWaterMomentumTerm):
     def residual(self, uv, eta, uv_old, eta_old, fields, fields_old, bnd_conditions=None):
         total_h = self.depth.get_total_depth(eta_old)
         manning_drag_coefficient = fields_old.get('manning_drag_coefficient')
+        nikuradse_bed_roughness = fields_old.get('nikuradse_bed_roughness')
         C_D = fields_old.get('quadratic_drag_coefficient')
         f = 0
         if manning_drag_coefficient is not None:
             if C_D is not None:
                 raise Exception('Cannot set both dimensionless and Manning drag parameter')
             C_D = g_grav * manning_drag_coefficient**2 / total_h**(1./3.)
+
+        if nikuradse_bed_roughness is not None:
+            if manning_drag_coefficient is not None:
+                raise Exception('Cannot set both Nikuradse drag and Manning drag parameter')
+            if C_D is not None:
+                raise Exception('Cannot set both dimensionless and Nikuradse drag parameter')
+
+            kappa = physical_constants['von_karman']
+            C_D = conditional(total_h > nikuradse_bed_roughness, 2*(kappa**2)/(ln(11.036*total_h/nikuradse_bed_roughness)**2), Constant(0.0))
 
         if C_D is not None:
             f += C_D * sqrt(dot(uv_old, uv_old) + self.options.norm_smoother**2) * inner(self.u_test, uv) / total_h * self.dx
@@ -723,27 +733,18 @@ class TurbineDragTerm(ShallowWaterMomentumTerm):
         for farm in self.tidal_farms:
             if farm.considering_yaw:
                 density = farm.turbine_density
-                flow_direction = atan_2(uv[0],uv[1])
-                # flow_direction = conditional(flow_direction < 0, flow_direction + 360, flow_direction)
-                n = conditional(flow_direction > 0, as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood))) ,\
-                     as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb))))
-                #n = as_vector((1,0))
+                # n = conditional(uv_old[0] > 0, as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood))) ,\
+                    #  as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb))))
+                n = as_vector((cos(farm.farm_alpha),sin(farm.farm_alpha)))
                 c_t = farm.friction_coefficient(uv_old, total_h)
                 unorm = abs(dot(uv_old, n))
-                f += c_t * density * unorm * dot(self.u_test,n) * dot(uv,n) / total_h * farm.dx
+                f += c_t * density * unorm * dot(uv,n) * dot(self.u_test, n) /total_h* farm.dx
             else:
                 density = farm.turbine_density
                 c_t = farm.friction_coefficient(uv_old, total_h)
                 unorm = sqrt(dot(uv_old, uv_old))
                 f += c_t * density * unorm * inner(self.u_test, uv) / total_h * farm.dx
         return -f
-
-        # for farm in self.tidal_farms:
-        #     density = farm.turbine_density
-        #     c_t = farm.friction_coefficient(uv_old, total_h)
-        #     unorm = sqrt(dot(uv_old, uv_old))
-        #     f += c_t * density * unorm * inner(self.u_test, uv) / total_h * farm.dx
-        # return -f
 
 
 class MomentumSourceTerm(ShallowWaterMomentumTerm):

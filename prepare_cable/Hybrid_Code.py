@@ -524,10 +524,17 @@ if __name__ == '__main__':
     for name, data in df.items():
         for i in data[-1]:
             turbine_locations.append(i)
-    
+    # turbine_locations=[760.        , 160.        , 779.49681974, 182.80135892,
+    #    791.0495674 , 210.48787958, 814.28994971, 229.45986336,
+    #    816.45835488, 160.        , 845.72732647, 166.59408795,
+    #    866.99395457, 189.12785533, 839.60214818, 245.56676241,
+    #    891.72879469, 206.31966837, 911.58308915, 292.29731629,
+    #    883.78474286, 281.00657136, 855.49174295, 271.0273383 ,
+    #    920.17188078, 215.99847063, 950.18210255, 217.5150043 ,
+    #    965.85573043, 243.30627277, 995.75868127, 248.28074774]
     landpointlocation = [500,0]
     CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = False, show_result = True, figname='ideal_cable')
-    print (CC.compute_cable_cost())
+    print ('Cable length:',CC.compute_cable_cost())
     print(CC.compute_cable_cost_order())
 
 

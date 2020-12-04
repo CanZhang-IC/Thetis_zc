@@ -20,27 +20,26 @@ import time
 t_start = time.time()
 
 H = 40
-output_dir = '../../outputs/conference/gewfsdfewfasdf'
+output_dir = '../../outputs/conference/onepoint_optimisation'
 #Comment for testing forward model
 test_gradient = False
-optimise = False
+optimise = True
 
 ### set up the Thetis solver obj as usual ###
 mesh2d = Mesh('../prepare_ideal_meshes/headland2.msh')
 
-tidal_amplitude = 5
+tidal_amplitude = 5.
 tidal_period = 12.42*60*60
-timestep = 60*5
-t_export = 60*30
-t_end = 27*t_export + tidal_period
+timestep = 300
+t_export = 600
+t_end = 60*t_export+tidal_period 
 
 
 #set viscosity bumps at in-flow boundaries.
 P1_2d = FunctionSpace(mesh2d, 'CG', 1)
 x = SpatialCoordinate(mesh2d)
-v_b = 100
-v_inter = 10
-h_viscosity = Constant(5)#Function(P1_2d).interpolate(conditional(le(x[0], 50), v_b + v_inter-x[0]*v_b/50, conditional(ge(x[0],1950),(x[0]-1950)*v_b/50+v_inter,v_inter)))
+h_viscosity = Function(P1_2d).interpolate(conditional(le(x[0], 50), 50.1-x[0], conditional(ge(x[0],1950),x[0]-1949.9,0.1)))
+File(output_dir+'/viscosity.pvd').write(h_viscosity)
 
 # create solver and set options
 solver_obj = solver2d.FlowSolver2d(mesh2d, Constant(H))
@@ -53,23 +52,21 @@ options.simulation_end_time = t_end
 options.output_directory = output_dir
 options.check_volume_conservation_2d = True
 options.fields_to_export_hdf5 = ['uv_2d', 'elev_2d']
-options.element_family = 'dg-dg'
+options.element_family = 'dg-cg'
 options.timestepper_type = 'CrankNicolson'
 options.timestepper_options.implicitness_theta = 1
 # options.timestepper_options.use_semi_implicit_linearization = True
 # using direct solver as PressurePicard does not work with dolfin-adjoint (due to .split() not being annotated correctly)
 options.timestepper_options.solver_parameters = {'snes_monitor': None,
-                                                 'snes_rtol': 1e-5,
+                                                 'snes_rtol': 1e-9,
                                                  'ksp_type': 'preonly',
                                                  'pc_type': 'lu',
                                                  'pc_factor_mat_solver_type': 'mumps',
                                                  'mat_type': 'aij'
                                                  }
 options.horizontal_viscosity =h_viscosity
-options.use_grad_div_viscosity_term = True
-options.use_grad_depth_viscosity_term = False
-# options.quadratic_drag_coefficient = Constant(0.0025)
-options.manning_drag_coefficient = Constant(0.02)
+options.quadratic_drag_coefficient = Constant(0.0025)
+# options.manning_drag_coefficient = Constant(0.02)
 
 # assign boundary conditions
 left_tag = 1
@@ -91,34 +88,49 @@ x = SpatialCoordinate(mesh2d)
 g = 9.81
 omega = 2 * pi / tidal_period
 
-def update_forcings(t):
-    print_output("Updating tidal elevation at t = {}".format(t))
-    tidal_elev.project(tidal_amplitude*sin(omega*t + omega/Constant(pow(g*H, 0.5))*x[0]))
+
 
 # Initialise Discrete turbine farm characteristics
 farm_options = DiscreteTidalTurbineFarmOptions()
 farm_options.turbine_type = 'constant'
-farm_options.turbine_options.thrust_coefficient = 0.6
+farm_options.turbine_options.thrust_coefficient = 0.8
 farm_options.turbine_options.diameter = 20
 farm_options.upwind_correction = False
 
-site_x1, site_x2, site_y1, site_y2 = 920, 1080, 250, 350
-turbinelocation = []
-for i in range(940,1080,40):
-    for j in range(275,350,26):
-        turbinelocation.append([i,j])
-farm_options.turbine_coordinates =[[Constant(i[0]),Constant(i[1])] for i in turbinelocation]
-
-farm_options.considering_yaw = True
+# site_x1, site_x2, site_y1, site_y2 = 920, 1080, 250, 350
+# turbinelocation = []
+# for i in range(940,1080,40):
+#     for j in range(275,350,26):
+#         turbinelocation.append([i,j])
+# farm_options.turbine_coordinates =[[Constant(i[0]),Constant(i[1])] for i in turbinelocation]
+# farm_options.considering_yaw = True
 # farm_options.turbine_axis = [Constant(90*i) for i in range(len(farm_options.turbine_coordinates)*2)]
-farm_options.turbine_axis = [Constant(i) for i in [143.77742131482796, 143.77719851018145, 143.77690759804997, 143.7765699343677, 143.77602633143175, 143.77546415717597, 143.77726079640053, 143.77689001191686, 143.77587124425324,143.77726079640053, 143.77689001191686, 143.77587124425324, 72.07402714943613, 72.07400532882878, 72.07398718123437, 72.07399996532457, 72.0739956377716, 72.07399027944004, 72.07402538169842, 72.0740109774672, 72.07399581467625,72.07402538169842, 72.0740109774672, 72.07399581467625]]
+# farm_options.turbine_axis = [Constant(i) for i in [ 72.07402714943613, 72.07400532882878, 72.07398718123437, 72.07399996532457, 72.0739956377716, 72.07399027944004, 72.07402538169842, 72.0740109774672, 72.07399581467625,72.07402538169842, 72.0740109774672, 72.07399581467625,143.77742131482796, 143.77719851018145, 143.77690759804997, 143.7765699343677, 143.77602633143175, 143.77546415717597, 143.77726079640053, 143.77689001191686, 143.77587124425324,143.77726079640053, 143.77689001191686, 143.77587124425324,]]
+# farm_options.turbine_axis = [Constant(360-118.51035531882769+90)]*12+[Constant(120.20419481115792-90)]*12
 
+farm_options.turbine_coordinates =[[Constant(1000),Constant(300)]]
+farm_options.considering_yaw = True
+farm_options.turbine_axis = [Constant(360-118.51035531882769+90),Constant(120.20419481115792-90)]
+farm_options.farm_alpha = Function(P1_2d)
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
 
+
+def update_forcings(t):
+    print_output("Updating tidal elevation at t = {}".format(t))
+    tidal_elev.project(tidal_amplitude*sin(omega*t + omega/Constant(pow(g*H, 0.5))*x[0]))
+
+    uv, eta = split(solver_obj.fields.solution_2d)
+    alpha_flood = sum((conditional((x[0]-xi)**2+(x[1]-yi)**2 < farm_options.turbine_options.diameter**2, alphai/180*pi, 0) \
+                for alphai,(xi,yi) in zip(farm_options.turbine_axis[:len(farm_options.turbine_coordinates)],farm_options.turbine_coordinates)))
+    alpha_ebb = sum((conditional((x[0]-xi)**2+(x[1]-yi)**2 < farm_options.turbine_options.diameter**2, alphai/180*pi, 0) \
+        for alphai,(xi,yi) in zip(farm_options.turbine_axis[len(farm_options.turbine_coordinates):],farm_options.turbine_coordinates)))
+    alphainterpolation = conditional(uv[0] > 0, alpha_flood, alpha_ebb)
+    farm_options.farm_alpha.interpolate(alphainterpolation)
+
 #set initial condition
 # solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=tidal_elev)
-solver_obj.load_state(27, '../../outputs/conference/restart-8')
+solver_obj.load_state(60, '../../outputs/conference/restart')
 
 # Operation of tidal turbine farm through a callback
 cb = turbines.TurbineFunctionalCallback(solver_obj)
@@ -129,6 +141,7 @@ solver_obj.add_callback(cb2,'timestep')
 
 # start computer forward model
 solver_obj.iterate(update_forcings=update_forcings)
+
 
 ###set up interest functional and control###
 power_output= sum(cb.integrated_power)
@@ -212,7 +225,7 @@ if optimise:
     if optimise_angle_only:
         lb = [0]*len(farm_options.turbine_axis)
         ub = [360]*len(farm_options.turbine_axis)
-        td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 100, 'ftol': 1e-6})
+        td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 100, 'ftol': 1e-9})
     else:
         r = farm_options.turbine_options.diameter/2.
 

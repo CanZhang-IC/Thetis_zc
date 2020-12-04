@@ -167,6 +167,7 @@ class DiscreteTidalTurbineFarm(TidalTurbineFarm):
         self.add_turbines(options.turbine_coordinates)
         x = SpatialCoordinate(self.mesh)
         radius = self.turbine.diameter * 0.5
+        self.farm_alpha = options.farm_alpha
         self.considering_yaw = options.considering_yaw
         if self.considering_yaw:
             if len(options.turbine_axis) == 0:
@@ -211,6 +212,9 @@ class DiscreteTidalTurbineFarm(TidalTurbineFarm):
             #unit_bump_integral = 1.45661 # integral of bump function for radius=1 (copied from OpenTidalFarm who used Wolfram)
             self.turbine_density = self.turbine_density + bump/(radius**2 * unit_bump_integral)
             self.turbine_density_list.append(bump/(radius**2 * unit_bump_integral))
+            # turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
+            # turbinepvd.project(self.turbine_density)
+            # File('turbinedensity.pvd').write(turbinepvd)
 
 
 class TurbineFunctionalCallback(DiagnosticCallback):

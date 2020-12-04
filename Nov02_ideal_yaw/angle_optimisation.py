@@ -35,13 +35,13 @@ else:
 
 # print(H, angle)
 # H, angle = 40, 30
-output_dir = '../../outputs/ideal_yaw_thrust_cos/H'+str(H)+'_yaw'+str(angle)
+output_dir = '../../outputs/ideal_yaw_reverse_sincos2/H'+str(H)+'_yaw'+str(angle)
 #Comment for testing forward model
 test_gradient = False
 optimise = False
 
 ### set up the Thetis solver obj as usual ###
-mesh2d = Mesh('../prepare_ideal_meshes/rectangular3.msh')
+mesh2d = Mesh('../prepare_ideal_meshes/rectangular.msh')
 
 tidal_amplitude = 5.
 tidal_period = 12.42*60*60
@@ -67,13 +67,13 @@ options.simulation_end_time = t_end
 options.output_directory = output_dir
 options.check_volume_conservation_2d = True
 options.fields_to_export_hdf5 = ['uv_2d', 'elev_2d']
-options.element_family = 'dg-dg'
+options.element_family = 'dg-cg'
 options.timestepper_type = 'CrankNicolson'
 options.timestepper_options.implicitness_theta = 1.0
 options.timestepper_options.use_semi_implicit_linearization = True
 # using direct solver as PressurePicard does not work with dolfin-adjoint (due to .split() not being annotated correctly)
 options.timestepper_options.solver_parameters = {'snes_monitor': None,
-                                                 'snes_rtol': 1e-5,
+                                                 'snes_rtol': 1e-9,
                                                  'ksp_type': 'preonly',
                                                  'pc_type': 'lu',
                                                  'pc_factor_mat_solver_type': 'mumps',

@@ -42,9 +42,12 @@ Point(1000) = {site_x_start, site_y_start, 0, element_size};
 Extrude{site_x, 0, 0} { Point{1000}; Layers{site_x/element_size}; }
 Extrude{0, site_y, 0} { Line{105}; Layers{site_y/element_size}; }
 Line Loop(110) = {106, -108, -105, 107};
+
 Plane Surface(111) = {104, 110};
 Physical Line(1) = {101};
 Physical Line(2) = {103};
 Physical Line(3) = {100, 102};
 Physical Surface(1) = {111};
 Physical Surface(2) = {109};
+
+

@@ -35,13 +35,13 @@ else:
 
 # print(H, angle)
 # H, angle = 40, 30
-output_dir = '../../outputs/ideal_yaw_thrust_cos/H'+str(H)+'_yaw'+str(angle)
+output_dir = '../../outputs/ideal_yaw_reverse_sincos2/fafwfefaewwarerw'
 #Comment for testing forward model
 test_gradient = False
 optimise = False
 
 ### set up the Thetis solver obj as usual ###
-mesh2d = Mesh('../prepare_ideal_meshes/rectangular3.msh')
+mesh2d = Mesh('../prepare_ideal_meshes/rectangular.msh')
 
 tidal_amplitude = 5.
 tidal_period = 12.42*60*60
@@ -53,7 +53,7 @@ t_end = tidal_period/2
 #set viscosity bumps at in-flow boundaries.
 P1_2d = FunctionSpace(mesh2d, 'CG', 1)
 x = SpatialCoordinate(mesh2d)
-h_viscosity = Function(P1_2d).interpolate(conditional(le(x[0], 50), 50.001-x[0], conditional(ge(x[0],1950),x[0]-1949.999,0.001)))
+h_viscosity = Function(P1_2d).interpolate(conditional(le(x[0], 50), 50.0001-x[0], conditional(ge(x[0],1950),x[0]-1949.999,0.001)))
 # h_viscosity = Function(P1_2d).interpolate(conditional(le(x[0], 51), 51-x[0], conditional(ge(x[0],1950),x[0]-1949,1)))
 
 

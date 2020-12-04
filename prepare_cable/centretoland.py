@@ -6,7 +6,7 @@ from ad import adnumber
 
 
 
-def two_length(turbine_locations,substation_location):
+def two_length(turbine_locations):
     '''
     length1: sum of each point to their centre point.
     length2: distance between centre point to land point
@@ -22,12 +22,10 @@ def two_length(turbine_locations,substation_location):
 
     length1 = 0
     for i in range(turbine_number):
-        dis = np.sqrt(float((x_centre-turbine_locations[2*i])**2+(y_centre-turbine_locations[2*i+1])**2))
+        dis = float((x_centre-turbine_locations[2*i])**2+(y_centre-turbine_locations[2*i+1])**2)
         length1 += dis
-    
-    length2 = np.sqrt(float((x_centre-substation_location[0])**2+(y_centre-substation_location[1])**2))
 
-    total_dist = length1/turbine_number #+ length2
+    total_dist = np.sqrt(length1/turbine_number) 
     return total_dist
 
 def convert_to_adnumber(coordinate_list):
@@ -39,11 +37,10 @@ def convert_to_adnumber(coordinate_list):
         return coordinate_list
         
     
-def dlength_dx(turbine_locations,substation_location):
+def dlength_dx(turbine_locations):
     '''Differentiate the length of the routing w.r.t. the position of the turbines, produces a n x 2 array, ((dC/dx1, dC/dy1), ...)'''
 
     turbine_locations = convert_to_adnumber(turbine_locations)
-    substation_location = convert_to_adnumber(substation_location)
 
     turbine_number = int(len(turbine_locations)/2)
     x,y = [], []
@@ -55,12 +52,10 @@ def dlength_dx(turbine_locations,substation_location):
 
     length1 = 0
     for i in range(turbine_number):
-        dis = np.sqrt((x_centre-turbine_locations[2*i])**2+(y_centre-turbine_locations[2*i+1])**2)
+        dis = (x_centre-turbine_locations[2*i])**2+(y_centre-turbine_locations[2*i+1])**2
         length1 += dis
-    
-    length2 = np.sqrt((x_centre-substation_location[0])**2+(y_centre-substation_location[1])**2)
 
-    total_dist = length1/turbine_number #+ length2
+    total_dist = np.sqrt(length1/turbine_number) 
     dC_dX = np.zeros(turbine_number*2) 
     for i in range(turbine_number):
         dC_dX[2*i] = total_dist.d(turbine_locations[2*i])

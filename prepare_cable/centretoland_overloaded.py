@@ -8,12 +8,11 @@ from prepare_cable.centretoland import two_length, dlength_dx
 backend_two_length = two_length
 
 class two_lengthBlock(Block):
-    def __init__(self,turbine_locations,substation_location,**kwargs):
+    def __init__(self,turbine_locations,**kwargs):
         super(two_lengthBlock,self).__init__()
         
         self.kwargs = kwargs
         self.turbine_locations = turbine_locations
-        self.substation_location = substation_location
 
         for location in self.turbine_locations:
             self.add_dependency(location)
@@ -22,8 +21,7 @@ class two_lengthBlock(Block):
         return "two_lengthBlock"
 
     def prepare_evaluate_adj(self,inputs, adj_inputs, relevant_dependencies):
-        turbine_index = len(self.turbine_locations)
-        dldx = dlength_dx(inputs[:],self.substation_location)
+        dldx = dlength_dx(inputs[:])
         return dldx
 
 
@@ -33,8 +31,7 @@ class two_lengthBlock(Block):
         return result_adj.item()
 
     def recompute_component(self,inputs,block_variable,idx,prepared):
-        turbine_index = len(self.turbine_locations)
-        return backend_two_length(inputs[:],self.substation_location)
+        return backend_two_length(inputs[:])
     
 
 two_length = overload_function(two_length,two_lengthBlock)
