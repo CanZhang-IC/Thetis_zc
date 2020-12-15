@@ -12,8 +12,8 @@ filenames = ['controls','derivatives','each_farm_optimisation','eachturbine','fa
 # df = h5py.File('../../outputs/ideal_cable/only_cable/diagnostic_'+filenames[-3]+'.hdf5','r+')
 df = h5py.File('./diagnostic_'+filenames[-3]+'.hdf5','r+')
 for name,data in df.items():
-    # for i,ii in enumerate(data):
-    #     print(i, ii)
+    for i,ii in enumerate(data):
+        print(i, ii)
     # print('1',data[1])
     print(len(data)-1,data[-1])
     incremet = (float(data[-1])-float(data[0]))/float(data[0])*100

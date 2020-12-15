@@ -30,3 +30,5 @@ Physical Line(2) = {103};
 Physical Line(3) = {100, 102};
 Physical Surface(1) = {111};
 Physical Surface(2) = {109};
+//+
+Point(1004) = {500, 0, 0, 1.0};

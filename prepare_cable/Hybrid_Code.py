@@ -15,7 +15,7 @@ import h5py
 
 class CableCostGA(object):
     
-    def __init__(self, turbine_locations, substation_location = [[0,0]], capacity = 9, pop_size = 80, num_iter = 200, convergence_definition = 20, converged = False, show_prog = False, show_result = False, figname ='fig'): 
+    def __init__(self, turbine_locations, substation_location = [[0,0]], capacity = 7, pop_size = 80, num_iter = 200, convergence_definition = 20, converged = False, show_prog = False, show_result = False, figname ='fig'): 
         self.turbine_locations = []
         for i in range(int(len(turbine_locations)/2)):
             self.turbine_locations.append([turbine_locations[2*i],turbine_locations[2*i+1]])      
@@ -524,6 +524,11 @@ if __name__ == '__main__':
     for name, data in df.items():
         for i in data[-1]:
             turbine_locations.append(i)
+    # site_x1, site_y1, site_x2, site_y2 = 443342 ,3322632, 443591, 3322845
+    # for x in np.arange(site_x1+20, site_x2-20, 60):
+    #      for y in np.arange(site_y1+20, site_y2-20, 50):
+    #          turbine_locations.append(x)
+    #          turbine_locations.append(y)
     # turbine_locations=[760.        , 160.        , 779.49681974, 182.80135892,
     #    791.0495674 , 210.48787958, 814.28994971, 229.45986336,
     #    816.45835488, 160.        , 845.72732647, 166.59408795,
@@ -532,7 +537,7 @@ if __name__ == '__main__':
     #    883.78474286, 281.00657136, 855.49174295, 271.0273383 ,
     #    920.17188078, 215.99847063, 950.18210255, 217.5150043 ,
     #    965.85573043, 243.30627277, 995.75868127, 248.28074774]
-    landpointlocation = [500,0]
+    landpointlocation =[500,0]
     CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = False, show_result = True, figname='ideal_cable')
     print ('Cable length:',CC.compute_cable_cost())
     print(CC.compute_cable_cost_order())

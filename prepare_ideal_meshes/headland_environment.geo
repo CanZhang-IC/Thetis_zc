@@ -44,10 +44,10 @@ Extrude{0, site_y, 0} { Line{105}; Layers{site_y/element_size}; }
 Line Loop(110) = {106, -108, -105, 107};
 
 // affected area
-Point(10001) = {500, 550, 0, element_size_coarse/2};
-Point(10002) = {900, 550, 0, element_size_coarse/2};
-Point(10003) = {500, 450, 0, element_size_coarse/2};
-Point(10004) = {900, 450, 0, element_size_coarse/2};
+Point(10001) = {1550, 250, 0, element_size_coarse/2};
+Point(10002) = {1650, 250, 0, element_size_coarse/2};
+Point(10003) = {1550, 150, 0, element_size_coarse/2};
+Point(10004) = {1650, 150, 0, element_size_coarse/2};
 
 Line(200) = {10001, 10002};
 Line(201) = {10002, 10004};

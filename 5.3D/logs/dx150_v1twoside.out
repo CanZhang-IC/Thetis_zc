@@ -1,0 +1,30 @@
+nohup: ignoring input
+Exporting to ../../outputs/5.3D/dx150_v1
+UFL:WARNING Discontinuous Lagrange element requested on triangle * interval, creating DQ element.
+Using default SIPG parameters
+Coupled time integrator: CoupledTwoStageRK
+  2D time integrator: ESDIRKTrapezoid
+  3D time integrator: SSPRK22ALE
+  3D implicit time integrator: BackwardEuler
+2D mesh: 1313 nodes, 2400 triangles
+3D mesh: 6 layers, 14400 prisms
+Horizontal element size: 1.00 ... 1.00 m
+Vertical element size: 0.900 ... 0.900 m
+Element family: dg-dg, degree: 1
+Number of tracer DOFs: 86400
+Number of cores: 8
+Tracer DOFs per core: ~10800.0
+  - dt 2d swe: 0.004638940161693393
+  - dt h. advection: 0.014285714285714193
+  - dt v. advection: 22.49999999999989
+  - dt viscosity: 0.00999999999999987
+  - CFL adjusted dt: 2D: inf 3D: 0.00999999999999987
+  - chosen dt: 2D: 0.00999999999999987 3D: 0.00999999999999987
+  - adjusted dt: 2D: 0.009995002498750625 3D: 0.009995002498750625
+dt = 0.009995
+max h diff 0.8337499999999952 - 0.8337500000000025
+    0     0 T=      0.00 eta norm:     0.0000 u norm:     0.0000  0.00
+    1  2001 T=     20.00 eta norm:    13.5540 u norm:     0.4085 475.48
+    2  4002 T=     40.00 eta norm:    23.0216 u norm:     3.2139 471.54
+    3  6003 T=     60.00 eta norm:    25.3010 u norm:     9.9111 540.01
+    4  8004 T=     80.00 eta norm:    23.6400 u norm:    20.5682 567.80
