@@ -1,0 +1,47 @@
+nohup: ignoring input
+Exporting to ../../outputs/5.3D/dx150_v10
+UFL:WARNING Discontinuous Lagrange element requested on triangle * interval, creating DQ element.
+Using default SIPG parameters
+Coupled time integrator: CoupledTwoStageRK
+  2D time integrator: ESDIRKTrapezoid
+  3D time integrator: SSPRK22ALE
+  3D implicit time integrator: BackwardEuler
+2D mesh: 1963 nodes, 3600 triangles
+3D mesh: 9 layers, 32400 prisms
+Horizontal element size: 0.82 ... 0.82 m
+Vertical element size: 0.600 ... 0.600 m
+Element family: dg-dg, degree: 1
+Number of tracer DOFs: 194400
+Number of cores: 8
+Tracer DOFs per core: ~24300.0
+  - dt 2d swe: 0.0037876787811509573
+  - dt h. advection: 0.011664236870395972
+  - dt v. advection: 14.999999999999929
+  - dt viscosity: 0.006666666666666536
+  - CFL adjusted dt: 2D: inf 3D: 0.006666666666666536
+  - chosen dt: 2D: 0.006666666666666536 3D: 0.006666666666666536
+  - adjusted dt: 2D: 0.006664445184938354 3D: 0.006664445184938354
+dt = 0.006664
+max h diff 0.8336111111111015 - 0.8336111111111166
+    0     0 T=      0.00 eta norm:     0.0000 u norm:     0.0000  0.00
+    1  3001 T=     20.00 eta norm:    13.5763 u norm:     0.4627 1240.02
+    2  6002 T=     40.00 eta norm:    22.8565 u norm:     3.8703 1238.65
+    3  9003 T=     60.00 eta norm:    25.0256 u norm:    11.7576 1290.29
+    4 12004 T=     80.00 eta norm:    23.5365 u norm:    23.2071 1238.08
+    5 15005 T=    100.00 eta norm:    20.3831 u norm:    30.6828 1238.47
+    6 18006 T=    120.00 eta norm:    17.2318 u norm:    36.6847 1240.35
+    7 21007 T=    140.00 eta norm:    14.1332 u norm:    42.4768 1241.03
+    8 24008 T=    160.00 eta norm:    11.4470 u norm:    47.1282 1240.92
+    9 27009 T=    180.00 eta norm:     9.0455 u norm:    49.9557 1240.98
+   10 30010 T=    200.00 eta norm:     7.1760 u norm:    49.4683 1241.31
+   11 33011 T=    220.00 eta norm:     5.9926 u norm:    47.1967 1240.77
+   12 36012 T=    240.00 eta norm:     5.2525 u norm:    48.0174 1241.06
+   13 39013 T=    260.00 eta norm:     4.1203 u norm:    55.6963 1241.01
+   14 42014 T=    280.00 eta norm:     5.6984 u norm:    57.3871 1241.17
+   15 45015 T=    300.00 eta norm:     7.1784 u norm:    41.9909 1241.41
+   16 48016 T=    320.00 eta norm:     8.7292 u norm:    30.6432 1241.47
+   17 51017 T=    340.00 eta norm:     8.2004 u norm:    31.7204 1241.84
+   18 54018 T=    360.00 eta norm:     7.6465 u norm:    38.6036 1241.12
+   19 57019 T=    380.00 eta norm:     6.6218 u norm:    44.1024 1242.13
+   20 60020 T=    400.00 eta norm:     6.7029 u norm:    45.4909 1242.05
+   21 63021 T=    420.00 eta norm:     6.1721 u norm:    46.7173 1256.05

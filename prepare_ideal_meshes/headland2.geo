@@ -13,7 +13,7 @@ site_y_start = basin_y/2 - 50;
 site_y_end = site_y_start+site_y;
 
 element_size = 4;
-element_size_coarse = 40;
+element_size_coarse = 20;
 
 Point(1) = {0, 0, 0, element_size_coarse};
 Point(2) = {basin_x, 0, 0, element_size_coarse};

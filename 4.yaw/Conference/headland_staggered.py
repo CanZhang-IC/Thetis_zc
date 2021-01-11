@@ -1,12 +1,3 @@
-"""
-An ideal case for yaw angle optimisation
-"""
-# to enable a gradient-based optimisation using the adjoint to compute
-# gradients, we need to import from thetis_adjoint instead of thetis. This
-# ensure all firedrake operations in the Thetis model are annotated
-# automatically, in such a way that we can rerun the model with different input
-# parameters, and also derive the adjoint-based gradient of a specified input
-# (the functional) with respect to a specified input (the control)
 from thetis import *
 from firedrake_adjoint import *
 from pyadjoint import minimize
@@ -16,29 +7,30 @@ sys.path.append('..')
 import os
 import numpy
 import time
+import yagmail
 
 t_start = time.time()
 
 H = 40
-output_dir = '../../outputs/new-conference/test2-optimisation'
+output_dir = '../../../outputs/4.yaw/Conference/headland_staggered'
 #Comment for testing forward model
 test_gradient = False
 optimise = True
 
 ### set up the Thetis solver obj as usual ###
-mesh2d = Mesh('../prepare_ideal_meshes/headland2.msh')
+mesh2d = Mesh('../../prepare_ideal_meshes/headland2.msh')
 
 tidal_amplitude = 5.
 tidal_period = 12.42*60*60
 timestep = 300
 t_export = 600
-t_end = 60*t_export+tidal_period 
+t_end = 60*t_export + tidal_period
 
 
 #set viscosity bumps at in-flow boundaries.
 P1_2d = FunctionSpace(mesh2d, 'CG', 1)
 x = SpatialCoordinate(mesh2d)
-h_viscosity = Function(P1_2d).interpolate(conditional(le(x[0], 50), 50.1-x[0], conditional(ge(x[0],1950),x[0]-1949.9,0.1)))
+h_viscosity = Function(P1_2d).interpolate(conditional(le(x[0], 50), 51-x[0], conditional(ge(x[0],1950),x[0]-1949,1)))
 File(output_dir+'/viscosity.pvd').write(h_viscosity)
 
 # create solver and set options
@@ -111,6 +103,7 @@ farm_options.farm_alpha = Function(P1_2d)
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
 
+
 def update_forcings(t):
     print_output("Updating tidal elevation at t = {}".format(t))
     tidal_elev.project(tidal_amplitude*sin(omega*t + omega/Constant(pow(g*H, 0.5))*x[0]))
@@ -125,7 +118,7 @@ def update_forcings(t):
 
 #set initial condition
 # solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=tidal_elev)
-solver_obj.load_state(60, '../../outputs/conference/restart')
+solver_obj.load_state(60, '../../../outputs/4.yaw/Conference/restart')
 
 # Operation of tidal turbine farm through a callback
 cb = turbines.TurbineFunctionalCallback(solver_obj)
@@ -219,7 +212,7 @@ if optimise:
     if optimise_angle_only:
         lb = [0]*len(farm_options.turbine_axis)
         ub = [360]*len(farm_options.turbine_axis)
-        td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 100, 'ftol': 1e-6})
+        td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 100, 'ftol': 1e-9})
     else:
         r = farm_options.turbine_options.diameter/2.
 
@@ -233,8 +226,11 @@ if optimise:
         mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
         
         td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
-                options={'maxiter': 1000, 'ftol': 1e-9})
+                options={'maxiter': 1000, 'pgtol': 1e-3})
 
 t_end = time.time()
 print('time cost: {0:.2f}min'.format((t_end - t_start)/60))
+
+yag = yagmail.SMTP(user = '623001493@qq.com',password = 'lovezhongqiu', host = 'smtp.qq.com')
+yag.send(to = ['canzhang2019@gmail.com'], subject = 'Python done', contents = ['Python 1 done'])
 

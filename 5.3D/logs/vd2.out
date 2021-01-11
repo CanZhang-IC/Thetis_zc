@@ -1,0 +1,295 @@
+nohup: ignoring input
+Exporting to ../../outputs/3D/rectangular
+UFL:WARNING Discontinuous Lagrange element requested on triangle * interval, creating DQ element.
+Using default SIPG parameters
+Coupled time integrator: CoupledTwoStageRK
+  2D time integrator: ESDIRKTrapezoid
+  3D time integrator: SSPRK22ALE
+  3D implicit time integrator: BackwardEuler
+2D mesh: 5151 nodes, 10000 triangles
+3D mesh: 4 layers, 40000 prisms
+Horizontal element size: 2.24 ... 2.24 m
+Vertical element size: 10.000 ... 10.000 m
+Element family: dg-dg, degree: 1
+Number of tracer DOFs: 240000
+Number of cores: 8
+Tracer DOFs per core: ~30000.0
+  - dt 2d swe: 0.004901703866484176
+  - dt h. advection: 0.03726779962499632
+  - dt v. advection: 249.9999999999988
+  - dt viscosity: 0.04999999999999954
+  - CFL adjusted dt: 2D: inf 3D: 0.03726779962499632
+  - chosen dt: 2D: 0.03726779962499632 3D: 0.03726779962499632
+  - adjusted dt: 2D: 0.037243947858473 3D: 0.037243947858473
+dt = 0.037244
+max h diff 1.118749999999993 - 1.1187500000000026
+    0     0 T=      0.00 eta norm:     0.0000 u norm:     0.0000  0.00
+    1   537 T=     20.00 eta norm:   279.1917 u norm:     2.9936 299.78
+    2  1074 T=     40.00 eta norm:   378.7407 u norm:    44.9722 298.37
+    3  1611 T=     60.00 eta norm:   287.1764 u norm:    89.8442 298.14
+    4  2148 T=     80.00 eta norm:   147.8625 u norm:   122.3079 297.77
+    5  2685 T=    100.00 eta norm:    58.9657 u norm:   144.3552 298.49
+    6  3222 T=    120.00 eta norm:    25.4669 u norm:   165.6215 297.98
+    7  3759 T=    140.00 eta norm:    17.4845 u norm:   187.8241 298.02
+    8  4296 T=    160.00 eta norm:    14.0594 u norm:   209.5630 298.56
+    9  4833 T=    180.00 eta norm:    11.3249 u norm:   230.6462 298.97
+   10  5370 T=    200.00 eta norm:     9.7420 u norm:   251.4542 299.22
+   11  5907 T=    220.00 eta norm:     9.1184 u norm:   272.4125 299.26
+   12  6444 T=    240.00 eta norm:     8.8893 u norm:   294.0133 298.95
+   13  6981 T=    260.00 eta norm:     8.7658 u norm:   315.6945 298.21
+   14  7518 T=    280.00 eta norm:     8.6480 u norm:   337.4022 298.43
+   15  8055 T=    300.00 eta norm:     8.4949 u norm:   358.4542 298.12
+   16  8592 T=    320.00 eta norm:     8.4142 u norm:   379.2102 298.38
+   17  9129 T=    340.00 eta norm:     8.3179 u norm:   398.8567 298.27
+   18  9666 T=    360.00 eta norm:     8.1860 u norm:   416.8614 298.71
+   19 10203 T=    380.00 eta norm:     8.1886 u norm:   433.4947 298.59
+   20 10740 T=    400.00 eta norm:     8.1087 u norm:   444.3898 298.87
+   21 11277 T=    420.00 eta norm:     8.1363 u norm:   449.7905 298.50
+   22 11814 T=    440.00 eta norm:     8.1956 u norm:   449.5196 299.12
+   23 12351 T=    460.00 eta norm:     8.1830 u norm:   446.0370 299.05
+   24 12888 T=    480.00 eta norm:     8.2821 u norm:   448.7846 299.64
+   25 13425 T=    500.00 eta norm:     8.2285 u norm:   458.6881 306.72
+   26 13962 T=    520.00 eta norm:     7.9819 u norm:   470.8598 299.61
+   27 14499 T=    540.00 eta norm:     7.8834 u norm:   484.2627 299.53
+   28 15036 T=    560.00 eta norm:     7.8323 u norm:   498.2338 299.36
+   29 15573 T=    580.00 eta norm:     7.6713 u norm:   511.5817 298.84
+   30 16110 T=    600.00 eta norm:     7.6823 u norm:   526.6799 303.61
+   31 16647 T=    620.00 eta norm:     7.5315 u norm:   541.7820 316.91
+   32 17184 T=    640.00 eta norm:     7.5571 u norm:   554.0704 309.49
+   33 17721 T=    660.00 eta norm:     7.7882 u norm:   564.0585 315.21
+   34 18258 T=    680.00 eta norm:     7.9451 u norm:   571.8575 382.48
+   35 18795 T=    700.00 eta norm:     7.9803 u norm:   578.7829 382.80
+   36 19332 T=    720.00 eta norm:     7.9056 u norm:   585.4195 378.11
+   37 19869 T=    740.00 eta norm:     7.8369 u norm:   591.7888 373.06
+   38 20406 T=    760.00 eta norm:     7.6529 u norm:   597.2263 371.13
+   39 20943 T=    780.00 eta norm:     7.6031 u norm:   601.5513 344.91
+   40 21480 T=    800.00 eta norm:     7.5406 u norm:   608.4355 331.19
+   41 22017 T=    820.00 eta norm:     7.1148 u norm:   614.9124 380.94
+   42 22554 T=    840.00 eta norm:     7.1092 u norm:   619.0564 380.57
+   43 23091 T=    860.00 eta norm:     7.3039 u norm:   621.6033 380.63
+   44 23628 T=    880.00 eta norm:     7.1955 u norm:   621.6559 380.99
+   45 24165 T=    900.00 eta norm:     7.1644 u norm:   623.9128 381.65
+   46 24702 T=    920.00 eta norm:     6.9439 u norm:   624.3882 381.59
+   47 25239 T=    940.00 eta norm:     7.0190 u norm:   624.4563 381.48
+   48 25776 T=    960.00 eta norm:     6.9373 u norm:   623.6372 381.59
+   49 26313 T=    980.00 eta norm:     6.9880 u norm:   623.7946 380.99
+   50 26850 T=   1000.00 eta norm:     6.6961 u norm:   623.7786 380.77
+   51 27387 T=   1020.00 eta norm:     6.8683 u norm:   622.8781 381.38
+   52 27924 T=   1040.00 eta norm:     6.9239 u norm:   622.4546 381.50
+   53 28461 T=   1060.00 eta norm:     7.0738 u norm:   619.5299 381.26
+   54 28998 T=   1080.00 eta norm:     7.2258 u norm:   614.9465 370.45
+   55 29535 T=   1100.00 eta norm:     7.4150 u norm:   611.5065 307.43
+   56 30072 T=   1120.00 eta norm:     7.3684 u norm:   605.7318 300.44
+   57 30609 T=   1140.00 eta norm:     7.3611 u norm:   601.0021 300.07
+   58 31146 T=   1160.00 eta norm:     7.0937 u norm:   594.9640 300.40
+   59 31683 T=   1180.00 eta norm:     7.1090 u norm:   590.1471 300.42
+   60 32220 T=   1200.00 eta norm:     6.9887 u norm:   585.6708 299.92
+   61 32757 T=   1220.00 eta norm:     6.8934 u norm:   581.8236 300.07
+   62 33294 T=   1240.00 eta norm:     6.6183 u norm:   578.3276 300.05
+   63 33831 T=   1260.00 eta norm:     7.2549 u norm:   575.8570 300.27
+   64 34368 T=   1280.00 eta norm:     7.6878 u norm:   572.0706 300.48
+   65 34905 T=   1300.00 eta norm:     8.4423 u norm:   565.4252 300.34
+   66 35442 T=   1320.00 eta norm:     9.4333 u norm:   557.4832 300.23
+   67 35979 T=   1340.00 eta norm:    10.3849 u norm:   547.0514 300.15
+   68 36516 T=   1360.00 eta norm:    11.6273 u norm:   534.6416 300.29
+   69 37053 T=   1380.00 eta norm:    12.9268 u norm:   525.9549 300.23
+   70 37590 T=   1400.00 eta norm:    13.9914 u norm:   517.4502 300.27
+   71 38127 T=   1420.00 eta norm:    15.0804 u norm:   514.0727 300.54
+   72 38664 T=   1440.00 eta norm:    15.8925 u norm:   511.2624 300.35
+   73 39201 T=   1460.00 eta norm:    16.5890 u norm:   510.0019 300.15
+   74 39738 T=   1480.00 eta norm:    17.1654 u norm:   513.8864 300.54
+   75 40275 T=   1500.00 eta norm:    17.6805 u norm:   519.4984 300.70
+   76 40812 T=   1520.00 eta norm:    18.2366 u norm:   522.6164 301.27
+   77 41349 T=   1540.00 eta norm:    18.6891 u norm:   522.0971 301.33
+   78 41886 T=   1560.00 eta norm:    19.1895 u norm:   523.4651 300.94
+   79 42423 T=   1580.00 eta norm:    20.0917 u norm:   523.7873 300.50
+   80 42960 T=   1600.00 eta norm:    21.6599 u norm:   521.7359 300.60
+   81 43497 T=   1620.00 eta norm:    24.1529 u norm:   516.4134 300.51
+   82 44034 T=   1640.00 eta norm:    27.8042 u norm:   506.8013 300.56
+   83 44571 T=   1660.00 eta norm:    33.0976 u norm:   495.2449 300.50
+   84 45108 T=   1680.00 eta norm:    39.8456 u norm:   480.1759 300.51
+   85 45645 T=   1700.00 eta norm:    47.8873 u norm:   468.2733 300.22
+   86 46182 T=   1720.00 eta norm:    56.7810 u norm:   458.4887 300.51
+   87 46719 T=   1740.00 eta norm:    66.0517 u norm:   449.8888 300.34
+   88 47256 T=   1760.00 eta norm:    74.7557 u norm:   442.9123 300.58
+   89 47793 T=   1780.00 eta norm:    82.0151 u norm:   436.9787 310.30
+   90 48330 T=   1800.00 eta norm:    87.1422 u norm:   429.8339 305.49
+   91 48867 T=   1820.00 eta norm:    89.0616 u norm:   421.7435 304.04
+   92 49404 T=   1840.00 eta norm:    87.4023 u norm:   412.6306 313.61
+   93 49941 T=   1860.00 eta norm:    86.9641 u norm:   401.8631 305.48
+   94 50478 T=   1880.00 eta norm:    89.1233 u norm:   390.9551 305.26
+   95 51015 T=   1900.00 eta norm:    93.0174 u norm:   380.2333 305.93
+   96 51552 T=   1920.00 eta norm:    99.7506 u norm:   369.2965 305.58
+   97 52089 T=   1940.00 eta norm:   109.0726 u norm:   359.4518 305.65
+   98 52626 T=   1960.00 eta norm:   115.0592 u norm:   348.8129 305.26
+   99 53163 T=   1980.00 eta norm:   123.0417 u norm:   336.1103 305.89
+  100 53700 T=   2000.00 eta norm:   135.7877 u norm:   324.1706 305.14
+  101 54237 T=   2020.00 eta norm:   175.9380 u norm:   305.8712 305.85
+Traceback (most recent call last):
+  File "channel3d_turbine.py", line 107, in <module>
+    solver_obj.iterate(update_forcings=update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/solver.py", line 1215, in iterate
+    update_forcings, update_forcings3d)
+  File "/home/can/firedrake/src/thetis/thetis/coupled_timeintegrator.py", line 643, in advance
+    self.timesteppers.swe2d.solve_stage(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 557, in solve_stage
+    self.solve_tendency(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 549, in solve_tendency
+    self.solver[i_stage].solve()
+  File "/home/can/firedrake/src/firedrake/firedrake/adjoint/variational_solver.py", line 75, in wrapper
+    out = solve(self, **kwargs)
+  File "/home/can/firedrake/src/firedrake/firedrake/variational_solver.py", line 274, in solve
+    solving_utils.check_snes_convergence(self.snes)
+  File "/home/can/firedrake/src/firedrake/firedrake/solving_utils.py", line 141, in check_snes_convergence
+    %s""" % (snes.getIterationNumber(), msg))
+firedrake.exceptions.ConvergenceError: Nonlinear solve failed to converge after 0 nonlinear iterations.
+Reason:
+   DIVERGED_FNORM_NAN
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0
+Traceback (most recent call last):
+  File "channel3d_turbine.py", line 107, in <module>
+    solver_obj.iterate(update_forcings=update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/solver.py", line 1215, in iterate
+    update_forcings, update_forcings3d)
+  File "/home/can/firedrake/src/thetis/thetis/coupled_timeintegrator.py", line 643, in advance
+    self.timesteppers.swe2d.solve_stage(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 557, in solve_stage
+    self.solve_tendency(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 549, in solve_tendency
+    self.solver[i_stage].solve()
+  File "/home/can/firedrake/src/firedrake/firedrake/adjoint/variational_solver.py", line 75, in wrapper
+    out = solve(self, **kwargs)
+  File "/home/can/firedrake/src/firedrake/firedrake/variational_solver.py", line 274, in solve
+    solving_utils.check_snes_convergence(self.snes)
+  File "/home/can/firedrake/src/firedrake/firedrake/solving_utils.py", line 141, in check_snes_convergence
+    %s""" % (snes.getIterationNumber(), msg))
+firedrake.exceptions.ConvergenceError: Nonlinear solve failed to converge after 0 nonlinear iterations.
+Reason:
+   DIVERGED_FNORM_NAN
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 2
+Traceback (most recent call last):
+  File "channel3d_turbine.py", line 107, in <module>
+    solver_obj.iterate(update_forcings=update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/solver.py", line 1215, in iterate
+    update_forcings, update_forcings3d)
+  File "/home/can/firedrake/src/thetis/thetis/coupled_timeintegrator.py", line 643, in advance
+    self.timesteppers.swe2d.solve_stage(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 557, in solve_stage
+    self.solve_tendency(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 549, in solve_tendency
+    self.solver[i_stage].solve()
+  File "/home/can/firedrake/src/firedrake/firedrake/adjoint/variational_solver.py", line 75, in wrapper
+    out = solve(self, **kwargs)
+  File "/home/can/firedrake/src/firedrake/firedrake/variational_solver.py", line 274, in solve
+    solving_utils.check_snes_convergence(self.snes)
+  File "/home/can/firedrake/src/firedrake/firedrake/solving_utils.py", line 141, in check_snes_convergence
+    %s""" % (snes.getIterationNumber(), msg))
+firedrake.exceptions.ConvergenceError: Nonlinear solve failed to converge after 0 nonlinear iterations.
+Reason:
+   DIVERGED_FNORM_NAN
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 4
+Traceback (most recent call last):
+  File "channel3d_turbine.py", line 107, in <module>
+    solver_obj.iterate(update_forcings=update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/solver.py", line 1215, in iterate
+    update_forcings, update_forcings3d)
+  File "/home/can/firedrake/src/thetis/thetis/coupled_timeintegrator.py", line 643, in advance
+    self.timesteppers.swe2d.solve_stage(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 557, in solve_stage
+    self.solve_tendency(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 549, in solve_tendency
+    self.solver[i_stage].solve()
+  File "/home/can/firedrake/src/firedrake/firedrake/adjoint/variational_solver.py", line 75, in wrapper
+    out = solve(self, **kwargs)
+  File "/home/can/firedrake/src/firedrake/firedrake/variational_solver.py", line 274, in solve
+    solving_utils.check_snes_convergence(self.snes)
+  File "/home/can/firedrake/src/firedrake/firedrake/solving_utils.py", line 141, in check_snes_convergence
+    %s""" % (snes.getIterationNumber(), msg))
+firedrake.exceptions.ConvergenceError: Nonlinear solve failed to converge after 0 nonlinear iterations.
+Reason:
+   DIVERGED_FNORM_NAN
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 7
+Traceback (most recent call last):
+  File "channel3d_turbine.py", line 107, in <module>
+    solver_obj.iterate(update_forcings=update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/solver.py", line 1215, in iterate
+    update_forcings, update_forcings3d)
+  File "/home/can/firedrake/src/thetis/thetis/coupled_timeintegrator.py", line 643, in advance
+    self.timesteppers.swe2d.solve_stage(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 557, in solve_stage
+    self.solve_tendency(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 549, in solve_tendency
+    self.solver[i_stage].solve()
+  File "/home/can/firedrake/src/firedrake/firedrake/adjoint/variational_solver.py", line 75, in wrapper
+    out = solve(self, **kwargs)
+  File "/home/can/firedrake/src/firedrake/firedrake/variational_solver.py", line 274, in solve
+    solving_utils.check_snes_convergence(self.snes)
+  File "/home/can/firedrake/src/firedrake/firedrake/solving_utils.py", line 141, in check_snes_convergence
+    %s""" % (snes.getIterationNumber(), msg))
+firedrake.exceptions.ConvergenceError: Nonlinear solve failed to converge after 0 nonlinear iterations.
+Reason:
+   DIVERGED_FNORM_NAN
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 1
+Traceback (most recent call last):
+  File "channel3d_turbine.py", line 107, in <module>
+    solver_obj.iterate(update_forcings=update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/solver.py", line 1215, in iterate
+    update_forcings, update_forcings3d)
+  File "/home/can/firedrake/src/thetis/thetis/coupled_timeintegrator.py", line 643, in advance
+    self.timesteppers.swe2d.solve_stage(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 557, in solve_stage
+    self.solve_tendency(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 549, in solve_tendency
+    self.solver[i_stage].solve()
+  File "/home/can/firedrake/src/firedrake/firedrake/adjoint/variational_solver.py", line 75, in wrapper
+    out = solve(self, **kwargs)
+  File "/home/can/firedrake/src/firedrake/firedrake/variational_solver.py", line 274, in solve
+    solving_utils.check_snes_convergence(self.snes)
+  File "/home/can/firedrake/src/firedrake/firedrake/solving_utils.py", line 141, in check_snes_convergence
+    %s""" % (snes.getIterationNumber(), msg))
+firedrake.exceptions.ConvergenceError: Nonlinear solve failed to converge after 0 nonlinear iterations.
+Reason:
+   DIVERGED_FNORM_NAN
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 3
+Traceback (most recent call last):
+  File "channel3d_turbine.py", line 107, in <module>
+    solver_obj.iterate(update_forcings=update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/solver.py", line 1215, in iterate
+    update_forcings, update_forcings3d)
+  File "/home/can/firedrake/src/thetis/thetis/coupled_timeintegrator.py", line 643, in advance
+    self.timesteppers.swe2d.solve_stage(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 557, in solve_stage
+    self.solve_tendency(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 549, in solve_tendency
+    self.solver[i_stage].solve()
+  File "/home/can/firedrake/src/firedrake/firedrake/adjoint/variational_solver.py", line 75, in wrapper
+    out = solve(self, **kwargs)
+  File "/home/can/firedrake/src/firedrake/firedrake/variational_solver.py", line 274, in solve
+    solving_utils.check_snes_convergence(self.snes)
+  File "/home/can/firedrake/src/firedrake/firedrake/solving_utils.py", line 141, in check_snes_convergence
+    %s""" % (snes.getIterationNumber(), msg))
+firedrake.exceptions.ConvergenceError: Nonlinear solve failed to converge after 0 nonlinear iterations.
+Reason:
+   DIVERGED_FNORM_NAN
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 5
+Traceback (most recent call last):
+  File "channel3d_turbine.py", line 107, in <module>
+    solver_obj.iterate(update_forcings=update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/solver.py", line 1215, in iterate
+    update_forcings, update_forcings3d)
+  File "/home/can/firedrake/src/thetis/thetis/coupled_timeintegrator.py", line 643, in advance
+    self.timesteppers.swe2d.solve_stage(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 557, in solve_stage
+    self.solve_tendency(i_stage, t, update_forcings)
+  File "/home/can/firedrake/src/thetis/thetis/rungekutta.py", line 549, in solve_tendency
+    self.solver[i_stage].solve()
+  File "/home/can/firedrake/src/firedrake/firedrake/adjoint/variational_solver.py", line 75, in wrapper
+    out = solve(self, **kwargs)
+  File "/home/can/firedrake/src/firedrake/firedrake/variational_solver.py", line 274, in solve
+    solving_utils.check_snes_convergence(self.snes)
+  File "/home/can/firedrake/src/firedrake/firedrake/solving_utils.py", line 141, in check_snes_convergence
+    %s""" % (snes.getIterationNumber(), msg))
+firedrake.exceptions.ConvergenceError: Nonlinear solve failed to converge after 0 nonlinear iterations.
+Reason:
+   DIVERGED_FNORM_NAN
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 6

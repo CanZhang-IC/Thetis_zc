@@ -16,14 +16,15 @@ import time
 t_start = time.time()
 
 n_layers = 4
-outputdir = '../../outputs/3D/dx150'
+outputdir = '../../outputs/3D/rectangular'
 lx = 500
 ly = 100
-nx = 150
+nx = 100
 ny = 50
 mesh2d = RectangleMesh(nx, ny, lx, ly)
+# mesh2d = Mesh('../prepare_ideal_meshes/rectangular2.msh')
 print_output('Exporting to ' + outputdir)
-t_end = 3600
+t_end = 200*20
 t_export = 20
 
 H = Constant(40)  # depth
@@ -57,16 +58,16 @@ options.fields_to_export = ['uv_2d', 'elev_2d', 'uv_3d',
 solver_obj.create_fields()
 
 xyz = SpatialCoordinate(solver_obj.mesh)
-v_b = 50
-v_inner = 0.1
+v_b = 1000
+v_inner = 1
 v_length = 5
 h_viscosity = Function(solver_obj.function_spaces.P1, name='viscosity')
-h_viscosity.interpolate(conditional(ge(xyz[0],lx),(xyz[0]-(lx-v_length))*v_b/v_length+v_inner,v_inner))
+h_viscosity.interpolate(conditional(le(xyz[0], v_length), v_b+v_inner-xyz[0]*v_b/v_length, conditional(ge(xyz[0],lx-v_length),(xyz[0]-(lx-v_length))*v_b/v_length+v_inner,v_inner)))
 File(outputdir+'/viscosity.pvd').write(h_viscosity)
 options.horizontal_viscosity = h_viscosity
-options.vertical_viscosity = h_viscosity
+options.vertical_viscosity = Constant(1)
 
-turbine_xyz = [50, 50, -20]
+turbine_xyz = [250, 50, -20]
 D = 20
 th = 6  # thickness of disc
 turbine_dims = [th, D, D]
@@ -97,15 +98,12 @@ outflow_tag = 2
 # these must be assigned before equations are created
 u_ramped = Constant(0.0)
 def update_forcings(t):
-    u_ramped.assign(tanh(t/100.)*u_in)
+    u_ramped.assign(tanh(t/50.)*u_in)
 
 solver_obj.bnd_functions['shallow_water'] = {inflow_tag: {'un': -u_ramped}, outflow_tag: {'elev': 0, 'un': u_ramped}}
 solver_obj.bnd_functions['momentum'] = {inflow_tag: {'symm': None}, outflow_tag: {'symm': None}}
 
-locations, names = [(70,50,-20)], ['1D']
-cb = DetectorsCallback(solver_obj, locations, ['uv_3d','uv_dav_3d','w_3d'], name='detectors',detector_names=names)
-solver_obj.add_callback(cb,'timestep')
-
+# solver_obj.load_state(19,outputdir=outputdir)
 solver_obj.iterate(update_forcings=update_forcings)
 
 t_end = time.time()
