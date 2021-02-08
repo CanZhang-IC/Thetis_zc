@@ -1,10 +1,10 @@
-basin_x = 2000;
-basin_y = 300;
+basin_x = 1000;
+basin_y = 1000;
 
-site_x = 160;
-site_y = 100;
+site_x = 100;
+site_y = 50;
 
-site_x_start = basin_x/2 - site_x/2;
+site_x_start = 800;
 site_y_start = basin_y/2 - site_y/2;
 
 element_size = 2;

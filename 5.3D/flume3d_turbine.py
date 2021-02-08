@@ -15,11 +15,13 @@ import time
 
 t_start = time.time()
 
-n_layers = 6
-outputdir = '../../outputs/5.3D/dx150_v0.1'
-lx = 200
+D = 2.7
+
+n_layers = 10
+outputdir = '../../outputs/5.3D/test'
+lx = 60
 ly = 12
-nx = 100
+nx = 60
 ny = 12
 mesh2d = RectangleMesh(nx, ny, lx, ly)
 print_output('Exporting to ' + outputdir)
@@ -59,7 +61,7 @@ solver_obj.create_fields()
 xyz = SpatialCoordinate(solver_obj.mesh)
 v_b = 50
 v_inner = 0.1
-v_length = 5
+v_length = 0.1*lx
 h_viscosity = Function(solver_obj.function_spaces.P1, name='viscosity')
 h_viscosity.interpolate(conditional(le(xyz[0], v_length), v_b+v_inner-xyz[0]*v_b/v_length, conditional(ge(xyz[0],lx-v_length),(xyz[0]-(lx-v_length))*v_b/v_length+v_inner,v_inner)))
 File(outputdir+'/viscosity.pvd').write(h_viscosity)
@@ -69,7 +71,7 @@ options.vertical_viscosity = h_viscosity
 D = 2.7
 th = 1  # thickness of disc
 ih = 0.8 * D # installation height
-turbine_xyz = [55, 6, -ih]
+turbine_xyz = [lx/2, ly/2, -ih]
 turbine_dims = [th, D, D]
 C_T = 0.8
 A_T = pi*(D/2)**2

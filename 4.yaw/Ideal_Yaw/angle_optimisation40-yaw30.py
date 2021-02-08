@@ -18,27 +18,11 @@ import numpy
 import time
 
 t_start = time.time()
-get_index = os.path.basename(sys.argv[0])
-if len(get_index) == 28:
-    angle = int(get_index[-4])
-    H = int(get_index[-10:-8])
-elif len(get_index) == 29:
-    try:
-        angle = int(get_index[-5:-3])
-        H = int(get_index[-11:-9])
-    except ValueError:
-        angle = int(get_index[-4])
-        H = int(get_index[-11:-8])
-else:
-    angle = int(get_index[-5:-3])
-    H = int(get_index[-12:-9])
 
-# print(H, angle)
-# H, angle = 40, 30
-output_dir = '../../../outputs/4.yaw/Yaw_Ideal/Reverse_thrust'
+H, angle = 40, 30
+speed = 2
+output_dir = '../../../outputs/4.yaw/Yaw_Ideal/closed_wide'
 #Comment for testing forward model
-test_gradient = False
-optimise = False
 
 ### set up the Thetis solver obj as usual ###
 mesh2d = Mesh('../../prepare_ideal_meshes/rectangular.msh')
@@ -47,13 +31,14 @@ tidal_amplitude = 5.
 tidal_period = 12.42*60*60
 timestep = 60
 t_export = 2 * timestep
-t_end = tidal_period/2
+t_end = 12000*2
 
 
 #set viscosity bumps at in-flow boundaries.
 P1_2d = FunctionSpace(mesh2d, 'CG', 1)
 x = SpatialCoordinate(mesh2d)
-h_viscosity = Function(P1_2d).interpolate(conditional(le(x[0], 50), 50.0001-x[0], conditional(ge(x[0],1950),x[0]-1949.999,0.001)))
+viscosity = 1e-4
+h_viscosity = Function(P1_2d).interpolate(conditional(le(x[0], 20), 20+viscosity-x[0], conditional(ge(x[0],1980),x[0]-viscosity,viscosity)))
 # h_viscosity = Function(P1_2d).interpolate(conditional(le(x[0], 51), 51-x[0], conditional(ge(x[0],1950),x[0]-1949,1)))
 
 
@@ -87,25 +72,19 @@ left_tag = 1
 right_tag = 2
 coasts_tag = 3
 tidal_elev = Function(get_functionspace(mesh2d, "CG", 1), name='tidal_elev')
-tidal_elev_bc = {'elev': tidal_elev}
 
-# noslip currently doesn't work (vector Constants are broken in firedrake_adjoint)
-freeslip_bc = {'un': Constant(0.0)}
+tidal_vel = Function(P1_2d).assign(0.0)
+
 solver_obj.bnd_functions['shallow_water'] = {
-    left_tag: tidal_elev_bc,
-    right_tag: tidal_elev_bc,
-    coasts_tag: freeslip_bc
+    right_tag: {'un':tidal_vel},
+    left_tag: {'elev': tidal_elev},
+    # coasts_tag:{'elev':tidal_elev}
 }
 
 # a function to update the tidal_elev bc value every timestep
 x = SpatialCoordinate(mesh2d)
 g = 9.81
 omega = 2 * pi / tidal_period
-
-def update_forcings(t):
-    print_output("Updating tidal elevation at t = {}".format(t))
-    tidal_elev.project(tidal_amplitude*sin(omega*t + omega/pow(g*H, 0.5)*x[0]))
-
 
 # Initialise Discrete turbine farm characteristics
 farm_options = DiscreteTidalTurbineFarmOptions()
@@ -114,12 +93,27 @@ farm_options.turbine_options.thrust_coefficient = 0.6
 farm_options.turbine_options.diameter = 20
 farm_options.upwind_correction = False
 
-farm_options.turbine_coordinates =[[Constant(1000),Constant(150)]]
+farm_options.turbine_coordinates =[[Constant(800),Constant(500)]]
 
 farm_options.considering_yaw = True
-farm_options.turbine_axis = [Constant(angle) for i in range(len(farm_options.turbine_coordinates)*2)]
+farm_options.turbine_axis = [Constant(angle),Constant(-angle)] #for i in range(len(farm_options.turbine_coordinates)*2)]
+farm_options.farm_alpha = Function(P1_2d)
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
+
+def update_forcings(t):
+    print_output("Updating tidal elevation at t = {}".format(t))
+    # tidal_elev.project(tidal_amplitude*sin(omega*t + omega/pow(g*H, 0.5)*x[0]))#change stable one
+    ramp = tanh(t / 2000.)
+    tidal_vel.project(Constant(-ramp * speed))
+
+    uv, eta = split(solver_obj.fields.solution_2d)
+    alpha_flood = sum((conditional((x[0]-xi)**2+(x[1]-yi)**2 < farm_options.turbine_options.diameter**2, alphai/180*pi, 0) \
+                for alphai,(xi,yi) in zip(farm_options.turbine_axis[:len(farm_options.turbine_coordinates)],farm_options.turbine_coordinates)))
+    alpha_ebb   = sum((conditional((x[0]-xi)**2+(x[1]-yi)**2 < farm_options.turbine_options.diameter**2, alphai/180*pi, 0) \
+                for alphai,(xi,yi) in zip(farm_options.turbine_axis[len(farm_options.turbine_coordinates):],farm_options.turbine_coordinates)))
+    alphainterpolation = conditional(uv[0] > 0, alpha_flood, alpha_ebb)
+    farm_options.farm_alpha.interpolate(alphainterpolation)
 
 #set initial condition
 solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=tidal_elev)

@@ -17,43 +17,43 @@ import os
 import numpy
 import time
 
-t_start = time.time()
-get_index = os.path.basename(sys.argv[0])
-if len(get_index) == 28:
-    angle = int(get_index[-4])
-    H = int(get_index[-10:-8])
-elif len(get_index) == 29:
-    try:
-        angle = int(get_index[-5:-3])
-        H = int(get_index[-11:-9])
-    except ValueError:
-        angle = int(get_index[-4])
-        H = int(get_index[-11:-8])
-else:
-    angle = int(get_index[-5:-3])
-    H = int(get_index[-12:-9])
+# t_start = time.time()
+# get_index = os.path.basename(sys.argv[0])
+# if len(get_index) == 28:
+#     angle = int(get_index[-4])
+#     H = int(get_index[-10:-8])
+# elif len(get_index) == 29:
+#     try:
+#         angle = int(get_index[-5:-3])
+#         H = int(get_index[-11:-9])
+#     except ValueError:
+#         angle = int(get_index[-4])
+#         H = int(get_index[-11:-8])
+# else:
+#     angle = int(get_index[-5:-3])
+#     H = int(get_index[-12:-9])
 
 # print(H, angle)
-# H, angle = 40, 30
-output_dir = '../../outputs/ideal_yaw_reverse_sincos2/fafwfefaewwarerw'
+H, angle = 40, 30
+output_dir = '../../../outputs/4.yaw/Yaw_Ideal/H'+str(H)+'_yaw'+str(angle)
 #Comment for testing forward model
 test_gradient = False
 optimise = False
 
 ### set up the Thetis solver obj as usual ###
-mesh2d = Mesh('../prepare_ideal_meshes/rectangular.msh')
+mesh2d = Mesh('../../prepare_ideal_meshes/rectangular.msh')
 
 tidal_amplitude = 5.
 tidal_period = 12.42*60*60
 timestep = 60
 t_export = 2 * timestep
-t_end = tidal_period/2
+t_end = tidal_period
 
 
 #set viscosity bumps at in-flow boundaries.
 P1_2d = FunctionSpace(mesh2d, 'CG', 1)
 x = SpatialCoordinate(mesh2d)
-h_viscosity = Function(P1_2d).interpolate(conditional(le(x[0], 50), 50.0001-x[0], conditional(ge(x[0],1950),x[0]-1949.999,0.001)))
+h_viscosity = Function(P1_2d).interpolate(conditional(le(x[0], 50), 50.001-x[0], conditional(ge(x[0],1950),x[0]-1949.999,0.001)))
 # h_viscosity = Function(P1_2d).interpolate(conditional(le(x[0], 51), 51-x[0], conditional(ge(x[0],1950),x[0]-1949,1)))
 
 
@@ -67,13 +67,13 @@ options.simulation_end_time = t_end
 options.output_directory = output_dir
 options.check_volume_conservation_2d = True
 options.fields_to_export_hdf5 = ['uv_2d', 'elev_2d']
-options.element_family = 'dg-dg'
+options.element_family = 'dg-cg'
 options.timestepper_type = 'CrankNicolson'
 options.timestepper_options.implicitness_theta = 1.0
 options.timestepper_options.use_semi_implicit_linearization = True
 # using direct solver as PressurePicard does not work with dolfin-adjoint (due to .split() not being annotated correctly)
 options.timestepper_options.solver_parameters = {'snes_monitor': None,
-                                                 'snes_rtol': 1e-5,
+                                                 'snes_rtol': 1e-9,
                                                  'ksp_type': 'preonly',
                                                  'pc_type': 'lu',
                                                  'pc_factor_mat_solver_type': 'mumps',
