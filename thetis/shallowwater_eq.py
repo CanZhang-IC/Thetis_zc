@@ -731,14 +731,27 @@ class TurbineDragTerm(ShallowWaterMomentumTerm):
         total_h = self.depth.get_total_depth(eta_old)
         f = 0
         for farm in self.tidal_farms:
-            if farm.considering_yaw:
-                density = farm.turbine_density
-                # n = conditional(uv_old[0] > 0, as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood))) ,\
-                    #  as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb))))
-                n = as_vector((cos(farm.farm_alpha),sin(farm.farm_alpha)))
-                c_t = farm.friction_coefficient(uv_old, total_h)
-                unorm = abs(dot(uv_old, n))
-                f += c_t * density * unorm * dot(uv,n) * dot(self.u_test, n) /total_h* farm.dx
+            if farm.__class__.__name__ == 'DiscreteTidalTurbineFarm':
+                if farm.considering_yaw:
+                    density = farm.turbine_density
+                    density1 = farm.turbine_density1
+                    n = as_vector((cos(farm.farm_alpha),-sin(farm.farm_alpha)))
+                    # n = as_vector((1,1))
+                    c_t = farm.friction_coefficient(uv_old, total_h)
+                    unorm = abs(dot(uv_old, n))
+                    f += 1*(c_t * density * unorm * dot(uv,n) * dot(self.u_test, n) * farm.dx)# + c_t * density1 * unorm * dot(uv,n) *dot(self.u_test, as_vector((0,1))) * farm.dx)
+
+                    # density = farm.turbine_density
+                    # # n = as_vector((sin(farm.farm_alpha),cos(farm.farm_alpha)))
+                    # n = as_vector((1,1))
+                    # c_t = farm.friction_coefficient(uv_old, total_h)
+                    # unorm = sqrt(dot(uv_old, uv_old))
+                    # f += -inner(self.u_test, n) / total_h * farm.dx
+                else:
+                    density = farm.turbine_density
+                    c_t = farm.friction_coefficient(uv_old, total_h)
+                    unorm = sqrt(dot(uv_old, uv_old))
+                    f += c_t * density * unorm * inner(self.u_test, uv) / total_h * farm.dx
             else:
                 density = farm.turbine_density
                 c_t = farm.friction_coefficient(uv_old, total_h)

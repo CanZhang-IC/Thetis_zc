@@ -562,7 +562,7 @@ class SourceTerm(MomentumTerm):
                 f -= (wind_stress[0]*self.test[0]
                       + wind_stress[1]*self.test[1])/rho_0*self.ds_surf
         if source is not None:
-            f += - inner(source, self.test)*dx
+            f += - inner(source, self.test)*self.dx
         return -f
 
 

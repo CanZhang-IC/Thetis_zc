@@ -18,7 +18,7 @@ class TidalTurbine:
 
     def _thrust_area(self, uv):
         C_T = self.thrust_coefficient(uv)
-        A_T = pi * self.diameter**2 / 4
+        A_T = self.diameter#pi * self.diameter**2 / 4
         fric = C_T * A_T
         if self.C_support:
             fric += self.C_support * self.A_support
@@ -128,7 +128,9 @@ class TidalTurbineFarm:
             self.turbine = TabulatedThrustTurbine(options.turbine_options, upwind_correction=upwind_correction)
         self.dx = dx
         self.turbine_density = turbine_density
+        self.turbine_density1 = turbine_density
         self.turbine_density_list = []
+        self.break_even_wattage = options.break_even_wattage
 
     def number_of_turbines(self):
         return assemble(self.turbine_density * self.dx)
@@ -202,19 +204,42 @@ class DiscreteTidalTurbineFarm(TidalTurbineFarm):
         for coord in coordinates:
             dx0 = (x[0] - coord[0])/radius
             dx1 = (x[1] - coord[1])/radius
-            # psi_x = conditional(lt(abs(dx0), 1), exp(1-1/(1-dx0**2)), 0)
-            # psi_y = conditional(lt(abs(dx1), 1), exp(1-1/(1-dx1**2)), 0)
-            # bump = psi_x * psi_y
-            dis_xy = dx0*dx0+dx1*dx1
-            bump = conditional(lt(dis_xy,1),exp(1-1/(1-dis_xy)), 0)
+            psi_x = conditional(lt(abs(dx0), 1), exp(1-1/(1-dx0**2)), 0)
+            psi_y = conditional(lt(abs(dx1), 1), exp(1-1/(1-dx1**2)), 0)
+            bump = psi_x * psi_y
+            # dis_xy = dx0*dx0+dx1*dx1
+            # bump = conditional(lt(dis_xy,1),exp(1-1/(1-dis_xy)), 0)
 
-            unit_bump_integral = 1.2681 
-            #unit_bump_integral = 1.45661 # integral of bump function for radius=1 (copied from OpenTidalFarm who used Wolfram)
+            # unit_bump_integral = 1.2681 
+            unit_bump_integral = 1.45661 # integral of bump function for radius=1 (copied from OpenTidalFarm who used Wolfram)
             self.turbine_density = self.turbine_density + bump/(radius**2 * unit_bump_integral)
             self.turbine_density_list.append(bump/(radius**2 * unit_bump_integral))
-            # turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
-            # turbinepvd.project(self.turbine_density)
-            # File('turbinedensity.pvd').write(turbinepvd)
+            turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
+            turbinepvd.project(self.turbine_density)
+            File('turbinedensity.pvd').write(turbinepvd)
+
+
+            # two more density for enhancing the y_force
+            dx0 = (x[0] - coord[0]-radius*0.5)/radius
+            dx1 = (x[1] - coord[1])/radius
+            psi_x = conditional(lt(abs(dx0), 1), exp(1-1/(1-dx0**2)), 0)
+            psi_y = conditional(lt(abs(dx1), 1), exp(1-1/(1-dx1**2)), 0)
+            bump = psi_x * psi_y
+
+            dx0 = (x[0] - coord[0]-radius)/radius
+            dx1 = (x[1] - coord[1])/radius
+            psi_x = conditional(lt(abs(dx0), 1), exp(1-1/(1-dx0**2)), 0)
+            psi_y = conditional(lt(abs(dx1), 1), exp(1-1/(1-dx1**2)), 0)
+            bump2 = psi_x * psi_y
+
+            # unit_bump_integral = 1.2681 
+            unit_bump_integral = 1.45661 # integral of bump function for radius=1 (copied from OpenTidalFarm who used Wolfram)
+            self.turbine_density1 = self.turbine_density1 + (bump+bump2)/(radius**2 * unit_bump_integral)
+            turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
+            turbinepvd.project(self.turbine_density+self.turbine_density1)
+            File('turbinedensity1.pvd').write(turbinepvd)
+
+
 
 
 class TurbineFunctionalCallback(DiagnosticCallback):
@@ -241,7 +266,7 @@ class TurbineFunctionalCallback(DiagnosticCallback):
         self.cost = [farm.number_of_turbines() for farm in self.farms]
         if self.append_to_log:
             print_output('Number of turbines = {}'.format(sum(self.cost)))
-        self.break_even_wattage = [getattr(farm, 'break_even_wattage', 0) for farm in self.farms]
+        self.break_even_wattage = [getattr(farm, 'break_even_wattage') for farm in self.farms]
 
         # time-integrated quantities:
         self.integrated_power = [0] * nfarms
@@ -254,19 +279,21 @@ class TurbineFunctionalCallback(DiagnosticCallback):
         self.time_period = self.time_period + self.dt
         current_power = []
         for i, farm in enumerate(self.farms):
-            if farm.considering_yaw:
-                flow_direction = atan_2(self.uv[0],self.uv[1])
-                # flow_direction = conditional(flow_direction < 0, flow_direction + 360, flow_direction)
-                n = conditional(flow_direction > 0, as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood))) , \
-                    as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb))))
-                uv_eff = dot(self.uv,n)
+            if farm.__class__.__name__ == 'DiscreteTidalTurbineFarm':
+                if farm.considering_yaw:
+                    flow_direction = atan_2(self.uv[0],self.uv[1])
+                    n = as_vector((cos(farm.farm_alpha),sin(farm.farm_alpha)))
+                    uv_eff = dot(self.uv,n)
+                else:
+                    uv_eff = self.uv 
             else:
-                uv_eff = self.uv 
+                    uv_eff = self.uv 
             power = farm.power_output(uv_eff, self.depth)
             current_power.append(power)
             self.integrated_power[i] += power * self.dt
             self.average_power[i] = self.integrated_power[i] / self.time_period
             self.average_profit[i] = self.average_power[i] - self.break_even_wattage[i] * self.cost[i]
+            # print('1:',self.average_power[i],'2:',self.break_even_wattage[i],'3:',self.cost[i])
         return current_power, self.average_power, self.integrated_power, self.average_profit
 
     def __call__(self):
@@ -315,10 +342,11 @@ class EachTurbineFunctionalCallback(DiagnosticCallback):
         current_power = []
         for i, farm in enumerate(self.farms):
             if farm.considering_yaw:
-                flow_direction = atan_2(self.uv[0],self.uv[1])
-                # flow_direction = conditional(flow_direction < 0, flow_direction + 360, flow_direction)
-                n = conditional(flow_direction > 0, as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood))) , \
-                    as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb))))
+                # flow_direction = atan_2(self.uv[0],self.uv[1])
+                # # flow_direction = conditional(flow_direction < 0, flow_direction + 360, flow_direction)
+                # n = conditional(flow_direction > 0, as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood))) , \
+                #     as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb))))
+                n = as_vector((cos(farm.farm_alpha),sin(farm.farm_alpha)))
                 uv_eff = dot(self.uv,n)
             else:
                 uv_eff = self.uv
