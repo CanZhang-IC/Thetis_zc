@@ -1,7 +1,11 @@
 import uptide
 import datetime
-import utm
 from math import tanh,sin,pi
+import os
+import sys
+sys.path.append('..')
+import prepare.utm
+# print(os.getcwd())
 
 #constituents = ['M2', 'S2', 'N2', 'K2', 'K1', 'O1', 'P1', 'Q1', 'M4', 'MS4', 'MN4' ]
 constituents = ['Q1', 'O1', 'P1', 'K1', 'N2', 'M2', 'S2', 'K2']
@@ -22,7 +26,7 @@ def set_tidal_field(elev, t):
   xvector = mesh2d.coordinates.dat.data# we have the coordinates of mesh
   evector = elev.dat.data# we want to use the coordinates to get the values on corresponding points 
   for i,xy in enumerate(xvector):
-    lat, lon = utm.to_latlon(xy[0], xy[1], utm_zone, utm_band)
+    lat, lon = prepare.utm.to_latlon(xy[0], xy[1], utm_zone, utm_band)
     try:
       evector[i] = tnci.get_val((lon, lat))
     except uptide.netcdf_reader.CoordinateError:

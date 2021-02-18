@@ -1,8 +1,7 @@
-for i in 40
+#! /bin/bash
+for i in $( seq -90 10 90)
 do
-for j in 0 90
-do
-    cp angle_optimisation.py angle_optimisation$i-yaw$j.py
-    mpirun -np 8 python angle_optimisation$i-yaw$j.py
-done
+    cp constant_forward_run.py constant_forward_run$i.py
+    mpirun -np 8 python constant_forward_run$i.py
+    rm constant_forward_run$i.py
 done

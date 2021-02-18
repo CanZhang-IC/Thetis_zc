@@ -735,18 +735,10 @@ class TurbineDragTerm(ShallowWaterMomentumTerm):
                 if farm.considering_yaw:
                     density = farm.turbine_density
                     density1 = farm.turbine_density1
-                    n = as_vector((cos(farm.farm_alpha),-sin(farm.farm_alpha)))
-                    # n = as_vector((1,1))
+                    n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
                     c_t = farm.friction_coefficient(uv_old, total_h)
                     unorm = abs(dot(uv_old, n))
-                    f += 1*(c_t * density * unorm * dot(uv,n) * dot(self.u_test, n) * farm.dx)# + c_t * density1 * unorm * dot(uv,n) *dot(self.u_test, as_vector((0,1))) * farm.dx)
-
-                    # density = farm.turbine_density
-                    # # n = as_vector((sin(farm.farm_alpha),cos(farm.farm_alpha)))
-                    # n = as_vector((1,1))
-                    # c_t = farm.friction_coefficient(uv_old, total_h)
-                    # unorm = sqrt(dot(uv_old, uv_old))
-                    # f += -inner(self.u_test, n) / total_h * farm.dx
+                    f += c_t * density * unorm * dot(uv,n) * dot(self.u_test, n) / total_h * farm.dx #+ 4*c_t * density1 * unorm * dot(uv,n) *dot(self.u_test, as_vector((0,1))) * farm.dx
                 else:
                     density = farm.turbine_density
                     c_t = farm.friction_coefficient(uv_old, total_h)

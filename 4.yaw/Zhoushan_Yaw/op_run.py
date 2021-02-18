@@ -117,7 +117,7 @@ site_x1, site_y1, site_x2, site_y2 = 443342 ,3322632, 443591, 3322845
 
 farm_options.turbine_coordinates = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 50)]
 farm_options.considering_yaw = True
-farm_options.turbine_axis = [Constant(100) for i in range(len(farm_options.turbine_coordinates))]
+farm_options.turbine_axis = [Constant(120) for i in range(len(farm_options.turbine_coordinates))]
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
 
@@ -212,7 +212,7 @@ if 0:
 
     assert minconv > 1.95
 
-if 1:
+if 0:
     # Optimise the control for minimal functional (i.e. maximum profit)
     # with a gradient based optimisation algorithm using the reduced functional
     # to replay the model, and computing its derivative via the adjoint

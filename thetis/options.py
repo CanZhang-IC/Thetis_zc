@@ -412,7 +412,7 @@ class DiscreteTidalTurbineFarmOptions(TidalTurbineFarmOptions):
     turbine_axis = List(default_value=[], help='The direction of turbine axis').tag(config=True)
     considering_yaw = Bool(True,
                              help='bool: consider the yaw effects for each turbine').tag(config=True)
-    farm_alpha = FiredrakeScalarExpression(Constant(0.0), help='Yaw angle function') 
+    # farm_alpha = FiredrakeScalarExpression(Constant(0.0), help='Yaw angle function') 
 
 
 class CommonModelOptions(FrozenConfigurable):

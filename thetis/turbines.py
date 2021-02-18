@@ -18,7 +18,7 @@ class TidalTurbine:
 
     def _thrust_area(self, uv):
         C_T = self.thrust_coefficient(uv)
-        A_T = self.diameter#pi * self.diameter**2 / 4
+        A_T = pi * self.diameter**2 / 4
         fric = C_T * A_T
         if self.C_support:
             fric += self.C_support * self.A_support
@@ -169,16 +169,16 @@ class DiscreteTidalTurbineFarm(TidalTurbineFarm):
         self.add_turbines(options.turbine_coordinates)
         x = SpatialCoordinate(self.mesh)
         radius = self.turbine.diameter * 0.5
-        self.farm_alpha = options.farm_alpha
+        # self.farm_alpha = options.farm_alpha
         self.considering_yaw = options.considering_yaw
         if self.considering_yaw:
             if len(options.turbine_axis) == 0:
                 print_output("None turbine axis angle is given when considering yaw effect, applying the default angle 0 for each turbine!!!")
                 options.turbine_axis = [Constant(0) for i in range(len(options.turbine_coordinates)*2)]
-            self.alpha_flood = sum((conditional((x[0]-xi)**2+(x[1]-yi)**2 < 2*radius**2, alphai/180*pi, 0) \
-                for alphai,(xi,yi) in zip(options.turbine_axis[:len(options.turbine_coordinates)],options.turbine_coordinates)))
+            # self.alpha_flood = sum((conditional((x[0]-xi)**2+(x[1]-yi)**2 < 2*radius**2, alphai/180*pi, 0) \
+            #     for alphai,(xi,yi) in zip(options.turbine_axis[:len(options.turbine_coordinates)],options.turbine_coordinates)))
             self.alpha_ebb = sum((conditional((x[0]-xi)**2+(x[1]-yi)**2 < 2*radius**2, alphai/180*pi, 0) \
-                for alphai,(xi,yi) in zip(options.turbine_axis[len(options.turbine_coordinates):],options.turbine_coordinates)))
+                for alphai,(xi,yi) in zip(options.turbine_axis,options.turbine_coordinates)))
         else:
             if len(options.turbine_axis) != 0:
                 print_output("Turbine axis angle isn't needed when not considering yaw effect, emptying the list automatically!!!")
@@ -214,30 +214,30 @@ class DiscreteTidalTurbineFarm(TidalTurbineFarm):
             unit_bump_integral = 1.45661 # integral of bump function for radius=1 (copied from OpenTidalFarm who used Wolfram)
             self.turbine_density = self.turbine_density + bump/(radius**2 * unit_bump_integral)
             self.turbine_density_list.append(bump/(radius**2 * unit_bump_integral))
-            turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
-            turbinepvd.project(self.turbine_density)
-            File('turbinedensity.pvd').write(turbinepvd)
+            # turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
+            # turbinepvd.project(self.turbine_density)
+            # File('turbinedensity.pvd').write(turbinepvd)
 
 
             # two more density for enhancing the y_force
-            dx0 = (x[0] - coord[0]-radius*0.5)/radius
+            dx0 = (x[0] - coord[0])/radius
             dx1 = (x[1] - coord[1])/radius
-            psi_x = conditional(lt(abs(dx0), 1), exp(1-1/(1-dx0**2)), 0)
-            psi_y = conditional(lt(abs(dx1), 1), exp(1-1/(1-dx1**2)), 0)
+            psi_x = conditional(lt(abs(dx0), 1), 1, 0)
+            psi_y = conditional(lt(abs(dx1), 1), 1, 0)
             bump = psi_x * psi_y
 
-            dx0 = (x[0] - coord[0]-radius)/radius
-            dx1 = (x[1] - coord[1])/radius
-            psi_x = conditional(lt(abs(dx0), 1), exp(1-1/(1-dx0**2)), 0)
-            psi_y = conditional(lt(abs(dx1), 1), exp(1-1/(1-dx1**2)), 0)
-            bump2 = psi_x * psi_y
+            # dx0 = (x[0] - coord[0]-radius)/radius
+            # dx1 = (x[1] - coord[1])/radius
+            # psi_x = conditional(lt(abs(dx0), 1), exp(1-1/(1-dx0**2)), 0)
+            # psi_y = conditional(lt(abs(dx1), 1), exp(1-1/(1-dx1**2)), 0)
+            # bump2 = psi_x * psi_y
 
             # unit_bump_integral = 1.2681 
-            unit_bump_integral = 1.45661 # integral of bump function for radius=1 (copied from OpenTidalFarm who used Wolfram)
-            self.turbine_density1 = self.turbine_density1 + (bump+bump2)/(radius**2 * unit_bump_integral)
-            turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
-            turbinepvd.project(self.turbine_density+self.turbine_density1)
-            File('turbinedensity1.pvd').write(turbinepvd)
+            unit_bump_integral = 4.0 # integral of bump function for radius=1 (copied from OpenTidalFarm who used Wolfram)
+            self.turbine_density1 = self.turbine_density1 + (bump)/(radius**2 * unit_bump_integral)
+            # turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
+            # turbinepvd.project(self.turbine_density+self.turbine_density1)
+            # File('turbinedensity1.pvd').write(turbinepvd)
 
 
 
@@ -281,8 +281,7 @@ class TurbineFunctionalCallback(DiagnosticCallback):
         for i, farm in enumerate(self.farms):
             if farm.__class__.__name__ == 'DiscreteTidalTurbineFarm':
                 if farm.considering_yaw:
-                    flow_direction = atan_2(self.uv[0],self.uv[1])
-                    n = as_vector((cos(farm.farm_alpha),sin(farm.farm_alpha)))
+                    n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
                     uv_eff = dot(self.uv,n)
                 else:
                     uv_eff = self.uv 
@@ -346,7 +345,7 @@ class EachTurbineFunctionalCallback(DiagnosticCallback):
                 # # flow_direction = conditional(flow_direction < 0, flow_direction + 360, flow_direction)
                 # n = conditional(flow_direction > 0, as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood))) , \
                 #     as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb))))
-                n = as_vector((cos(farm.farm_alpha),sin(farm.farm_alpha)))
+                n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
                 uv_eff = dot(self.uv,n)
             else:
                 uv_eff = self.uv
