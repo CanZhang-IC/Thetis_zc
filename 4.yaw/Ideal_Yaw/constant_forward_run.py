@@ -19,20 +19,20 @@ import time
 
 t_start = time.time()
 
-get_index = os.path.basename(sys.argv[0])
-namelength = len('constant_forward_run')
-angle = int(get_index[namelength:-3])
+# get_index = os.path.basename(sys.argv[0])
+# namelength = len('constant_forward_run')
+# angle = int(get_index[namelength:-3])
 
+angle = 0
 
-
-H = 20
+H = 40
 distance = 10
 speed = 2
-output_dir = '../../../outputs/4.yaw/Yaw_Ideal/test/wider-dh-forward_run-'+str(distance)+'D'+str(angle)
+output_dir = '../../../outputs/4.yaw/Yaw_Ideal/test/wider-forward_run-'+str(angle)
 #Comment for testing forward model
 
 ### set up the Thetis solver obj as usual ###
-mesh2d = Mesh('../../prepare_ideal_meshes/rectangular3.msh')
+mesh2d = Mesh('../../prepare_ideal_meshes/rectangular.msh')
 
 tidal_amplitude = 5.
 tidal_period = 12.42*60*60
@@ -101,11 +101,11 @@ farm_options.turbine_options.diameter = 20
 farm_options.upwind_correction = False
 
 farm_options.turbine_coordinates =[
-    [Constant(800),Constant(45)],
+    [Constant(800-2*distance*20),Constant(50)],[Constant(800-distance*20),Constant(55)],[Constant(800),Constant(45)],
     ]
 
 farm_options.considering_yaw = True
-farm_options.turbine_axis = [Constant(angle)]
+farm_options.turbine_axis = [Constant(0),Constant(0),Constant(0)] #+ [Constant(0),Constant(0),Constant(0)]
 
 # farm_options.farm_alpha = Function(P1_2d)
 #add turbines to SW_equations

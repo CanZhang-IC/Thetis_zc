@@ -116,7 +116,7 @@ farm_options.upwind_correction = False
 
 farm_options.turbine_coordinates =[[Constant(1000),Constant(150)]]
 
-farm_options.considering_yaw = True
+farm_options.considering_yaw = False
 farm_options.turbine_axis = [Constant(angle) for i in range(len(farm_options.turbine_coordinates)*2)]
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
@@ -134,59 +134,59 @@ solver_obj.add_callback(cb, 'timestep')
 # start computer forward model
 solver_obj.iterate(update_forcings=update_forcings)
 
-# #File('turbinedensity.pvd').write(solver_obj.fields.turbine_density_2d)
-# ###set up interest functional and control###
-# power_output= sum(cb.integrated_power)
-# interest_functional = power_output
+#File('turbinedensity.pvd').write(solver_obj.fields.turbine_density_2d)
+###set up interest functional and control###
+power_output= sum(cb.integrated_power)
+interest_functional = power_output
 
-# print(interest_functional)
-# # specifies the control we want to vary in the optimisation
-# optimise_angle_only = True
-# if optimise_angle_only:
-#     if farm_options.considering_yaw:
-#         c = [Control(x) for x in farm_options.turbine_axis]
-#     else:
-#         raise Exception('You should turn on the yaw considering!')      
-# else:
-#     c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy] + [Control(x) for x in farm_options.turbine_axis]
+print(interest_functional)
+# specifies the control we want to vary in the optimisation
+optimise_angle_only = True
+if optimise_angle_only:
+    if farm_options.considering_yaw:
+        c = [Control(x) for x in farm_options.turbine_axis]
+    else:
+        raise Exception('You should turn on the yaw considering!')      
+else:
+    c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy] + [Control(x) for x in farm_options.turbine_axis]
 
-# turbine_density = Function(solver_obj.function_spaces.P1_2d, name='turbine_density')
-# turbine_density.interpolate(solver_obj.tidal_farms[0].turbine_density)
-# # a number of callbacks to provide output during the optimisation iterations:
-# # - ControlsExportOptimisationCallback export the turbine_friction values (the control)
-# #            to outputs/control_turbine_friction.pvd. This can also be used to checkpoint
-# #            the optimisation by using the export_type='hdf5' option.
-# # - DerivativesExportOptimisationCallback export the derivative of the functional wrt
-# #            the control as computed by the adjoint to outputs/derivative_turbine_friction.pvd
-# # - UserExportOptimisationCallback can be used to output any further functions used in the
-# #            forward model. Note that only function states that contribute to the functional are
-# #            guaranteed to be updated when the model is replayed for different control values.
-# # - FunctionalOptimisationCallback simply writes out the (scaled) functional values
-# # - the TurbineOptimsationCallback outputs the average power, cost and profit (for each
-# #            farm if multiple are defined)
-# callback_list = optimisation.OptimisationCallbackList([
-#     optimisation.ConstantControlOptimisationCallback(solver_obj, array_dim=len(c)),
-#     optimisation.DerivativeConstantControlOptimisationCallback(solver_obj, array_dim=len(c)),
-#     optimisation.UserExportOptimisationCallback(solver_obj, [turbine_density, solver_obj.fields.uv_2d]),
-#     optimisation.FunctionalOptimisationCallback(solver_obj),
-#     turbines.TurbineOptimisationCallback(solver_obj, cb),
-#     # turbines.EachTurbineOptimisationCallback(solver_obj,cb2),
-# ])
+turbine_density = Function(solver_obj.function_spaces.P1_2d, name='turbine_density')
+turbine_density.interpolate(solver_obj.tidal_farms[0].turbine_density)
+# a number of callbacks to provide output during the optimisation iterations:
+# - ControlsExportOptimisationCallback export the turbine_friction values (the control)
+#            to outputs/control_turbine_friction.pvd. This can also be used to checkpoint
+#            the optimisation by using the export_type='hdf5' option.
+# - DerivativesExportOptimisationCallback export the derivative of the functional wrt
+#            the control as computed by the adjoint to outputs/derivative_turbine_friction.pvd
+# - UserExportOptimisationCallback can be used to output any further functions used in the
+#            forward model. Note that only function states that contribute to the functional are
+#            guaranteed to be updated when the model is replayed for different control values.
+# - FunctionalOptimisationCallback simply writes out the (scaled) functional values
+# - the TurbineOptimsationCallback outputs the average power, cost and profit (for each
+#            farm if multiple are defined)
+callback_list = optimisation.OptimisationCallbackList([
+    optimisation.ConstantControlOptimisationCallback(solver_obj, array_dim=len(c)),
+    optimisation.DerivativeConstantControlOptimisationCallback(solver_obj, array_dim=len(c)),
+    optimisation.UserExportOptimisationCallback(solver_obj, [turbine_density, solver_obj.fields.uv_2d]),
+    optimisation.FunctionalOptimisationCallback(solver_obj),
+    turbines.TurbineOptimisationCallback(solver_obj, cb),
+    # turbines.EachTurbineOptimisationCallback(solver_obj,cb2),
+])
 
-# # callbacks to indicate start of forward and adjoint runs in log
-# def eval_cb_pre(controls):
-#     print_output("FORWARD RUN:")
-#     print_output("Angle: {}".format([float(c) for c in controls]))
+# callbacks to indicate start of forward and adjoint runs in log
+def eval_cb_pre(controls):
+    print_output("FORWARD RUN:")
+    print_output("Angle: {}".format([float(c) for c in controls]))
 
-# def derivative_cb_pre(controls):
-#     print_output("ADJOINT RUN:")
-#     print_output("Angle: {}".format([float(c) for c in controls]))
+def derivative_cb_pre(controls):
+    print_output("ADJOINT RUN:")
+    print_output("Angle: {}".format([float(c) for c in controls]))
 
-# # this reduces the functional J(u, m) to a function purely of the control m:
-# # rf(m) = J(u(m), m) where the velocities u(m) of the entire simulation
-# # are computed by replaying the forward model for any provided turbine coordinates m
-# rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list,
-#         eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
+# this reduces the functional J(u, m) to a function purely of the control m:
+# rf(m) = J(u(m), m) where the velocities u(m) of the entire simulation
+# are computed by replaying the forward model for any provided turbine coordinates m
+rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list,
+        eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
 # if test_gradient:
 #     # whenever the forward model is changed - for example different terms in the equation,
 #     # different types of boundary conditions, etc. - it is a good idea to test whether the
@@ -206,31 +206,31 @@ solver_obj.iterate(update_forcings=update_forcings)
 
 #     assert minconv > 1.95
 
-# if optimise:
-#     # Optimise the control for minimal functional (i.e. maximum profit)
-#     # with a gradient based optimisation algorithm using the reduced functional
-#     # to replay the model, and computing its derivative via the adjoint
-#     # By default scipy's implementation of L-BFGS-B is used, see
-#     #   https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fmin_l_bfgs_b.html
-#     # options, such as maxiter and pgtol can be passed on.
-#     if optimise_angle_only:
-#         lb = [0]*len(farm_options.turbine_axis)
-#         ub = [360]*len(farm_options.turbine_axis)
-#         td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 1000, 'ptol': 1e-3})
-#     else:
-#         r = farm_options.turbine_options.diameter/2.
+if optimise:
+    # Optimise the control for minimal functional (i.e. maximum profit)
+    # with a gradient based optimisation algorithm using the reduced functional
+    # to replay the model, and computing its derivative via the adjoint
+    # By default scipy's implementation of L-BFGS-B is used, see
+    #   https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fmin_l_bfgs_b.html
+    # options, such as maxiter and pgtol can be passed on.
+    if optimise_angle_only:
+        lb = [0]*len(farm_options.turbine_axis)
+        ub = [360]*len(farm_options.turbine_axis)
+        td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 1000, 'ptol': 1e-3})
+    else:
+        r = farm_options.turbine_options.diameter/2.
 
-#         lb = np.array([[site_x1+r, site_y1+r] for _ in farm_options.turbine_coordinates]).flatten()
-#         ub = np.array([[site_x2-r, site_y2-r] for _ in farm_options.turbine_coordinates]).flatten()
+        lb = np.array([[site_x1+r, site_y1+r] for _ in farm_options.turbine_coordinates]).flatten()
+        ub = np.array([[site_x2-r, site_y2-r] for _ in farm_options.turbine_coordinates]).flatten()
         
-#         if farm_options.considering_yaw:
-#             lb = list(lb) + [0]*len(farm_options.turbine_axis)
-#             ub = list(ub) + [360]*len(farm_options.turbine_axis)
+        if farm_options.considering_yaw:
+            lb = list(lb) + [0]*len(farm_options.turbine_axis)
+            ub = list(ub) + [360]*len(farm_options.turbine_axis)
 
-#         mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
+        mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
         
-#         td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
-#                 options={'maxiter': 1000, 'pgtol': 1e-3})
+        td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
+                options={'maxiter': 1000, 'pgtol': 1e-3})
     
 t_end = time.time()
 print('time cost: {0:.2f}min'.format((t_end - t_start)/60))

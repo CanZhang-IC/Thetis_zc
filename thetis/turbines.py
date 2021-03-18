@@ -24,26 +24,27 @@ class TidalTurbine:
             fric += self.C_support * self.A_support
         return fric
 
-    def velocity_correction(self, uv, depth):
+    def velocity_correction(self, uv, depth, yaw_angle):
         fric = self._thrust_area(uv)
         if self.upwind_correction:
             return 0.5*(1+sqrt(1-fric/(self.diameter*depth)))
         else:
             return 1
 
-    def friction_coefficient(self, uv, depth):
+    def friction_coefficient(self, uv, depth, yaw_angle):
         thrust_area = self._thrust_area(uv)
-        alpha = self.velocity_correction(uv, depth)
+        alpha = self.velocity_correction(uv, depth, yaw_angle)
         return thrust_area/2./alpha**2
 
-    def power(self, uv, depth):
+    def power(self, uv, depth, yaw_angle):
         # ratio of discrete to upstream velocity (NOTE: should include support drag!)
-        alpha = self.velocity_correction(uv, depth)
+        fric = self._thrust_area(uv)
+        alpha = self.velocity_correction(uv, depth, yaw_angle)
         C_T = self.thrust_coefficient(uv)
         A_T = pi * self.diameter**2 / 4
         uv3 = dot(uv, uv)**1.5 / alpha**3  # upwind cubed velocity
         # this assumes the velocity through the turbine does not change due to the support (is this correct?)
-        return 0.25*C_T*A_T*(1+sqrt(1-C_T))*uv3
+        return 0.25*C_T*A_T*(1+sqrt(1-fric/(self.diameter*depth)))*uv3
 
 
 class ConstantThrustTurbine(TidalTurbine):
@@ -135,17 +136,17 @@ class TidalTurbineFarm:
     def number_of_turbines(self):
         return assemble(self.turbine_density * self.dx)
 
-    def power_output(self, uv, depth):
-        return assemble(self.turbine.power(uv, depth) * self.turbine_density * self.dx)
+    def power_output(self, uv, depth, yaw_angle):
+        return assemble(self.turbine.power(uv, depth, yaw_angle) * self.turbine_density * self.dx)
 
-    def each_turbine_power_output(self, uv, depth):
+    def each_turbine_power_output(self, uv, depth, yaw_angle):
         powerlist = []
         for eachdensity in self.turbine_density_list:
-            powerlist.append(assemble(self.turbine.power(uv, depth) * eachdensity * self.dx))
+            powerlist.append(assemble(self.turbine.power(uv, depth, yaw_angle) * eachdensity * self.dx))
         return powerlist
 
-    def friction_coefficient(self, uv, depth):
-        return self.turbine.friction_coefficient(uv, depth)
+    def friction_coefficient(self, uv, depth, yaw_angle):
+        return self.turbine.friction_coefficient(uv, depth, yaw_angle)
 
 
 class DiscreteTidalTurbineFarm(TidalTurbineFarm):
@@ -207,34 +208,30 @@ class DiscreteTidalTurbineFarm(TidalTurbineFarm):
             psi_x = conditional(lt(abs(dx0), 1), exp(1-1/(1-dx0**2)), 0)
             psi_y = conditional(lt(abs(dx1), 1), exp(1-1/(1-dx1**2)), 0)
             bump = psi_x * psi_y
+            unit_bump_integral = 1.45661 # integral of bump function for radius=1 (copied from OpenTidalFarm who used Wolfram)
+
             # dis_xy = dx0*dx0+dx1*dx1
             # bump = conditional(lt(dis_xy,1),exp(1-1/(1-dis_xy)), 0)
-
             # unit_bump_integral = 1.2681 
-            unit_bump_integral = 1.45661 # integral of bump function for radius=1 (copied from OpenTidalFarm who used Wolfram)
+
             self.turbine_density = self.turbine_density + bump/(radius**2 * unit_bump_integral)
+
             self.turbine_density_list.append(bump/(radius**2 * unit_bump_integral))
-            # turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
-            # turbinepvd.project(self.turbine_density)
-            # File('turbinedensity.pvd').write(turbinepvd)
+            
+            turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
+            turbinepvd.project(self.turbine_density)
+            File('turbinedensity.pvd').write(turbinepvd)
 
 
-            # two more density for enhancing the y_force
-            dx0 = (x[0] - coord[0])/radius
-            dx1 = (x[1] - coord[1])/radius
-            psi_x = conditional(lt(abs(dx0), 1), 1, 0)
-            psi_y = conditional(lt(abs(dx1), 1), 1, 0)
-            bump = psi_x * psi_y
-
-            # dx0 = (x[0] - coord[0]-radius)/radius
-            # dx1 = (x[1] - coord[1])/radius
+            # one more density for enhancing the y_force
+            # dx0 = (x[0] - coord[0])/radius 
+            # dx1 = (x[1] - coord[1])/radius * 2
             # psi_x = conditional(lt(abs(dx0), 1), exp(1-1/(1-dx0**2)), 0)
             # psi_y = conditional(lt(abs(dx1), 1), exp(1-1/(1-dx1**2)), 0)
-            # bump2 = psi_x * psi_y
+            # bump = psi_x * psi_y
 
-            # unit_bump_integral = 1.2681 
-            unit_bump_integral = 4.0 # integral of bump function for radius=1 (copied from OpenTidalFarm who used Wolfram)
-            self.turbine_density1 = self.turbine_density1 + (bump)/(radius**2 * unit_bump_integral)
+            # unit_bump_integral = 1.45661  # integral of bump function for radius=1 (copied from OpenTidalFarm who used Wolfram)
+            # self.turbine_density1 = self.turbine_density1 + (bump)/(radius**2 * unit_bump_integral)
             # turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
             # turbinepvd.project(self.turbine_density+self.turbine_density1)
             # File('turbinedensity1.pvd').write(turbinepvd)
@@ -247,7 +244,7 @@ class TurbineFunctionalCallback(DiagnosticCallback):
     :class:`.DiagnosticCallback` that evaluates the performance of each tidal turbine farm."""
 
     name = 'turbine'  # this name will be used in the hdf5 file
-    variable_names = ['current_power', 'average_power', 'integrated_power', 'average_profit']
+    variable_names = ['current_power', 'average_power', 'integrated_power', 'average_profit','F_force','Extar_force']
 
     def __init__(self, solver_obj, **kwargs):
         """
@@ -287,19 +284,27 @@ class TurbineFunctionalCallback(DiagnosticCallback):
                     uv_eff = self.uv 
             else:
                     uv_eff = self.uv 
-            power = farm.power_output(uv_eff, self.depth)
+            power = farm.power_output(uv_eff, self.depth, farm.alpha_ebb)
             current_power.append(power)
             self.integrated_power[i] += power * self.dt
             self.average_power[i] = self.integrated_power[i] / self.time_period
             self.average_profit[i] = self.average_power[i] - self.break_even_wattage[i] * self.cost[i]
-            # print('1:',self.average_power[i],'2:',self.break_even_wattage[i],'3:',self.cost[i])
-        return current_power, self.average_power, self.integrated_power, self.average_profit
+
+            density = farm.turbine_density
+            n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
+            c_t = farm.friction_coefficient(self.uv, 40,farm.alpha_ebb)
+            unorm = abs(dot(self.uv, n))
+            cross_result = self.uv[0]*n[1] - self.uv[1]*n[0]
+            F_force = assemble(c_t * density * unorm * dot(self.uv,n) * dx)
+            Extar_force = assemble(30 * c_t * density  * cross_result  * dot(self.uv,n) * dx)
+            
+        return current_power, self.average_power, self.integrated_power, self.average_profit, F_force, Extar_force
 
     def __call__(self):
         return self._evaluate_timestep()
 
-    def message_str(self, current_power, average_power, integrated_power, average_profit):
-        return 'Current power, average power, integrated power and profit for each farm: {}, {}, {}, {}'.format(current_power, average_power, integrated_power, average_profit)
+    def message_str(self, current_power, average_power, integrated_power, average_profit, F_force, Extar_force):
+        return 'Current power, average power, integrated power and profit for each farm: {}, {}, {}, {}. The force is {}. The extra_force is {}'.format(current_power, average_power, integrated_power, average_profit, F_force, Extar_force)
 
 class EachTurbineFunctionalCallback(DiagnosticCallback):
     """
@@ -349,7 +354,7 @@ class EachTurbineFunctionalCallback(DiagnosticCallback):
                 uv_eff = dot(self.uv,n)
             else:
                 uv_eff = self.uv
-            powerlist = farm.each_turbine_power_output(uv_eff, self.depth)
+            powerlist = farm.each_turbine_power_output(uv_eff, self.depth, farm.alpha_ebb)
             current_power.append(powerlist)
             for ii,power in enumerate(powerlist):
                 self.integrated_power[i][ii] += power * self.dt

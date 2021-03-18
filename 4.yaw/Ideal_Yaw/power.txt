@@ -1,19 +1,1325 @@
-917677.2465999654
-920439.0140471697
-940500.3072854301
-988899.775665737
-1062350.879965535
-1144353.792445291
-1215692.1761956743
-1264497.3408296772
-1288351.8849565287
-1290256.649599415
-1273798.0002588464
-1240690.3099426236
-1191324.468436883
-1127575.8182710723
-1056222.1802925349
-990000.6994906303
-942985.3664583133
-921344.4661061174
-917677.2465999656
+../../../outputs/4.yaw/Yaw_Ideal/normal--30	-30:400.05866592253454
+
+../../../outputs/4.yaw/Yaw_Ideal/normal-0	0:519.8742705006364
+
+../../../outputs/4.yaw/Yaw_Ideal/normal-30	30:400.90506420357474
+
+
+
+../../../outputs/4.yaw/Yaw_Ideal/normal-test-v0.1--30	-30:394.74800062677383
+
+../../../outputs/4.yaw/Yaw_Ideal/normal-test-v0.1-0	0:520.5443368647204
+
+../../../outputs/4.yaw/Yaw_Ideal/normal-test-v0.1-30	30:395.7168551618674
+
+../../../outputs/4.yaw/Yaw_Ideal/with	0:519.8638395496079
+
+../../../outputs/4.yaw/Yaw_Ideal/with	0:519.8638395496076
+
+../../../outputs/4.yaw/Yaw_Ideal/yawFalse	0:494.27244307556134
+
+../../../outputs/4.yaw/Yaw_Ideal/upwind	0:583.3926165569949
+
+../../../outputs/4.yaw/Yaw_Ideal/upwind_noextra	0:583.8444120568511
+
+../../../outputs/4.yaw/Yaw_Ideal/upwind_extra	0:620.8627149832897
+
+
+
+
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-90	-90:1.2398050336854172e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-85	-85:0.44462485216646436
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-80	-80:3.5478548425371166
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-75	-75:11.922160776134303
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-70	-70:28.020787651079736
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-65	-65:53.87872844989614
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-60	-60:90.70523791300019
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-55	-55:138.42604318491948
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-50	-50:195.38572687619484
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-45	-45:258.43635047263814
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-40	-40:323.4979555456971
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-35	-35:386.415720685846
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-30	-30:443.7486267492517
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-25	-25:493.182962166871
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-20	-20:533.5355658288283
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-15	-15:564.4741496521435
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-10	-10:586.1709790905471
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/-5	-5:598.9915287880556
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/0	0:603.2600447775923
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/5	5:599.1113861146232
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/10	10:586.4232546894876
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/15	15:564.8740004914642
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/20	20:534.0909948886607
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/25	25:493.88509047280587
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/30	30:444.56268672813127
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/35	35:387.2798347433382
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/40	40:324.3296963450428
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/45	45:259.1583453554814
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/50	50:195.9466517904261
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/55	55:138.8107446653408
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/60	60:90.93383519854838
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/65	65:53.99366734025736
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/70	70:28.06771125998345
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/75	75:11.936531380677636
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/80	80:3.5505687694859716
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/85	85:0.44478690565893336
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/20-Force/90	90:1.2398054173306017e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-90	-90:1.1272726642816465e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-85	-85:0.4032021304030298
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-80	-80:3.238915446156006
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-75	-75:11.011718009382843
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-70	-70:26.307624775077972
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-65	-65:51.61761428342391
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-60	-60:88.8901084258116
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-55	-55:138.80978091432743
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-50	-50:200.01832461332873
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-45	-45:268.78183720590005
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-40	-40:339.5832634740858
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-35	-35:406.6311048944749
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-30	-30:465.50972248351883
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-25	-25:514.017784835452
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-20	-20:551.7877332251171
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-15	-15:579.4908483427038
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-10	-10:598.1973043976491
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/-5	-5:608.9466766374571
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/0	0:612.473230864925
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/5	5:609.0549036809772
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/10	10:598.4374093726692
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/15	15:579.8955764153638
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/20	20:552.39035624913
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/25	25:514.8363501879411
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/30	30:466.52564659383626
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/35	35:407.78046205703373
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/40	40:340.761848715073
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/45	45:269.8689783132367
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/50	50:200.91584852536212
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/55	55:139.4536547682609
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/60	60:89.2842130179322
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/65	65:51.818879593272676
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/70	70:26.39023351718418
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/75	75:11.036967947381342
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/80	80:3.243684893691409
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/85	85:0.4034901959691321
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/30-Force/90	90:1.1272729215277149e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-90	-90:1.0421253859790807e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-85	-85:0.3619129854544557
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-80	-80:2.921733730081896
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-75	-75:10.023059216666354
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-70	-70:24.256711336297965
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-65	-65:48.39499825480876
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-60	-60:85.02846122561893
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-55	-55:135.73020904300756
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-50	-50:199.79249293281833
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-45	-45:273.24950485264566
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-40	-40:349.4468309035191
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-35	-35:420.9480431414296
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-30	-30:481.7092587375594
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-25	-25:529.9269363957715
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-20	-20:566.0330801114023
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-15	-15:591.5751760686629
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-10	-10:608.3466525397944
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/-5	-5:617.7974159225588
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/0	0:620.86271498329
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/5	5:617.8818244091082
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/10	10:608.5415854066706
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/15	15:591.9165134348405
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/20	20:566.5634002488359
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/25	25:530.6812394276419
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/30	30:482.7002752547975
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/35	35:422.13868852774056
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/40	40:350.7756295530042
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/45	45:274.59636748060507
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/50	50:201.01067348701497
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/55	55:136.6550332334495
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/60	60:85.61207905640299
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/65	65:48.69472881886423
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/70	70:24.379332664321783
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/75	75:10.060381534683486
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/80	80:2.928754039833572
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/85	85:0.36233809325852084
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/40-Force/90	90:1.0421256409504053e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-90	-90:8.34787188935328e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-90	-90:9.755801614746879e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-85	-85:0.2857178831626691
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-85	-85:0.32565091184151684
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-80	-80:2.3113296938610883
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-80	-80:2.638781943311741
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-75	-75:7.957576942194451
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-75	-75:9.11355450959261
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-70	-70:19.359442483273913
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-70	-70:22.268110295393925
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-65	-65:38.90616371699345
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-65	-65:45.009951417783284
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-60	-60:69.01135890027761
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-60	-60:80.42983615121126
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-55	-55:111.43402696548692
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-55	-55:130.99066010494434
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-50	-50:166.03440815933158
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-50	-50:197.08821408980043
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-45	-45:229.4899448645829
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-45	-45:275.15198715980864
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-40	-40:295.6760555047984
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-40	-40:356.6890249242765
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-35	-35:357.7976983914469
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-35	-35:431.65044960783524
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-30	-30:409.68837481873766
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-30	-30:493.33908208516453
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-25	-25:450.4212830996606
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-25	-25:542.25248967294
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-20	-20:480.4123664340087
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-20	-20:577.1386929006367
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-15	-15:501.3577545072447
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-15	-15:601.1696804364036
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-10	-10:515.0125736595924
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-10	-10:616.7674685601747
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/-5	-5:522.6732237943029
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/-5	-5:625.4988381482518
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/0	0:525.1491239036567
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/0	0:628.3179389078293
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/5	5:522.7317760986967
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/5	5:625.5636200606942
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/10	10:515.1515729192878
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/10	10:616.9180700369601
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/15	15:501.607183211823
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/15	15:601.435204244704
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/20	20:480.8088891533378
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/20	20:577.5608791589406
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/25	25:450.99586568964327
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/25	25:542.876439485317
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/30	30:410.45706843701436
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/30	30:494.1857228496267
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/35	35:358.7491757146821
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/35	35:432.8157633238829
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/40	40:296.78087702418225
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/40	40:358.33385008432265
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/45	45:230.66797213006808
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/45	45:276.79145569329427
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/50	50:167.14379585255253
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/50	50:198.62811763547418
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/55	55:112.29490065784763
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/55	55:132.2190504746143
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/60	60:69.55827037199812
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/60	60:81.21373290552629
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/65	65:39.18571246508076
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/65	65:45.41029902283838
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/70	70:19.4735791465691
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/70	70:22.431070460283472
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/75	75:7.992163105837067
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/75	75:9.162473971686644
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/80	80:2.3178008829314334
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/80	80:2.647873809981603
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/85	85:0.28610940243035393
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/85	85:0.3261997925407897
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/50-Force/90	90:8.347873559922472e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/50-Force/90	90:9.75580368357429e-28
+
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-90	-90:7.901006422814702e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-90	-90:9.21558022523143e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-85	-85:0.260856686856352
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-85	-85:0.29497571103908776
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-80	-80:2.1164674403820847
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-80	-80:2.3972238175872898
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-75	-75:7.325678534840472
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-75	-75:8.32162834268192
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-70	-70:17.956905062647497
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-70	-70:20.477836978644465
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-65	-65:36.46566272011231
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-65	-65:41.80542781751398
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-60	-60:65.601358965325
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-60	-60:75.7966748538855
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-55	-55:107.79331014172445
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-55	-55:125.99233100947754
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-50	-50:164.0445554046014
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-50	-50:195.513784628467
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-45	-45:232.1554222249276
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-45	-45:284.38845752441216
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-40	-40:306.5272629271999
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-35	-35:366.58624327806626
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-35	-35:467.6276342052881
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-30	-30:417.8774056208848
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-30	-30:657.4254590226403
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-25	-25:459.2055406262299
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-25	-25:558.5514906767847
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-20	-20:487.78871773064566
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-20	-20:586.995549479806
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-15	-15:507.50407987352753
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-15	-15:609.0477564982145
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-10	-10:520.3467136854397
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-10	-10:623.8158361572289
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/-5	-5:527.546385673145
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/-5	-5:632.1641144024433
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/0	0:529.8693019262337
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/0	0:634.8667737590075
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/5	5:527.5912323444243
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/5	5:632.2164356380034
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/10	10:520.4534917309786
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/10	10:623.9321628218742
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/15	15:507.69635638897387
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/15	15:609.2404553035099
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/20	20:488.1027693173602
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/20	20:587.3148815585731
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/25	25:459.690310377566
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/25	25:559.2213400779694
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/30	30:418.5599869667451
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/30	30:777.1773421892578
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/35	35:367.63722903027104
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/35	35:461.0503507954048
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/40	40:308.22394931854626
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/45	45:233.61084861705032
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/45	45:285.2722082539012
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/50	50:165.3892312529521
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/50	50:197.36872672269004
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/55	55:108.87813378800986
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/55	55:127.5324786246597
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/60	60:66.29261630105
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/60	60:76.77240256164794
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/65	65:36.81824667891651
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/65	65:42.30625570998975
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/70	70:18.0998495196571
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/70	70:20.678663251495426
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/75	75:7.368360447332096
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/75	75:8.380886778474345
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/80	80:2.1243763280513717
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/80	80:2.4080962510470076
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/85	85:0.2613332775378863
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/85	85:0.29562822062359134
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/60-Force/90	90:7.901008193245145e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/60-Force/90	90:9.215581587575138e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-90	-90:7.525774155541723e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/-90	-90:8.762886155846223e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-85	-85:0.23946201989840674
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/-85	-85:0.26913994425958015
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-80	-80:1.947610765102038
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/-80	-80:2.1925920120320677
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-75	-75:6.7695213862677015
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/-75	-75:7.641896009938387
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-70	-70:16.69029215580586
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/-70	-70:18.90855711392279
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-65	-65:34.17222010619825
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/-65	-65:38.89747678750394
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-60	-60:62.24032417554132
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/-60	-60:71.41436806112362
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-55	-55:104.18351390410474
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/-55	-55:121.6005285588188
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-50	-50:163.10833119331136
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/-50	-50:193.79008221283408
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-45	-45:235.80538803064394
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/-40	-40:386.16710470193823
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-35	-35:372.7734568934606
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/-35	-35:442.2165907524469
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-25	-25:475.79010151614045
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-20	-20:494.8809261121982
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/-20	-20:599.2104110763087
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-15	-15:512.6972387003938
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/-15	-15:615.8800338512721
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-10	-10:524.886736628965
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/-10	-10:629.8025558622863
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/-5	-5:531.8163307125996
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/-5	-5:637.9422851392926
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/0	0:534.0609270204947
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/0	0:640.6013015889097
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/5	5:531.8520346945742
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/5	5:637.987944675433
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/10	10:524.9685360076476
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/10	10:629.8952337117726
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/15	15:512.8350286615599
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/15	15:616.0072615454915
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/20	20:495.11936862317964
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/20	20:599.4416567419106
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/25	25:476.47982543398007
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/35	35:372.8075502309866
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/35	35:443.1715725824515
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/40	40:384.07720221656473
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/45	45:236.88765523222344
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/50	50:164.6410207414958
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/50	50:196.43930590472158
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/55	55:105.49539917156106
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/55	55:123.47533600541585
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/60	60:63.06944954354976
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/60	60:72.57431895802145
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/65	65:34.59760233964034
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/65	65:39.497694344978285
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/70	70:16.860200122482304
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/70	70:19.144196820684876
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/75	75:6.819484576949516
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/75	75:7.709859651972995
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/80	80:1.9567561781041556
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/80	80:2.204909901669232
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/85	85:0.24001035766440462
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/85	85:0.2698750006960062
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/70-Force/90	90:7.525775802247546e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/70-Force/90	90:8.762887671293491e-28
+
+
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/-90	-90:7.203286818518605e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/-90	-90:8.374049594764458e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/-85	-85:0.2210554707059947
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/-85	-85:0.24722133870130614
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/-80	-80:1.8016493191429954
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/-80	-80:2.018286949647972
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/-75	-75:6.283636250284905
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/-75	-75:7.058032061054973
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/-70	-70:15.564728826937237
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/-70	-70:17.546473752881717
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/-65	-65:32.074976674554456
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/-65	-65:36.3082013257637
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/-60	-60:59.05780836391664
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/-60	-60:67.38501622998189
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/-55	-55:101.0002062259743
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/-55	-55:117.48556015569488
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/-50	-50:161.93024065336522
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/-50	-50:211.50383928636975
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/-40	-40:320.160249103943
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/-40	-40:368.7316670939172
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/-35	-35:374.21033869094504
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/-25	-25:730.2865468083602
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/-20	-20:504.3336189637233
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/-20	-20:629.8302199178079
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/-15	-15:517.3190764214421
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/-15	-15:622.260251366869
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/-10	-10:528.8055223541303
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/-10	-10:634.9711072764221
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/-5	-5:535.569383997825
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/-5	-5:642.976561865056
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/0	0:537.7800671947117
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/0	0:645.6312167988643
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/5	5:535.5994185228557
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/5	5:643.0197131261881
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/10	10:528.8688924199381
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/10	10:635.0480146437237
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/15	15:517.4072319983526
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/15	15:622.3292469996585
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/20	20:504.50720592990797
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/20	20:630.0031945574694
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/25	25:734.234083671964
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/35	35:375.1881495108988
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/40	40:319.6437462301012
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/40	40:369.7255591988236
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/50	50:164.17046250443335
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/55	55:102.55821848342028
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/55	55:119.62540706644339
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/60	60:60.01987714788511
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/60	60:68.72428642371261
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/65	65:32.57234998275956
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/65	65:37.005077374775695
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/70	70:15.759685316492035
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/70	70:17.811947858409603
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/75	75:6.3397953481371285
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/75	75:7.133037081327887
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/80	80:1.811819939707105
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/80	80:2.03173005541253
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/85	85:0.22166219083726574
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/85	85:0.24802072528191896
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/80-Force/90	90:7.203287824294415e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/80-Force/90	90:8.374051164415329e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-90	-90:1.047164920813928e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-85	-85:0.37338534407304075
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-80	-80:2.9753776724521757
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-75	-75:9.974499025911802
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-70	-70:23.369000937994763
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-65	-65:44.77544113265682
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-60	-60:75.12262257921805
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-55	-55:114.32750991438915
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-50	-50:161.09971464722523
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-45	-45:213.01877150199624
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-40	-40:266.93955190904313
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-35	-35:319.59641491207907
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-30	-30:368.1729832332386
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-25	-25:410.6318143572166
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-20	-20:445.7644095218326
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-15	-15:473.03927177689775
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-10	-10:492.36722490070514
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/-5	-5:503.8737381440143
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/0	0:507.7172577002246
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/5	5:503.9711618477219
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/10	10:492.5699420746501
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/15	15:473.35568458684537
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/20	20:446.1959482950303
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/25	25:411.1667691048131
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/30	30:368.781687228292
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/35	35:320.2307920156379
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/40	40:267.5406519573872
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/45	45:213.5335306173533
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/50	50:161.49464935772343
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/55	55:114.59580889390466
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/60	60:75.28102087648452
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/65	65:44.85486030617587
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/70	70:23.401449805477903
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/75	75:9.984451827505872
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/80	80:2.977258670914344
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/85	85:0.3734975909031002
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/20-Force/90	90:1.0471652985092414e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-90	-90:9.585880196044444e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-85	-85:0.34481470203086717
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-80	-80:2.765142550828168
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-75	-75:9.37125739188547
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-70	-70:22.28978237706913
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-65	-65:43.501812001053466
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-60	-60:74.48247973370398
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-55	-55:115.6653249975722
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-50	-50:165.89542514346667
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-45	-45:222.2357971104705
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-40	-40:280.433616469089
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-35	-35:336.03490899905836
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-30	-30:385.5559425735955
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-25	-25:427.04014261019165
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-20	-20:459.89137276425384
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-15	-15:484.36504130648643
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-10	-10:501.10847976512895
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/-5	-5:510.82127117070485
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/0	0:514.0231019904563
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/5	5:510.9156588631375
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/10	10:501.31525056534593
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/15	15:484.7086971866766
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/20	20:460.3939026785687
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/25	25:427.70839243819046
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/30	30:386.36775804230746
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/35	35:336.9336890519496
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/40	40:281.33170171342937
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/45	45:223.04214204767172
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/50	50:166.54202418237782
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/55	55:116.11873009927838
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/60	60:74.75591591364247
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/65	65:43.640057123041245
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/70	70:22.34637136125778
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/75	75:9.38856825049772
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/80	80:2.76841353413319
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/85	85:0.3450115168100159
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/30-Force/90	90:9.585883153968602e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-90	-90:8.89522517910064e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-85	-85:0.31413217344474464
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-80	-80:2.53162749535502
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-75	-75:8.656305673394746
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-70	-70:20.851959722365326
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-65	-65:41.35885183979738
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-60	-60:72.17156053727703
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-55	-55:114.37726940509924
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-50	-50:167.2416884068874
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-45	-45:227.55138789294725
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-40	-40:290.003409667448
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-35	-35:348.76300670453185
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-30	-30:399.43975161765815
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-25	-25:440.29555708118494
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-20	-20:471.42354880969225
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-15	-15:493.8025588779457
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-10	-10:508.6704129701031
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/-5	-5:517.1140885173814
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/0	0:519.863839549608
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/5	5:517.1907348168041
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/10	10:508.8463106655899
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/15	15:494.10919947045755
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/20	20:471.8950811630404
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/25	25:440.95617866045086
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/30	30:400.2863099999754
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/35	35:349.7511052251465
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/40	40:291.0585173151963
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/45	45:228.56987436339952
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/50	50:168.12143393674378
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/55	55:115.02657699499932
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/60	60:72.57502794705208
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/65	65:41.56592277248689
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/70	70:20.936695811816367
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/75	75:8.682146908716609
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/80	80:2.5365031229778334
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/85	85:0.3144275622546129
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/40-Force/90	90:8.895227885801409e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/30	30:453.93925786386905
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/30	30:535.1061095517265
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/30	30:405.9482581366005
+
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/30	30:392.64999011175826
+
+
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-90	-90:1.542770827287205e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-85	-85:0.4949336066790164
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-80	-80:3.908340603833489
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-75	-75:12.895442602410025
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-70	-70:29.571570837542254
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-65	-65:55.2591596206053
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-60	-60:90.31588891641955
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-55	-55:134.09095151867635
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-50	-50:185.0263596972852
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-45	-45:240.8818125118303
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-40	-40:299.0305196966755
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-35	-35:356.7614115505631
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-30	-30:411.53232481115225
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-25	-25:461.1417970327414
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-20	-20:503.81307879131754
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-15	-15:538.2042274104689
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-10	-10:563.3689812741417
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/-5	-5:578.6952503992358
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/0	0:583.8444120568512
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/5	5:578.7082999784897
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/10	10:563.3938472101173
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/15	15:538.2385765448089
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/20	20:503.8537550502788
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/25	25:461.18519822796236
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/30	30:411.57486188732224
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/35	35:356.7999705472066
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/40	40:299.0628496852861
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/45	45:240.906759728597
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/50	50:185.04389769325155
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/55	55:134.10200608434903
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/60	60:90.32198783125439
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/65	65:55.26199649132173
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/70	70:29.572615804438275
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/75	75:12.895713609207663
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/80	80:3.9083785791249994
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/85	85:0.49493483848849973
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_True/0-Force/90	90:1.5427714313836984e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/30	30:476.9804158086496
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/-90	-90:9.585880173079556e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/-80	-80:2.765142560927515
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/-70	-70:22.28985723445388
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/-60	-60:74.49435231535935
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/-50	-50:166.2399296992628
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/-40	-40:283.8998278602685
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/-30	-30:401.9822502011234
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/-20	-20:505.0020559110406
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/-10	-10:582.0987537770424
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/0	0:612.4732308649251
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/10	10:582.3336258061826
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/20	20:505.5552708864662
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/30	30:402.83697226519786
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/40	40:284.8140441166194
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/50	50:166.88886984969292
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/60	60:74.76787710500753
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/70	70:22.34644664444244
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/80	80:2.7684135442604987
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force/90	90:9.585882939403757e-28
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-90	-90:1.26975754411132e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-85	-85:0.4073751116847399
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-80	-80:3.2175466177612533
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-75	-75:10.620863666782045
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-70	-70:24.37452722004982
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-65	-65:45.60149435742784
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-60	-60:74.65139355786319
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-55	-55:111.0584105675056
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-50	-50:153.60992284485553
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-45	-45:200.51218036651483
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-40	-40:249.61611146321172
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-35	-35:298.65590439311353
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-30	-30:345.45758597755605
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-25	-25:388.090183065597
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-20	-20:424.95090739178005
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-15	-15:454.7916899044245
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-10	-10:476.70397875402955
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/-5	-5:490.0818174331482
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/0	0:494.5815046732013
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/5	5:490.0917625543392
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/10	10:476.72290353542786
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/15	15:454.81777543888865
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/20	20:424.98170829057966
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/25	25:388.1229323617147
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/30	30:345.4895554378836
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/35	35:298.6847573101855
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/40	40:249.64018994017223
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/45	45:200.53066970986148
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/50	50:153.62285733076905
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/55	55:111.0665254635524
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/60	60:74.65585185346931
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/65	65:45.603560732702114
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/70	70:24.375286234328243
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/75	75:10.621060109619755
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/80	80:3.2175741070012447
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/85	85:0.4073760026085654
+
+../../../outputs/4.yaw/Yaw_Ideal/Upwind_False/0-Force/90	90:1.2697580960844233e-27
+
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-90	-90:1.6738418487760364e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-85	-85:0.5132934132649806
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-80	-80:4.106052026340822
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-75	-75:13.801260842953717
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-70	-70:32.35770767559168
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-65	-65:61.87204714878933
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-60	-60:103.21579429314973
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-55	-55:155.4659040301083
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-50	-50:215.6586392102233
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-45	-45:279.2408213136373
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-40	-40:341.2632777297087
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-35	-35:397.71852772083554
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-30	-30:446.241092199349
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-25	-25:485.99515596489124
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-20	-20:517.1435455243591
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-15	-15:540.3149786448608
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-10	-10:556.2343033606454
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/-5	-5:565.5140172550844
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/0	0:568.5482445984952
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/5	5:565.4753959549059
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/10	10:556.1508389183192
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/15	15:540.1769451572363
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/20	20:516.9432514975822
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/25	25:485.72846046581105
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/30	30:445.9115879729846
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/35	35:397.3415583597265
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/40	40:340.86859732024305
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/45	45:278.8688455249667
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/50	50:215.3488180028509
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/55	55:155.24050782503045
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/60	60:103.07399651197599
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/65	65:61.796564092923546
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/70	70:32.32495507396333
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/75	75:13.790591166751486
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/80	80:4.103922109945951
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/85	85:0.5131604515691398
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01/90	90:1.6738425378221597e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/30-Force-01-cosct/30	30:452.4030855148761
+
+../../../outputs/4.yaw/Yaw_Ideal/correct_correction/rectangular3/20-Force-cos0/30	30:471.3947277208767
+
+../../../outputs/4.yaw/Yaw_Ideal/test0	0:600.6267379744922
+
+../../../outputs/4.yaw/Yaw_Ideal/test0	0:603.7438704363166
+
+../../../outputs/4.yaw/Yaw_Ideal/test0	0:603.7438704363162
+
+../../../outputs/4.yaw/Yaw_Ideal/test0	0:613.8972096934498
+
+../../../outputs/4.yaw/Yaw_Ideal/test0	0:611.0957190111984
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/30-Force-cos0/0	0:561.1250513178207
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/30-Force-cos0/0	0:611.0957190111983
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/30-Force-cos0/-10	-10:565.7883746689722
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/30-Force-cos0/-10	-10:561.6704287099833
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/30-Force-cos0/-10	-10:574.5566020735823
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/30-Force-cos0/-10	-10:551.4293671792196
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/30-Force-cos0/0	0:561.1337059798511
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/30-Force-cos0/0	0:613.9539758459791
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/30-Force-cos0/-10	-10:599.5753365826724
+

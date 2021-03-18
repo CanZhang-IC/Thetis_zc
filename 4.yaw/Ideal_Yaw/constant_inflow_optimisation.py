@@ -19,10 +19,10 @@ import time
 
 t_start = time.time()
 
-H = 20
+H = 40
 distance = 10
 speed = 2
-output_dir = '../../../outputs/4.yaw/Yaw_Ideal/closed-doundary/dh-optimisation-'+str(distance)+'D-y5-constant-inflow-from0-range-9090'
+output_dir = '../../../outputs/4.yaw/Yaw_Ideal/test/A_L-optimisation-'+str(distance)+'D-y5-constant-inflow-from0-range-9090'
 
 ### set up the Thetis solver obj as usual ###
 mesh2d = Mesh('../../prepare_ideal_meshes/rectangular.msh')
@@ -88,7 +88,7 @@ farm_options = DiscreteTidalTurbineFarmOptions()
 farm_options.turbine_type = 'constant'
 farm_options.turbine_options.thrust_coefficient = 0.6
 farm_options.turbine_options.diameter = 20
-farm_options.upwind_correction = False
+farm_options.upwind_correction = True
 
 farm_options.turbine_coordinates =[
     [Constant(800-2*distance*20),Constant(50)],[Constant(800-distance*20),Constant(55)],[Constant(800),Constant(45)],
@@ -96,6 +96,8 @@ farm_options.turbine_coordinates =[
 
 farm_options.considering_yaw = True
 farm_options.turbine_axis = [Constant(0),Constant(0),Constant(0)] #+ [Constant(0),Constant(0),Constant(0)]
+# angles =[-1.51125046,  8.86003577, -8.61055298]
+# farm_options.turbine_axis = [Constant(i) for i in angles]
 # farm_options.farm_alpha = Function(P1_2d)
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
@@ -131,7 +133,7 @@ power_output= sum(cb.integrated_power)
 interest_functional = power_output
 
 # specifies the control we want to vary in the optimisation
-optimise_angle_only = True
+optimise_angle_only = False
 if optimise_angle_only:
     if farm_options.considering_yaw:
         c = [Control(x) for x in farm_options.turbine_axis]
@@ -163,11 +165,11 @@ callback_list = optimisation.OptimisationCallbackList([
 # callbacks to indicate start of forward and adjoint runs in log
 def eval_cb_pre(controls):
     print_output("FORWARD RUN:")
-    print_output("angle: {}".format([float(c) for c in controls]))
+    print_output("Coordinates and Angles: {}".format([float(c) for c in controls]))
 
 def derivative_cb_pre(controls):
     print_output("ADJOINT RUN:")
-    print_output("angle: {}".format([float(c) for c in controls]))
+    print_output("Coordinates and Angles: {}".format([float(c) for c in controls]))
 
 # this reduces the functional J(u, m) to a function purely of the control m:
 # rf(m) = J(u(m), m) where the velocities u(m) of the entire simulation
@@ -187,8 +189,8 @@ if 0:
     # values between 0 and 1 and choose a random direction dtd to vary it in
 
     # this tests whether the above Taylor series residual indeed converges to zero at 2nd order in h as h->0
-    m0 = [Constant(0)]
-    h0 = [Constant(1)]
+    m0 = [Constant(800-2*distance*20),Constant(50)]+[Constant(800-distance*20),Constant(55)]+[Constant(800),Constant(45)]+[Constant(0)]*3
+    h0 = [Constant(1)]*3*3
     minconv = taylor_test(rf, m0, h0)
     print_output("Order of convergence with taylor test (should be 2) = {}".format(minconv))
 
@@ -206,18 +208,18 @@ if 1:
         ub = [90]*len(farm_options.turbine_axis)
         td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 100, 'ptol': 1e-3})
     else:
-        site_x = 160.
-        site_y = 100.
-        site_x_start = 920.
-        site_y_start = 250.
+        site_x = 800.
+        site_y = 50.
+        site_x_start = 100.
+        site_y_start = 25.
         r = farm_options.turbine_options.diameter/2.
 
         lb = np.array([[site_x_start+r, site_y_start+r] for _ in farm_options.turbine_coordinates]).flatten()
         ub = np.array([[site_x_start+site_x-r, site_y_start+site_y-r] for _ in farm_options.turbine_coordinates]).flatten()
         
         if farm_options.considering_yaw:
-            lb = list(lb) + [0]*len(farm_options.turbine_coordinates)
-            ub = list(ub) + [360]*len(farm_options.turbine_coordinates)
+            lb = list(lb) + [-90]*len(farm_options.turbine_coordinates)
+            ub = list(ub) + [90]*len(farm_options.turbine_coordinates)
 
         mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
         

@@ -1,0 +1,433 @@
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_false/30-1_0-Force-cos0/0	0:470.2202924414172
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_false/30-1_0-Force-cos0/10	10:458.8829645407179
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_false/30-1_0-Force-cos0/20	20:423.7282278407704
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_false/30-1_0-Force-cos0/30	30:362.1245566775643
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_false/30-1_0-Force-cos0/40	40:274.37340842005824
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_false/30-1_0-Force-cos0/50	50:172.52621872776334
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_false/30-1_0-Force-cos0/60	60:82.62376951655445
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_false/30-1_0-Force-cos0/70	70:25.996073519163232
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_false/30-1_0-Force-cos0/80	80:3.3103811567932113
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_false/30-1_0-Force-cos0/90	90:2.2718136703780774e-26
+
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-1_0-Force-cos0/-20	-20:496.59731397512166
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-1_0-Force-cos0/-10	-10:540.8625636193079
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-1_0-Force-cos0/0	0:555.2394711796206
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-1_0-Force-cos0/10	10:540.7618120197006
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-1_0-Force-cos0/20	20:496.38750827000644
+
+
+
+
+
+
+
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/0	0:598.9164062549328
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/0	0:603.631626228146
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/0	0:608.063644129813
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/30	30:518.0544449786242
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/0-Force-cos0/-10	-10:547.7310796063549
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/0-Force-cos0/0	0:566.9626193752003
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/0-Force-cos0/10	10:547.7651922195884
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/0-Force-cos0/20	20:491.56400051315296
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/0-Force-cos0/30	30:403.61368605377214
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/0-Force-cos0/40	40:295.0607301668141
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/0-Force-cos0/50	50:183.6492421835846
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/0-Force-cos0/60	60:90.0645814988984
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/0-Force-cos0/70	70:29.57274796330724
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/0-Force-cos0/80	80:3.9124637410156113
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/0-Force-cos0/90	90:2.6540236706037375e-26
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/-10	-10:587.3406087565786
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/0	0:598.9164062549326
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/10	10:587.6173229486485
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/20	20:554.2178666041481
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/30	30:501.03119673001726
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/40	40:430.96391265461716
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/50	50:554.6127578289764
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos0/-10	-10:574.4615522057804
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos0/0	0:588.7202097762735
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos0/10	10:574.7662483530565
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos0/20	20:534.0633420959621
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos0/30	30:470.8311839664472
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos0/40	40:391.58936473228505
+
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/40-Force-cos0/-10	-10:597.697044419099
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/40-Force-cos0/0	0:608.0636441298128
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/40-Force-cos0/10	10:597.9310472069297
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/40-Force-cos0/20	20:567.5496300572524
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/40-Force-cos0/30	30:518.0544449786236
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/40-Force-cos0/40	40:494.1308267335163
+
+
+水轮机圆形
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos22/-10	-10:576.1499696396631
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos22/0	0:588.7202097762734
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos22/10	10:576.4554169523858
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos22/20	20:539.0624693780917
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos22/30	30:477.2083532558695
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos22/40	40:395.3147709622931
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos22/50	50:299.1950773336203
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos22/60	60:237.5151539350804
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos22/70	70:718.5498147889101
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos22/80	80:4215.322398506864
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos22/90	90:3861.993671410582
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos22/70	70:142.17347027671414
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos22/80	80:71.02717759440658
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/20-Force-cos22/90	90:53.44456929900337
+
+
+
+
+
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/-10	-10:579.3208997449202
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/0	0:609.1797901089627
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/10	10:579.5308164722665
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/20	20:504.8466763326868
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/30	30:406.0525466878553
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/40	40:291.96001465748174
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/50	50:174.65066001707726
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/60	60:79.53633703752384
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/70	70:23.99023454092738
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/80	80:2.9887132549707833
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/90	90:2.297899362178191e-26
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/5	5:601.485788259742
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/15	15:546.2461159877896
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/25	25:457.70052302688566
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/35	35:350.51699844238516
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/45	45:232.29143149756433
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/55	55:122.71370116314431
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/65	65:46.670839806949566
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/75	75:10.110234965668722
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos10/85	85:0.37306719667001026
+
+
+
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/-10	-10:595.2555020813897
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/0	0:609.1797901089626
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/10	10:595.468949465198
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/20	20:551.3748338771632
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/30	30:470.37784052781535
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/40	40:350.61638490407216
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/50	50:212.27269958693358
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/60	60:96.56677347640957
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/70	70:29.321026766353214
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/80	80:3.950956389285309
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos0/90	90:3.674907859138579e-26
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos2/-10	-10:591.794219399547
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos2/0	0:609.1797901089626
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos2/10	10:592.0069145585217
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos2/20	20:538.8180813847937
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos2/30	30:447.19435897302776
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos2/40	40:322.00245351770343
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos2/50	50:188.24993367028804
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos2/60	60:83.17786802157343
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos2/70	70:24.482230529199022
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos2/80	80:3.004565598066624
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/30-Force-cos2/90	90:2.2978997637244933e-26
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/test	30:406.0525466878552
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/test	30:406.0525466878556
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/test	30:406.0525466878553
+
+../../../outputs/4.yaw/Yaw_Ideal/conference-extraforce/upwind_true/test	0:609.179790108963
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0/-10	-10:563.3689812741413
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0/0	0:583.8444120568513
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0/10	10:563.393847210117
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0/20	20:503.85375505027895
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0/30	30:411.57486188732213
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0/40	40:299.0628496852861
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0/50	50:185.04389769325172
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0/60	60:90.32198783125439
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0/70	70:29.572615804438254
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0/80	80:3.9083785791249994
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0/90	90:1.5427714252800026e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos0/-10	-10:598.1902344066144
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos0/0	0:612.4874335733468
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos0/10	10:598.4282918015728
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos0/20	20:553.1065501709331
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos0/30	30:469.8652524302016
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos0/40	40:347.5704515312905
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos0/50	50:208.37718463095842
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos0/60	60:94.01956783290483
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos0/70	70:28.419354915708535
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos0/80	80:3.8233201037105786
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos0/90	90:3.4022623948609375e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos30/-10	-10:558.2263594334519
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos30/0	0:612.4874335733468
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos30/10	10:558.4515791491083
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos30/20	20:473.17012022261014
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos30/30	30:389.6384115059262
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos30/40	40:285.8387955182094
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos30/50	50:171.25748696773894
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos30/60	60:77.57495786096541
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos30/70	70:23.306078106621467
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos30/80	80:2.899443028974836
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos30/90	90:1.4064604039139492e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_false/0-Force-cos0/-10	-10:476.7039787540295
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_false/0-Force-cos0/0	0:494.5815046732017
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_false/0-Force-cos0/10	10:476.72290353542786
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_false/0-Force-cos0/20	20:424.98170829057943
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_false/0-Force-cos0/30	30:345.48955543788344
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_false/0-Force-cos0/40	40:249.64018994017223
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_false/0-Force-cos0/50	50:153.6228573307691
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_false/0-Force-cos0/60	60:74.65585185346936
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_false/0-Force-cos0/70	70:24.375286234328254
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_false/0-Force-cos0/80	80:3.2175741070012447
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_false/0-Force-cos0/90	90:1.2697580763713764e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/-10	-10:582.0983931610051
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/0	0:612.487433573347
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/10	10:582.3313632731093
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/20	20:506.21388449371693
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/30	30:405.39533550042574
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/40	40:289.42553075524035
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/50	50:171.62796688708963
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/60	60:77.58815006797312
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/70	70:23.30616461186976
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/80	80:2.899443041469787
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/90	90:1.4064604120726665e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/-10	-10:582.0983931610051
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/0	0:612.4874335733462
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/10	10:582.3313632731096
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/20	20:506.21388449371733
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/30	30:405.39533550042574
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/40	40:289.42553075524046
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/50	50:171.62796688708963
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/60	60:77.58815006797313
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/70	70:23.306164611869782
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/80	80:2.899443041469788
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/30-Force-cos10/90	90:1.4064606586110513e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct/-10	-10:646.826842648623
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct/0	0:670.3355175761941
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct/10	10:646.8553922411484
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct/20	20:578.4949906165232
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct/30	30:472.5458398970236
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct/40	40:343.36622221893776
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct/50	50:212.456425672605
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct/60	60:103.70234811030271
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct/70	70:33.953523082481354
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct/80	80:4.487368421479992
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct/90	90:1.7713186635173285e-27
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/-10	-10:644.6667749570128
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/0	0:670.3355175761935
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/10	10:644.6951303226534
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/20	20:570.8514602709199
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/30	30:458.8469689889566
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/40	40:326.48450404743517
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/50	50:197.33031138855543
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/60	60:94.17332663370435
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/70	70:30.277612339317063
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/80	80:3.9560449937076942
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/-10	-10:646.8268426486229
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/0	0:670.3355175761936
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/10	10:646.8553922411484
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/20	20:578.4949906165228
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/30	30:472.5458398970235
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/40	40:343.36622221893776
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/50	50:212.45642567260484
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/60	60:103.70234811030264
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/70	70:33.95352308248136
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/80	80:4.487368421479991
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular3/upwind_true/0-Force-cos0-ct2/90	90:1.7713187054541947e-27
+
