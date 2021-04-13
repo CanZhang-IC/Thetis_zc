@@ -1,0 +1,877 @@
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5/f30-cos22/angle0H40	0:612.6458792378892
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5/f30-cos22/angle10H40	10:600.1520885529326
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5/f30-cos22/angle20H40	20:558.0026756265099
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5/f30-cos22/angle30H40	30:476.5530986401219
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5/f30-cos22/angle40H40	40:353.584609563622
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5/f30-cos22/angle50H40	50:212.61615226126975
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5/f30-cos22/angle60H40	60:96.33574785736684
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5/f30-cos22/angle70H40	70:28.967422055175657
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5/f30-cos22/angle80H40	80:3.6145608350499843
+
+
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_3-40/f30-cos22/angle0H40	0:612.4102761118722
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_3-40/f30-cos22/angle10H40	10:599.8587230687814
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_3-40/f30-cos22/angle20H40	20:557.1754935382326
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_3-40/f30-cos22/angle30H40	30:475.11406841766706
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_3-40/f30-cos22/angle40H40	40:351.750808726468
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_3-40/f30-cos22/angle50H40	50:210.90063093065834
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_3-40/f30-cos22/angle60H40	60:95.33620642570072
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_3-40/f30-cos22/angle70H40	70:28.63723309499428
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_3-40/f30-cos22/angle80H40	80:3.57080234327368
+
+
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_4-40/f30-cos22/angle0H40	0:612.2656474764966
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_4-40/f30-cos22/angle10H40	10:599.6127089465014
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_4-40/f30-cos22/angle20H40	20:555.6407657118237
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_4-40/f30-cos22/angle30H40	30:472.28184109010834
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_4-40/f30-cos22/angle40H40	40:348.2076381009988
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_4-40/f30-cos22/angle50H40	50:207.8757691368898
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_4-40/f30-cos22/angle60H40	60:93.9488510069754
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_4-40/f30-cos22/angle70H40	70:28.35925921097309
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_4-40/f30-cos22/angle80H40	80:3.544917390907419
+
+
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f30-cos22/angle0H40	0:611.3012623164306
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f30-cos22/angle10H40	10:598.3930941195633
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f30-cos22/angle20H40	20:553.1984709374238
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f30-cos22/angle30H40	30:468.3508521707044
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f30-cos22/angle40H40	40:342.35631733365676
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f30-cos22/angle50H40	50:201.8888747750716
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f30-cos22/angle60H40	60:89.53329108029061
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f30-cos22/angle70H40	70:26.795117316704104
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f30-cos22/angle80H40	80:3.345683884510903
+
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f30-cos22/angle0H40	0:611.1385945372216
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f30-cos22/angle10H40	10:594.0327942140339
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f30-cos22/angle20H40	20:524.8946737722919
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f30-cos22/angle50H40	50:163.0036378114117
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f30-cos22/angle60H40	60:73.94824442934967
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f30-cos22/angle70H40	70:22.889090012685937
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f30-cos22/angle80H40	80:2.931654886730085
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_8-40/f30-cos22/angle0H40	0:610.5096067853652
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_8-40/f30-cos22/angle10H40	10:594.4039615298134
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_8-40/f30-cos22/angle20H40	20:541.1644468360597
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_8-40/f30-cos22/angle30H40	30:450.0641310149176
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_8-40/f30-cos22/angle40H40	40:310.9119552761025
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_8-40/f30-cos22/angle50H40	50:174.11072726120688
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_8-40/f30-cos22/angle60H40	60:77.12795879439788
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_8-40/f30-cos22/angle70H40	70:23.38076086600825
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_8-40/f30-cos22/angle80H40	80:2.9404197508525347
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_9-40/f30-cos22/angle0H40	0:611.8364988746039
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_9-40/f30-cos22/angle10H40	10:596.9783099484583
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_9-40/f30-cos22/angle20H40	20:533.2802797576667
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_9-40/f30-cos22/angle30H40	30:426.36381137123794
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_9-40/f30-cos22/angle40H40	40:296.5341984502506
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_9-40/f30-cos22/angle50H40	50:171.83855746955177
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_9-40/f30-cos22/angle60H40	60:77.75314730009268
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_9-40/f30-cos22/angle70H40	70:23.900934464524656
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_9-40/f30-cos22/angle80H40	80:3.043536657954151
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-10/f30-cos22/angle0H40	0:611.3455665215535
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-10/f30-cos22/angle10H40	10:594.332986560633
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-10/f30-cos22/angle20H40	20:525.38807160501
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-10/f30-cos22/angle30H40	30:415.79585617875534
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-10/f30-cos22/angle40H40	40:284.81757426603673
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-10/f30-cos22/angle50H40	50:163.3840967260957
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-10/f30-cos22/angle60H40	60:74.14012425151506
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-10/f30-cos22/angle70H40	70:22.951032991239934
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-10/f30-cos22/angle80H40	80:2.9396322080437685
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle0H40	0:611.3455665215536
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle10H40	10:594.3329865606332
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle20H40	20:525.3880716050098
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle30H40	30:415.79585617875523
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle40H40	40:284.817574266037
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle50H40	50:163.38409672609566
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle60H40	60:74.14012425151503
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle70H40	70:22.951032991239945
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle80H40	80:2.9396322080437676
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-30/f30-cos22/angle0H40	0:611.3455665215535
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-30/f30-cos22/angle0H40	0:612.7165657195388
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-30/f30-cos22/angle10H40	10:600.2650662866764
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-30/f30-cos22/angle20H40	20:558.1936407881655
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-30/f30-cos22/angle30H40	30:476.8253151188037
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-30/f30-cos22/angle40H40	40:353.9223662961934
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-30/f30-cos22/angle50H40	50:212.92666480020708
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-30/f30-cos22/angle60H40	60:96.51789362877194
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-30/f30-cos22/angle70H40	70:29.028406801445435
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-30/f30-cos22/angle80H40	80:3.622295282583459
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle0H40	0:612.798096807619
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle10H40	10:600.3688014490882
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle20H40	20:558.3662364704761
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle30H40	30:477.1069684415505
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle40H40	40:354.28453438243804
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle50H40	50:213.23996493206238
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle60H40	60:96.68806820457043
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle70H40	70:29.082821440134506
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-20/f30-cos22/angle80H40	80:3.6291757793522694
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H80	0:606.9963027210094
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H80	10:589.610224771412
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H80	20:535.4941716509702
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H80	30:443.62128682616043
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H80	40:322.77433629304414
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H80	50:196.20772511777386
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H80	60:92.67665240067704
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H80	70:29.284262856551074
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H80	80:3.7741836574239245
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H20	0:555.8512416890619
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H30	0:574.1495965990426
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H40	0:584.0258909236079
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H50	0:590.1195209741999
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H60	0:594.2413209214691
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H70	0:597.2117519172403
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H80	0:599.4529904275106
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H20	10:540.3634849097681
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H30	10:556.5869028681032
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H40	10:565.311886359779
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H50	10:570.684305081957
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H60	10:574.3132725438402
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H70	10:576.9259177042683
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H80	10:578.8956972827424
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H20	20:492.56173624360105
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H30	20:503.45666126440216
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H40	20:509.2628529347148
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H50	20:512.8176590806183
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H60	20:515.2092740908188
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H70	20:516.9260307550782
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H80	20:518.2174486037675
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H20	30:411.84776120071035
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H30	30:416.52834554309425
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H40	30:418.99919574123624
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H50	30:420.49810739499236
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H60	30:421.49939300880027
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H70	30:422.21421506949997
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H80	30:422.7496335128941
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H20	40:305.1922360486321
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H30	40:305.42942627580624
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H40	40:305.56971012915426
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H50	40:305.6504205930404
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H60	40:305.7007651543732
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H70	40:305.7344539949941
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H80	40:305.75827219940476
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H20	50:190.82154801012882
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H30	50:189.54620912166186
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H40	50:188.90949161623453
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H50	50:188.52510502530527
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H60	50:188.267344263419
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H70	50:188.0823446377774
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H80	50:187.94305784830658
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H20	60:93.13060088126424
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H30	60:92.2746087083855
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H40	60:91.84843953325853
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H50	60:91.59293621751227
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H60	60:91.42260578652937
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H70	60:91.30092130369441
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H80	60:91.20963896552699
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H20	70:30.253679968894136
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H30	70:30.041994515029014
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H40	70:29.93726298419154
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H50	70:29.874749258294152
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H60	70:29.833202306862503
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H70	70:29.803587007862784
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H80	70:29.781408184407297
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H20	80:3.960234397931361
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H30	80:3.9495525945083916
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H40	80:3.944441054608449
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H50	80:3.941446786246584
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H60	80:3.939480666392502
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H70	80:3.938090943052757
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H80	80:3.937056630683819
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H20	0:651.3284389928222
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H30	0:622.775954962625
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H40	0:612.6458792378896
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H50	0:608.86330151893
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H60	0:607.440054301395
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H70	0:606.9991697964605
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H80	0:606.9963027210097
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H20	10:635.6365691108226
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H30	10:610.7455847864132
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H40	10:600.1520885529326
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H50	10:595.0112366344559
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H60	10:592.2048370798371
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H70	10:590.5775652684838
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H80	10:589.610224771412
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H20	20:586.2339222017442
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H30	20:570.13304792202
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H40	20:558.0026756265099
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H50	20:549.3609442923181
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H60	20:543.1611023985829
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H70	20:538.7094124883944
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H80	20:535.4941716509704
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H20	30:499.34976676916426
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H30	30:490.3438929533658
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H40	30:476.5530986401219
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H50	30:464.64731730855146
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H60	30:455.4748063996008
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H70	30:448.6583410511444
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H80	30:443.6212868261602
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H20	40:384.06609774078163
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H30	40:366.0599901695624
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H40	40:353.5846095636219
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H50	40:342.53943121282714
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H60	40:333.93965125980577
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H70	40:327.52447247220886
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H80	40:322.77433629304403
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H20	50:510.9334379270616
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H30	50:220.91043387568357
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H40	50:212.6161522612699
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H50	50:206.83177803149593
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H60	50:202.2892583043346
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H70	50:198.82118903552703
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H80	50:196.20772511777406
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H30	60:106.44929019463403
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H40	60:96.3357478573668
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H50	60:95.11436034715774
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H60	60:94.15588339670457
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H70	60:93.3395340291701
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H80	60:92.67665240067704
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H30	70:77.48277230663413
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H40	70:28.967422055175636
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H50	70:29.05742598669892
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H60	70:29.196586591602845
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H70	70:29.26060196784664
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H80	70:29.284262856551074
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H30	80:137.29632557220745
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H40	80:3.614560835049983
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H50	80:3.650259601513996
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H60	80:3.7084109276590613
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H70	80:3.747747610741228
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H80	80:3.7741836574239236
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H80	0:606.9963027210099
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H90	0:607.1935671022466
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H100	0:607.4794549385716
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H110	0:607.7992400787442
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H120	0:608.1254127908603
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H130	0:608.4441529286111
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H140	0:608.7487676403185
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H150	0:609.0363565801073
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H160	0:609.306054387386
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H170	0:609.5580783648434
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H180	0:609.7932022208848
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H190	0:610.0124619493299
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H200	0:610.2169911717979
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H80	10:589.6102247714118
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H90	10:589.0355451198924
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H100	10:588.7037214864997
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H110	10:588.5260413861887
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H120	10:588.447901397937
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H130	10:588.4347027094557
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H140	10:588.46401331958
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H150	10:588.5210223807269
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H160	10:588.5958056543907
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H170	10:588.6816365604582
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H180	10:588.7739186624864
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H190	10:588.8694957023977
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H200	10:588.9661975160744
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H80	20:535.4941716509702
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H90	20:533.1480965700549
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H100	20:531.4152295780117
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H110	20:530.1192338362249
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H120	20:529.1384151606418
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H130	20:528.3880867608673
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H140	20:527.8086248309986
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H150	20:527.3574772135096
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H160	20:527.0038619157474
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H170	20:526.7252129480455
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H180	20:526.5047754519267
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H190	20:526.3299600465274
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H200	20:526.1912012006628
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H80	30:443.62128682616043
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H90	30:439.8723678620115
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H100	30:437.0477380079332
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H110	30:434.88987186075883
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H120	30:433.2184710668361
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H130	30:431.9068396261231
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H140	30:430.86504315443665
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H150	30:430.0284202752313
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H160	30:429.34984081785814
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H170	30:428.7944816675916
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H180	30:428.3362766463539
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H190	30:427.9554663576361
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H200	30:427.63689680070325
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H80	40:322.77433629304403
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H90	40:319.23217284259186
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H100	40:316.55719893705583
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H110	40:314.50798398440503
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H120	40:312.9155597420959
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H130	40:311.66125178180755
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H140	40:310.66084778512135
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H150	40:309.85380056294616
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H160	40:309.19596565167495
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H170	40:308.6547075044666
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H180	40:308.20557486401776
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H190	40:307.8300149733464
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H200	40:307.51378278049424
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H80	50:196.20772511777395
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H90	50:194.2357912140016
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H100	50:192.73534986995867
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H110	50:191.58066272925214
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H120	50:190.68119985950264
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H130	50:189.97213778442813
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H140	50:189.40683498086364
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H150	50:188.9514200117787
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H160	50:188.5810129629698
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H170	50:188.27711914659662
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H180	50:188.0258241742229
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H190	50:187.81653839472216
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H200	50:187.6411129338381
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H80	60:92.67665240067709
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H90	60:92.15327762385192
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H100	60:91.74454108434172
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H110	60:91.42585946569034
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H120	60:91.17666026630306
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H130	60:90.98081432041593
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H140	60:90.82601147037553
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H150	60:90.70294443356737
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H160	60:90.60458160006304
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H170	60:90.52559076035517
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H180	60:90.46190396194771
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H190	60:90.4103954826738
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H200	60:90.36864525277397
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H80	70:29.28426285655106
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H90	70:29.290634928321392
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H100	70:29.29084817598359
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H110	70:29.289769711213182
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H120	70:29.28932844335164
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H130	70:29.290133807740023
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H140	70:29.292238008793134
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H150	70:29.29548021762095
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H160	70:29.29963878115573
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H170	70:29.30449517811297
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H180	70:29.30985779985332
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H190	70:29.315567959614654
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H200	70:29.321498500428365
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H80	80:3.774183657423919
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H90	80:3.7927469289928695
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H100	80:3.8064480168290533
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H110	80:3.8170311235910948
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H120	80:3.8255243267174306
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H130	80:3.832554041644785
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H140	80:3.838516513051269
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H150	80:3.843671852751859
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H160	80:3.848197379422693
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H170	80:3.8522182532519555
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H180	80:3.855825678148223
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H190	80:3.8590880431299195
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H200	80:3.8620579476439363
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f0-cos22/angle0H40	0:582.7322239499163
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f0-cos22/angle10H40	10:564.202578172326
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f0-cos22/angle20H40	20:508.4147548909033
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f0-cos22/angle30H40	30:418.42994549822487
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f0-cos22/angle40H40	40:305.2422162894023
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f0-cos22/angle50H40	50:188.75327806740174
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f0-cos22/angle60H40	60:91.79090902968652
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f0-cos22/angle70H40	70:29.923962318981367
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_5-40/f0-cos22/angle80H40	80:3.9435004009166637
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f0-cos22/angle0H40	0:585.5874110155037
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f0-cos22/angle10H40	10:566.9392247070165
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f0-cos22/angle20H40	20:510.34638970321464
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f0-cos22/angle30H40	30:419.2932234397884
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f0-cos22/angle40H40	40:305.2630889721599
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f0-cos22/angle50H40	50:188.43029799172385
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f0-cos22/angle60H40	60:91.52825233107534
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f0-cos22/angle70H40	70:29.83010177374921
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_10-40/f0-cos22/angle80H40	80:3.933522534132651
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22-abs/angle0H40	0:612.6458792378892
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22-abs/angle10H40	10:600.1520885529328
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22-abs/angle20H40	20:558.0026756265103
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22-abs/angle30H40	30:476.55309864012185
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22-abs/angle40H40	40:353.58460956362177
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22-abs/angle50H40	50:212.6161522612699
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22-abs/angle0H40	0:612.6458792378894
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22-abs/angle10H40	10:600.1520885529327
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22-abs/angle20H40	20:558.0026756265103
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle-8H40	-8:604.5951678051078
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle-7H40	-7:606.5049718450131
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle-80H40	-80:3.6093087590099975
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle-70H40	-70:28.887727126943254
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle-60H40	-60:95.96967217749648
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle-50H40	-50:211.77709390937508
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle-40H40	-40:352.48545551926026
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle-30H40	-30:475.64268458640686
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle-20H40	-20:557.4859734129533
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle-10H40	-10:599.9406411466342
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H40	0:612.6458792378894
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H40	10:600.1520885529327
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H40	20:558.0026756265102
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H40	30:476.5530986401219
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H40	40:353.58460956362177
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H40	50:212.61615226126975
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H40	60:96.33574785736677
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H40	70:28.96742205517564
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H40	80:3.614560835049984
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle0H40	0:612.6458792378892
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle10H40	10:600.1520885529328
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle20H40	20:558.0026756265105
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle30H40	30:476.55309864012236
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle40H40	40:353.58460956362177
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle50H40	50:212.61615226126975
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle60H40	60:96.3357478573668
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle70H40	70:28.967422055175632
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22/angle80H40	80:3.6145608350499843
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_1-40/f30-cos22/angle0H40	0:612.705464885978
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_1-40/f30-cos22/angle10H40	10:600.226588185778
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_1-40/f30-cos22/angle20H40	20:558.2533102287093
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_1-40/f30-cos22/angle30H40	30:476.98189230802234
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_1-40/f30-cos22/angle40H40	40:354.1134205919763
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_1-40/f30-cos22/angle50H40	50:213.13026211561288
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_1-40/f30-cos22/angle60H40	60:96.64872833969946
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_1-40/f30-cos22/angle70H40	70:29.066109246797335
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_1-40/f30-cos22/angle80H40	80:3.6263609613651093
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22-diameter/angle0H40	0:518.2751708602092
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22-diameter/angle10H40	10:509.6854379601927
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22-diameter/angle20H40	20:479.388344273234
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22-diameter/angle30H40	30:417.3167103343079
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22-F/angle0H40	0:559.8701413459412
+
+../../../outputs/4.yaw/Yaw_Ideal/rectangular5_2-40/f30-cos22-F/angle10H40	10:551.3933885563675
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh/f30-cos22-F/angle0H40	0:609.4331583202618
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh/f30-cos22-F/angle10H40	10:597.3240171550505
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh/f30-cos22-F/angle20H40	20:556.4543764317542
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh/f30-cos22-F/angle30H40	30:477.22760587785734
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh/f30-cos22-F/angle40H40	40:356.6368953484771
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh/f30-cos22-F/angle50H40	50:216.34519973145385
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh/f30-cos22-F/angle60H40	60:98.71931456521803
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh/f30-cos22-F/angle70H40	70:29.793269745253284
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh/f30-cos22-F/angle80H40	80:3.7213155426604305
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh2/f30-cos22/angle0H40	0:611.6659461351954
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh2/f30-cos22/angle10H40	10:599.5590564370809
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh2/f30-cos22/angle20H40	20:558.6589284289071
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh2/f30-cos22/angle30H40	30:479.35147118100974
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh2/f30-cos22/angle40H40	40:358.56375275520924
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh2/f30-cos22/angle50H40	50:217.79526741662235
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh2/f30-cos22/angle60H40	60:99.48860256263771
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh2/f30-cos22/angle70H40	70:30.041090896791587
+
+../../../outputs/4.yaw/Yaw_Ideal/conference_mesh2/f30-cos22/angle80H40	80:3.7529273530414446
+

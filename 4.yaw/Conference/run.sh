@@ -1,1 +1,0 @@
-nohup mpirun -np 8 python headland_staggered2.py >headland_staggered2.out 2>&1 

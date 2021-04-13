@@ -1,0 +1,2518 @@
+Script started on 2021-04-12 18:04:25+0100
+]0;can@can-deskcomputer: /media/can/can_disk/thetis_new/Git_mythetis/Thetis_zc/4.yaw/confenrence_mesh[01;32mcan@can-deskcomputer[00m:[01;34m/media/can/can_disk/thetis_new/Git_mythetis/Thetis_zc/4.yaw/confenrence_mesh[00m$ mpirun -np 8 python op-closed_boundary_upwind.py 
+Traceback (most recent call last):
+  File "op-closed_boundary_upwind.py", line 10, in <module>
+    from thetis import *
+ImportError: No module named thetis
+Traceback (most recent call last):
+  File "op-closed_boundary_upwind.py", line 10, in <module>
+    from thetis import *
+ImportError: No module named thetis
+Traceback (most recent call last):
+  File "op-closed_boundary_upwind.py", line 10, in <module>
+    from thetis import *
+ImportError: No module named thetis
+Traceback (most recent call last):
+  File "op-closed_boundary_upwind.py", line 10, in <module>
+    from thetis import *
+ImportError: No module named thetis
+Traceback (most recent call last):
+  File "op-closed_boundary_upwind.py", line 10, in <module>
+    from thetis import *
+ImportError: No module named thetis
+Traceback (most recent call last):
+  File "op-closed_boundary_upwind.py", line 10, in <module>
+    from thetis import *
+ImportError: No module named thetis
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "op-closed_boundary_upwind.py", line 10, in <module>
+  File "op-closed_boundary_upwind.py", line 10, in <module>
+    from thetis import *
+    from thetis import *
+ImportError: No module named thetis
+ImportError: No module named thetis
+]0;can@can-deskcomputer: /media/can/can_disk/thetis_new/Git_mythetis/Thetis_zc/4.yaw/confenrence_mesh[01;32mcan@can-deskcomputer[00m:[01;34m/media/can/can_disk/thetis_new/Git_mythetis/Thetis_zc/4.yaw/confenrence_mesh[00m$ sf
+(firedrake) ]0;can@can-deskcomputer: /media/can/can_disk/thetis_new/Git_mythetis/Thetis_zc/4.yaw/confenrence_mesh[01;32mcan@can-deskcomputer[00m:[01;34m/media/can/can_disk/thetis_new/Git_mythetis/Thetis_zc/4.yaw/confenrence_mesh[00m$ sfmpirun -np 8 python op-closed_boundary_upwind.py 
+Using default SIPG parameters
+dt = 60
+Using time integrator: CrankNicolson
+Number of turbines = 12.000277912525563
+    0     0 T=      0.00 eta norm:     0.0000 u norm:  2190.8902  0.00
+volume2d rel. error  0.0000e+00
+Updating tidal elevation at t = 60
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+  0 SNES Function norm 3.605610401397e+02 
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+  1 SNES Function norm 1.499054034437e-09 
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+Current power, average power, integrated power and profit for each farm: [7225.396572030345], [7225.396572030345], [433523.7943218207], [7225.396572030345]. The force is -4454.26156762826. The extra_force is 46.265979177103674
+Updating tidal elevation at t = 120
+  0 SNES Function norm 3.486783659946e+02 
+  1 SNES Function norm 1.496675119108e-09 
+Current power, average power, integrated power and profit for each farm: [6759.4632889257555], [6992.42993047805], [839091.591657366], [6992.42993047805]. The force is -4254.720931512276. The extra_force is 40.87615729253487
+    1     2 T=    120.00 eta norm:    44.7227 u norm:  2181.6663 17.05
+volume2d rel. error  8.4559e-04
+Updating tidal elevation at t = 180
+  0 SNES Function norm 3.307704850109e+02 
+  1 SNES Function norm 1.538227460247e-09 
+Current power, average power, integrated power and profit for each farm: [6523.078255271314], [6835.979372075805], [1230476.286973645], [6835.979372075805]. The force is -4146.944291648149. The extra_force is 16.683445250416582
+Updating tidal elevation at t = 240
+  0 SNES Function norm 2.360470509235e+02 
+  1 SNES Function norm 1.574157936137e-09 
+Current power, average power, integrated power and profit for each farm: [6432.873445429646], [6735.202890414265], [1616448.6936994237], [6735.202890414265]. The force is -4102.70412871882. The extra_force is -10.92545544019788
+    2     4 T=    240.00 eta norm:    59.0421 u norm:  2193.7853  2.47
+volume2d rel. error  1.1456e-03
+Updating tidal elevation at t = 300
+  0 SNES Function norm 1.740078833799e+02 
+  1 SNES Function norm 1.622083186679e-09 
+Current power, average power, integrated power and profit for each farm: [6409.657561545793], [6670.09382464057], [2001028.1473921712], [6670.09382464057]. The force is -4089.796929420855. The extra_force is -32.33777808421058
+Updating tidal elevation at t = 360
+  0 SNES Function norm 1.731166862204e+02 
+  1 SNES Function norm 1.650300191976e-09 
+Current power, average power, integrated power and profit for each farm: [6402.3913602905295], [6625.4767472488975], [2385171.629009603], [6625.4767472488975]. The force is -4085.47532900522. The extra_force is -45.72543255835667
+    3     6 T=    360.00 eta norm:    47.1732 u norm:  2198.3685  2.61
+volume2d rel. error  8.9042e-04
+Updating tidal elevation at t = 420
+  0 SNES Function norm 1.702652785820e+02 
+  1 SNES Function norm 1.620750930016e-09 
+Current power, average power, integrated power and profit for each farm: [6392.683432802489], [6592.220559470839], [2768732.6349777523], [6592.220559470839]. The force is -4080.8846571051427. The extra_force is -53.147328483151625
+Updating tidal elevation at t = 480
+  0 SNES Function norm 1.491243598004e+02 
+  1 SNES Function norm 1.624856789868e-09 
+Current power, average power, integrated power and profit for each farm: [6381.272567614902], [6565.852060488847], [3151608.9890346467], [6565.852060488847]. The force is -4075.842609510202. The extra_force is -57.00905642547028
+    4     8 T=    480.00 eta norm:    41.4888 u norm:  2196.0242  2.76
+volume2d rel. error  7.6942e-04
+Updating tidal elevation at t = 540
+  0 SNES Function norm 1.256712242179e+02 
+  1 SNES Function norm 1.645134271033e-09 
+Current power, average power, integrated power and profit for each farm: [6373.508586998098], [6544.480563434319], [3534019.5042545325], [6544.480563434319]. The force is -4072.46209492854. The extra_force is -58.95807802799203
+Updating tidal elevation at t = 600
+  0 SNES Function norm 1.084436530600e+02 
+  1 SNES Function norm 1.612148152337e-09 
+Current power, average power, integrated power and profit for each farm: [6371.8415044632175], [6527.216657537209], [3916329.9945223257], [6527.216657537209]. The force is -4071.7372294570214. The extra_force is -59.916291395501744
+    5    10 T=    600.00 eta norm:    44.4203 u norm:  2194.8257  2.80
+volume2d rel. error  8.3171e-04
+Updating tidal elevation at t = 660
+  0 SNES Function norm 9.301277358328e+01 
+  1 SNES Function norm 1.593955747377e-09 
+Current power, average power, integrated power and profit for each farm: [6374.918964517496], [6513.371412717235], [4298825.132393375], [6513.371412717235]. The force is -4073.063865962282. The extra_force is -60.36485168617233
+Updating tidal elevation at t = 720
+  0 SNES Function norm 7.578543347881e+01 
+  1 SNES Function norm 1.632998668470e-09 
+Current power, average power, integrated power and profit for each farm: [6379.6840578903675], [6502.230799814996], [4681606.175866798], [6502.230799814996]. The force is -4075.1160427731184. The extra_force is -60.55945908092778
+    6    12 T=    720.00 eta norm:    46.8800 u norm:  2195.6698  3.28
+volume2d rel. error  8.8357e-04
+Updating tidal elevation at t = 780
+  0 SNES Function norm 5.856278528154e+01 
+  1 SNES Function norm 1.627342230310e-09 
+Current power, average power, integrated power and profit for each farm: [6383.54826552468], [6493.101374100356], [5064619.071798278], [6493.101374100356]. The force is -4076.7766398227327. The extra_force is -60.639200382989074
+Updating tidal elevation at t = 840
+  0 SNES Function norm 4.405782233743e+01 
+  1 SNES Function norm 1.618753375126e-09 
+Current power, average power, integrated power and profit for each farm: [6385.398605110369], [6485.4083191725], [5447742.9881049], [6485.4083191725]. The force is -4077.568005882241. The extra_force is -60.67604634609344
+    7    14 T=    840.00 eta norm:    46.7591 u norm:  2196.3507  2.38
+volume2d rel. error  8.8151e-04
+Updating tidal elevation at t = 900
+  0 SNES Function norm 3.278041397831e+01 
+  1 SNES Function norm 1.615523537979e-09 
+Current power, average power, integrated power and profit for each farm: [6385.463769468455], [6478.745349192231], [5830870.814273007], [6478.745349192231]. The force is -4077.5910422284005. The extra_force is -60.701381055514176
+Updating tidal elevation at t = 960
+  0 SNES Function norm 2.382989435210e+01 
+  1 SNES Function norm 1.607047415390e-09 
+Current power, average power, integrated power and profit for each farm: [6384.621430569637], [6472.862604278318], [6213948.100107186], [6472.862604278318]. The force is -4077.225130533548. The extra_force is -60.72431800830276
+    8    16 T=    960.00 eta norm:    46.3288 u norm:  2196.3400  2.95
+volume2d rel. error  8.7325e-04
+Updating tidal elevation at t = 1020
+  0 SNES Function norm 1.667664724128e+01 
+  1 SNES Function norm 1.595257703586e-09 
+Current power, average power, integrated power and profit for each farm: [6383.722900705764], [6467.619092303463], [6596971.474149532], [6467.619092303463]. The force is -4076.837052063782. The extra_force is -60.74456902239514
+Updating tidal elevation at t = 1080
+  0 SNES Function norm 1.133671890793e+01 
+  1 SNES Function norm 1.604305940699e-09 
+Current power, average power, integrated power and profit for each farm: [6383.235054007911], [6462.931090175932], [6979965.577390007], [6462.931090175932]. The force is -4076.6272233737345. The extra_force is -60.76000511035659
+    9    18 T=   1080.00 eta norm:    46.4794 u norm:  2196.2255  2.48
+volume2d rel. error  8.7696e-04
+Updating tidal elevation at t = 1140
+  0 SNES Function norm 7.651369151594e+00 
+  1 SNES Function norm 1.612477879393e-09 
+Current power, average power, integrated power and profit for each farm: [6383.21527759697], [6458.735521092829], [7362958.494045825], [6458.735521092829]. The force is -4076.619486058151. The extra_force is -60.769799904941465
+Updating tidal elevation at t = 1200
+  0 SNES Function norm 5.093160581044e+00 
+  1 SNES Function norm 1.622937327228e-09 
+Current power, average power, integrated power and profit for each farm: [6383.4779488747445], [6454.972642481925], [7745967.17097831], [6454.972642481925]. The force is -4076.733242793758. The extra_force is -60.77479745259325
+   10    20 T=   1200.00 eta norm:    46.7034 u norm:  2196.2559  2.83
+volume2d rel. error  8.8186e-04
+Updating tidal elevation at t = 1260
+  0 SNES Function norm 3.213218292563e+00 
+  1 SNES Function norm 1.601609231515e-09 
+Current power, average power, integrated power and profit for each farm: [6383.7908993100955], [6451.583035664218], [8128994.624936915], [6451.583035664218]. The force is -4076.868242292841. The extra_force is -60.77670115193233
+Updating tidal elevation at t = 1320
+  0 SNES Function norm 1.888029763648e+00 
+  1 SNES Function norm 1.603263229704e-09 
+Current power, average power, integrated power and profit for each farm: [6384.00144699379], [6448.511145270108], [8512034.711756542], [6448.511145270108]. The force is -4076.9587877325307. The extra_force is -60.777165874104796
+   11    22 T=   1320.00 eta norm:    46.7196 u norm:  2196.3111  2.81
+volume2d rel. error  8.8223e-04
+Updating tidal elevation at t = 1380
+  0 SNES Function norm 1.112711096604e+00 
+  1 SNES Function norm 1.619254783816e-09 
+Current power, average power, integrated power and profit for each farm: [6384.06887061622], [6445.709307241677], [8895078.843993515], [6445.709307241677]. The force is -4076.9875414797725. The extra_force is -60.777284633740024
+Updating tidal elevation at t = 1440
+  0 SNES Function norm 7.270637458219e-01 
+  1 SNES Function norm 1.612561753460e-09 
+Current power, average power, integrated power and profit for each farm: [6384.032110229122], [6443.139424032822], [9278120.770607263], [6443.139424032822]. The force is -4076.971456263652. The extra_force is -60.77751851999453
+   12    24 T=   1440.00 eta norm:    46.6671 u norm:  2196.3160  2.86
+volume2d rel. error  8.8114e-04
+Updating tidal elevation at t = 1500
+  0 SNES Function norm 4.716868838896e-01 
+  1 SNES Function norm 1.621659260700e-09 
+Current power, average power, integrated power and profit for each farm: [6383.9568200073845], [6440.772119871804], [9661158.179807706], [6440.772119871804]. The force is -4076.938897287857. The extra_force is -60.77789605521356
+Updating tidal elevation at t = 1560
+  0 SNES Function norm 2.584188257140e-01 
+  1 SNES Function norm 1.594512873543e-09 
+Current power, average power, integrated power and profit for each farm: [6383.894705508689], [6438.584527011683], [10044191.862138227], [6438.584527011683]. The force is -4076.9121315764046. The extra_force is -60.778274311967365
+   13    26 T=   1560.00 eta norm:    46.6590 u norm:  2196.3028  2.97
+volume2d rel. error  8.8099e-04
+Updating tidal elevation at t = 1620
+  0 SNES Function norm 1.396715085926e-01 
+  1 SNES Function norm 1.617344282447e-09 
+Current power, average power, integrated power and profit for each farm: [6383.867497687783], [6436.557970370058], [10427223.911999494], [6436.557970370058]. The force is -4076.900467197811. The extra_force is -60.77852646953022
+Updating tidal elevation at t = 1680
+  0 SNES Function norm 1.234737502149e-01 
+  1 SNES Function norm 1.624991678946e-09 
+Current power, average power, integrated power and profit for each farm: [6383.871358537272], [6434.676305661744], [10810256.19351173], [6434.676305661744]. The force is -4076.9021950092774. The extra_force is -60.778616009834494
+   14    28 T=   1680.00 eta norm:    46.6742 u norm:  2196.3003  2.45
+volume2d rel. error  8.8131e-04
+Updating tidal elevation at t = 1740
+  0 SNES Function norm 1.047134346164e-01 
+  1 SNES Function norm 1.603819586847e-09 
+Current power, average power, integrated power and profit for each farm: [6383.89043151098], [6432.925068622062], [11193289.619402388], [6432.925068622062]. The force is -4076.910451135307. The extra_force is -60.77858459286186
+Updating tidal elevation at t = 1800
+  0 SNES Function norm 6.337811025440e-02 
+  1 SNES Function norm 1.626069985843e-09 
+Current power, average power, integrated power and profit for each farm: [6383.909400686552], [6431.291213024212], [11576324.183443582], [6431.291213024212]. The force is -4076.918631139119. The extra_force is -60.778504045479025
+   15    30 T=   1800.00 eta norm:    46.6789 u norm:  2196.3041  2.83
+volume2d rel. error  8.8141e-04
+Updating tidal elevation at t = 1860
+  0 SNES Function norm 2.857239279003e-02 
+  1 SNES Function norm 1.603011553567e-09 
+Current power, average power, integrated power and profit for each farm: [6383.920009098705], [6429.763109671776], [11959359.383989504], [6429.763109671776]. The force is -4076.9231885429053. The extra_force is -60.778433509013425
+Updating tidal elevation at t = 1920
+  0 SNES Function norm 2.666641539791e-02 
+  1 SNES Function norm 1.578575305940e-09 
+Current power, average power, integrated power and profit for each farm: [6383.921459019824], [6428.330558088903], [12342394.671530694], [6428.330558088903]. The force is -4076.9237946882754. The extra_force is -60.778400179652735
+   16    32 T=   1920.00 eta norm:    46.6751 u norm:  2196.3053  2.48
+volume2d rel. error  8.8133e-04
+Updating tidal elevation at t = 1980
+  0 SNES Function norm 2.788400436465e-02 
+  1 SNES Function norm 1.630814194153e-09 
+Current power, average power, integrated power and profit for each farm: [6383.917339136341], [6426.984702969128], [12725429.711878873], [6426.984702969128]. The force is -4076.922006288812. The extra_force is -60.77840227459953
+Updating tidal elevation at t = 2040
+  0 SNES Function norm 1.955066382544e-02 
+  1 SNES Function norm 1.604597598982e-09 
+Current power, average power, integrated power and profit for each farm: [6383.912031889021], [6425.717859702066], [13108464.433792215], [6425.717859702066]. The force is -4076.9197149489564. The extra_force is -60.7784231609038
+   17    34 T=   2040.00 eta norm:    46.6733 u norm:  2196.3044  2.77
+volume2d rel. error  8.8129e-04
+Updating tidal elevation at t = 2100
+  0 SNES Function norm 9.209562900390e-03 
+  1 SNES Function norm 1.598996788611e-09 
+Current power, average power, integrated power and profit for each farm: [6383.908422595896], [6424.523304356175], [13491498.939147968], [6424.523304356175]. The force is -4076.918161881648. The extra_force is -60.77844547925838
+Updating tidal elevation at t = 2160
+  0 SNES Function norm 6.393660514246e-03 
+  1 SNES Function norm 1.613402410618e-09 
+Current power, average power, integrated power and profit for each farm: [6383.907320230866], [6423.395082574916], [13874533.37836182], [6423.395082574916]. The force is -4076.917691653458. The extra_force is -60.77845910579184
+   18    36 T=   2160.00 eta norm:    46.6742 u norm:  2196.3039  2.54
+volume2d rel. error  8.8131e-04
+Updating tidal elevation at t = 2220
+  0 SNES Function norm 7.549824168607e-03 
+  1 SNES Function norm 1.629574196316e-09 
+Current power, average power, integrated power and profit for each farm: [6383.908057623149], [6422.327865684328], [14257567.861819208], [6422.327865684328]. The force is -4076.9180134707785. The extra_force is -60.778462288289134
+Updating tidal elevation at t = 2280
+  0 SNES Function norm 6.065852279710e-03 
+  1 SNES Function norm 1.611844961688e-09 
+Current power, average power, integrated power and profit for each farm: [6383.9094646065305], [6421.3168551296485], [14640602.429695599], [6421.3168551296485]. The force is -4076.918621636194. The extra_force is -60.77845858796512
+   19    38 T=   2280.00 eta norm:    46.6748 u norm:  2196.3041  2.36
+volume2d rel. error  8.8132e-04
+Updating tidal elevation at t = 2340
+  0 SNES Function norm 3.233346604871e-03 
+  1 SNES Function norm 1.599383213819e-09 
+Current power, average power, integrated power and profit for each farm: [6383.910614518545], [6420.357720755005], [15023637.066566711], [6420.357720755005]. The force is -4076.919117016306. The extra_force is -60.778452892988795
+Updating tidal elevation at t = 2400
+  0 SNES Function norm 1.626015298235e-03 
+  1 SNES Function norm 1.617284971792e-09 
+Current power, average power, integrated power and profit for each farm: [6383.911119987719], [6419.446555735823], [15406671.733765975], [6419.446555735823]. The force is -4076.9193336690123. The extra_force is -60.778448678851376
+   20    40 T=   2400.00 eta norm:    46.6747 u norm:  2196.3043  2.54
+volume2d rel. error  8.8132e-04
+/home/can/firedrake/src/pyadjoint/pyadjoint/optimization/optimization.py:133: OptimizeWarning: Unknown solver options: ptol
+  res = scipy_minimize(J, m_global, method=method, bounds=bounds, **kwargs)
+FORWARD RUN:
+angle: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  0 SNES Function norm 3.605610401397e+02 
+  1 SNES Function norm 1.471264223444e-09 
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+  0 SNES Function norm 3.486783659945e+02 
+  1 SNES Function norm 1.504578211380e-09 
+  0 SNES Function norm 3.307704850109e+02 
+  1 SNES Function norm 1.512222085469e-09 
+  0 SNES Function norm 2.360470509235e+02 
+  1 SNES Function norm 1.579178872011e-09 
+  0 SNES Function norm 1.740078833799e+02 
+  1 SNES Function norm 1.608369726367e-09 
+  0 SNES Function norm 1.731166862204e+02 
+  1 SNES Function norm 1.622143670940e-09 
+  0 SNES Function norm 1.702652785820e+02 
+  1 SNES Function norm 1.607340113098e-09 
+  0 SNES Function norm 1.491243598004e+02 
+  1 SNES Function norm 1.611543173230e-09 
+  0 SNES Function norm 1.256712242179e+02 
+  1 SNES Function norm 1.627737367003e-09 
+  0 SNES Function norm 1.084436530600e+02 
+  1 SNES Function norm 1.620947171619e-09 
+  0 SNES Function norm 9.301277358328e+01 
+  1 SNES Function norm 1.583956685007e-09 
+  0 SNES Function norm 7.578543347882e+01 
+  1 SNES Function norm 1.636021763688e-09 
+  0 SNES Function norm 5.856278528155e+01 
+  1 SNES Function norm 1.622838158962e-09 
+  0 SNES Function norm 4.405782233743e+01 
+  1 SNES Function norm 1.630003620819e-09 
+  0 SNES Function norm 3.278041397831e+01 
+  1 SNES Function norm 1.637182912687e-09 
+  0 SNES Function norm 2.382989435210e+01 
+  1 SNES Function norm 1.615598765320e-09 
+  0 SNES Function norm 1.667664724129e+01 
+  1 SNES Function norm 1.609645546251e-09 
+  0 SNES Function norm 1.133671890793e+01 
+  1 SNES Function norm 1.614020240815e-09 
+  0 SNES Function norm 7.651369151591e+00 
+  1 SNES Function norm 1.611930619415e-09 
+  0 SNES Function norm 5.093160581042e+00 
+  1 SNES Function norm 1.604325190052e-09 
+  0 SNES Function norm 3.213218292574e+00 
+  1 SNES Function norm 1.617813203437e-09 
+  0 SNES Function norm 1.888029763651e+00 
+  1 SNES Function norm 1.601465946387e-09 
+  0 SNES Function norm 1.112711096605e+00 
+  1 SNES Function norm 1.623758324254e-09 
+  0 SNES Function norm 7.270637458343e-01 
+  1 SNES Function norm 1.612195707341e-09 
+  0 SNES Function norm 4.716868838885e-01 
+  1 SNES Function norm 1.634713302745e-09 
+  0 SNES Function norm 2.584188257024e-01 
+  1 SNES Function norm 1.623755635946e-09 
+  0 SNES Function norm 1.396715085867e-01 
+  1 SNES Function norm 1.641370320216e-09 
+  0 SNES Function norm 1.234737502137e-01 
+  1 SNES Function norm 1.619121653284e-09 
+  0 SNES Function norm 1.047134345984e-01 
+  1 SNES Function norm 1.611245406657e-09 
+  0 SNES Function norm 6.337811024035e-02 
+  1 SNES Function norm 1.590123757974e-09 
+  0 SNES Function norm 2.857239278933e-02 
+  1 SNES Function norm 1.643998833950e-09 
+  0 SNES Function norm 2.666641539978e-02 
+  1 SNES Function norm 1.625753565441e-09 
+  0 SNES Function norm 2.788400434919e-02 
+  1 SNES Function norm 1.611473266831e-09 
+  0 SNES Function norm 1.955066385081e-02 
+  1 SNES Function norm 1.610182208602e-09 
+  0 SNES Function norm 9.209562889691e-03 
+  1 SNES Function norm 1.608126524640e-09 
+  0 SNES Function norm 6.393660518341e-03 
+  1 SNES Function norm 1.635872459479e-09 
+  0 SNES Function norm 7.549824158442e-03 
+  1 SNES Function norm 1.624599910081e-09 
+  0 SNES Function norm 6.065852276315e-03 
+  1 SNES Function norm 1.613071703499e-09 
+  0 SNES Function norm 3.233346619126e-03 
+  1 SNES Function norm 1.594298692228e-09 
+  0 SNES Function norm 1.626015301754e-03 
+  1 SNES Function norm 1.609622621237e-09 
+ADJOINT RUN:
+angle: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+Controls value: ([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],)
+Derivatives: ([-3.798595536099151, -3.2477948171908966, -1.437624657149292, 18.74175658981367, 6.24741080809201, -10.379268426204701, 2.298467251221116, 0.5359491128627943, -1.2474090581228714, 13.8562942498831, -1.5771448278326239, -14.77425142580582],)
+Functional value: -6383.911119987717
+FORWARD RUN:
+angle: [3.798595536099151, 3.2477948171908966, 1.437624657149292, -18.74175658981367, -6.24741080809201, 10.379268426204701, -2.298467251221116, -0.5359491128627943, 1.2474090581228714, -13.8562942498831, 1.5771448278326239, 14.77425142580582]
+  0 SNES Function norm 1.401512072766e+03 
+  1 SNES Function norm 1.458470184764e-09 
+  0 SNES Function norm 4.433186369054e+02 
+  1 SNES Function norm 1.478526535104e-09 
+  0 SNES Function norm 3.601568666567e+02 
+  1 SNES Function norm 1.529107493032e-09 
+  0 SNES Function norm 2.768310431439e+02 
+  1 SNES Function norm 1.567024586990e-09 
+  0 SNES Function norm 2.231127192266e+02 
+  1 SNES Function norm 1.604623179518e-09 
+  0 SNES Function norm 2.166809349373e+02 
+  1 SNES Function norm 1.598428268983e-09 
+  0 SNES Function norm 2.079723948027e+02 
+  1 SNES Function norm 1.615881960744e-09 
+  0 SNES Function norm 1.821828669600e+02 
+  1 SNES Function norm 1.596651209531e-09 
+  0 SNES Function norm 1.523005064878e+02 
+  1 SNES Function norm 1.588396443045e-09 
+  0 SNES Function norm 1.272051527848e+02 
+  1 SNES Function norm 1.584558633316e-09 
+  0 SNES Function norm 1.049005382547e+02 
+  1 SNES Function norm 1.580974598889e-09 
+  0 SNES Function norm 8.258705999503e+01 
+  1 SNES Function norm 1.598072259163e-09 
+  0 SNES Function norm 6.160219945410e+01 
+  1 SNES Function norm 1.640752813625e-09 
+  0 SNES Function norm 4.436664698860e+01 
+  1 SNES Function norm 1.620432951659e-09 
+  0 SNES Function norm 3.141476161118e+01 
+  1 SNES Function norm 1.580612325265e-09 
+  0 SNES Function norm 2.169199528358e+01 
+  1 SNES Function norm 1.595465998887e-09 
+  0 SNES Function norm 1.429780856929e+01 
+  1 SNES Function norm 1.598683172795e-09 
+  0 SNES Function norm 9.016008117885e+00 
+  1 SNES Function norm 1.595735232983e-09 
+  0 SNES Function norm 5.668253471706e+00 
+  1 SNES Function norm 1.612094655314e-09 
+  0 SNES Function norm 3.646123726929e+00 
+  1 SNES Function norm 1.648735873139e-09 
+  0 SNES Function norm 2.276735933480e+00 
+  1 SNES Function norm 1.601118228311e-09 
+  0 SNES Function norm 1.306591831056e+00 
+  1 SNES Function norm 1.602826345993e-09 
+  0 SNES Function norm 7.610636134785e-01 
+  1 SNES Function norm 1.581808580821e-09 
+  0 SNES Function norm 5.429520326759e-01 
+  1 SNES Function norm 1.593120893223e-09 
+  0 SNES Function norm 3.895700374361e-01 
+  1 SNES Function norm 1.624048313384e-09 
+  0 SNES Function norm 2.235113613605e-01 
+  1 SNES Function norm 1.597234516291e-09 
+  0 SNES Function norm 1.137588053158e-01 
+  1 SNES Function norm 1.600709111844e-09 
+  0 SNES Function norm 1.027847517369e-01 
+  1 SNES Function norm 1.609212636477e-09 
+  0 SNES Function norm 9.461730863008e-02 
+  1 SNES Function norm 1.614011242192e-09 
+  0 SNES Function norm 6.127270559589e-02 
+  1 SNES Function norm 1.591419603253e-09 
+  0 SNES Function norm 2.777716717029e-02 
+  1 SNES Function norm 1.607979413573e-09 
+  0 SNES Function norm 2.249392389804e-02 
+  1 SNES Function norm 1.629318352276e-09 
+  0 SNES Function norm 2.509120983013e-02 
+  1 SNES Function norm 1.615179932484e-09 
+  0 SNES Function norm 1.882284859933e-02 
+  1 SNES Function norm 1.620687186208e-09 
+  0 SNES Function norm 9.392088311144e-03 
+  1 SNES Function norm 1.601952719847e-09 
+  0 SNES Function norm 5.471149968672e-03 
+  1 SNES Function norm 1.600748093121e-09 
+  0 SNES Function norm 6.622490907532e-03 
+  1 SNES Function norm 1.574235147739e-09 
+  0 SNES Function norm 5.691645577510e-03 
+  1 SNES Function norm 1.590932835336e-09 
+  0 SNES Function norm 3.246101141210e-03 
+  1 SNES Function norm 1.609473151878e-09 
+  0 SNES Function norm 1.496346566695e-03 
+  1 SNES Function norm 1.603857550811e-09 
+ADJOINT RUN:
+angle: [3.798595536099151, 3.2477948171908966, 1.437624657149292, -18.74175658981367, -6.24741080809201, 10.379268426204701, -2.298467251221116, -0.5359491128627943, 1.2474090581228714, -13.8562942498831, 1.5771448278326239, 14.77425142580582]
+Controls value: ([3.798595536099151, 3.2477948171908966, 1.437624657149292, -18.74175658981367, -6.24741080809201, 10.379268426204701, -2.298467251221116, -0.5359491128627943, 1.2474090581228714, -13.8562942498831, 1.5771448278326239, 14.77425142580582],)
+Derivatives: ([7.6462477354227065, -8.714148557266524, 0.5576742369455334, 9.814188914351151, 10.261713551444048, -6.891619149503716, 1.1976969769501224, 4.579471125526817, 1.9728399295137624, 6.07031462954762, -4.735866667243818, -13.755870241017954],)
+Functional value: -7283.3662077649915
+FORWARD RUN:
+angle: [-9.615050192899131, 35.537236804783284, 3.063612497531638, -88.95533676639965, -49.70798076904937, 53.44259380988063, -10.892440892201595, -14.877413726686525, -1.6136469205370505, -62.36559796777061, 18.703734917472435, 87.3937999135159]
+  0 SNES Function norm 2.755692704426e+03 
+  1 SNES Function norm 1.474251032441e-09 
+  0 SNES Function norm 1.228101295939e+03 
+  1 SNES Function norm 1.501981234321e-09 
+  0 SNES Function norm 9.081060758857e+02 
+  1 SNES Function norm 1.529084314219e-09 
+  0 SNES Function norm 6.256652748620e+02 
+  1 SNES Function norm 1.575241914198e-09 
+  0 SNES Function norm 3.927079720864e+02 
+  1 SNES Function norm 1.563579309767e-09 
+  0 SNES Function norm 2.957853993405e+02 
+  1 SNES Function norm 1.600741167836e-09 
+  0 SNES Function norm 2.372518245475e+02 
+  1 SNES Function norm 1.619448372652e-09 
+  0 SNES Function norm 2.004279946526e+02 
+  1 SNES Function norm 1.591922554712e-09 
+  0 SNES Function norm 1.537024856683e+02 
+  1 SNES Function norm 1.589378652311e-09 
+  0 SNES Function norm 1.320236352022e+02 
+  1 SNES Function norm 1.568459871408e-09 
+  0 SNES Function norm 1.132591191500e+02 
+  1 SNES Function norm 1.573864916848e-09 
+  0 SNES Function norm 9.763955357349e+01 
+  1 SNES Function norm 1.561702971424e-09 
+  0 SNES Function norm 9.039058244840e+01 
+  1 SNES Function norm 1.594545096198e-09 
+  0 SNES Function norm 7.699537133821e+01 
+  1 SNES Function norm 1.583977345299e-09 
+  0 SNES Function norm 7.620101170997e+01 
+  1 SNES Function norm 1.612025081937e-09 
+  0 SNES Function norm 6.585237057500e+01 
+  1 SNES Function norm 1.575987781860e-09 
+  0 SNES Function norm 6.610731491561e+01 
+  1 SNES Function norm 1.602259728035e-09 
+  0 SNES Function norm 6.004120083656e+01 
+  1 SNES Function norm 1.576756342320e-09 
+  0 SNES Function norm 5.784270690889e+01 
+  1 SNES Function norm 1.570122923166e-09 
+  0 SNES Function norm 5.629337742029e+01 
+  1 SNES Function norm 1.584016392999e-09 
+  0 SNES Function norm 5.125525254286e+01 
+  1 SNES Function norm 1.623783634793e-09 
+  0 SNES Function norm 5.302185219520e+01 
+  1 SNES Function norm 1.571469934010e-09 
+  0 SNES Function norm 4.627932367076e+01 
+  1 SNES Function norm 1.580852172737e-09 
+  0 SNES Function norm 4.910757500886e+01 
+  1 SNES Function norm 1.578313133691e-09 
+  0 SNES Function norm 4.302702387465e+01 
+  1 SNES Function norm 1.594634682097e-09 
+  0 SNES Function norm 4.466969314804e+01 
+  1 SNES Function norm 1.592849602400e-09 
+  0 SNES Function norm 4.080762538399e+01 
+  1 SNES Function norm 1.600889013989e-09 
+  0 SNES Function norm 4.003417317534e+01 
+  1 SNES Function norm 1.592412817681e-09 
+  0 SNES Function norm 3.907495528697e+01 
+  1 SNES Function norm 1.568075301526e-09 
+  0 SNES Function norm 3.580915132817e+01 
+  1 SNES Function norm 1.581374471485e-09 
+  0 SNES Function norm 3.702553792476e+01 
+  1 SNES Function norm 1.611784700441e-09 
+  0 SNES Function norm 3.251808456936e+01 
+  1 SNES Function norm 1.584687536611e-09 
+  0 SNES Function norm 3.451372612432e+01 
+  1 SNES Function norm 1.592446845204e-09 
+  0 SNES Function norm 3.023246592762e+01 
+  1 SNES Function norm 1.604884569794e-09 
+  0 SNES Function norm 3.149858496483e+01 
+  1 SNES Function norm 1.579140617369e-09 
+  0 SNES Function norm 2.877419587338e+01 
+  1 SNES Function norm 1.599002439390e-09 
+  0 SNES Function norm 2.833700636122e+01 
+  1 SNES Function norm 1.575747830808e-09 
+  0 SNES Function norm 2.754867833659e+01 
+  1 SNES Function norm 1.601907284278e-09 
+  0 SNES Function norm 2.543279084131e+01 
+  1 SNES Function norm 1.595482598396e-09 
+  0 SNES Function norm 2.621726277746e+01 
+  1 SNES Function norm 1.597627837193e-09 
+FORWARD RUN:
+angle: [-0.01563074309233592, 12.429432729637933, 1.8999811019020123, -38.70728185239659, -18.605605694315766, 22.62450515500094, -4.742199609027663, -4.61400457349604, 0.43385582132827305, -27.650117701329314, 6.447162369120635, 35.42392384305471]
+  0 SNES Function norm 2.554470259835e+03 
+  1 SNES Function norm 1.485744422048e-09 
+  0 SNES Function norm 8.472882637217e+02 
+  1 SNES Function norm 1.480277481304e-09 
+  0 SNES Function norm 4.423281868991e+02 
+  1 SNES Function norm 1.516793230223e-09 
+  0 SNES Function norm 3.226315605712e+02 
+  1 SNES Function norm 1.542391090507e-09 
+  0 SNES Function norm 2.689917339767e+02 
+  1 SNES Function norm 1.585706283704e-09 
+  0 SNES Function norm 2.564345423433e+02 
+  1 SNES Function norm 1.618830199048e-09 
+  0 SNES Function norm 2.439584133389e+02 
+  1 SNES Function norm 1.584043961221e-09 
+  0 SNES Function norm 2.164805073922e+02 
+  1 SNES Function norm 1.612072852762e-09 
+  0 SNES Function norm 1.835361507126e+02 
+  1 SNES Function norm 1.594505736796e-09 
+  0 SNES Function norm 1.533987994302e+02 
+  1 SNES Function norm 1.571560832861e-09 
+  0 SNES Function norm 1.258870186085e+02 
+  1 SNES Function norm 1.590917734448e-09 
+  0 SNES Function norm 9.941939364903e+01 
+  1 SNES Function norm 1.600072461192e-09 
+  0 SNES Function norm 7.515462611783e+01 
+  1 SNES Function norm 1.595555618777e-09 
+  0 SNES Function norm 5.488518332996e+01 
+  1 SNES Function norm 1.617930877523e-09 
+  0 SNES Function norm 3.890733543384e+01 
+  1 SNES Function norm 1.592480992971e-09 
+  0 SNES Function norm 2.642281025455e+01 
+  1 SNES Function norm 1.610831059568e-09 
+  0 SNES Function norm 1.679732451705e+01 
+  1 SNES Function norm 1.585425240268e-09 
+  0 SNES Function norm 9.867386168452e+00 
+  1 SNES Function norm 1.580088655950e-09 
+  0 SNES Function norm 5.476424533150e+00 
+  1 SNES Function norm 1.574293307632e-09 
+  0 SNES Function norm 3.075919907163e+00 
+  1 SNES Function norm 1.601527244527e-09 
+  0 SNES Function norm 1.801697627716e+00 
+  1 SNES Function norm 1.577422181067e-09 
+  0 SNES Function norm 1.027389287849e+00 
+  1 SNES Function norm 1.605958283113e-09 
+  0 SNES Function norm 5.910448251851e-01 
+  1 SNES Function norm 1.607379654498e-09 
+  0 SNES Function norm 4.238008590832e-01 
+  1 SNES Function norm 1.579507565400e-09 
+  0 SNES Function norm 3.204253471345e-01 
+  1 SNES Function norm 1.611758634591e-09 
+  0 SNES Function norm 1.964018326490e-01 
+  1 SNES Function norm 1.603213191506e-09 
+  0 SNES Function norm 1.013999178414e-01 
+  1 SNES Function norm 1.576434260194e-09 
+  0 SNES Function norm 8.509606764339e-02 
+  1 SNES Function norm 1.575306048428e-09 
+  0 SNES Function norm 8.200835021280e-02 
+  1 SNES Function norm 1.581812435938e-09 
+  0 SNES Function norm 5.757706424364e-02 
+  1 SNES Function norm 1.609658965672e-09 
+  0 SNES Function norm 2.838936425101e-02 
+  1 SNES Function norm 1.590818473089e-09 
+  0 SNES Function norm 1.799187337378e-02 
+  1 SNES Function norm 1.582548069002e-09 
+  0 SNES Function norm 2.024420702049e-02 
+  1 SNES Function norm 1.602746824836e-09 
+  0 SNES Function norm 1.644327101289e-02 
+  1 SNES Function norm 1.574957506279e-09 
+  0 SNES Function norm 8.952820633925e-03 
+  1 SNES Function norm 1.566661198493e-09 
+  0 SNES Function norm 4.450275319105e-03 
+  1 SNES Function norm 1.589892919870e-09 
+  0 SNES Function norm 5.175240745631e-03 
+  1 SNES Function norm 1.601868448882e-09 
+  0 SNES Function norm 4.834386978414e-03 
+  1 SNES Function norm 1.589467651223e-09 
+  0 SNES Function norm 3.009687935535e-03 
+  1 SNES Function norm 1.590904062335e-09 
+  0 SNES Function norm 1.342629774724e-03 
+  1 SNES Function norm 1.562454472608e-09 
+ADJOINT RUN:
+angle: [-0.01563074309233592, 12.429432729637933, 1.8999811019020123, -38.70728185239659, -18.605605694315766, 22.62450515500094, -4.742199609027663, -4.61400457349604, 0.43385582132827305, -27.650117701329314, 6.447162369120635, 35.42392384305471]
+Controls value: ([-0.01563074309233592, 12.429432729637933, 1.8999811019020123, -38.70728185239659, -18.605605694315766, 22.62450515500094, -4.742199609027663, -4.61400457349604, 0.43385582132827305, -27.650117701329314, 6.447162369120635, 35.42392384305471],)
+Derivatives: ([22.223908473411218, 8.892793755843787, 8.656067414149645, -12.225729519075932, -5.196923983698445, -4.908579678159345, 4.52624473169621, 11.190816440126149, -3.607058632713242, -8.737733056663375, -12.349615094582996, 6.673040722593894],)
+Functional value: -7646.157580844457
+FORWARD RUN:
+angle: [-13.382409920426193, 7.5568785899834605, -3.41495025517649, -39.51154503871309, -17.834705271663015, 31.224685818008933, -9.07525119246289, -12.592231981502524, 3.6881212514841106, -28.49885123758348, 15.775591609050135, 37.92513876495898]
+  0 SNES Function norm 2.847877710451e+03 
+  1 SNES Function norm 1.479297716987e-09 
+  0 SNES Function norm 9.437614284687e+02 
+  1 SNES Function norm 1.499898049432e-09 
+  0 SNES Function norm 4.768111532814e+02 
+  1 SNES Function norm 1.527394725309e-09 
+  0 SNES Function norm 3.414416384210e+02 
+  1 SNES Function norm 1.554689579986e-09 
+  0 SNES Function norm 2.810615160055e+02 
+  1 SNES Function norm 1.580382351347e-09 
+  0 SNES Function norm 2.611338090645e+02 
+  1 SNES Function norm 1.607693777438e-09 
+  0 SNES Function norm 2.441972786325e+02 
+  1 SNES Function norm 1.603271173610e-09 
+  0 SNES Function norm 2.143436788849e+02 
+  1 SNES Function norm 1.628709432903e-09 
+  0 SNES Function norm 1.800251402098e+02 
+  1 SNES Function norm 1.588398116384e-09 
+  0 SNES Function norm 1.492320104623e+02 
+  1 SNES Function norm 1.592847930036e-09 
+  0 SNES Function norm 1.222980535805e+02 
+  1 SNES Function norm 1.604286942239e-09 
+  0 SNES Function norm 9.731193391093e+01 
+  1 SNES Function norm 1.566238153570e-09 
+  0 SNES Function norm 7.441989944453e+01 
+  1 SNES Function norm 1.565763037112e-09 
+  0 SNES Function norm 5.485406482068e+01 
+  1 SNES Function norm 1.580929110378e-09 
+  0 SNES Function norm 3.902669411411e+01 
+  1 SNES Function norm 1.584914709399e-09 
+  0 SNES Function norm 2.646680509701e+01 
+  1 SNES Function norm 1.560670839914e-09 
+  0 SNES Function norm 1.673184453001e+01 
+  1 SNES Function norm 1.568680742754e-09 
+  0 SNES Function norm 9.720793731330e+00 
+  1 SNES Function norm 1.593782365434e-09 
+  0 SNES Function norm 5.312875355975e+00 
+  1 SNES Function norm 1.594603796488e-09 
+  0 SNES Function norm 2.977806394652e+00 
+  1 SNES Function norm 1.582319973428e-09 
+  0 SNES Function norm 1.785782617061e+00 
+  1 SNES Function norm 1.580892533645e-09 
+  0 SNES Function norm 1.037004318793e+00 
+  1 SNES Function norm 1.616097317165e-09 
+  0 SNES Function norm 5.854678603485e-01 
+  1 SNES Function norm 1.604340657349e-09 
+  0 SNES Function norm 4.192474073372e-01 
+  1 SNES Function norm 1.584533495071e-09 
+  0 SNES Function norm 3.305706141895e-01 
+  1 SNES Function norm 1.603033620182e-09 
+  0 SNES Function norm 2.080261795737e-01 
+  1 SNES Function norm 1.589731457565e-09 
+  0 SNES Function norm 9.798647140832e-02 
+  1 SNES Function norm 1.588714165056e-09 
+  0 SNES Function norm 7.393217881687e-02 
+  1 SNES Function norm 1.586456563489e-09 
+  0 SNES Function norm 7.893909496560e-02 
+  1 SNES Function norm 1.561475975499e-09 
+  0 SNES Function norm 5.902106500378e-02 
+  1 SNES Function norm 1.592347434613e-09 
+  0 SNES Function norm 2.959541591905e-02 
+  1 SNES Function norm 1.607949639892e-09 
+  0 SNES Function norm 1.700748970125e-02 
+  1 SNES Function norm 1.589072615737e-09 
+  0 SNES Function norm 2.048900799166e-02 
+  1 SNES Function norm 1.589903161111e-09 
+  0 SNES Function norm 1.769378867760e-02 
+  1 SNES Function norm 1.610157824376e-09 
+  0 SNES Function norm 1.015889268239e-02 
+  1 SNES Function norm 1.596439090250e-09 
+  0 SNES Function norm 4.674106669827e-03 
+  1 SNES Function norm 1.605376500983e-09 
+  0 SNES Function norm 5.138935991911e-03 
+  1 SNES Function norm 1.616153018866e-09 
+  0 SNES Function norm 5.092993449408e-03 
+  1 SNES Function norm 1.575351531948e-09 
+  0 SNES Function norm 3.354256017131e-03 
+  1 SNES Function norm 1.604098066241e-09 
+  0 SNES Function norm 1.521227934525e-03 
+  1 SNES Function norm 1.555733092722e-09 
+FORWARD RUN:
+angle: [-5.540471847258847, 10.415478056197355, -0.2968197008825364, -39.03970496280931, -18.28697229087678, 26.179185830119405, -6.533163698210117, -7.911615623799481, 1.7789292435690405, -28.00092157602285, 10.30284731897488, 36.45774170056252]
+  0 SNES Function norm 2.648701387324e+03 
+  1 SNES Function norm 1.471383242863e-09 
+  0 SNES Function norm 8.731657019917e+02 
+  1 SNES Function norm 1.500972222080e-09 
+  0 SNES Function norm 4.489501016290e+02 
+  1 SNES Function norm 1.509957726629e-09 
+  0 SNES Function norm 3.276950862902e+02 
+  1 SNES Function norm 1.534042349357e-09 
+  0 SNES Function norm 2.735708132854e+02 
+  1 SNES Function norm 1.603433412186e-09 
+  0 SNES Function norm 2.583276218962e+02 
+  1 SNES Function norm 1.616078483122e-09 
+  0 SNES Function norm 2.448103921370e+02 
+  1 SNES Function norm 1.621777478812e-09 
+  0 SNES Function norm 2.174721716170e+02 
+  1 SNES Function norm 1.596289963997e-09 
+  0 SNES Function norm 1.847128553462e+02 
+  1 SNES Function norm 1.590518559622e-09 
+  0 SNES Function norm 1.546491896143e+02 
+  1 SNES Function norm 1.588932404908e-09 
+  0 SNES Function norm 1.274109291104e+02 
+  1 SNES Function norm 1.575440037639e-09 
+  0 SNES Function norm 1.014303054148e+02 
+  1 SNES Function norm 1.593094324137e-09 
+  0 SNES Function norm 7.749709854282e+01 
+  1 SNES Function norm 1.596422526751e-09 
+  0 SNES Function norm 5.712198831239e+01 
+  1 SNES Function norm 1.587154347153e-09 
+  0 SNES Function norm 4.067092561440e+01 
+  1 SNES Function norm 1.595829092292e-09 
+  0 SNES Function norm 2.760639663536e+01 
+  1 SNES Function norm 1.552201864327e-09 
+  0 SNES Function norm 1.748442381889e+01 
+  1 SNES Function norm 1.574338641259e-09 
+  0 SNES Function norm 1.019559867454e+01 
+  1 SNES Function norm 1.593019028316e-09 
+  0 SNES Function norm 5.573986440201e+00 
+  1 SNES Function norm 1.592670654710e-09 
+  0 SNES Function norm 3.060904143799e+00 
+  1 SNES Function norm 1.580146860706e-09 
+  0 SNES Function norm 1.765323253020e+00 
+  1 SNES Function norm 1.594661534276e-09 
+  0 SNES Function norm 9.979698616867e-01 
+  1 SNES Function norm 1.589923321180e-09 
+  0 SNES Function norm 5.614182695364e-01 
+  1 SNES Function norm 1.599631631372e-09 
+  0 SNES Function norm 3.977678274887e-01 
+  1 SNES Function norm 1.579400574046e-09 
+  0 SNES Function norm 3.046246336039e-01 
+  1 SNES Function norm 1.587572165977e-09 
+  0 SNES Function norm 1.860558365993e-01 
+  1 SNES Function norm 1.559244941525e-09 
+  0 SNES Function norm 8.800418057877e-02 
+  1 SNES Function norm 1.587694657499e-09 
+  0 SNES Function norm 7.317501876361e-02 
+  1 SNES Function norm 1.584206594057e-09 
+  0 SNES Function norm 7.604323198192e-02 
+  1 SNES Function norm 1.569207648642e-09 
+  0 SNES Function norm 5.511251600875e-02 
+  1 SNES Function norm 1.567268216025e-09 
+  0 SNES Function norm 2.706493317050e-02 
+  1 SNES Function norm 1.603081629407e-09 
+  0 SNES Function norm 1.649523909956e-02 
+  1 SNES Function norm 1.592475876791e-09 
+  0 SNES Function norm 1.952004663552e-02 
+  1 SNES Function norm 1.601822661523e-09 
+  0 SNES Function norm 1.634448851281e-02 
+  1 SNES Function norm 1.595924056893e-09 
+  0 SNES Function norm 9.105018228438e-03 
+  1 SNES Function norm 1.597574490531e-09 
+  0 SNES Function norm 4.335027609386e-03 
+  1 SNES Function norm 1.580978321663e-09 
+  0 SNES Function norm 4.962688470191e-03 
+  1 SNES Function norm 1.603456363494e-09 
+  0 SNES Function norm 4.766884627963e-03 
+  1 SNES Function norm 1.576950715518e-09 
+  0 SNES Function norm 3.043874325261e-03 
+  1 SNES Function norm 1.608254111408e-09 
+  0 SNES Function norm 1.363560819314e-03 
+  1 SNES Function norm 1.592193939829e-09 
+ADJOINT RUN:
+angle: [-5.540471847258847, 10.415478056197355, -0.2968197008825364, -39.03970496280931, -18.28697229087678, 26.179185830119405, -6.533163698210117, -7.911615623799481, 1.7789292435690405, -28.00092157602285, 10.30284731897488, 36.45774170056252]
+Controls value: ([-5.540471847258847, 10.415478056197355, -0.2968197008825364, -39.03970496280931, -18.28697229087678, 26.179185830119405, -6.533163698210117, -7.911615623799481, 1.7789292435690405, -28.00092157602285, 10.30284731897488, 36.45774170056252],)
+Derivatives: ([5.225486208170441, -9.498407711943804, -2.4069445565252225, -9.56648728164767, 6.100080006274367, 4.4493770598383815, 2.615576973573743, 4.858308243669242, -11.491110250860858, -3.133879557881061, 1.5523804264295253, 11.110428131369883],)
+Functional value: -7800.652142947274
+FORWARD RUN:
+angle: [-15.19166271426558, 15.127041337850986, -0.38470450357969277, -29.230807823862676, -21.690649053030477, 25.534408483314433, -11.40716587477665, -15.759959754953563, 15.80937955650482, -25.196514481904067, 12.518859778623437, 24.335887809090494]
+  0 SNES Function norm 2.780027223532e+03 
+  1 SNES Function norm 1.483440478101e-09 
+  0 SNES Function norm 7.423067043011e+02 
+  1 SNES Function norm 1.476885717285e-09 
+  0 SNES Function norm 4.178888283151e+02 
+  1 SNES Function norm 1.527219743251e-09 
+  0 SNES Function norm 3.326917793272e+02 
+  1 SNES Function norm 1.539882199470e-09 
+  0 SNES Function norm 2.771684306230e+02 
+  1 SNES Function norm 1.582749696752e-09 
+  0 SNES Function norm 2.603259404954e+02 
+  1 SNES Function norm 1.615115684401e-09 
+  0 SNES Function norm 2.437163647155e+02 
+  1 SNES Function norm 1.625497723970e-09 
+  0 SNES Function norm 2.128090276883e+02 
+  1 SNES Function norm 1.603399608368e-09 
+  0 SNES Function norm 1.770910685482e+02 
+  1 SNES Function norm 1.583644044363e-09 
+  0 SNES Function norm 1.452964937507e+02 
+  1 SNES Function norm 1.596097024330e-09 
+  0 SNES Function norm 1.175945028591e+02 
+  1 SNES Function norm 1.544548006854e-09 
+  0 SNES Function norm 9.183588598372e+01 
+  1 SNES Function norm 1.596319825776e-09 
+  0 SNES Function norm 6.847913293145e+01 
+  1 SNES Function norm 1.572179563928e-09 
+  0 SNES Function norm 4.921400775815e+01 
+  1 SNES Function norm 1.590521288016e-09 
+  0 SNES Function norm 3.450989931819e+01 
+  1 SNES Function norm 1.591294100925e-09 
+  0 SNES Function norm 2.346949678717e+01 
+  1 SNES Function norm 1.598869297062e-09 
+  0 SNES Function norm 1.514043373807e+01 
+  1 SNES Function norm 1.596296829860e-09 
+  0 SNES Function norm 9.158800004328e+00 
+  1 SNES Function norm 1.590304853562e-09 
+  0 SNES Function norm 5.356886365505e+00 
+  1 SNES Function norm 1.593697847877e-09 
+  0 SNES Function norm 3.235677085144e+00 
+  1 SNES Function norm 1.580313413659e-09 
+  0 SNES Function norm 2.009367910693e+00 
+  1 SNES Function norm 1.582505879250e-09 
+  0 SNES Function norm 1.180915555087e+00 
+  1 SNES Function norm 1.586231029409e-09 
+  0 SNES Function norm 6.786202185157e-01 
+  1 SNES Function norm 1.586629702129e-09 
+  0 SNES Function norm 4.741929280275e-01 
+  1 SNES Function norm 1.588047866194e-09 
+  0 SNES Function norm 3.580315616137e-01 
+  1 SNES Function norm 1.588917498853e-09 
+  0 SNES Function norm 2.205291888057e-01 
+  1 SNES Function norm 1.582188004584e-09 
+  0 SNES Function norm 1.041299354684e-01 
+  1 SNES Function norm 1.595650009239e-09 
+  0 SNES Function norm 7.704393210046e-02 
+  1 SNES Function norm 1.603393206412e-09 
+  0 SNES Function norm 7.992186859138e-02 
+  1 SNES Function norm 1.612578522835e-09 
+  0 SNES Function norm 5.871832878879e-02 
+  1 SNES Function norm 1.597523480548e-09 
+  0 SNES Function norm 2.904796598678e-02 
+  1 SNES Function norm 1.611099547687e-09 
+  0 SNES Function norm 1.764820319053e-02 
+  1 SNES Function norm 1.590413749611e-09 
+  0 SNES Function norm 2.113390147913e-02 
+  1 SNES Function norm 1.596533576386e-09 
+  0 SNES Function norm 1.788512504219e-02 
+  1 SNES Function norm 1.562271423568e-09 
+  0 SNES Function norm 1.007612609810e-02 
+  1 SNES Function norm 1.593915505164e-09 
+  0 SNES Function norm 4.699825118871e-03 
+  1 SNES Function norm 1.600185156772e-09 
+  0 SNES Function norm 5.288915770584e-03 
+  1 SNES Function norm 1.596294044079e-09 
+  0 SNES Function norm 5.149827456279e-03 
+  1 SNES Function norm 1.592915457654e-09 
+  0 SNES Function norm 3.329651745675e-03 
+  1 SNES Function norm 1.578410352625e-09 
+  0 SNES Function norm 1.497416439875e-03 
+  1 SNES Function norm 1.607345362168e-09 
+ADJOINT RUN:
+angle: [-15.19166271426558, 15.127041337850986, -0.38470450357969277, -29.230807823862676, -21.690649053030477, 25.534408483314433, -11.40716587477665, -15.759959754953563, 15.80937955650482, -25.196514481904067, 12.518859778623437, 24.335887809090494]
+Controls value: ([-15.19166271426558, 15.127041337850986, -0.38470450357969277, -29.230807823862676, -21.690649053030477, 25.534408483314433, -11.40716587477665, -15.759959754953563, 15.80937955650482, -25.196514481904067, 12.518859778623437, 24.335887809090494],)
+Derivatives: ([-6.656908353196204, -2.590262080403386, 1.9325320963314792, 6.879481651979668, 4.623284139038906, 3.227821251550503, 6.5129175973175295, 0.27858679292084926, 5.848549707018707, -2.364112613826804, 0.01739241583118942, -7.023173111349599],)
+Functional value: -7975.704286666628
+FORWARD RUN:
+angle: [-12.188350513155303, 16.279965816556032, -2.3452660511337173, -33.11776827430235, -24.595615292098152, 23.814580587998925, -16.763156354365346, -17.11116123407949, 12.939543309503433, -23.114794320151187, 13.465585233734659, 28.204022054988364]
+  0 SNES Function norm 2.873908654441e+03 
+  1 SNES Function norm 1.464388253300e-09 
+  0 SNES Function norm 8.007380211307e+02 
+  1 SNES Function norm 1.475843633499e-09 
+  0 SNES Function norm 4.321713608988e+02 
+  1 SNES Function norm 1.518268745535e-09 
+  0 SNES Function norm 3.419275049570e+02 
+  1 SNES Function norm 1.550354185659e-09 
+  0 SNES Function norm 2.854112202226e+02 
+  1 SNES Function norm 1.559068547090e-09 
+  0 SNES Function norm 2.671826145762e+02 
+  1 SNES Function norm 1.597180055171e-09 
+  0 SNES Function norm 2.498605334390e+02 
+  1 SNES Function norm 1.621430597406e-09 
+  0 SNES Function norm 2.192585831448e+02 
+  1 SNES Function norm 1.594357765834e-09 
+  0 SNES Function norm 1.842804775889e+02 
+  1 SNES Function norm 1.620837442706e-09 
+  0 SNES Function norm 1.527324383956e+02 
+  1 SNES Function norm 1.569590975890e-09 
+  0 SNES Function norm 1.246737446892e+02 
+  1 SNES Function norm 1.572729705754e-09 
+  0 SNES Function norm 9.842867281453e+01 
+  1 SNES Function norm 1.601578134976e-09 
+  0 SNES Function norm 7.459040739985e+01 
+  1 SNES Function norm 1.572141148129e-09 
+  0 SNES Function norm 5.461175357664e+01 
+  1 SNES Function norm 1.576265267037e-09 
+  0 SNES Function norm 3.883868328239e+01 
+  1 SNES Function norm 1.584895587268e-09 
+  0 SNES Function norm 2.658541726594e+01 
+  1 SNES Function norm 1.595142499148e-09 
+  0 SNES Function norm 1.719273741467e+01 
+  1 SNES Function norm 1.595064903713e-09 
+  0 SNES Function norm 1.041277005737e+01 
+  1 SNES Function norm 1.623703508731e-09 
+  0 SNES Function norm 6.037955155563e+00 
+  1 SNES Function norm 1.557357043757e-09 
+  0 SNES Function norm 3.523704065385e+00 
+  1 SNES Function norm 1.597517946810e-09 
+  0 SNES Function norm 2.086900429439e+00 
+  1 SNES Function norm 1.580715738934e-09 
+  0 SNES Function norm 1.188153562781e+00 
+  1 SNES Function norm 1.588108245322e-09 
+  0 SNES Function norm 6.781613754034e-01 
+  1 SNES Function norm 1.586919884431e-09 
+  0 SNES Function norm 4.708432946815e-01 
+  1 SNES Function norm 1.619250004582e-09 
+  0 SNES Function norm 3.475297967717e-01 
+  1 SNES Function norm 1.587524052144e-09 
+  0 SNES Function norm 2.088475565245e-01 
+  1 SNES Function norm 1.595001304319e-09 
+  0 SNES Function norm 9.786313388960e-02 
+  1 SNES Function norm 1.630003437611e-09 
+  0 SNES Function norm 7.613056946046e-02 
+  1 SNES Function norm 1.596873374138e-09 
+  0 SNES Function norm 7.766994352165e-02 
+  1 SNES Function norm 1.589082576994e-09 
+  0 SNES Function norm 5.568893416516e-02 
+  1 SNES Function norm 1.608402735703e-09 
+  0 SNES Function norm 2.702668145927e-02 
+  1 SNES Function norm 1.612777376309e-09 
+  0 SNES Function norm 1.749690213341e-02 
+  1 SNES Function norm 1.588922249137e-09 
+  0 SNES Function norm 2.070355837747e-02 
+  1 SNES Function norm 1.596690605596e-09 
+  0 SNES Function norm 1.706995227006e-02 
+  1 SNES Function norm 1.610908938880e-09 
+  0 SNES Function norm 9.376516775309e-03 
+  1 SNES Function norm 1.563553088250e-09 
+  0 SNES Function norm 4.514141164316e-03 
+  1 SNES Function norm 1.577865822969e-09 
+  0 SNES Function norm 5.221221004491e-03 
+  1 SNES Function norm 1.572863141928e-09 
+  0 SNES Function norm 4.953451912315e-03 
+  1 SNES Function norm 1.608833144150e-09 
+  0 SNES Function norm 3.123023732023e-03 
+  1 SNES Function norm 1.575180729184e-09 
+  0 SNES Function norm 1.397938718748e-03 
+  1 SNES Function norm 1.587093001318e-09 
+ADJOINT RUN:
+angle: [-12.188350513155303, 16.279965816556032, -2.3452660511337173, -33.11776827430235, -24.595615292098152, 23.814580587998925, -16.763156354365346, -17.11116123407949, 12.939543309503433, -23.114794320151187, 13.465585233734659, 28.204022054988364]
+Controls value: ([-12.188350513155303, 16.279965816556032, -2.3452660511337173, -33.11776827430235, -24.595615292098152, 23.814580587998925, -16.763156354365346, -17.11116123407949, 12.939543309503433, -23.114794320151187, 13.465585233734659, 28.204022054988364],)
+Derivatives: ([-1.4263852808699966, 2.8590509601901775, -0.5155992032058145, -0.2751520387841828, -2.123127903427326, 1.041589560199976, 9.994383097359544, -4.0883158574343215, -0.706360203203369, -4.129754539066903, 4.249240702930164, 0.9742564060136133],)
+Functional value: -8078.251235832522
+FORWARD RUN:
+angle: [-5.23853000989082, 15.383156528489431, -5.464299302315474, -37.4370044444817, -27.362781556602794, 17.0625990518069, -40.105930572162414, -14.078408052388426, 7.554537290057388, -11.159453443944784, 9.127902264008231, 32.77555863402458]
+  0 SNES Function norm 2.844639194989e+03 
+  1 SNES Function norm 1.482294115768e-09 
+  0 SNES Function norm 9.451832582181e+02 
+  1 SNES Function norm 1.490031390553e-09 
+  0 SNES Function norm 4.908040732208e+02 
+  1 SNES Function norm 1.509302702683e-09 
+  0 SNES Function norm 3.634393331954e+02 
+  1 SNES Function norm 1.515535188717e-09 
+  0 SNES Function norm 3.018526043177e+02 
+  1 SNES Function norm 1.589244598901e-09 
+  0 SNES Function norm 2.787456438149e+02 
+  1 SNES Function norm 1.563606883172e-09 
+  0 SNES Function norm 2.601974539035e+02 
+  1 SNES Function norm 1.611327039926e-09 
+  0 SNES Function norm 2.295824763811e+02 
+  1 SNES Function norm 1.623321203000e-09 
+  0 SNES Function norm 1.946701975749e+02 
+  1 SNES Function norm 1.591451445659e-09 
+  0 SNES Function norm 1.626802268939e+02 
+  1 SNES Function norm 1.587927670321e-09 
+  0 SNES Function norm 1.336330991297e+02 
+  1 SNES Function norm 1.600962114476e-09 
+  0 SNES Function norm 1.065273616026e+02 
+  1 SNES Function norm 1.602314815825e-09 
+  0 SNES Function norm 8.208629227751e+01 
+  1 SNES Function norm 1.591289388907e-09 
+  0 SNES Function norm 6.123646145776e+01 
+  1 SNES Function norm 1.577669621504e-09 
+  0 SNES Function norm 4.404874088945e+01 
+  1 SNES Function norm 1.601773030623e-09 
+  0 SNES Function norm 3.013983598348e+01 
+  1 SNES Function norm 1.599033335854e-09 
+  0 SNES Function norm 1.929028599702e+01 
+  1 SNES Function norm 1.571729238504e-09 
+  0 SNES Function norm 1.145065006436e+01 
+  1 SNES Function norm 1.561689174478e-09 
+  0 SNES Function norm 6.385280927803e+00 
+  1 SNES Function norm 1.606935410265e-09 
+  0 SNES Function norm 3.470423269710e+00 
+  1 SNES Function norm 1.587361291169e-09 
+  0 SNES Function norm 1.871960084352e+00 
+  1 SNES Function norm 1.616505939013e-09 
+  0 SNES Function norm 9.800076885189e-01 
+  1 SNES Function norm 1.612513130185e-09 
+  0 SNES Function norm 5.721017227109e-01 
+  1 SNES Function norm 1.577280932948e-09 
+  0 SNES Function norm 4.564750423995e-01 
+  1 SNES Function norm 1.572723319783e-09 
+  0 SNES Function norm 3.582158923888e-01 
+  1 SNES Function norm 1.588325462899e-09 
+  0 SNES Function norm 2.243774971308e-01 
+  1 SNES Function norm 1.587317601333e-09 
+  0 SNES Function norm 1.203113056254e-01 
+  1 SNES Function norm 1.595365896072e-09 
+  0 SNES Function norm 9.222219750094e-02 
+  1 SNES Function norm 1.604560944271e-09 
+  0 SNES Function norm 8.259768976294e-02 
+  1 SNES Function norm 1.582699805836e-09 
+  0 SNES Function norm 5.603469409915e-02 
+  1 SNES Function norm 1.581895822675e-09 
+  0 SNES Function norm 2.766348027377e-02 
+  1 SNES Function norm 1.563468865428e-09 
+  0 SNES Function norm 1.982371997226e-02 
+  1 SNES Function norm 1.580646712752e-09 
+  0 SNES Function norm 2.157494723407e-02 
+  1 SNES Function norm 1.592364251774e-09 
+  0 SNES Function norm 1.686715343944e-02 
+  1 SNES Function norm 1.568766057539e-09 
+  0 SNES Function norm 8.970466344390e-03 
+  1 SNES Function norm 1.577493532810e-09 
+  0 SNES Function norm 4.656796197467e-03 
+  1 SNES Function norm 1.600100073969e-09 
+  0 SNES Function norm 5.356753709931e-03 
+  1 SNES Function norm 1.612711103798e-09 
+  0 SNES Function norm 4.838798140494e-03 
+  1 SNES Function norm 1.583666159969e-09 
+  0 SNES Function norm 2.924364926615e-03 
+  1 SNES Function norm 1.605889803176e-09 
+  0 SNES Function norm 1.324471512766e-03 
+  1 SNES Function norm 1.585404389363e-09 
+FORWARD RUN:
+angle: [-9.494838248746607, 15.932393269163136, -3.5540964534743793, -34.79175619842083, -25.668074108494952, 21.19774392750508, -25.81001571014672, -15.935770029950934, 10.852499514562332, -18.4813138928333, 11.78444796226314, 29.97579297152399]
+  0 SNES Function norm 2.869312765708e+03 
+  1 SNES Function norm 1.481774014432e-09 
+  0 SNES Function norm 8.348068528923e+02 
+  1 SNES Function norm 1.504389374848e-09 
+  0 SNES Function norm 4.435625032682e+02 
+  1 SNES Function norm 1.508445296434e-09 
+  0 SNES Function norm 3.506186680288e+02 
+  1 SNES Function norm 1.537686170733e-09 
+  0 SNES Function norm 2.931398872822e+02 
+  1 SNES Function norm 1.590327903028e-09 
+  0 SNES Function norm 2.734617323548e+02 
+  1 SNES Function norm 1.599494499754e-09 
+  0 SNES Function norm 2.554321151524e+02 
+  1 SNES Function norm 1.591412873537e-09 
+  0 SNES Function norm 2.246713117970e+02 
+  1 SNES Function norm 1.614053268221e-09 
+  0 SNES Function norm 1.898505979255e+02 
+  1 SNES Function norm 1.599098940254e-09 
+  0 SNES Function norm 1.582869447358e+02 
+  1 SNES Function norm 1.579238373579e-09 
+  0 SNES Function norm 1.298633596353e+02 
+  1 SNES Function norm 1.593038008172e-09 
+  0 SNES Function norm 1.031736896308e+02 
+  1 SNES Function norm 1.587722336312e-09 
+  0 SNES Function norm 7.891224407323e+01 
+  1 SNES Function norm 1.596992174086e-09 
+  0 SNES Function norm 5.837630829313e+01 
+  1 SNES Function norm 1.592227004694e-09 
+  0 SNES Function norm 4.183713090481e+01 
+  1 SNES Function norm 1.608130765601e-09 
+  0 SNES Function norm 2.874720877492e+01 
+  1 SNES Function norm 1.597243803973e-09 
+  0 SNES Function norm 1.862540625241e+01 
+  1 SNES Function norm 1.600858826317e-09 
+  0 SNES Function norm 1.129156803372e+01 
+  1 SNES Function norm 1.555421165056e-09 
+  0 SNES Function norm 6.511828564082e+00 
+  1 SNES Function norm 1.577890160131e-09 
+  0 SNES Function norm 3.712244041382e+00 
+  1 SNES Function norm 1.583101267377e-09 
+  0 SNES Function norm 2.117997964824e+00 
+  1 SNES Function norm 1.591661863294e-09 
+  0 SNES Function norm 1.178583032552e+00 
+  1 SNES Function norm 1.600540174147e-09 
+  0 SNES Function norm 6.967525401226e-01 
+  1 SNES Function norm 1.585006145610e-09 
+  0 SNES Function norm 5.145434790866e-01 
+  1 SNES Function norm 1.587929727853e-09 
+  0 SNES Function norm 3.892742624957e-01 
+  1 SNES Function norm 1.590530975915e-09 
+  0 SNES Function norm 2.465427949528e-01 
+  1 SNES Function norm 1.578007857292e-09 
+  0 SNES Function norm 1.368028661487e-01 
+  1 SNES Function norm 1.579415709721e-09 
+  0 SNES Function norm 1.007847321525e-01 
+  1 SNES Function norm 1.606394775385e-09 
+  0 SNES Function norm 8.744489324743e-02 
+  1 SNES Function norm 1.593205111632e-09 
+  0 SNES Function norm 6.005998679338e-02 
+  1 SNES Function norm 1.587757126716e-09 
+  0 SNES Function norm 3.142284884766e-02 
+  1 SNES Function norm 1.574223115788e-09 
+  0 SNES Function norm 2.215622533259e-02 
+  1 SNES Function norm 1.601518013733e-09 
+  0 SNES Function norm 2.289141505428e-02 
+  1 SNES Function norm 1.593166944478e-09 
+  0 SNES Function norm 1.797497760750e-02 
+  1 SNES Function norm 1.595398987636e-09 
+  0 SNES Function norm 9.942823812431e-03 
+  1 SNES Function norm 1.551617203957e-09 
+  0 SNES Function norm 5.209930521930e-03 
+  1 SNES Function norm 1.590845690513e-09 
+  0 SNES Function norm 5.493977512233e-03 
+  1 SNES Function norm 1.593477925325e-09 
+  0 SNES Function norm 4.946583701315e-03 
+  1 SNES Function norm 1.574781741484e-09 
+  0 SNES Function norm 3.039601972932e-03 
+  1 SNES Function norm 1.585715523091e-09 
+  0 SNES Function norm 1.409110000552e-03 
+  1 SNES Function norm 1.585648539374e-09 
+ADJOINT RUN:
+angle: [-9.494838248746607, 15.932393269163136, -3.5540964534743793, -34.79175619842083, -25.668074108494952, 21.19774392750508, -25.81001571014672, -15.935770029950934, 10.852499514562332, -18.4813138928333, 11.78444796226314, 29.97579297152399]
+Controls value: ([-9.494838248746607, 15.932393269163136, -3.5540964534743793, -34.79175619842083, -25.668074108494952, 21.19774392750508, -25.81001571014672, -15.935770029950934, 10.852499514562332, -18.4813138928333, 11.78444796226314, 29.97579297152399],)
+Derivatives: ([1.4753988048829059, 3.078886080409731, -3.209454063502528, -3.2978513386041857, -6.2105933360181105, -1.6838310861141996, 6.555705529675908, -5.504520879665916, -6.275090505233877, -2.8868327683034303, 6.146633204570904, 5.488345120658327],)
+Functional value: -8182.829305962126
+FORWARD RUN:
+angle: [-6.937985455771074, 15.462974858566199, -2.9280098246049255, -36.42639961462084, -22.87907451725053, 19.62281448269569, -38.3997223513725, -11.546669198702038, 10.964903439727447, -10.8255800574434, 6.526155363073163, 30.827517366858963]
+  0 SNES Function norm 2.779252603803e+03 
+  1 SNES Function norm 1.481709398901e-09 
+  0 SNES Function norm 8.827884036942e+02 
+  1 SNES Function norm 1.509437749130e-09 
+  0 SNES Function norm 4.643072375861e+02 
+  1 SNES Function norm 1.494691798995e-09 
+  0 SNES Function norm 3.500680160248e+02 
+  1 SNES Function norm 1.525956758638e-09 
+  0 SNES Function norm 2.911901685227e+02 
+  1 SNES Function norm 1.589976511522e-09 
+  0 SNES Function norm 2.703012249506e+02 
+  1 SNES Function norm 1.620373197614e-09 
+  0 SNES Function norm 2.525273157043e+02 
+  1 SNES Function norm 1.622993335409e-09 
+  0 SNES Function norm 2.223691558019e+02 
+  1 SNES Function norm 1.584023682033e-09 
+  0 SNES Function norm 1.879501624667e+02 
+  1 SNES Function norm 1.590945528598e-09 
+  0 SNES Function norm 1.565263374078e+02 
+  1 SNES Function norm 1.588557479559e-09 
+  0 SNES Function norm 1.282358465047e+02 
+  1 SNES Function norm 1.568174194658e-09 
+  0 SNES Function norm 1.017685397980e+02 
+  1 SNES Function norm 1.587669197761e-09 
+  0 SNES Function norm 7.768890240678e+01 
+  1 SNES Function norm 1.582747574488e-09 
+  0 SNES Function norm 5.723458221012e+01 
+  1 SNES Function norm 1.575834380452e-09 
+  0 SNES Function norm 4.077027006580e+01 
+  1 SNES Function norm 1.579976408950e-09 
+  0 SNES Function norm 2.784284366071e+01 
+  1 SNES Function norm 1.612089863909e-09 
+  0 SNES Function norm 1.795674763818e+01 
+  1 SNES Function norm 1.566919800909e-09 
+  0 SNES Function norm 1.085434828769e+01 
+  1 SNES Function norm 1.586160374960e-09 
+  0 SNES Function norm 6.243760617827e+00 
+  1 SNES Function norm 1.599737639178e-09 
+  0 SNES Function norm 3.543498480053e+00 
+  1 SNES Function norm 1.583160872991e-09 
+  0 SNES Function norm 2.004859018035e+00 
+  1 SNES Function norm 1.603139582061e-09 
+  0 SNES Function norm 1.101868286204e+00 
+  1 SNES Function norm 1.574361124555e-09 
+  0 SNES Function norm 6.479327418260e-01 
+  1 SNES Function norm 1.589399413740e-09 
+  0 SNES Function norm 4.856098189039e-01 
+  1 SNES Function norm 1.587418277684e-09 
+  0 SNES Function norm 3.706917843577e-01 
+  1 SNES Function norm 1.592836890323e-09 
+  0 SNES Function norm 2.336976520411e-01 
+  1 SNES Function norm 1.578383317553e-09 
+  0 SNES Function norm 1.269057334371e-01 
+  1 SNES Function norm 1.577414035309e-09 
+  0 SNES Function norm 9.327397191269e-02 
+  1 SNES Function norm 1.598672222904e-09 
+  0 SNES Function norm 8.214202084723e-02 
+  1 SNES Function norm 1.575693982574e-09 
+  0 SNES Function norm 5.630662136982e-02 
+  1 SNES Function norm 1.613026330094e-09 
+  0 SNES Function norm 2.848100555616e-02 
+  1 SNES Function norm 1.597749411006e-09 
+  0 SNES Function norm 1.985601639174e-02 
+  1 SNES Function norm 1.604124767507e-09 
+  0 SNES Function norm 2.130786470205e-02 
+  1 SNES Function norm 1.586156299483e-09 
+  0 SNES Function norm 1.682865961037e-02 
+  1 SNES Function norm 1.570806923801e-09 
+  0 SNES Function norm 9.118294698379e-03 
+  1 SNES Function norm 1.594118306980e-09 
+  0 SNES Function norm 4.625581374273e-03 
+  1 SNES Function norm 1.595496339543e-09 
+  0 SNES Function norm 5.181902452911e-03 
+  1 SNES Function norm 1.568536593370e-09 
+  0 SNES Function norm 4.740505988858e-03 
+  1 SNES Function norm 1.586392927180e-09 
+  0 SNES Function norm 2.908486528676e-03 
+  1 SNES Function norm 1.608038204527e-09 
+  0 SNES Function norm 1.314295886010e-03 
+  1 SNES Function norm 1.602476375597e-09 
+FORWARD RUN:
+angle: [-8.207758959349468, 15.696095459605656, -3.23893433870571, -35.614609861455534, -24.2641357895234, 20.404949333993535, -32.1474750750443, -13.726366033562833, 10.909081874142995, -14.627538465582273, 9.137506565949272, 30.404537572121118]
+  0 SNES Function norm 2.827534591917e+03 
+  1 SNES Function norm 1.489382808528e-09 
+  0 SNES Function norm 8.529822466895e+02 
+  1 SNES Function norm 1.521164476176e-09 
+  0 SNES Function norm 4.483136790143e+02 
+  1 SNES Function norm 1.517295713853e-09 
+  0 SNES Function norm 3.508412695275e+02 
+  1 SNES Function norm 1.545036030417e-09 
+  0 SNES Function norm 2.932173000619e+02 
+  1 SNES Function norm 1.578301467103e-09 
+  0 SNES Function norm 2.731358828642e+02 
+  1 SNES Function norm 1.602224305660e-09 
+  0 SNES Function norm 2.551663035115e+02 
+  1 SNES Function norm 1.590663088279e-09 
+  0 SNES Function norm 2.246255606588e+02 
+  1 SNES Function norm 1.595315624762e-09 
+  0 SNES Function norm 1.899328599115e+02 
+  1 SNES Function norm 1.595302256683e-09 
+  0 SNES Function norm 1.583451929973e+02 
+  1 SNES Function norm 1.569434154609e-09 
+  0 SNES Function norm 1.298583737692e+02 
+  1 SNES Function norm 1.587140432252e-09 
+  0 SNES Function norm 1.031379413303e+02 
+  1 SNES Function norm 1.574155528679e-09 
+  0 SNES Function norm 7.884113066525e+01 
+  1 SNES Function norm 1.581466646807e-09 
+  0 SNES Function norm 5.824525762934e+01 
+  1 SNES Function norm 1.601775175646e-09 
+  0 SNES Function norm 4.166446440283e+01 
+  1 SNES Function norm 1.600985138079e-09 
+  0 SNES Function norm 2.858992497304e+01 
+  1 SNES Function norm 1.575025611100e-09 
+  0 SNES Function norm 1.852566621323e+01 
+  1 SNES Function norm 1.605463195848e-09 
+  0 SNES Function norm 1.124853751207e+01 
+  1 SNES Function norm 1.612513106124e-09 
+  0 SNES Function norm 6.495907930707e+00 
+  1 SNES Function norm 1.623079599743e-09 
+  0 SNES Function norm 3.697661430885e+00 
+  1 SNES Function norm 1.566714929893e-09 
+  0 SNES Function norm 2.104250614007e+00 
+  1 SNES Function norm 1.590859551728e-09 
+  0 SNES Function norm 1.179597371778e+00 
+  1 SNES Function norm 1.603374727598e-09 
+  0 SNES Function norm 7.165591417691e-01 
+  1 SNES Function norm 1.590575833704e-09 
+  0 SNES Function norm 5.372680383742e-01 
+  1 SNES Function norm 1.612913498973e-09 
+  0 SNES Function norm 4.062737373638e-01 
+  1 SNES Function norm 1.582575708309e-09 
+  0 SNES Function norm 2.597278483493e-01 
+  1 SNES Function norm 1.612770690544e-09 
+  0 SNES Function norm 1.473455275261e-01 
+  1 SNES Function norm 1.571332707798e-09 
+  0 SNES Function norm 1.057822505887e-01 
+  1 SNES Function norm 1.590290638494e-09 
+  0 SNES Function norm 8.861085945296e-02 
+  1 SNES Function norm 1.578539683862e-09 
+  0 SNES Function norm 6.023688557208e-02 
+  1 SNES Function norm 1.599584802766e-09 
+  0 SNES Function norm 3.168896065770e-02 
+  1 SNES Function norm 1.599821340576e-09 
+  0 SNES Function norm 2.222347750794e-02 
+  1 SNES Function norm 1.568181301696e-09 
+  0 SNES Function norm 2.257843388115e-02 
+  1 SNES Function norm 1.615630200816e-09 
+  0 SNES Function norm 1.758522023673e-02 
+  1 SNES Function norm 1.578103559083e-09 
+  0 SNES Function norm 9.634766013793e-03 
+  1 SNES Function norm 1.552846320609e-09 
+  0 SNES Function norm 5.017834659404e-03 
+  1 SNES Function norm 1.569819474652e-09 
+  0 SNES Function norm 5.367119700461e-03 
+  1 SNES Function norm 1.616349462992e-09 
+  0 SNES Function norm 4.835443752372e-03 
+  1 SNES Function norm 1.588082768946e-09 
+  0 SNES Function norm 2.957511579194e-03 
+  1 SNES Function norm 1.579827694494e-09 
+  0 SNES Function norm 1.356235479347e-03 
+  1 SNES Function norm 1.577703198368e-09 
+ADJOINT RUN:
+angle: [-8.207758959349468, 15.696095459605656, -3.23893433870571, -35.614609861455534, -24.2641357895234, 20.404949333993535, -32.1474750750443, -13.726366033562833, 10.909081874142995, -14.627538465582273, 9.137506565949272, 30.404537572121118]
+Controls value: ([-8.207758959349468, 15.696095459605656, -3.23893433870571, -35.614609861455534, -24.2641357895234, 20.404949333993535, -32.1474750750443, -13.726366033562833, 10.909081874142995, -14.627538465582273, 9.137506565949272, 30.404537572121118],)
+Derivatives: ([1.9917253981482543, 2.091107280603071, -3.106132360824, -4.034003343559911, -5.94858143052864, -3.1687970751219163, -2.8872410198107246, -5.712578710897378, -7.154553711595355, 2.5059990234856744, 5.111266050302407, 6.022193407952235],)
+Functional value: -8224.252499868564
+FORWARD RUN:
+angle: [-7.515644861261965, 14.026136492787227, -2.0999365935694625, -34.70396021787493, -20.05664642797428, 21.315619795115364, -31.34588372649545, -7.891835847886459, 11.387649706319422, -14.359780026032556, 4.904429534652933, 29.693900132490043]
+  0 SNES Function norm 2.684460698873e+03 
+  1 SNES Function norm 1.454984966065e-09 
+  0 SNES Function norm 8.035630632817e+02 
+  1 SNES Function norm 1.517295360881e-09 
+  0 SNES Function norm 4.324452020669e+02 
+  1 SNES Function norm 1.502149918412e-09 
+  0 SNES Function norm 3.400005614170e+02 
+  1 SNES Function norm 1.547549434772e-09 
+  0 SNES Function norm 2.848583496258e+02 
+  1 SNES Function norm 1.591578910050e-09 
+  0 SNES Function norm 2.667667817359e+02 
+  1 SNES Function norm 1.625053180260e-09 
+  0 SNES Function norm 2.494278220171e+02 
+  1 SNES Function norm 1.596588100158e-09 
+  0 SNES Function norm 2.189505755097e+02 
+  1 SNES Function norm 1.596017559867e-09 
+  0 SNES Function norm 1.841288899128e+02 
+  1 SNES Function norm 1.607707811036e-09 
+  0 SNES Function norm 1.526211803049e+02 
+  1 SNES Function norm 1.583272887678e-09 
+  0 SNES Function norm 1.245355623691e+02 
+  1 SNES Function norm 1.556466762723e-09 
+  0 SNES Function norm 9.830343422779e+01 
+  1 SNES Function norm 1.581927765885e-09 
+  0 SNES Function norm 7.444357761417e+01 
+  1 SNES Function norm 1.590767695311e-09 
+  0 SNES Function norm 5.431753658427e+01 
+  1 SNES Function norm 1.601845516610e-09 
+  0 SNES Function norm 3.834881450125e+01 
+  1 SNES Function norm 1.571081247461e-09 
+  0 SNES Function norm 2.600576137078e+01 
+  1 SNES Function norm 1.593329411930e-09 
+  0 SNES Function norm 1.667930501512e+01 
+  1 SNES Function norm 1.567367832855e-09 
+  0 SNES Function norm 1.005032080802e+01 
+  1 SNES Function norm 1.593709346107e-09 
+  0 SNES Function norm 5.810623398916e+00 
+  1 SNES Function norm 1.609792492008e-09 
+  0 SNES Function norm 3.361612431143e+00 
+  1 SNES Function norm 1.611878690951e-09 
+  0 SNES Function norm 1.939514957839e+00 
+  1 SNES Function norm 1.575306683437e-09 
+  0 SNES Function norm 1.051485178614e+00 
+  1 SNES Function norm 1.586741753298e-09 
+  0 SNES Function norm 5.782530533534e-01 
+  1 SNES Function norm 1.632056164102e-09 
+  0 SNES Function norm 4.278770035768e-01 
+  1 SNES Function norm 1.610935790384e-09 
+  0 SNES Function norm 3.365820218955e-01 
+  1 SNES Function norm 1.589941183463e-09 
+  0 SNES Function norm 2.119149486337e-01 
+  1 SNES Function norm 1.592813927424e-09 
+  0 SNES Function norm 1.100213335883e-01 
+  1 SNES Function norm 1.609383493390e-09 
+  0 SNES Function norm 8.518144447952e-02 
+  1 SNES Function norm 1.614137574373e-09 
+  0 SNES Function norm 8.036263149132e-02 
+  1 SNES Function norm 1.584523318775e-09 
+  0 SNES Function norm 5.637864703422e-02 
+  1 SNES Function norm 1.632727961853e-09 
+  0 SNES Function norm 2.849709772170e-02 
+  1 SNES Function norm 1.609553248187e-09 
+  0 SNES Function norm 1.987745431398e-02 
+  1 SNES Function norm 1.546201541105e-09 
+  0 SNES Function norm 2.185470353522e-02 
+  1 SNES Function norm 1.585708998242e-09 
+  0 SNES Function norm 1.756554742393e-02 
+  1 SNES Function norm 1.594654320054e-09 
+  0 SNES Function norm 9.753209461190e-03 
+  1 SNES Function norm 1.597649370167e-09 
+  0 SNES Function norm 4.956528627749e-03 
+  1 SNES Function norm 1.581973697984e-09 
+  0 SNES Function norm 5.325191929966e-03 
+  1 SNES Function norm 1.590404413627e-09 
+  0 SNES Function norm 4.890489839968e-03 
+  1 SNES Function norm 1.598088400595e-09 
+  0 SNES Function norm 3.042014044782e-03 
+  1 SNES Function norm 1.582384407072e-09 
+  0 SNES Function norm 1.403730740419e-03 
+  1 SNES Function norm 1.580697933494e-09 
+FORWARD RUN:
+angle: [-7.9201630503460345, 15.002173217033652, -2.7656437457666465, -35.23620532851376, -22.515787170559122, 20.783362517300482, -31.81438780927089, -11.30192905562192, 11.107942367080362, -14.51627612888312, 7.378525438327005, 30.10924461249594]
+  0 SNES Function norm 2.765044397039e+03 
+  1 SNES Function norm 1.476502229894e-09 
+  0 SNES Function norm 8.307357832362e+02 
+  1 SNES Function norm 1.517171399206e-09 
+  0 SNES Function norm 4.415402502822e+02 
+  1 SNES Function norm 1.524125840466e-09 
+  0 SNES Function norm 3.463056505359e+02 
+  1 SNES Function norm 1.547892294404e-09 
+  0 SNES Function norm 2.897649098068e+02 
+  1 SNES Function norm 1.592237748315e-09 
+  0 SNES Function norm 2.704949407742e+02 
+  1 SNES Function norm 1.594589624215e-09 
+  0 SNES Function norm 2.528037561514e+02 
+  1 SNES Function norm 1.605960195105e-09 
+  0 SNES Function norm 2.223720975546e+02 
+  1 SNES Function norm 1.602886651101e-09 
+  0 SNES Function norm 1.877531451410e+02 
+  1 SNES Function norm 1.602653700446e-09 
+  0 SNES Function norm 1.562553705735e+02 
+  1 SNES Function norm 1.599070781142e-09 
+  0 SNES Function norm 1.279409882114e+02 
+  1 SNES Function norm 1.576939141659e-09 
+  0 SNES Function norm 1.014190873063e+02 
+  1 SNES Function norm 1.583575207464e-09 
+  0 SNES Function norm 7.729125331299e+01 
+  1 SNES Function norm 1.585524867509e-09 
+  0 SNES Function norm 5.686451143187e+01 
+  1 SNES Function norm 1.579272086124e-09 
+  0 SNES Function norm 4.050200658741e+01 
+  1 SNES Function norm 1.604187176384e-09 
+  0 SNES Function norm 2.769550115721e+01 
+  1 SNES Function norm 1.585954935378e-09 
+  0 SNES Function norm 1.790913325269e+01 
+  1 SNES Function norm 1.592177125729e-09 
+  0 SNES Function norm 1.087846547445e+01 
+  1 SNES Function norm 1.618064351114e-09 
+  0 SNES Function norm 6.315301815950e+00 
+  1 SNES Function norm 1.599801016409e-09 
+  0 SNES Function norm 3.634910593917e+00 
+  1 SNES Function norm 1.574297825542e-09 
+  0 SNES Function norm 2.088505310173e+00 
+  1 SNES Function norm 1.593206875764e-09 
+  0 SNES Function norm 1.164328302672e+00 
+  1 SNES Function norm 1.587358967915e-09 
+  0 SNES Function norm 6.883266780287e-01 
+  1 SNES Function norm 1.599346838642e-09 
+  0 SNES Function norm 5.099567606403e-01 
+  1 SNES Function norm 1.594856029159e-09 
+  0 SNES Function norm 3.877195566796e-01 
+  1 SNES Function norm 1.580466943322e-09 
+  0 SNES Function norm 2.474841472640e-01 
+  1 SNES Function norm 1.586674743604e-09 
+  0 SNES Function norm 1.388023210916e-01 
+  1 SNES Function norm 1.586046377778e-09 
+  0 SNES Function norm 1.012864201683e-01 
+  1 SNES Function norm 1.594846057497e-09 
+  0 SNES Function norm 8.689506500359e-02 
+  1 SNES Function norm 1.597084371603e-09 
+  0 SNES Function norm 5.966166028609e-02 
+  1 SNES Function norm 1.585047081576e-09 
+  0 SNES Function norm 3.154864944609e-02 
+  1 SNES Function norm 1.568555023078e-09 
+  0 SNES Function norm 2.232080245132e-02 
+  1 SNES Function norm 1.603157549456e-09 
+  0 SNES Function norm 2.279744365312e-02 
+  1 SNES Function norm 1.576367047986e-09 
+  0 SNES Function norm 1.785684570201e-02 
+  1 SNES Function norm 1.600198045129e-09 
+  0 SNES Function norm 9.905862893607e-03 
+  1 SNES Function norm 1.565472585487e-09 
+  0 SNES Function norm 5.189171020501e-03 
+  1 SNES Function norm 1.570922848757e-09 
+  0 SNES Function norm 5.412567016732e-03 
+  1 SNES Function norm 1.589642098694e-09 
+  0 SNES Function norm 4.867037467207e-03 
+  1 SNES Function norm 1.567277853524e-09 
+  0 SNES Function norm 2.993286126394e-03 
+  1 SNES Function norm 1.597049666024e-09 
+  0 SNES Function norm 1.392246186306e-03 
+  1 SNES Function norm 1.582956243159e-09 
+ADJOINT RUN:
+angle: [-7.9201630503460345, 15.002173217033652, -2.7656437457666465, -35.23620532851376, -22.515787170559122, 20.783362517300482, -31.81438780927089, -11.30192905562192, 11.107942367080362, -14.51627612888312, 7.378525438327005, 30.10924461249594]
+Controls value: ([-7.9201630503460345, 15.002173217033652, -2.7656437457666465, -35.23620532851376, -22.515787170559122, 20.783362517300482, -31.81438780927089, -11.30192905562192, 11.107942367080362, -14.51627612888312, 7.378525438327005, 30.10924461249594],)
+Derivatives: ([3.6257687928130267, 1.74328767182139, -0.4408276836829178, -3.5722863891792453, -1.742673136682917, -2.084002281420246, -0.010221704144718416, 1.6396623885038166, -2.795303455538275, -2.650187024115208, -1.2512476463432867, 3.3890070458134742],)
+Functional value: -8246.572036369796
+FORWARD RUN:
+angle: [-9.315551905323652, 15.066374165940955, -2.0824161637682033, -33.37860110273763, -22.424760271059853, 22.354583440152815, -31.313107882285383, -12.547825154322851, 13.804781251662632, -13.088050890351331, 7.979992777129033, 27.856944432982395]
+  0 SNES Function norm 2.772880266105e+03 
+  1 SNES Function norm 1.502439654065e-09 
+  0 SNES Function norm 8.050931948163e+02 
+  1 SNES Function norm 1.494697625307e-09 
+  0 SNES Function norm 4.353204133108e+02 
+  1 SNES Function norm 1.526681158359e-09 
+  0 SNES Function norm 3.435889562640e+02 
+  1 SNES Function norm 1.532047933364e-09 
+  0 SNES Function norm 2.865117018137e+02 
+  1 SNES Function norm 1.588229874131e-09 
+  0 SNES Function norm 2.673923984931e+02 
+  1 SNES Function norm 1.587515417185e-09 
+  0 SNES Function norm 2.498586654266e+02 
+  1 SNES Function norm 1.566183793522e-09 
+  0 SNES Function norm 2.193239857141e+02 
+  1 SNES Function norm 1.598259794236e-09 
+  0 SNES Function norm 1.844165941905e+02 
+  1 SNES Function norm 1.610553762930e-09 
+  0 SNES Function norm 1.528635755774e+02 
+  1 SNES Function norm 1.613520684035e-09 
+  0 SNES Function norm 1.247975088820e+02 
+  1 SNES Function norm 1.591006095118e-09 
+  0 SNES Function norm 9.852656811023e+01 
+  1 SNES Function norm 1.571952254161e-09 
+  0 SNES Function norm 7.455491971444e+01 
+  1 SNES Function norm 1.576018832177e-09 
+  0 SNES Function norm 5.437077779895e+01 
+  1 SNES Function norm 1.571667293590e-09 
+  0 SNES Function norm 3.847878310991e+01 
+  1 SNES Function norm 1.608602458981e-09 
+  0 SNES Function norm 2.628388264685e+01 
+  1 SNES Function norm 1.604975131328e-09 
+  0 SNES Function norm 1.706115422218e+01 
+  1 SNES Function norm 1.610482350392e-09 
+  0 SNES Function norm 1.043558755714e+01 
+  1 SNES Function norm 1.618557992566e-09 
+  0 SNES Function norm 6.115377924014e+00 
+  1 SNES Function norm 1.603852992181e-09 
+  0 SNES Function norm 3.559038716560e+00 
+  1 SNES Function norm 1.605117284082e-09 
+  0 SNES Function norm 2.062588062153e+00 
+  1 SNES Function norm 1.580605965904e-09 
+  0 SNES Function norm 1.149478689453e+00 
+  1 SNES Function norm 1.564316272857e-09 
+  0 SNES Function norm 6.716332278808e-01 
+  1 SNES Function norm 1.579733518546e-09 
+  0 SNES Function norm 4.966220390602e-01 
+  1 SNES Function norm 1.581369805656e-09 
+  0 SNES Function norm 3.795684397963e-01 
+  1 SNES Function norm 1.584887738302e-09 
+  0 SNES Function norm 2.406301402441e-01 
+  1 SNES Function norm 1.609744234176e-09 
+  0 SNES Function norm 1.303948143136e-01 
+  1 SNES Function norm 1.580249053118e-09 
+  0 SNES Function norm 9.478988904706e-02 
+  1 SNES Function norm 1.607106993337e-09 
+  0 SNES Function norm 8.407123689879e-02 
+  1 SNES Function norm 1.611541976747e-09 
+  0 SNES Function norm 5.836178999178e-02 
+  1 SNES Function norm 1.589546383078e-09 
+  0 SNES Function norm 3.000303075592e-02 
+  1 SNES Function norm 1.600786411041e-09 
+  0 SNES Function norm 2.061781176142e-02 
+  1 SNES Function norm 1.583213909897e-09 
+  0 SNES Function norm 2.198169840964e-02 
+  1 SNES Function norm 1.595539166479e-09 
+  0 SNES Function norm 1.751063941286e-02 
+  1 SNES Function norm 1.572514544740e-09 
+  0 SNES Function norm 9.635526265204e-03 
+  1 SNES Function norm 1.580680955898e-09 
+  0 SNES Function norm 4.838233035559e-03 
+  1 SNES Function norm 1.567642924294e-09 
+  0 SNES Function norm 5.282399947820e-03 
+  1 SNES Function norm 1.569240246896e-09 
+  0 SNES Function norm 4.870781869046e-03 
+  1 SNES Function norm 1.581150608211e-09 
+  0 SNES Function norm 3.023534497653e-03 
+  1 SNES Function norm 1.596772390803e-09 
+  0 SNES Function norm 1.370287167115e-03 
+  1 SNES Function norm 1.583505082919e-09 
+ADJOINT RUN:
+angle: [-9.315551905323652, 15.066374165940955, -2.0824161637682033, -33.37860110273763, -22.424760271059853, 22.354583440152815, -31.313107882285383, -12.547825154322851, 13.804781251662632, -13.088050890351331, 7.979992777129033, 27.856944432982395]
+Controls value: ([-9.315551905323652, 15.066374165940955, -2.0824161637682033, -33.37860110273763, -22.424760271059853, 22.354583440152815, -31.313107882285383, -12.547825154322851, 13.804781251662632, -13.088050890351331, 7.979992777129033, 27.856944432982395],)
+Derivatives: ([-0.700777474602339, -0.9269661689997069, -1.8672281874527425, 0.14505553634610738, -0.11486817174435951, 0.4525301849798482, 0.09521700341988962, 0.5086485308341016, 0.16752572619325581, 0.07400931953780308, 0.09251293886495443, 0.3122003819522191],)
+Functional value: -8265.198750783215
+FORWARD RUN:
+angle: [-9.14082278016598, 15.290002594053083, -0.4945823708210524, -33.184983185344365, -21.79680756642122, 22.259791139877027, -31.249797122325013, -13.170689606704203, 13.507829898437464, -12.85834554687032, 8.269272014863844, 27.423343236144053]
+  0 SNES Function norm 2.760311263599e+03 
+  1 SNES Function norm 1.478518714874e-09 
+  0 SNES Function norm 7.986685546797e+02 
+  1 SNES Function norm 1.498492089692e-09 
+  0 SNES Function norm 4.336008847563e+02 
+  1 SNES Function norm 1.522468745955e-09 
+  0 SNES Function norm 3.418472475801e+02 
+  1 SNES Function norm 1.550595520871e-09 
+  0 SNES Function norm 2.848023009002e+02 
+  1 SNES Function norm 1.586634421111e-09 
+  0 SNES Function norm 2.659727745613e+02 
+  1 SNES Function norm 1.612291801542e-09 
+  0 SNES Function norm 2.487140522144e+02 
+  1 SNES Function norm 1.618091651246e-09 
+  0 SNES Function norm 2.183618663876e+02 
+  1 SNES Function norm 1.576946688767e-09 
+  0 SNES Function norm 1.835824649077e+02 
+  1 SNES Function norm 1.599572800690e-09 
+  0 SNES Function norm 1.521626829373e+02 
+  1 SNES Function norm 1.590934999722e-09 
+  0 SNES Function norm 1.242127236432e+02 
+  1 SNES Function norm 1.553694602959e-09 
+  0 SNES Function norm 9.800202039351e+01 
+  1 SNES Function norm 1.598637557762e-09 
+  0 SNES Function norm 7.405149706358e+01 
+  1 SNES Function norm 1.586784288192e-09 
+  0 SNES Function norm 5.390753419304e+01 
+  1 SNES Function norm 1.574341530626e-09 
+  0 SNES Function norm 3.810726693148e+01 
+  1 SNES Function norm 1.580206249882e-09 
+  0 SNES Function norm 2.603348496491e+01 
+  1 SNES Function norm 1.608500496544e-09 
+  0 SNES Function norm 1.691885356926e+01 
+  1 SNES Function norm 1.610783568265e-09 
+  0 SNES Function norm 1.036532276020e+01 
+  1 SNES Function norm 1.604157916072e-09 
+  0 SNES Function norm 6.081942240529e+00 
+  1 SNES Function norm 1.564298231103e-09 
+  0 SNES Function norm 3.539483471625e+00 
+  1 SNES Function norm 1.585043285715e-09 
+  0 SNES Function norm 2.047078859685e+00 
+  1 SNES Function norm 1.577917474393e-09 
+  0 SNES Function norm 1.135918538549e+00 
+  1 SNES Function norm 1.596630581143e-09 
+  0 SNES Function norm 6.613190391495e-01 
+  1 SNES Function norm 1.595555795628e-09 
+  0 SNES Function norm 4.909347673630e-01 
+  1 SNES Function norm 1.583605141792e-09 
+  0 SNES Function norm 3.765336732064e-01 
+  1 SNES Function norm 1.616297575214e-09 
+  0 SNES Function norm 2.385346967266e-01 
+  1 SNES Function norm 1.594260104327e-09 
+  0 SNES Function norm 1.286506997990e-01 
+  1 SNES Function norm 1.586628596431e-09 
+  0 SNES Function norm 9.378097365607e-02 
+  1 SNES Function norm 1.568339478482e-09 
+  0 SNES Function norm 8.361824864136e-02 
+  1 SNES Function norm 1.584521582947e-09 
+  0 SNES Function norm 5.806100008618e-02 
+  1 SNES Function norm 1.597133601978e-09 
+  0 SNES Function norm 2.966375552553e-02 
+  1 SNES Function norm 1.601228292995e-09 
+  0 SNES Function norm 2.033191609958e-02 
+  1 SNES Function norm 1.593413525766e-09 
+  0 SNES Function norm 2.184791985316e-02 
+  1 SNES Function norm 1.591183873375e-09 
+  0 SNES Function norm 1.743525884850e-02 
+  1 SNES Function norm 1.584383272352e-09 
+  0 SNES Function norm 9.576870073243e-03 
+  1 SNES Function norm 1.589339118578e-09 
+  0 SNES Function norm 4.796107038648e-03 
+  1 SNES Function norm 1.605638610203e-09 
+  0 SNES Function norm 5.275051422946e-03 
+  1 SNES Function norm 1.602495881392e-09 
+  0 SNES Function norm 4.872007308187e-03 
+  1 SNES Function norm 1.588437986806e-09 
+  0 SNES Function norm 3.024177925778e-03 
+  1 SNES Function norm 1.595601167601e-09 
+  0 SNES Function norm 1.367349349246e-03 
+  1 SNES Function norm 1.582059385908e-09 
+ADJOINT RUN:
+angle: [-9.14082278016598, 15.290002594053083, -0.4945823708210524, -33.184983185344365, -21.79680756642122, 22.259791139877027, -31.249797122325013, -13.170689606704203, 13.507829898437464, -12.85834554687032, 8.269272014863844, 27.423343236144053]
+Controls value: ([-9.14082278016598, 15.290002594053083, -0.4945823708210524, -33.184983185344365, -21.79680756642122, 22.259791139877027, -31.249797122325013, -13.170689606704203, 13.507829898437464, -12.85834554687032, 8.269272014863844, 27.423343236144053],)
+Derivatives: ([0.11263876685405502, 0.9485801196524715, 0.467901766262195, 0.17201995516375637, -0.385003537922793, -0.605983162356461, 0.05543697082492409, -0.02017191429263546, 0.14622611140763356, -0.5199199186120635, -0.7736835470414203, -0.6653204566669241],)
+Functional value: -8266.629531279403
+FORWARD RUN:
+angle: [-8.885867457964572, 15.084942230060575, -0.24975838909975479, -33.300594871281525, -21.64275041821805, 22.530311647885146, -31.195737517562538, -13.023932383411815, 13.597823238713358, -12.580524660942134, 8.52918849371101, 27.764225432194486]
+  0 SNES Function norm 2.760523706949e+03 
+  1 SNES Function norm 1.458998281400e-09 
+  0 SNES Function norm 8.000200635383e+02 
+  1 SNES Function norm 1.509449395653e-09 
+  0 SNES Function norm 4.330255995843e+02 
+  1 SNES Function norm 1.525049516650e-09 
+  0 SNES Function norm 3.410301785096e+02 
+  1 SNES Function norm 1.530677511285e-09 
+  0 SNES Function norm 2.839658201476e+02 
+  1 SNES Function norm 1.590120710363e-09 
+  0 SNES Function norm 2.652177131958e+02 
+  1 SNES Function norm 1.607944768033e-09 
+  0 SNES Function norm 2.481123340748e+02 
+  1 SNES Function norm 1.609146955072e-09 
+  0 SNES Function norm 2.178795437606e+02 
+  1 SNES Function norm 1.609004800064e-09 
+  0 SNES Function norm 1.831733434519e+02 
+  1 SNES Function norm 1.594156288898e-09 
+  0 SNES Function norm 1.518286433290e+02 
+  1 SNES Function norm 1.567017584768e-09 
+  0 SNES Function norm 1.239653279297e+02 
+  1 SNES Function norm 1.583270529093e-09 
+  0 SNES Function norm 9.780534167052e+01 
+  1 SNES Function norm 1.589649922621e-09 
+  0 SNES Function norm 7.385409318103e+01 
+  1 SNES Function norm 1.588488789930e-09 
+  0 SNES Function norm 5.369533983938e+01 
+  1 SNES Function norm 1.599686530163e-09 
+  0 SNES Function norm 3.790777884229e+01 
+  1 SNES Function norm 1.594789636939e-09 
+  0 SNES Function norm 2.587810704126e+01 
+  1 SNES Function norm 1.591001569738e-09 
+  0 SNES Function norm 1.681517812207e+01 
+  1 SNES Function norm 1.564569406121e-09 
+  0 SNES Function norm 1.030125059324e+01 
+  1 SNES Function norm 1.579867915540e-09 
+  0 SNES Function norm 6.041693128002e+00 
+  1 SNES Function norm 1.577113161550e-09 
+  0 SNES Function norm 3.513210824183e+00 
+  1 SNES Function norm 1.605287024614e-09 
+  0 SNES Function norm 2.030435807681e+00 
+  1 SNES Function norm 1.588333307409e-09 
+  0 SNES Function norm 1.125879854577e+00 
+  1 SNES Function norm 1.582483324191e-09 
+  0 SNES Function norm 6.554084328019e-01 
+  1 SNES Function norm 1.570787620411e-09 
+  0 SNES Function norm 4.877864146395e-01 
+  1 SNES Function norm 1.604386070174e-09 
+  0 SNES Function norm 3.749815193667e-01 
+  1 SNES Function norm 1.607614165130e-09 
+  0 SNES Function norm 2.377135123503e-01 
+  1 SNES Function norm 1.609210654503e-09 
+  0 SNES Function norm 1.278329708660e-01 
+  1 SNES Function norm 1.598061053042e-09 
+  0 SNES Function norm 9.290381700998e-02 
+  1 SNES Function norm 1.614105639381e-09 
+  0 SNES Function norm 8.306679450347e-02 
+  1 SNES Function norm 1.575586806465e-09 
+  0 SNES Function norm 5.777507501514e-02 
+  1 SNES Function norm 1.594249889194e-09 
+  0 SNES Function norm 2.944149720947e-02 
+  1 SNES Function norm 1.606039070939e-09 
+  0 SNES Function norm 2.007240493000e-02 
+  1 SNES Function norm 1.575716528709e-09 
+  0 SNES Function norm 2.168475126528e-02 
+  1 SNES Function norm 1.594223567467e-09 
+  0 SNES Function norm 1.735578747414e-02 
+  1 SNES Function norm 1.600862368572e-09 
+  0 SNES Function norm 9.540745633717e-03 
+  1 SNES Function norm 1.595133377728e-09 
+  0 SNES Function norm 4.755409025656e-03 
+  1 SNES Function norm 1.614471854260e-09 
+  0 SNES Function norm 5.243935442153e-03 
+  1 SNES Function norm 1.601480757652e-09 
+  0 SNES Function norm 4.858525020598e-03 
+  1 SNES Function norm 1.568493099402e-09 
+  0 SNES Function norm 3.022346702945e-03 
+  1 SNES Function norm 1.579991498343e-09 
+  0 SNES Function norm 1.364613160118e-03 
+  1 SNES Function norm 1.565072369471e-09 
+ADJOINT RUN:
+angle: [-8.885867457964572, 15.084942230060575, -0.24975838909975479, -33.300594871281525, -21.64275041821805, 22.530311647885146, -31.195737517562538, -13.023932383411815, 13.597823238713358, -12.580524660942134, 8.52918849371101, 27.764225432194486]
+Controls value: ([-8.885867457964572, 15.084942230060575, -0.24975838909975479, -33.300594871281525, -21.64275041821805, 22.530311647885146, -31.195737517562538, -13.023932383411815, 13.597823238713358, -12.580524660942134, 8.52918849371101, 27.764225432194486],)
+Derivatives: ([-0.08488895809402464, 0.07965145913018126, -0.06779611355495477, 0.08678200851302258, -0.01192063047837317, -0.13836785457913, -0.036465958323334505, -0.17678003600576286, -0.13314234565534966, 0.01507217730933844, -0.18895002616609208, -0.08055390501191634],)
+Functional value: -8267.163392879149
+FORWARD RUN:
+angle: [-8.789173507173906, 15.039276149698797, 0.006679024249007515, -33.405904853283914, -21.638413520696925, 22.73879478775718, -31.20056712609229, -12.864597975501914, 13.778035582013423, -12.514853537186672, 8.85015595475342, 27.89573797296588]
+  0 SNES Function norm 2.765590998829e+03 
+  1 SNES Function norm 1.470035847108e-09 
+  0 SNES Function norm 8.017479471272e+02 
+  1 SNES Function norm 1.478984974296e-09 
+  0 SNES Function norm 4.328293955735e+02 
+  1 SNES Function norm 1.511057090375e-09 
+  0 SNES Function norm 3.405439161537e+02 
+  1 SNES Function norm 1.517988106798e-09 
+  0 SNES Function norm 2.834819796978e+02 
+  1 SNES Function norm 1.599514452235e-09 
+  0 SNES Function norm 2.647893947050e+02 
+  1 SNES Function norm 1.605040655896e-09 
+  0 SNES Function norm 2.477634745828e+02 
+  1 SNES Function norm 1.601609608050e-09 
+  0 SNES Function norm 2.175854420006e+02 
+  1 SNES Function norm 1.608688993538e-09 
+  0 SNES Function norm 1.829013425975e+02 
+  1 SNES Function norm 1.619190661015e-09 
+  0 SNES Function norm 1.515863794185e+02 
+  1 SNES Function norm 1.586423908166e-09 
+  0 SNES Function norm 1.237709642839e+02 
+  1 SNES Function norm 1.579861978790e-09 
+  0 SNES Function norm 9.764197885046e+01 
+  1 SNES Function norm 1.588312360992e-09 
+  0 SNES Function norm 7.369184555985e+01 
+  1 SNES Function norm 1.624967304934e-09 
+  0 SNES Function norm 5.352928399430e+01 
+  1 SNES Function norm 1.617411196135e-09 
+  0 SNES Function norm 3.775996701684e+01 
+  1 SNES Function norm 1.601911533058e-09 
+  0 SNES Function norm 2.577002432609e+01 
+  1 SNES Function norm 1.576385417942e-09 
+  0 SNES Function norm 1.674908405110e+01 
+  1 SNES Function norm 1.586007799588e-09 
+  0 SNES Function norm 1.026508707655e+01 
+  1 SNES Function norm 1.548089945342e-09 
+  0 SNES Function norm 6.021755337637e+00 
+  1 SNES Function norm 1.601432388133e-09 
+  0 SNES Function norm 3.501309294344e+00 
+  1 SNES Function norm 1.605107396625e-09 
+  0 SNES Function norm 2.023350281267e+00 
+  1 SNES Function norm 1.610505286824e-09 
+  0 SNES Function norm 1.121682368635e+00 
+  1 SNES Function norm 1.598199389496e-09 
+  0 SNES Function norm 6.524574606682e-01 
+  1 SNES Function norm 1.593499584839e-09 
+  0 SNES Function norm 4.858131740530e-01 
+  1 SNES Function norm 1.576907387006e-09 
+  0 SNES Function norm 3.740104507262e-01 
+  1 SNES Function norm 1.587271394753e-09 
+  0 SNES Function norm 2.373165637776e-01 
+  1 SNES Function norm 1.582193036777e-09 
+  0 SNES Function norm 1.273945323258e-01 
+  1 SNES Function norm 1.592106271033e-09 
+  0 SNES Function norm 9.230425612948e-02 
+  1 SNES Function norm 1.581041411739e-09 
+  0 SNES Function norm 8.269700628398e-02 
+  1 SNES Function norm 1.622008562792e-09 
+  0 SNES Function norm 5.762880963300e-02 
+  1 SNES Function norm 1.575277253069e-09 
+  0 SNES Function norm 2.935261458384e-02 
+  1 SNES Function norm 1.568615774555e-09 
+  0 SNES Function norm 1.991917310180e-02 
+  1 SNES Function norm 1.602373071199e-09 
+  0 SNES Function norm 2.158381172875e-02 
+  1 SNES Function norm 1.600467671825e-09 
+  0 SNES Function norm 1.731945346003e-02 
+  1 SNES Function norm 1.587710590165e-09 
+  0 SNES Function norm 9.537188353070e-03 
+  1 SNES Function norm 1.561176716603e-09 
+  0 SNES Function norm 4.736401974567e-03 
+  1 SNES Function norm 1.623883876613e-09 
+  0 SNES Function norm 5.220648214239e-03 
+  1 SNES Function norm 1.559059957088e-09 
+  0 SNES Function norm 4.849534620366e-03 
+  1 SNES Function norm 1.597873993080e-09 
+  0 SNES Function norm 3.023674539976e-03 
+  1 SNES Function norm 1.596284488663e-09 
+  0 SNES Function norm 1.364586386083e-03 
+  1 SNES Function norm 1.613416902857e-09 
+ADJOINT RUN:
+angle: [-8.789173507173906, 15.039276149698797, 0.006679024249007515, -33.405904853283914, -21.638413520696925, 22.73879478775718, -31.20056712609229, -12.864597975501914, 13.778035582013423, -12.514853537186672, 8.85015595475342, 27.89573797296588]
+Controls value: ([-8.789173507173906, 15.039276149698797, 0.006679024249007515, -33.405904853283914, -21.638413520696925, 22.73879478775718, -31.20056712609229, -12.864597975501914, 13.778035582013423, -12.514853537186672, 8.85015595475342, 27.89573797296588],)
+Derivatives: ([-0.008116971530567101, -0.058830613426880535, -0.06268667121377886, -0.08100759782327947, -0.02310481621605562, 0.07616591903848177, -0.032927905034227684, -0.06265675446950918, 0.018341348752342626, 0.011539083877289063, -0.06307017347702346, -0.000527421001814831],)
+Functional value: -8267.267892802656
+FORWARD RUN:
+angle: [-8.73251332431157, 15.043996245993796, 0.12414794487879567, -33.331220252618586, -21.57861016988146, 22.70262789326347, -31.15717278211239, -12.767759334584085, 13.77113120547555, -12.468511961715297, 9.008563603690034, 27.92903296340809]
+  0 SNES Function norm 2.763334207411e+03 
+  1 SNES Function norm 1.474183755254e-09 
+  0 SNES Function norm 8.004777044946e+02 
+  1 SNES Function norm 1.484173202629e-09 
+  0 SNES Function norm 4.323816152131e+02 
+  1 SNES Function norm 1.499770288146e-09 
+  0 SNES Function norm 3.401664704035e+02 
+  1 SNES Function norm 1.548288953210e-09 
+  0 SNES Function norm 2.831181545775e+02 
+  1 SNES Function norm 1.563336289102e-09 
+  0 SNES Function norm 2.644940315751e+02 
+  1 SNES Function norm 1.596027370303e-09 
+  0 SNES Function norm 2.475264312278e+02 
+  1 SNES Function norm 1.600090653152e-09 
+  0 SNES Function norm 2.173830914821e+02 
+  1 SNES Function norm 1.614897327464e-09 
+  0 SNES Function norm 1.827249127010e+02 
+  1 SNES Function norm 1.600421605464e-09 
+  0 SNES Function norm 1.514438038856e+02 
+  1 SNES Function norm 1.578403780129e-09 
+  0 SNES Function norm 1.236646367687e+02 
+  1 SNES Function norm 1.611735016116e-09 
+  0 SNES Function norm 9.755646025913e+01 
+  1 SNES Function norm 1.578638873149e-09 
+  0 SNES Function norm 7.360951275742e+01 
+  1 SNES Function norm 1.584028252250e-09 
+  0 SNES Function norm 5.344578892712e+01 
+  1 SNES Function norm 1.589343748161e-09 
+  0 SNES Function norm 3.768315780953e+01 
+  1 SNES Function norm 1.608643464424e-09 
+  0 SNES Function norm 2.570840769062e+01 
+  1 SNES Function norm 1.580215299850e-09 
+  0 SNES Function norm 1.670459102444e+01 
+  1 SNES Function norm 1.596412174792e-09 
+  0 SNES Function norm 1.023460877593e+01 
+  1 SNES Function norm 1.586790147819e-09 
+  0 SNES Function norm 6.001214623453e+00 
+  1 SNES Function norm 1.597469414752e-09 
+  0 SNES Function norm 3.487607061585e+00 
+  1 SNES Function norm 1.570042526756e-09 
+  0 SNES Function norm 2.014089000289e+00 
+  1 SNES Function norm 1.602862104043e-09 
+  0 SNES Function norm 1.114920778030e+00 
+  1 SNES Function norm 1.568024933571e-09 
+  0 SNES Function norm 6.474968305905e-01 
+  1 SNES Function norm 1.579157966757e-09 
+  0 SNES Function norm 4.829168997408e-01 
+  1 SNES Function norm 1.594433722254e-09 
+  0 SNES Function norm 3.724200335313e-01 
+  1 SNES Function norm 1.591967216239e-09 
+  0 SNES Function norm 2.362698225996e-01 
+  1 SNES Function norm 1.585923051530e-09 
+  0 SNES Function norm 1.265432062245e-01 
+  1 SNES Function norm 1.576930977649e-09 
+  0 SNES Function norm 9.178478951001e-02 
+  1 SNES Function norm 1.600799031522e-09 
+  0 SNES Function norm 8.246125665370e-02 
+  1 SNES Function norm 1.578757030884e-09 
+  0 SNES Function norm 5.749774960163e-02 
+  1 SNES Function norm 1.574160060152e-09 
+  0 SNES Function norm 2.923252434264e-02 
+  1 SNES Function norm 1.586353229901e-09 
+  0 SNES Function norm 1.982055423146e-02 
+  1 SNES Function norm 1.604436672251e-09 
+  0 SNES Function norm 2.153950479334e-02 
+  1 SNES Function norm 1.606785272962e-09 
+  0 SNES Function norm 1.729871019061e-02 
+  1 SNES Function norm 1.589685457461e-09 
+  0 SNES Function norm 9.523760699073e-03 
+  1 SNES Function norm 1.600471390893e-09 
+  0 SNES Function norm 4.723990836350e-03 
+  1 SNES Function norm 1.597020397209e-09 
+  0 SNES Function norm 5.216208746671e-03 
+  1 SNES Function norm 1.598085287405e-09 
+  0 SNES Function norm 4.849035548233e-03 
+  1 SNES Function norm 1.590059656425e-09 
+  0 SNES Function norm 3.024265325607e-03 
+  1 SNES Function norm 1.605980831187e-09 
+  0 SNES Function norm 1.364211785308e-03 
+  1 SNES Function norm 1.572161585810e-09 
+ADJOINT RUN:
+angle: [-8.73251332431157, 15.043996245993796, 0.12414794487879567, -33.331220252618586, -21.57861016988146, 22.70262789326347, -31.15717278211239, -12.767759334584085, 13.77113120547555, -12.468511961715297, 9.008563603690034, 27.92903296340809]
+Controls value: ([-8.73251332431157, 15.043996245993796, 0.12414794487879567, -33.331220252618586, -21.57861016988146, 22.70262789326347, -31.15717278211239, -12.767759334584085, 13.77113120547555, -12.468511961715297, 9.008563603690034, 27.92903296340809],)
+Derivatives: ([-0.014862339847512849, -0.11961663887845896, -0.05288066277927843, 0.01335753150039459, 0.056824530020226166, 0.032169119036215596, 0.01089368999168677, 0.014276708875443068, -0.017094063475612657, 0.022423328676206215, 0.013030796496253568, 0.034702858898341474],)
+Functional value: -8267.284981746154
+FORWARD RUN:
+angle: [-8.75225104921159, 15.08867535398379, 0.14101352463888536, -33.331442221725865, -21.58346284072008, 22.705017325529177, -31.16835689203763, -12.770971324648922, 13.781732186526703, -12.480723768469293, 9.04406834653551, 27.918507750624205]
+  0 SNES Function norm 2.764422216387e+03 
+  1 SNES Function norm 1.498092805279e-09 
+  0 SNES Function norm 8.006268097721e+02 
+  1 SNES Function norm 1.487239615123e-09 
+  0 SNES Function norm 4.324085257145e+02 
+  1 SNES Function norm 1.515741643350e-09 
+  0 SNES Function norm 3.401579901138e+02 
+  1 SNES Function norm 1.546089038087e-09 
+  0 SNES Function norm 2.831060645240e+02 
+  1 SNES Function norm 1.593921339918e-09 
+  0 SNES Function norm 2.644831040973e+02 
+  1 SNES Function norm 1.603152909796e-09 
+  0 SNES Function norm 2.475159938754e+02 
+  1 SNES Function norm 1.619743180409e-09 
+  0 SNES Function norm 2.173728697696e+02 
+  1 SNES Function norm 1.597089924519e-09 
+  0 SNES Function norm 1.827138711322e+02 
+  1 SNES Function norm 1.596191364570e-09 
+  0 SNES Function norm 1.514327208444e+02 
+  1 SNES Function norm 1.574365152038e-09 
+  0 SNES Function norm 1.236546623077e+02 
+  1 SNES Function norm 1.582002891175e-09 
+  0 SNES Function norm 9.754735621175e+01 
+  1 SNES Function norm 1.579295039596e-09 
+  0 SNES Function norm 7.360051981124e+01 
+  1 SNES Function norm 1.579691079953e-09 
+  0 SNES Function norm 5.343709266065e+01 
+  1 SNES Function norm 1.590949571398e-09 
+  0 SNES Function norm 3.767589645793e+01 
+  1 SNES Function norm 1.594818662075e-09 
+  0 SNES Function norm 2.570350600555e+01 
+  1 SNES Function norm 1.595168009303e-09 
+  0 SNES Function norm 1.670200944027e+01 
+  1 SNES Function norm 1.600764962070e-09 
+  0 SNES Function norm 1.023361474198e+01 
+  1 SNES Function norm 1.579806668614e-09 
+  0 SNES Function norm 6.000984276398e+00 
+  1 SNES Function norm 1.578235567490e-09 
+  0 SNES Function norm 3.487595207923e+00 
+  1 SNES Function norm 1.611590337212e-09 
+  0 SNES Function norm 2.014082160135e+00 
+  1 SNES Function norm 1.591351451182e-09 
+  0 SNES Function norm 1.114866674179e+00 
+  1 SNES Function norm 1.565204230783e-09 
+  0 SNES Function norm 6.473822831942e-01 
+  1 SNES Function norm 1.589283540491e-09 
+  0 SNES Function norm 4.828013920389e-01 
+  1 SNES Function norm 1.579628342280e-09 
+  0 SNES Function norm 3.723463742786e-01 
+  1 SNES Function norm 1.576416991982e-09 
+  0 SNES Function norm 2.362255102755e-01 
+  1 SNES Function norm 1.571151132952e-09 
+  0 SNES Function norm 1.265023714991e-01 
+  1 SNES Function norm 1.592184295294e-09 
+  0 SNES Function norm 9.174825065488e-02 
+  1 SNES Function norm 1.581059598068e-09 
+  0 SNES Function norm 8.244151466634e-02 
+  1 SNES Function norm 1.601167006448e-09 
+  0 SNES Function norm 5.748921769252e-02 
+  1 SNES Function norm 1.580686528354e-09 
+  0 SNES Function norm 2.922619222443e-02 
+  1 SNES Function norm 1.588428206958e-09 
+  0 SNES Function norm 1.981178937813e-02 
+  1 SNES Function norm 1.582723079767e-09 
+  0 SNES Function norm 2.153412977135e-02 
+  1 SNES Function norm 1.583234528464e-09 
+  0 SNES Function norm 1.729653162359e-02 
+  1 SNES Function norm 1.585780793075e-09 
+  0 SNES Function norm 9.523134479104e-03 
+  1 SNES Function norm 1.610867997448e-09 
+  0 SNES Function norm 4.722883890231e-03 
+  1 SNES Function norm 1.598956610211e-09 
+  0 SNES Function norm 5.215182389660e-03 
+  1 SNES Function norm 1.586768807861e-09 
+  0 SNES Function norm 4.848668193622e-03 
+  1 SNES Function norm 1.601998986546e-09 
+  0 SNES Function norm 3.024330111899e-03 
+  1 SNES Function norm 1.583767991413e-09 
+  0 SNES Function norm 1.364201181166e-03 
+  1 SNES Function norm 1.567068525443e-09 
+ADJOINT RUN:
+angle: [-8.75225104921159, 15.08867535398379, 0.14101352463888536, -33.331442221725865, -21.58346284072008, 22.705017325529177, -31.16835689203763, -12.770971324648922, 13.781732186526703, -12.480723768469293, 9.04406834653551, 27.918507750624205]
+Controls value: ([-8.75225104921159, 15.08867535398379, 0.14101352463888536, -33.331442221725865, -21.58346284072008, 22.705017325529177, -31.16835689203763, -12.770971324648922, 13.781732186526703, -12.480723768469293, 9.04406834653551, 27.918507750624205],)
+Derivatives: ([0.0008493408495933684, -0.022298686755239022, -0.005196207074087228, 0.003135767354671381, 0.010547535151835607, 0.006447912195062553, -0.006188831515742159, -0.005226728358254771, -0.000985502612489077, -0.0034107388827453325, 0.007927105446852349, 0.006687456686282982],)
+Functional value: -8267.288721562236
+FORWARD RUN:
+angle: [-8.759342938882352, 15.099907817452351, 0.1361654629971423, -33.33374175932224, -21.586671031777712, 22.701735143673552, -31.164380832336654, -12.76583553677846, 13.77875297583151, -12.474455129375537, 9.041490778048386, 27.91255229755369]
+  0 SNES Function norm 2.764355096095e+03 
+  1 SNES Function norm 1.477801577445e-09 
+  0 SNES Function norm 8.005803511554e+02 
+  1 SNES Function norm 1.497168415483e-09 
+  0 SNES Function norm 4.324026717288e+02 
+  1 SNES Function norm 1.524164134839e-09 
+  0 SNES Function norm 3.401544444948e+02 
+  1 SNES Function norm 1.540175989330e-09 
+  0 SNES Function norm 2.831029183255e+02 
+  1 SNES Function norm 1.579362542692e-09 
+  0 SNES Function norm 2.644810924669e+02 
+  1 SNES Function norm 1.596463909993e-09 
+  0 SNES Function norm 2.475136015274e+02 
+  1 SNES Function norm 1.588286671854e-09 
+  0 SNES Function norm 2.173701115041e+02 
+  1 SNES Function norm 1.584242660273e-09 
+  0 SNES Function norm 1.827111387854e+02 
+  1 SNES Function norm 1.591616847790e-09 
+  0 SNES Function norm 1.514301529139e+02 
+  1 SNES Function norm 1.612791791234e-09 
+  0 SNES Function norm 1.236522264751e+02 
+  1 SNES Function norm 1.575997573252e-09 
+  0 SNES Function norm 9.754514880114e+01 
+  1 SNES Function norm 1.581552443377e-09 
+  0 SNES Function norm 7.359866995125e+01 
+  1 SNES Function norm 1.578161055312e-09 
+  0 SNES Function norm 5.343557638212e+01 
+  1 SNES Function norm 1.598351182459e-09 
+  0 SNES Function norm 3.767456469351e+01 
+  1 SNES Function norm 1.592365409672e-09 
+  0 SNES Function norm 2.570225501915e+01 
+  1 SNES Function norm 1.569488898253e-09 
+  0 SNES Function norm 1.670085889080e+01 
+  1 SNES Function norm 1.605283226757e-09 
+  0 SNES Function norm 1.023264666165e+01 
+  1 SNES Function norm 1.602422537638e-09 
+  0 SNES Function norm 6.000256995000e+00 
+  1 SNES Function norm 1.568034709162e-09 
+  0 SNES Function norm 3.487093570122e+00 
+  1 SNES Function norm 1.580689534783e-09 
+  0 SNES Function norm 2.013724077521e+00 
+  1 SNES Function norm 1.577595565329e-09 
+  0 SNES Function norm 1.114571357191e+00 
+  1 SNES Function norm 1.576912558595e-09 
+  0 SNES Function norm 6.471368579674e-01 
+  1 SNES Function norm 1.564430079551e-09 
+  0 SNES Function norm 4.826412632763e-01 
+  1 SNES Function norm 1.578100846974e-09 
+  0 SNES Function norm 3.722449577056e-01 
+  1 SNES Function norm 1.565264177685e-09 
+  0 SNES Function norm 2.361507620255e-01 
+  1 SNES Function norm 1.605981785476e-09 
+  0 SNES Function norm 1.264453454650e-01 
+  1 SNES Function norm 1.598394654050e-09 
+  0 SNES Function norm 9.172087964960e-02 
+  1 SNES Function norm 1.584859204546e-09 
+  0 SNES Function norm 8.243063628983e-02 
+  1 SNES Function norm 1.583658056501e-09 
+  0 SNES Function norm 5.748195673473e-02 
+  1 SNES Function norm 1.570659027402e-09 
+  0 SNES Function norm 2.921929019385e-02 
+  1 SNES Function norm 1.588116108864e-09 
+  0 SNES Function norm 1.980777693351e-02 
+  1 SNES Function norm 1.593270767385e-09 
+  0 SNES Function norm 2.153260227192e-02 
+  1 SNES Function norm 1.582896122299e-09 
+  0 SNES Function norm 1.729536871354e-02 
+  1 SNES Function norm 1.572315783832e-09 
+  0 SNES Function norm 9.521974990020e-03 
+  1 SNES Function norm 1.577061994723e-09 
+  0 SNES Function norm 4.722215551345e-03 
+  1 SNES Function norm 1.578046795665e-09 
+  0 SNES Function norm 5.215187040447e-03 
+  1 SNES Function norm 1.597715003031e-09 
+  0 SNES Function norm 4.848682644986e-03 
+  1 SNES Function norm 1.599680729827e-09 
+  0 SNES Function norm 3.024260759621e-03 
+  1 SNES Function norm 1.574936914596e-09 
+  0 SNES Function norm 1.364130389665e-03 
+  1 SNES Function norm 1.594250330724e-09 
+ADJOINT RUN:
+angle: [-8.759342938882352, 15.099907817452351, 0.1361654629971423, -33.33374175932224, -21.586671031777712, 22.701735143673552, -31.164380832336654, -12.76583553677846, 13.77875297583151, -12.474455129375537, 9.041490778048386, 27.91255229755369]
+Controls value: ([-8.759342938882352, 15.099907817452351, 0.1361654629971423, -33.33374175932224, -21.586671031777712, 22.701735143673552, -31.164380832336654, -12.76583553677846, 13.77875297583151, -12.474455129375537, 9.041490778048386, 27.91255229755369],)
+Derivatives: ([0.0011791182062138835, -0.0030089914136242958, 0.003379664545641393, -0.001178363686894987, -0.0021646077994472153, -0.0018371279731384223, -0.002152721123505313, -0.001928116662196209, 0.0007143931986354542, -0.0029877425586250553, -0.00041019014239353506, -0.00343046061464662],)
+Functional value: -8267.288963762543
+FORWARD RUN:
+angle: [-8.760272612279039, 15.106192673529044, 0.13356648105224003, -33.33303649167224, -21.58475309753908, 22.702785759574827, -31.162644887263827, -12.762411665228683, 13.778471507953615, -12.470762343836409, 9.041795048750597, 27.91439691552739]
+  0 SNES Function norm 2.764348064443e+03 
+  1 SNES Function norm 1.445934500542e-09 
+  0 SNES Function norm 8.005624025179e+02 
+  1 SNES Function norm 1.499957025810e-09 
+  0 SNES Function norm 4.323922914954e+02 
+  1 SNES Function norm 1.538846935677e-09 
+  0 SNES Function norm 3.401440574535e+02 
+  1 SNES Function norm 1.525158072392e-09 
+  0 SNES Function norm 2.830927254946e+02 
+  1 SNES Function norm 1.593520447094e-09 
+  0 SNES Function norm 2.644725303719e+02 
+  1 SNES Function norm 1.604722673832e-09 
+  0 SNES Function norm 2.475063551257e+02 
+  1 SNES Function norm 1.611744822888e-09 
+  0 SNES Function norm 2.173638352240e+02 
+  1 SNES Function norm 1.596416161329e-09 
+  0 SNES Function norm 1.827056216556e+02 
+  1 SNES Function norm 1.606787054174e-09 
+  0 SNES Function norm 1.514255324071e+02 
+  1 SNES Function norm 1.577466026022e-09 
+  0 SNES Function norm 1.236485715881e+02 
+  1 SNES Function norm 1.576667869510e-09 
+  0 SNES Function norm 9.754211390470e+01 
+  1 SNES Function norm 1.603210361774e-09 
+  0 SNES Function norm 7.359581107583e+01 
+  1 SNES Function norm 1.560087279368e-09 
+  0 SNES Function norm 5.343275663209e+01 
+  1 SNES Function norm 1.574698600241e-09 
+  0 SNES Function norm 3.767199121220e+01 
+  1 SNES Function norm 1.606929836735e-09 
+  0 SNES Function norm 2.570019579906e+01 
+  1 SNES Function norm 1.576108712778e-09 
+  0 SNES Function norm 1.669940696387e+01 
+  1 SNES Function norm 1.602447781595e-09 
+  0 SNES Function norm 1.023171975303e+01 
+  1 SNES Function norm 1.602991057731e-09 
+  0 SNES Function norm 5.999702877720e+00 
+  1 SNES Function norm 1.608191315138e-09 
+  0 SNES Function norm 3.486764664024e+00 
+  1 SNES Function norm 1.581764665746e-09 
+  0 SNES Function norm 2.013507403767e+00 
+  1 SNES Function norm 1.575462378877e-09 
+  0 SNES Function norm 1.114399724314e+00 
+  1 SNES Function norm 1.601710063442e-09 
+  0 SNES Function norm 6.469951579197e-01 
+  1 SNES Function norm 1.603895304120e-09 
+  0 SNES Function norm 4.825487921774e-01 
+  1 SNES Function norm 1.597576912985e-09 
+  0 SNES Function norm 3.721886274009e-01 
+  1 SNES Function norm 1.590877208747e-09 
+  0 SNES Function norm 2.361112455400e-01 
+  1 SNES Function norm 1.564691013780e-09 
+  0 SNES Function norm 1.264138106981e-01 
+  1 SNES Function norm 1.573039420155e-09 
+  0 SNES Function norm 9.170254666675e-02 
+  1 SNES Function norm 1.569788618390e-09 
+  0 SNES Function norm 8.242205464510e-02 
+  1 SNES Function norm 1.598139652809e-09 
+  0 SNES Function norm 5.747676781502e-02 
+  1 SNES Function norm 1.606910867684e-09 
+  0 SNES Function norm 2.921476400843e-02 
+  1 SNES Function norm 1.584235620592e-09 
+  0 SNES Function norm 1.980450096128e-02 
+  1 SNES Function norm 1.591999435928e-09 
+  0 SNES Function norm 2.153106931827e-02 
+  1 SNES Function norm 1.580840743649e-09 
+  0 SNES Function norm 1.729448177420e-02 
+  1 SNES Function norm 1.600210470157e-09 
+  0 SNES Function norm 9.521328508330e-03 
+  1 SNES Function norm 1.597173075476e-09 
+  0 SNES Function norm 4.721739909279e-03 
+  1 SNES Function norm 1.579625637598e-09 
+  0 SNES Function norm 5.215029615314e-03 
+  1 SNES Function norm 1.605415987065e-09 
+  0 SNES Function norm 4.848621737426e-03 
+  1 SNES Function norm 1.603376428878e-09 
+  0 SNES Function norm 3.024226814464e-03 
+  1 SNES Function norm 1.573244920843e-09 
+  0 SNES Function norm 1.364092547376e-03 
+  1 SNES Function norm 1.585903766213e-09 
+ADJOINT RUN:
+angle: [-8.760272612279039, 15.106192673529044, 0.13356648105224003, -33.33303649167224, -21.58475309753908, 22.702785759574827, -31.162644887263827, -12.762411665228683, 13.778471507953615, -12.470762343836409, 9.041795048750597, 27.91439691552739]
+Controls value: ([-8.760272612279039, 15.106192673529044, 0.13356648105224003, -33.33303649167224, -21.58475309753908, 22.702785759574827, -31.162644887263827, -12.762411665228683, 13.778471507953615, -12.470762343836409, 9.041795048750597, 27.91439691552739],)
+Derivatives: ([-0.00024390258665379002, 0.0007878960065155166, 0.001956873844481733, -0.00019757141032377939, -0.0010193952360278142, -0.0007293366139628376, -0.0008210565538430018, -0.0011198801863880367, -0.00026968869308945814, -0.0017038992119651397, -0.0006231459715871752, -0.0016981943346829182],)
+Functional value: -8267.28900441075
+FORWARD RUN:
+angle: [-8.75938691786488, 15.108034670852271, 0.13232986537801011, -33.33288654974571, -21.583835543687588, 22.703013652554873, -31.16157267342185, -12.760018989287902, 13.779109298730642, -12.467971008956134, 9.042375065491438, 27.91579890393277]
+  0 SNES Function norm 2.764321320560e+03 
+  1 SNES Function norm 1.484266582818e-09 
+  0 SNES Function norm 8.005504293300e+02 
+  1 SNES Function norm 1.485131293494e-09 
+  0 SNES Function norm 4.323849816051e+02 
+  1 SNES Function norm 1.518617304113e-09 
+  0 SNES Function norm 3.401371065086e+02 
+  1 SNES Function norm 1.533737284090e-09 
+  0 SNES Function norm 2.830859736640e+02 
+  1 SNES Function norm 1.602964644395e-09 
+  0 SNES Function norm 2.644669272656e+02 
+  1 SNES Function norm 1.615758072606e-09 
+  0 SNES Function norm 2.475017195909e+02 
+  1 SNES Function norm 1.623199056250e-09 
+  0 SNES Function norm 2.173598529772e+02 
+  1 SNES Function norm 1.600431951507e-09 
+  0 SNES Function norm 1.827021396732e+02 
+  1 SNES Function norm 1.581757264477e-09 
+  0 SNES Function norm 1.514226562525e+02 
+  1 SNES Function norm 1.548999441892e-09 
+  0 SNES Function norm 1.236463476343e+02 
+  1 SNES Function norm 1.592780638820e-09 
+  0 SNES Function norm 9.754028469286e+01 
+  1 SNES Function norm 1.580707689737e-09 
+  0 SNES Function norm 7.359406050582e+01 
+  1 SNES Function norm 1.610952362382e-09 
+  0 SNES Function norm 5.343099633664e+01 
+  1 SNES Function norm 1.559405632548e-09 
+  0 SNES Function norm 3.767037093784e+01 
+  1 SNES Function norm 1.602376089180e-09 
+  0 SNES Function norm 2.569889725423e+01 
+  1 SNES Function norm 1.583012526854e-09 
+  0 SNES Function norm 1.669848717669e+01 
+  1 SNES Function norm 1.584040440641e-09 
+  0 SNES Function norm 1.023112118417e+01 
+  1 SNES Function norm 1.562641367559e-09 
+  0 SNES Function norm 5.999330113768e+00 
+  1 SNES Function norm 1.604215228351e-09 
+  0 SNES Function norm 3.486533370678e+00 
+  1 SNES Function norm 1.571103869682e-09 
+  0 SNES Function norm 2.013355477685e+00 
+  1 SNES Function norm 1.601220112139e-09 
+  0 SNES Function norm 1.114287233665e+00 
+  1 SNES Function norm 1.598468104061e-09 
+  0 SNES Function norm 6.469096057232e-01 
+  1 SNES Function norm 1.576858307389e-09 
+  0 SNES Function norm 4.824961769290e-01 
+  1 SNES Function norm 1.571600914137e-09 
+  0 SNES Function norm 3.721579356764e-01 
+  1 SNES Function norm 1.596322237390e-09 
+  0 SNES Function norm 2.360903353330e-01 
+  1 SNES Function norm 1.558428487000e-09 
+  0 SNES Function norm 1.263969276352e-01 
+  1 SNES Function norm 1.576412118609e-09 
+  0 SNES Function norm 9.169217955662e-02 
+  1 SNES Function norm 1.573694919014e-09 
+  0 SNES Function norm 8.241702733273e-02 
+  1 SNES Function norm 1.581900044353e-09 
+  0 SNES Function norm 5.747381383173e-02 
+  1 SNES Function norm 1.581547335193e-09 
+  0 SNES Function norm 2.921226574942e-02 
+  1 SNES Function norm 1.583281785407e-09 
+  0 SNES Function norm 1.980260573423e-02 
+  1 SNES Function norm 1.581542164268e-09 
+  0 SNES Function norm 2.153014456602e-02 
+  1 SNES Function norm 1.593595086267e-09 
+  0 SNES Function norm 1.729396860525e-02 
+  1 SNES Function norm 1.613197174934e-09 
+  0 SNES Function norm 9.520980669249e-03 
+  1 SNES Function norm 1.603486123385e-09 
+  0 SNES Function norm 4.721464816080e-03 
+  1 SNES Function norm 1.583480743238e-09 
+  0 SNES Function norm 5.214917052543e-03 
+  1 SNES Function norm 1.586855810047e-09 
+  0 SNES Function norm 4.848576881686e-03 
+  1 SNES Function norm 1.597909507881e-09 
+  0 SNES Function norm 3.024208983007e-03 
+  1 SNES Function norm 1.566034796781e-09 
+  0 SNES Function norm 1.364071717293e-03 
+  1 SNES Function norm 1.597104815600e-09 
+ADJOINT RUN:
+angle: [-8.75938691786488, 15.108034670852271, 0.13232986537801011, -33.33288654974571, -21.583835543687588, 22.703013652554873, -31.16157267342185, -12.760018989287902, 13.779109298730642, -12.467971008956134, 9.042375065491438, 27.91579890393277]
+Controls value: ([-8.75938691786488, 15.108034670852271, 0.13232986537801011, -33.33288654974571, -21.583835543687588, 22.703013652554873, -31.16157267342185, -12.760018989287902, 13.779109298730642, -12.467971008956134, 9.042375065491438, 27.91579890393277],)
+Derivatives: ([-0.000336896386803372, 0.00019492823391231638, 0.00016488672783521253, -0.00011219560559287593, -0.0001948844108382861, -8.137651050625225e-05, -8.83607603571968e-05, -0.00017346791858414203, -0.0003030312627896199, 0.00012436412538773144, 1.260675828923118e-05, -0.00020063082127510238],)
+Functional value: -8267.289011677527
+/home/can/firedrake/src/pyadjoint/pyadjoint/optimization/optimization.py:133: OptimizeWarning: Unknown solver options: ptol
+  res = scipy_minimize(J, m_global, method=method, bounds=bounds, **kwargs)
+6383.911119987719
+  NIT    FC           OBJFUN            GNORM
+    1     2    -7.283366E+03     3.073997E+01
+    2     3    -4.802727E+03     2.566373E+01
+    3     5    -7.513101E+03     3.578554E+01
+    4     7    -7.975704E+03     2.387482E+01
+    5     8    -8.078251E+03     1.629402E+01
+    6     9    -7.986555E+03     1.301168E+01
+    7    11    -8.183946E+03     1.622129E+01
+    8    13    -8.203609E+03     1.550861E+01
+    9    15    -8.265199E+03     8.191312E+00
+   10    16    -8.266630E+03     2.341639E+00
+   11    17    -8.267163E+03     1.735763E+00
+   12    18    -8.267268E+03     3.710684E-01
+   13    19    -8.267285E+03     1.726605E-01
+   14    20    -8.267289E+03     1.557540E-01
+   15    21    -8.267289E+03     2.955331E-02
+   16    22    -8.267289E+03     7.812855E-03
+   17    23    -8.267289E+03     3.781032E-03
+   18    23    -8.267289E+03     6.492138E-04
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -8267.289011677527
+            Iterations: 18
+            Function evaluations: 23
+            Gradient evaluations: 18
+time cost: 127.98min
+/home/can/firedrake/src/pyadjoint/pyadjoint/optimization/optimization.py:133: OptimizeWarning: Unknown solver options: ptol
+  res = scipy_minimize(J, m_global, method=method, bounds=bounds, **kwargs)
+/home/can/firedrake/src/pyadjoint/pyadjoint/optimization/optimization.py:133: OptimizeWarning: Unknown solver options: ptol
+  res = scipy_minimize(J, m_global, method=method, bounds=bounds, **kwargs)
+6383.911119987719
+  NIT    FC           OBJFUN            GNORM
+    1     2    -7.283366E+03     3.073997E+01
+    2     3    -4.802727E+03     2.566373E+01
+    3     5    -7.513101E+03     3.578554E+01
+    4     7    -7.975704E+03     2.387482E+01
+    5     8    -8.078251E+03     1.629402E+01
+    6     9    -7.986555E+03     1.301168E+01
+    7    11    -8.183946E+03     1.622129E+01
+    8    13    -8.203609E+03     1.550861E+01
+    9    15    -8.265199E+03     8.191312E+00
+   10    16    -8.266630E+03     2.341639E+00
+   11    17    -8.267163E+03     1.735763E+00
+   12    18    -8.267268E+03     3.710684E-01
+   13    19    -8.267285E+03     1.726605E-01
+   14    20    -8.267289E+03     1.557540E-01
+   15    21    -8.267289E+03     2.955331E-02
+   16    22    -8.267289E+03     7.812855E-03
+   17    23    -8.267289E+03     3.781032E-03
+   18    23    -8.267289E+03     6.492138E-04
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -8267.289011677527
+            Iterations: 18
+            Function evaluations: 23
+            Gradient evaluations: 18
+time cost: 127.98min
+/home/can/firedrake/src/pyadjoint/pyadjoint/optimization/optimization.py:133: OptimizeWarning: Unknown solver options: ptol
+  res = scipy_minimize(J, m_global, method=method, bounds=bounds, **kwargs)
+/home/can/firedrake/src/pyadjoint/pyadjoint/optimization/optimization.py:133: OptimizeWarning: Unknown solver options: ptol
+  res = scipy_minimize(J, m_global, method=method, bounds=bounds, **kwargs)
+6383.911119987719
+  NIT    FC           OBJFUN            GNORM
+    1     2    -7.283366E+03     3.073997E+01
+    2     3    -4.802727E+03     2.566373E+01
+    3     5    -7.513101E+03     3.578554E+01
+    4     7    -7.975704E+03     2.387482E+01
+    5     8    -8.078251E+03     1.629402E+01
+    6     9    -7.986555E+03     1.301168E+01
+    7    11    -8.183946E+03     1.622129E+01
+    8    13    -8.203609E+03     1.550861E+01
+    9    15    -8.265199E+03     8.191312E+00
+   10    16    -8.266630E+03     2.341639E+00
+   11    17    -8.267163E+03     1.735763E+00
+   12    18    -8.267268E+03     3.710684E-01
+   13    19    -8.267285E+03     1.726605E-01
+   14    20    -8.267289E+03     1.557540E-01
+   15    21    -8.267289E+03     2.955331E-02
+   16    22    -8.267289E+03     7.812855E-03
+   17    23    -8.267289E+03     3.781032E-03
+   18    23    -8.267289E+03     6.492138E-04
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -8267.289011677527
+            Iterations: 18
+            Function evaluations: 23
+            Gradient evaluations: 18
+time cost: 127.98min
+6383.911119987719
+  NIT    FC           OBJFUN            GNORM
+    1     2    -7.283366E+03     3.073997E+01
+    2     3    -4.802727E+03     2.566373E+01
+    3     5    -7.513101E+03     3.578554E+01
+    4     7    -7.975704E+03     2.387482E+01
+    5     8    -8.078251E+03     1.629402E+01
+    6     9    -7.986555E+03     1.301168E+01
+    7    11    -8.183946E+03     1.622129E+01
+    8    13    -8.203609E+03     1.550861E+01
+    9    15    -8.265199E+03     8.191312E+00
+   10    16    -8.266630E+03     2.341639E+00
+   11    17    -8.267163E+03     1.735763E+00
+   12    18    -8.267268E+03     3.710684E-01
+   13    19    -8.267285E+03     1.726605E-01
+   14    20    -8.267289E+03     1.557540E-01
+   15    21    -8.267289E+03     2.955331E-02
+   16    22    -8.267289E+03     7.812855E-03
+   17    23    -8.267289E+03     3.781032E-03
+   18    23    -8.267289E+03     6.492138E-04
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -8267.289011677527
+            Iterations: 18
+            Function evaluations: 23
+            Gradient evaluations: 18
+time cost: 127.98min
+6383.911119987719
+  NIT    FC           OBJFUN            GNORM
+    1     2    -7.283366E+03     3.073997E+01
+    2     3    -4.802727E+03     2.566373E+01
+    3     5    -7.513101E+03     3.578554E+01
+    4     7    -7.975704E+03     2.387482E+01
+    5     8    -8.078251E+03     1.629402E+01
+    6     9    -7.986555E+03     1.301168E+01
+    7    11    -8.183946E+03     1.622129E+01
+    8    13    -8.203609E+03     1.550861E+01
+    9    15    -8.265199E+03     8.191312E+00
+   10    16    -8.266630E+03     2.341639E+00
+   11    17    -8.267163E+03     1.735763E+00
+   12    18    -8.267268E+03     3.710684E-01
+   13    19    -8.267285E+03     1.726605E-01
+   14    20    -8.267289E+03     1.557540E-01
+   15    21    -8.267289E+03     2.955331E-02
+   16    22    -8.267289E+03     7.812855E-03
+   17    23    -8.267289E+03     3.781032E-03
+   18    23    -8.267289E+03     6.492138E-04
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -8267.289011677527
+            Iterations: 18
+            Function evaluations: 23
+            Gradient evaluations: 18
+time cost: 127.98min
+/home/can/firedrake/src/pyadjoint/pyadjoint/optimization/optimization.py:133: OptimizeWarning: Unknown solver options: ptol
+  res = scipy_minimize(J, m_global, method=method, bounds=bounds, **kwargs)
+6383.911119987719
+  NIT    FC           OBJFUN            GNORM
+    1     2    -7.283366E+03     3.073997E+01
+    2     3    -4.802727E+03     2.566373E+01
+    3     5    -7.513101E+03     3.578554E+01
+    4     7    -7.975704E+03     2.387482E+01
+    5     8    -8.078251E+03     1.629402E+01
+    6     9    -7.986555E+03     1.301168E+01
+    7    11    -8.183946E+03     1.622129E+01
+    8    13    -8.203609E+03     1.550861E+01
+    9    15    -8.265199E+03     8.191312E+00
+   10    16    -8.266630E+03     2.341639E+00
+   11    17    -8.267163E+03     1.735763E+00
+   12    18    -8.267268E+03     3.710684E-01
+   13    19    -8.267285E+03     1.726605E-01
+   14    20    -8.267289E+03     1.557540E-01
+   15    21    -8.267289E+03     2.955331E-02
+   16    22    -8.267289E+03     7.812855E-03
+   17    23    -8.267289E+03     3.781032E-03
+   18    23    -8.267289E+03     6.492138E-04
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -8267.289011677527
+            Iterations: 18
+            Function evaluations: 23
+            Gradient evaluations: 18
+time cost: 127.98min
+/home/can/firedrake/src/pyadjoint/pyadjoint/optimization/optimization.py:133: OptimizeWarning: Unknown solver options: ptol
+  res = scipy_minimize(J, m_global, method=method, bounds=bounds, **kwargs)
+6383.911119987719
+  NIT    FC           OBJFUN            GNORM
+    1     2    -7.283366E+03     3.073997E+01
+    2     3    -4.802727E+03     2.566373E+01
+    3     5    -7.513101E+03     3.578554E+01
+    4     7    -7.975704E+03     2.387482E+01
+    5     8    -8.078251E+03     1.629402E+01
+    6     9    -7.986555E+03     1.301168E+01
+    7    11    -8.183946E+03     1.622129E+01
+    8    13    -8.203609E+03     1.550861E+01
+    9    15    -8.265199E+03     8.191312E+00
+   10    16    -8.266630E+03     2.341639E+00
+   11    17    -8.267163E+03     1.735763E+00
+   12    18    -8.267268E+03     3.710684E-01
+   13    19    -8.267285E+03     1.726605E-01
+   14    20    -8.267289E+03     1.557540E-01
+   15    21    -8.267289E+03     2.955331E-02
+   16    22    -8.267289E+03     7.812855E-03
+   17    23    -8.267289E+03     3.781032E-03
+   18    23    -8.267289E+03     6.492138E-04
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -8267.289011677527
+            Iterations: 18
+            Function evaluations: 23
+            Gradient evaluations: 18
+time cost: 127.98min
+6383.911119987719
+  NIT    FC           OBJFUN            GNORM
+    1     2    -7.283366E+03     3.073997E+01
+    2     3    -4.802727E+03     2.566373E+01
+    3     5    -7.513101E+03     3.578554E+01
+    4     7    -7.975704E+03     2.387482E+01
+    5     8    -8.078251E+03     1.629402E+01
+    6     9    -7.986555E+03     1.301168E+01
+    7    11    -8.183946E+03     1.622129E+01
+    8    13    -8.203609E+03     1.550861E+01
+    9    15    -8.265199E+03     8.191312E+00
+   10    16    -8.266630E+03     2.341639E+00
+   11    17    -8.267163E+03     1.735763E+00
+   12    18    -8.267268E+03     3.710684E-01
+   13    19    -8.267285E+03     1.726605E-01
+   14    20    -8.267289E+03     1.557540E-01
+   15    21    -8.267289E+03     2.955331E-02
+   16    22    -8.267289E+03     7.812855E-03
+   17    23    -8.267289E+03     3.781032E-03
+   18    23    -8.267289E+03     6.492138E-04
+Optimization terminated successfully    (Exit mode 0)
+            Current function value: -8267.289011677527
+            Iterations: 18
+            Function evaluations: 23
+            Gradient evaluations: 18
+time cost: 127.98min
+(firedrake) ]0;can@can-deskcomputer: /media/can/can_disk/thetis_new/Git_mythetis/Thetis_zc/4.yaw/confenrence_mesh[01;32mcan@can-deskcomputer[00m:[01;34m/media/can/can_disk/thetis_new/Git_mythetis/Thetis_zc/4.yaw/confenrence_mesh[00m$ exit
+exit
+
+Script done on 2021-04-12 20:16:25+0100

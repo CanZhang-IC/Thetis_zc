@@ -1,0 +1,370 @@
+Script started on 2021-04-13 14:52:20+0100
+]0;can@can-deskcomputer: /media/can/can_disk/thetis_new/Git_mythetis/Thetis_zc/4.yaw/confenrence_mesh[01;32mcan@can-deskcomputer[00m:[01;34m/media/can/can_disk/thetis_new/Git_mythetis/Thetis_zc/4.yaw/confenrence_mesh[00m$ exitmpirun -np 8 python op-closed_booundary_upwind.py [A]0;can@can-deskcomputer: /media/can/can_disk/thetis_new/Git_mythetis/Thetis_zc/4.yaw/confenrence_mesh[01;32mcan@can-deskcomputer[00m:[01;34m/media/can/can_disk/thetis_new/Git_mythetis/Thetis_zc/4.yaw/confenrence_mesh[00m$ sf[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+(firedrake) ]0;can@can-deskcomputer: /media/can/can_disk/thetis_new/Git_mythetis/Thetis_zc/4.yaw/confenrence_mesh[01;32mcan@can-deskcomputer[00m:[01;34m/media/can/can_disk/thetis_new/Git_mythetis/Thetis_zc/4.yaw/confenrence_mesh[00m$ sfexitmpirun -np 8 python  op-closed_boundary_upwind.py 
+Using default SIPG parameters
+dt = 60
+Using time integrator: CrankNicolson
+Number of turbines = 12.000268939782408
+    0     0 T=      0.00 eta norm:     0.0000 u norm:  2190.8902  0.00
+volume2d rel. error  0.0000e+00
+Updating tidal elevation at t = 60
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+  0 SNES Function norm 3.605610060084e+02 
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+  1 SNES Function norm 1.518926105258e-09 
+Current power, average power, integrated power and profit for each farm: [6025.5851189031355], [6025.5851189031355], [361535.1071341881], [6025.5851189031355]. The force is -3936.2051744575792. The extra_force is -38.97843888333404
+Updating tidal elevation at t = 120
+  0 SNES Function norm 3.446243326695e+02 
+  1 SNES Function norm 1.499799555658e-09 
+Current power, average power, integrated power and profit for each farm: [4983.262657748632], [5504.423888325883], [660530.866599106], [5504.423888325883]. The force is -3441.236573315884. The extra_force is -31.057340859645755
+    1     2 T=    120.00 eta norm:    43.1467 u norm:  2182.5119 13.26
+volume2d rel. error  8.1960e-04
+Updating tidal elevation at t = 180
+  0 SNES Function norm 3.177216385303e+02 
+  1 SNES Function norm 1.528310464908e-09 
+Current power, average power, integrated power and profit for each farm: [4516.842289776161], [5175.230022142642], [931541.4039856757], [5175.230022142642]. The force is -3196.0516456355394. The extra_force is -26.825888236472426
+Updating tidal elevation at t = 240
+  0 SNES Function norm 2.152319573732e+02 
+  1 SNES Function norm 1.587713766114e-09 
+Current power, average power, integrated power and profit for each farm: [4315.7018494908025], [4960.347978979683], [1190483.514955124], [4960.347978979683]. The force is -3081.4025393331813. The extra_force is -24.548229997436287
+    2     4 T=    240.00 eta norm:    55.2353 u norm:  2194.8199  2.65
+volume2d rel. error  1.0748e-03
+Updating tidal elevation at t = 300
+  0 SNES Function norm 1.477460232740e+02 
+  1 SNES Function norm 1.650052155805e-09 
+Current power, average power, integrated power and profit for each farm: [4228.47481960541], [4813.9733471048285], [1444192.0041314485], [4813.9733471048285]. The force is -3028.4705428885577. The extra_force is -23.89973178991216
+Updating tidal elevation at t = 360
+  0 SNES Function norm 1.448153190321e+02 
+  1 SNES Function norm 1.626434534689e-09 
+Current power, average power, integrated power and profit for each farm: [4184.687346465809], [4709.0923469983245], [1695273.244919397], [4709.0923469983245]. The force is -3001.597013460474. The extra_force is -23.927533135423054
+    3     6 T=    360.00 eta norm:    42.8731 u norm:  2199.0672  3.02
+volume2d rel. error  8.0942e-04
+Updating tidal elevation at t = 420
+  0 SNES Function norm 1.387302513149e+02 
+  1 SNES Function norm 1.617560339867e-09 
+Current power, average power, integrated power and profit for each farm: [4157.782859623034], [4630.333848801854], [1944740.216496779], [4630.333848801854]. The force is -2985.863163775165. The extra_force is -24.027773703840502
+Updating tidal elevation at t = 480
+  0 SNES Function norm 1.145713846912e+02 
+  1 SNES Function norm 1.648179074287e-09 
+Current power, average power, integrated power and profit for each farm: [4140.841084138899], [4569.147253218985], [2193190.6815451127], [4569.147253218985]. The force is -2976.4935599633673. The extra_force is -24.01503499104426
+    4     8 T=    480.00 eta norm:    37.5171 u norm:  2196.6574  3.04
+volume2d rel. error  6.9500e-04
+Updating tidal elevation at t = 540
+  0 SNES Function norm 9.173536111906e+01 
+  1 SNES Function norm 1.623950247062e-09 
+Current power, average power, integrated power and profit for each farm: [4132.424217510714], [4520.622471473621], [2441136.1345957555], [4520.622471473621]. The force is -2971.990955783371. The extra_force is -23.913742487731398
+Updating tidal elevation at t = 600
+  0 SNES Function norm 7.966272083514e+01 
+  1 SNES Function norm 1.619170936426e-09 
+Current power, average power, integrated power and profit for each farm: [4130.835588329745], [4481.643783159234], [2688986.26989554], [4481.643783159234]. The force is -2971.1236926509605. The extra_force is -23.788795992248573
+    5    10 T=    600.00 eta norm:    40.4149 u norm:  2195.5678  2.99
+volume2d rel. error  7.5598e-04
+Updating tidal elevation at t = 660
+  0 SNES Function norm 7.062486244976e+01 
+  1 SNES Function norm 1.637023255805e-09 
+Current power, average power, integrated power and profit for each farm: [4133.266681965202], [4449.973137596139], [2936982.270813452], [4449.973137596139]. The force is -2972.324738586788. The extra_force is -23.67834798620691
+Updating tidal elevation at t = 720
+  0 SNES Function norm 5.922244299585e+01 
+  1 SNES Function norm 1.625801828861e-09 
+Current power, average power, integrated power and profit for each farm: [4136.8034242957], [4423.875661487769], [3185190.476271194], [4423.875661487769]. The force is -2974.079664252755. The extra_force is -23.58909444005242
+    6    12 T=    720.00 eta norm:    42.5204 u norm:  2196.4546  3.29
+volume2d rel. error  7.9935e-04
+Updating tidal elevation at t = 780
+  0 SNES Function norm 4.742505291027e+01 
+  1 SNES Function norm 1.639540449017e-09 
+Current power, average power, integrated power and profit for each farm: [4139.468968626728], [4401.998223575381], [3433558.6143887974], [4401.998223575381]. The force is -2975.3884998948643. The extra_force is -23.515735020285547
+Updating tidal elevation at t = 840
+  0 SNES Function norm 3.786109491258e+01 
+  1 SNES Function norm 1.608481188379e-09 
+Current power, average power, integrated power and profit for each farm: [4140.5733425385], [4383.325017787032], [3681993.0149411075], [4383.325017787032]. The force is -2975.9116244609586. The extra_force is -23.45375850240083
+    7    14 T=    840.00 eta norm:    42.1253 u norm:  2197.1028  3.21
+volume2d rel. error  7.9047e-04
+Updating tidal elevation at t = 900
+  0 SNES Function norm 3.041481798986e+01 
+  1 SNES Function norm 1.622835431109e-09 
+Current power, average power, integrated power and profit for each farm: [4140.409361290821], [4367.130640687285], [3930417.576618557], [4367.130640687285]. The force is -2975.8036863290095. The extra_force is -23.402059065387846
+Updating tidal elevation at t = 960
+  0 SNES Function norm 2.396406573673e+01 
+  1 SNES Function norm 1.612707611302e-09 
+Current power, average power, integrated power and profit for each farm: [4139.675433551338], [4352.914690241289], [4178798.102631637], [4352.914690241289]. The force is -2975.419039269419. The extra_force is -23.361044327870367
+    8    16 T=    960.00 eta norm:    41.6113 u norm:  2197.0622  2.55
+volume2d rel. error  7.7982e-04
+Updating tidal elevation at t = 1020
+  0 SNES Function norm 1.830546591360e+01 
+  1 SNES Function norm 1.625909178082e-09 
+Current power, average power, integrated power and profit for each farm: [4138.987490290549], [4340.330737303009], [4427137.3520490695], [4340.330737303009]. The force is -2975.0664354603387. The extra_force is -23.330657810202545
+Updating tidal elevation at t = 1080
+  0 SNES Function norm 1.376091164471e+01 
+  1 SNES Function norm 1.617818718816e-09 
+Current power, average power, integrated power and profit for each farm: [4138.650097044924], [4329.126257288672], [4675456.357871765], [4329.126257288672]. The force is -2974.895796850373. The extra_force is -23.30969004230826
+    9    18 T=   1080.00 eta norm:    41.7697 u norm:  2196.9467  2.55
+volume2d rel. error  7.8348e-04
+Updating tidal elevation at t = 1140
+  0 SNES Function norm 1.030069935638e+01 
+  1 SNES Function norm 1.629338186548e-09 
+Current power, average power, integrated power and profit for each farm: [4138.668096528556], [4319.102143564455], [4923776.443663479], [4319.102143564455]. The force is -2974.9060977399054. The extra_force is -23.29599763365451
+Updating tidal elevation at t = 1200
+  0 SNES Function norm 7.565698001723e+00 
+  1 SNES Function norm 1.622241631298e-09 
+Current power, average power, integrated power and profit for each farm: [4138.883605612158], [4310.09121666684], [5172109.460000209], [4310.09121666684]. The force is -2975.015576759766. The extra_force is -23.287227200454176
+   10    20 T=   1200.00 eta norm:    42.0103 u norm:  2196.9876  2.44
+volume2d rel. error  7.8870e-04
+Updating tidal elevation at t = 1260
+  0 SNES Function norm 5.335964276718e+00 
+  1 SNES Function norm 1.615943984509e-09 
+Current power, average power, integrated power and profit for each farm: [4139.121073268023], [4301.949781266897], [5420456.72439629], [4301.949781266897]. The force is -2975.1350353807306. The extra_force is -23.28143068206856
+Updating tidal elevation at t = 1320
+  0 SNES Function norm 3.618553376503e+00 
+  1 SNES Function norm 1.633920731078e-09 
+Current power, average power, integrated power and profit for each farm: [4139.273259935198], [4294.555393933638], [5668813.119992402], [4294.555393933638]. The force is -2975.2107014540243. The extra_force is -23.277329529293013
+   11    22 T=   1320.00 eta norm:    42.0344 u norm:  2197.0499  2.87
+volume2d rel. error  7.8925e-04
+Updating tidal elevation at t = 1380
+  0 SNES Function norm 2.421284203347e+00 
+  1 SNES Function norm 1.636107426668e-09 
+Current power, average power, integrated power and profit for each farm: [4139.317588799284], [4287.805924145187], [5917172.175320359], [4287.805924145187]. The force is -2975.231818883153. The extra_force is -23.274260210620014
+Updating tidal elevation at t = 1440
+  0 SNES Function norm 1.621971967345e+00 
+  1 SNES Function norm 1.643760174576e-09 
+Current power, average power, integrated power and profit for each farm: [4139.287679090142], [4281.617663934561], [6165529.436065768], [4281.617663934561]. The force is -2975.2158235457414. The extra_force is -23.271952143631957
+   12    24 T=   1440.00 eta norm:    41.9864 u norm:  2197.0574  2.96
+volume2d rel. error  7.8827e-04
+Updating tidal elevation at t = 1500
+  0 SNES Function norm 1.061831220477e+00 
+  1 SNES Function norm 1.599954888260e-09 
+Current power, average power, integrated power and profit for each farm: [4139.233166463747], [4275.922284035729], [6413883.426053593], [4275.922284035729]. The force is -2975.187910545555. The extra_force is -23.27029833694222
+Updating tidal elevation at t = 1560
+  0 SNES Function norm 6.647905294871e-01 
+  1 SNES Function norm 1.617632724715e-09 
+Current power, average power, integrated power and profit for each farm: [4139.190862135716], [4270.6633831934205], [6662234.877781736], [4270.6633831934205]. The force is -2975.166547743943. The extra_force is -23.269208581452318
+   13    26 T=   1560.00 eta norm:    41.9817 u norm:  2197.0453  3.30
+volume2d rel. error  7.8820e-04
+Updating tidal elevation at t = 1620
+  0 SNES Function norm 4.150228941287e-01 
+  1 SNES Function norm 1.598924317600e-09 
+Current power, average power, integrated power and profit for each farm: [4139.1747266299935], [4265.7934329503305], [6910585.361379535], [4265.7934329503305]. The force is -2975.1585706475335. The extra_force is -23.268558697163364
+Updating tidal elevation at t = 1680
+  0 SNES Function norm 2.764707224113e-01 
+  1 SNES Function norm 1.610446004684e-09 
+Current power, average power, integrated power and profit for each farm: [4139.180427769363], [4261.2715399081535], [7158936.187045697], [4261.2715399081535]. The force is -2975.16161399605. The extra_force is -23.268204017590534
+   14    28 T=   1680.00 eta norm:    41.9985 u norm:  2197.0436  2.83
+volume2d rel. error  7.8857e-04
+Updating tidal elevation at t = 1740
+  0 SNES Function norm 1.856910905489e-01 
+  1 SNES Function norm 1.610109904224e-09 
+Current power, average power, integrated power and profit for each farm: [4139.19578794982], [4257.062031219934], [7407287.934322686], [4257.062031219934]. The force is -2975.169443968826. The extra_force is -23.268013919772848
+Updating tidal elevation at t = 1800
+  0 SNES Function norm 1.118289345156e-01 
+  1 SNES Function norm 1.649105974128e-09 
+Current power, average power, integrated power and profit for each farm: [4139.209834222995], [4253.13362465337], [7655640.5243760655], [4253.13362465337]. The force is -2975.1765194897134. The extra_force is -23.26789688207718
+   15    30 T=   1800.00 eta norm:    42.0034 u norm:  2197.0478  2.92
+volume2d rel. error  7.8867e-04
+Updating tidal elevation at t = 1860
+  0 SNES Function norm 6.148674235791e-02 
+  1 SNES Function norm 1.613875582422e-09 
+Current power, average power, integrated power and profit for each farm: [4139.2171268019565], [4249.458898916228], [7903993.551984183], [4249.458898916228]. The force is -2975.1801371923157. The extra_force is -23.26780539746928
+Updating tidal elevation at t = 1920
+  0 SNES Function norm 4.211777109273e-02 
+  1 SNES Function norm 1.599491456316e-09 
+Current power, average power, integrated power and profit for each farm: [4139.217643137882], [4246.013859673154], [8152346.610572455], [4246.013859673154]. The force is -2975.1803323392814. The extra_force is -23.267725061915705
+   16    32 T=   1920.00 eta norm:    41.9996 u norm:  2197.0491  3.29
+volume2d rel. error  7.8859e-04
+Updating tidal elevation at t = 1980
+  0 SNES Function norm 3.404845635119e-02 
+  1 SNES Function norm 1.596997071577e-09 
+Current power, average power, integrated power and profit for each farm: [4139.214319062612], [4242.777509957683], [8400699.469716212], [4242.777509957683]. The force is -2975.1786143850413. The extra_force is -23.267658008754466
+Updating tidal elevation at t = 2040
+  0 SNES Function norm 2.254247110061e-02 
+  1 SNES Function norm 1.606136640617e-09 
+Current power, average power, integrated power and profit for each farm: [4139.210410577836], [4239.731418799452], [8649052.094350882], [4239.731418799452]. The force is -2975.17663142716. The extra_force is -23.267609284072194
+   17    34 T=   2040.00 eta norm:    41.9979 u norm:  2197.0482  2.58
+volume2d rel. error  7.8855e-04
+Updating tidal elevation at t = 2100
+  0 SNES Function norm 1.133484896253e-02 
+  1 SNES Function norm 1.605801736993e-09 
+Current power, average power, integrated power and profit for each farm: [4139.207922402317], [4236.85931890239], [8897404.56969502], [4236.85931890239]. The force is -2975.1753852008037. The extra_force is -23.267579933903377
+Updating tidal elevation at t = 2160
+  0 SNES Function norm 7.949907356868e-03 
+  1 SNES Function norm 1.613279132935e-09 
+Current power, average power, integrated power and profit for each farm: [4139.207306120561], [4234.146762991784], [9145757.008062255], [4234.146762991784]. The force is -2975.175089766637. The extra_force is -23.267566175751348
+   18    36 T=   2160.00 eta norm:    41.9988 u norm:  2197.0477  2.85
+volume2d rel. error  7.8857e-04
+Updating tidal elevation at t = 2220
+  0 SNES Function norm 8.332386858170e-03 
+  1 SNES Function norm 1.621409514594e-09 
+Current power, average power, integrated power and profit for each farm: [4139.207978317831], [4231.580849892488], [9394109.486761324], [4231.580849892488]. The force is -2975.1754407287826. The extra_force is -23.267561833034364
+Updating tidal elevation at t = 2280
+  0 SNES Function norm 6.449769767449e-03 
+  1 SNES Function norm 1.615151231230e-09 
+Current power, average power, integrated power and profit for each farm: [4139.209054625284], [4229.15001317493], [9642462.030038841], [4229.15001317493]. The force is -2975.175988207524. The extra_force is -23.267561203211386
+   19    38 T=   2280.00 eta norm:    41.9995 u norm:  2197.0479  2.47
+volume2d rel. error  7.8859e-04
+Updating tidal elevation at t = 2340
+  0 SNES Function norm 3.415204801709e-03 
+  1 SNES Function norm 1.635500309046e-09 
+Current power, average power, integrated power and profit for each farm: [4139.209878024978], [4226.843855863393], [9890814.62272034], [4226.843855863393]. The force is -2975.1764020381725. The extra_force is -23.267560727646355
+Updating tidal elevation at t = 2400
+  0 SNES Function norm 1.784044425190e-03 
+  1 SNES Function norm 1.607422122588e-09 
+Current power, average power, integrated power and profit for each farm: [4139.210203900788], [4224.653014564328], [10139167.234954387], [4224.653014564328]. The force is -2975.1765622222547. The extra_force is -23.267559166572624
+   20    40 T=   2400.00 eta norm:    41.9993 u norm:  2197.0481  2.73
+volume2d rel. error  7.8858e-04
+/home/can/firedrake/src/pyadjoint/pyadjoint/optimization/optimization.py:133: OptimizeWarning: Unknown solver options: pgtol
+  res = scipy_minimize(J, m_global, method=method, bounds=bounds, **kwargs)
+Calculating minimum distance constraints.
+FORWARD RUN:
+angle: [850.0, 250.0, 850.0, 300.0, 850.0, 350.0, 950.0, 250.0, 950.0, 300.0, 950.0, 350.0, 1050.0, 250.0, 1050.0, 300.0, 1050.0, 350.0, 1150.0, 250.0, 1150.0, 300.0, 1150.0, 350.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  0 SNES Function norm 3.605610060084e+02 
+  1 SNES Function norm 1.475112834742e-09 
+  0 SNES Function norm 3.446243326695e+02 
+  1 SNES Function norm 1.471721212859e-09 
+  0 SNES Function norm 3.177216385303e+02 
+  1 SNES Function norm 1.519098334410e-09 
+  0 SNES Function norm 2.152319573732e+02 
+  1 SNES Function norm 1.584747895500e-09 
+  0 SNES Function norm 1.477460232740e+02 
+  1 SNES Function norm 1.640432426777e-09 
+  0 SNES Function norm 1.448153190322e+02 
+  1 SNES Function norm 1.611512512419e-09 
+  0 SNES Function norm 1.387302513149e+02 
+  1 SNES Function norm 1.616272819350e-09 
+  0 SNES Function norm 1.145713846911e+02 
+  1 SNES Function norm 1.630978669676e-09 
+  0 SNES Function norm 9.173536111906e+01 
+  1 SNES Function norm 1.615756465690e-09 
+  0 SNES Function norm 7.966272083514e+01 
+  1 SNES Function norm 1.608876612332e-09 
+  0 SNES Function norm 7.062486244975e+01 
+  1 SNES Function norm 1.622927449458e-09 
+  0 SNES Function norm 5.922244299585e+01 
+  1 SNES Function norm 1.596895020332e-09 
+  0 SNES Function norm 4.742505291028e+01 
+  1 SNES Function norm 1.597443675410e-09 
+  0 SNES Function norm 3.786109491257e+01 
+  1 SNES Function norm 1.618640523762e-09 
+  0 SNES Function norm 3.041481798986e+01 
+  1 SNES Function norm 1.590202633058e-09 
+  0 SNES Function norm 2.396406573672e+01 
+  1 SNES Function norm 1.608949103257e-09 
+  0 SNES Function norm 1.830546591360e+01 
+  1 SNES Function norm 1.626137898815e-09 
+  0 SNES Function norm 1.376091164471e+01 
+  1 SNES Function norm 1.620263410047e-09 
+  0 SNES Function norm 1.030069935638e+01 
+  1 SNES Function norm 1.610134140953e-09 
+  0 SNES Function norm 7.565698001724e+00 
+  1 SNES Function norm 1.635779315934e-09 
+  0 SNES Function norm 5.335964276720e+00 
+  1 SNES Function norm 1.618048816907e-09 
+  0 SNES Function norm 3.618553376500e+00 
+  1 SNES Function norm 1.621962903468e-09 
+  0 SNES Function norm 2.421284203349e+00 
+  1 SNES Function norm 1.627526331171e-09 
+  0 SNES Function norm 1.621971967347e+00 
+  1 SNES Function norm 1.648666773676e-09 
+  0 SNES Function norm 1.061831220474e+00 
+  1 SNES Function norm 1.609910914738e-09 
+  0 SNES Function norm 6.647905294862e-01 
+  1 SNES Function norm 1.623984421046e-09 
+  0 SNES Function norm 4.150228941271e-01 
+  1 SNES Function norm 1.615852704840e-09 
+  0 SNES Function norm 2.764707224053e-01 
+  1 SNES Function norm 1.633202768905e-09 
+  0 SNES Function norm 1.856910905529e-01 
+  1 SNES Function norm 1.618485364943e-09 
+  0 SNES Function norm 1.118289345290e-01 
+  1 SNES Function norm 1.611150672104e-09 
+  0 SNES Function norm 6.148674235489e-02 
+  1 SNES Function norm 1.617849688986e-09 
+  0 SNES Function norm 4.211777108944e-02 
+  1 SNES Function norm 1.615348026524e-09 
+  0 SNES Function norm 3.404845634044e-02 
+  1 SNES Function norm 1.616988752500e-09 
+  0 SNES Function norm 2.254247110473e-02 
+  1 SNES Function norm 1.617587618054e-09 
+  0 SNES Function norm 1.133484896489e-02 
+  1 SNES Function norm 1.609726161487e-09 
+  0 SNES Function norm 7.949907353082e-03 
+  1 SNES Function norm 1.610647697758e-09 
+  0 SNES Function norm 8.332386855143e-03 
+  1 SNES Function norm 1.622637038945e-09 
+  0 SNES Function norm 6.449769755949e-03 
+  1 SNES Function norm 1.630223788597e-09 
+  0 SNES Function norm 3.415204818105e-03 
+  1 SNES Function norm 1.632863103255e-09 
+  0 SNES Function norm 1.784044422723e-03 
+  1 SNES Function norm 1.602726705534e-09 
+ADJOINT RUN:
+angle: [850.0, 250.0, 850.0, 300.0, 850.0, 350.0, 950.0, 250.0, 950.0, 300.0, 950.0, 350.0, 1050.0, 250.0, 1050.0, 300.0, 1050.0, 350.0, 1150.0, 250.0, 1150.0, 300.0, 1150.0, 350.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper.
