@@ -44,7 +44,7 @@ class TidalTurbine:
         A_T = pi * self.diameter**2 / 4
         uv3 = dot(uv, uv)**1.5 / alpha**3  # upwind cubed velocity
         # this assumes the velocity through the turbine does not change due to the support (is this correct?)
-        return 0.25*C_T*A_T*(1+sqrt(1-fric/(self.diameter*depth)))*uv3
+        return 0.25*C_T*A_T*(1+sqrt(1-C_T))*uv3
 
 
 class ConstantThrustTurbine(TidalTurbine):
@@ -142,7 +142,13 @@ class TidalTurbineFarm:
     def each_turbine_power_output(self, uv, depth, yaw_angle):
         powerlist = []
         for eachdensity in self.turbine_density_list:
-            powerlist.append(assemble(self.turbine.power(uv, depth, yaw_angle) * eachdensity * self.dx))
+            n = as_vector((cos(yaw_angle),sin(yaw_angle)))
+            ux = assemble( uv[0] * eachdensity * dx)
+            uy = assemble( uv[1] * eachdensity * dx)
+            uv_average = as_vector((ux,uy))
+            uv_eff = dot(uv_average,n)
+
+            powerlist.append(assemble(self.turbine.power(uv_eff, depth, yaw_angle) * eachdensity * self.dx))
         return powerlist
 
     def friction_coefficient(self, uv, depth, yaw_angle):
@@ -216,22 +222,24 @@ class DiscreteTidalTurbineFarm(TidalTurbineFarm):
 
             self.turbine_density = self.turbine_density + bump/(radius**2 * unit_bump_integral)
 
-            self.turbine_density_list.append(bump/(radius**2 * unit_bump_integral))
+            
             
             turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
             turbinepvd.project(self.turbine_density)
             File('turbinedensity.pvd').write(turbinepvd)
 
 
-            # one more density for enhancing the y_force
+            # ### one more density for enhancing the y_force
             # dx0 = (x[0] - coord[0])/radius 
-            # dx1 = (x[1] - coord[1])/radius * 2
+            # dx1 = (x[1] - coord[1])/radius / 2
             # psi_x = conditional(lt(abs(dx0), 1), exp(1-1/(1-dx0**2)), 0)
             # psi_y = conditional(lt(abs(dx1), 1), exp(1-1/(1-dx1**2)), 0)
             # bump = psi_x * psi_y
 
             # unit_bump_integral = 1.45661  # integral of bump function for radius=1 (copied from OpenTidalFarm who used Wolfram)
             # self.turbine_density1 = self.turbine_density1 + (bump)/(radius**2 * unit_bump_integral)
+            self.turbine_density_list.append(bump/(radius**2 * unit_bump_integral))
+
             # turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
             # turbinepvd.project(self.turbine_density+self.turbine_density1)
             # File('turbinedensity1.pvd').write(turbinepvd)
@@ -269,6 +277,7 @@ class TurbineFunctionalCallback(DiagnosticCallback):
         self.integrated_power = [0] * nfarms
         self.average_power = [0] * nfarms
         self.average_profit = [0] * nfarms
+        self.current_power = [0] * nfarms
         self.time_period = 0.
 
     def _evaluate_timestep(self):
@@ -285,20 +294,21 @@ class TurbineFunctionalCallback(DiagnosticCallback):
             else:
                     uv_eff = self.uv 
             power = farm.power_output(uv_eff, self.depth, farm.alpha_ebb)
-            current_power.append(power)
+            # current_power.append(power)
+            self.current_power[i] = power
             self.integrated_power[i] += power * self.dt
             self.average_power[i] = self.integrated_power[i] / self.time_period
             self.average_profit[i] = self.average_power[i] - self.break_even_wattage[i] * self.cost[i]
 
             density = farm.turbine_density
             n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
-            c_t = farm.friction_coefficient(self.uv, 40,farm.alpha_ebb)
+            c_t = farm.friction_coefficient(self.uv, self.depth,farm.alpha_ebb)
             unorm = abs(dot(self.uv, n))
             cross_result = self.uv[0]*n[1] - self.uv[1]*n[0]
             F_force = assemble(c_t * density * unorm * dot(self.uv,n) * dx)
             Extar_force = assemble(30 * c_t * density  * cross_result  * dot(self.uv,n) * dx)
             
-        return current_power, self.average_power, self.integrated_power, self.average_profit, F_force, Extar_force
+        return self.current_power, self.average_power, self.integrated_power, self.average_profit, F_force, Extar_force
 
     def __call__(self):
         return self._evaluate_timestep()
@@ -306,12 +316,39 @@ class TurbineFunctionalCallback(DiagnosticCallback):
     def message_str(self, current_power, average_power, integrated_power, average_profit, F_force, Extar_force):
         return 'Current power, average power, integrated power and profit for each farm: {}, {}, {}, {}. The force is {}. The extra_force is {}'.format(current_power, average_power, integrated_power, average_profit, F_force, Extar_force)
 
+class TurbineOptimisationCallback(DiagnosticOptimisationCallback):
+    """
+    :class:`DiagnosticOptimisationCallback` that evaluates the performance of each tidal turbine farm during an optimisation.
+
+    See the :py:mod:`optimisation` module for more info about the use of OptimisationCallbacks."""
+    name = 'farm_optimisation'
+    variable_names = ['cost', 'average_power', 'integrated_power','average_profit','current_power']
+
+    def __init__(self, solver_obj, turbine_functional_callback, **kwargs):
+        """
+        :arg solver_obj: a :class:`.FlowSolver2d` object
+        :arg turbine_functional_callback: a :class:`.TurbineFunctionalCallback` used in the forward model
+        :args kwargs: see :class:`.DiagnosticOptimisationCallback`"""
+        self.tfc = turbine_functional_callback
+        super().__init__(solver_obj, **kwargs)
+
+    def compute_values(self, *args):
+        costs = [cost.block_variable.saved_output for cost in self.tfc.cost]
+        powers = [average_power.block_variable.saved_output for average_power in self.tfc.average_power]
+        integrated_power = [integrated_power.block_variable.saved_output for integrated_power in self.tfc.integrated_power]
+        current_power = [current_power.block_variable.saved_output for current_power in self.tfc.current_power]
+        profits = [average_profit.block_variable.saved_output for average_profit in self.tfc.average_profit]
+        return costs, powers, integrated_power, current_power, profits
+
+    def message_str(self, cost, average_power, integrated_power, current_power, average_profit):
+        return 'Costs, average power, integrated power, current_power and profit for each farm: {}, {}, {}, {}, {}'.format(cost, average_power, integrated_power, current_power, average_profit)
+
 class EachTurbineFunctionalCallback(DiagnosticCallback):
     """
     :class:`.DiagnosticCallback` that evaluates the performance of each tidal turbine farm."""
 
     name = 'eachturbine'  # this name will be used in the hdf5 file
-    variable_names = ['integrated_power']
+    variable_names = ['current_power','integrated_power']
 
     def __init__(self, solver_obj, **kwargs):
         """
@@ -345,55 +382,26 @@ class EachTurbineFunctionalCallback(DiagnosticCallback):
         self.time_period = self.time_period + self.dt
         current_power = []
         for i, farm in enumerate(self.farms):
-            if farm.considering_yaw:
-                # flow_direction = atan_2(self.uv[0],self.uv[1])
-                # # flow_direction = conditional(flow_direction < 0, flow_direction + 360, flow_direction)
-                # n = conditional(flow_direction > 0, as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood))) , \
-                #     as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb))))
-                n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
-                uv_eff = dot(self.uv,n)
-            else:
-                uv_eff = self.uv
-            powerlist = farm.each_turbine_power_output(uv_eff, self.depth, farm.alpha_ebb)
+            # if farm.considering_yaw:
+            #     n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
+            #     uv_eff = dot(self.uv,n)
+            # else:
+            #     uv_eff = self.uv
+            powerlist = farm.each_turbine_power_output(self.uv, self.depth, farm.alpha_ebb)
             current_power.append(powerlist)
             for ii,power in enumerate(powerlist):
                 self.integrated_power[i][ii] += power * self.dt
                 #self.average_power[i][ii] = self.integrated_power[i][ii] / self.time_period
-        return self.integrated_power
+            # if there is only a farm(each farm can contain many turbines), then the current power can be calculated this way
+            current_power_onefarm = sum(current_power[0])
+        return current_power_onefarm, self.integrated_power
 
 
     def __call__(self):
         return self._evaluate_timestep()
 
-    def message_str(self, integrated_power):
-        return 'Integrated power for each turbine: {}.'.format(integrated_power)
-
-
-class TurbineOptimisationCallback(DiagnosticOptimisationCallback):
-    """
-    :class:`DiagnosticOptimisationCallback` that evaluates the performance of each tidal turbine farm during an optimisation.
-
-    See the :py:mod:`optimisation` module for more info about the use of OptimisationCallbacks."""
-    name = 'farm_optimisation'
-    variable_names = ['cost', 'average_power', 'integrated_power','average_profit']
-
-    def __init__(self, solver_obj, turbine_functional_callback, **kwargs):
-        """
-        :arg solver_obj: a :class:`.FlowSolver2d` object
-        :arg turbine_functional_callback: a :class:`.TurbineFunctionalCallback` used in the forward model
-        :args kwargs: see :class:`.DiagnosticOptimisationCallback`"""
-        self.tfc = turbine_functional_callback
-        super().__init__(solver_obj, **kwargs)
-
-    def compute_values(self, *args):
-        costs = [cost.block_variable.saved_output for cost in self.tfc.cost]
-        powers = [average_power.block_variable.saved_output for average_power in self.tfc.average_power]
-        integrated_power = [integrated_power.block_variable.saved_output for integrated_power in self.tfc.integrated_power]
-        profits = [average_profit.block_variable.saved_output for average_profit in self.tfc.average_profit]
-        return costs, powers, integrated_power, profits
-
-    def message_str(self, cost, average_power, integrated_power, average_profit):
-        return 'Costs, average power, integrated power and profit for each farm: {}, {}, {}, {}'.format(cost, average_power, integrated_power, average_profit)
+    def message_str(self, current_power_onefarm, integrated_power):
+        return 'Current and integrated power for each turbine: {},{}.'.format(current_power_onefarm, integrated_power)
 
 class EachTurbineOptimisationCallback(DiagnosticOptimisationCallback):
     """
@@ -418,7 +426,7 @@ class EachTurbineOptimisationCallback(DiagnosticOptimisationCallback):
     def compute_values(self, *args):
         costs = 0
         powers = 0
-        integrated_power = [each.block_variable.saved_output for integrated_power in self.tfc.integrated_power for each in integrated_power]
+        integrated_power = [sum(each.block_variable.saved_output) for integrated_power in self.tfc.integrated_power for each in integrated_power]
         profits = 0
         return costs, powers, integrated_power, profits
 
@@ -436,17 +444,23 @@ class MinimumDistanceConstraints(pyadjoint.InequalityConstraint):
         * ``function(self, m)``
         * ``jacobian(self, m)``
     """
-    def __init__(self, turbine_positions, turbine_axis, minimum_distance):
+    def __init__(self, turbine_positions, turbine_axis, minimum_distance, optimise_layout_only):
         """Create MinimumDistanceConstraints
 
         :param turbine_positions: list of [x,y] where x and y are either float or Constant
         :param turbine_axis: list of [x] where x is either float or Constant
         :param minimum_distance: The minimum distance allowed between turbines.
         """
-        self._turbines = [float(xi) for xy in turbine_positions for xi in xy] + [float(x) for x in turbine_axis]
-        self._minimum_distance = minimum_distance
-        self._nturbines = len(turbine_positions)
-        self._naxis = len(turbine_axis)
+        if optimise_layout_only:
+            self._turbines = [float(xi) for xy in turbine_positions for xi in xy] 
+            self._minimum_distance = minimum_distance
+            self._nturbines = len(turbine_positions)
+            self._naxis = 0
+        else:
+            self._turbines = [float(xi) for xy in turbine_positions for xi in xy] + [float(x) for x in turbine_axis]
+            self._minimum_distance = minimum_distance
+            self._nturbines = len(turbine_positions)
+            self._naxis = len(turbine_axis)
 
     def length(self):
         """Returns the number of constraints ``len(function(m))``."""

@@ -30,7 +30,7 @@ angle = 0
 H = 40
 distance = 10
 speed = 2
-output_dir = '../../../outputs/4.yaw/Yaw_Ideal/op-conference_mesh2-5_40/f20-cos00/optimisation-aligned-both'
+output_dir = '../../../outputs/4.yaw/Yaw_Ideal/op-conference_mesh2-5_40/f20-cos00/optimisation-staggered-angle'
 #Comment for testing forward model
 
 ### set up the Thetis solver obj as usual ##
@@ -95,16 +95,16 @@ farm_options.turbine_options.diameter = 20
 farm_options.upwind_correction = True
 
 turbine_location = []
-# for i in range(850,1200,200):
-#     for j in range(250, 400, 50):
-#         turbine_location.append([i,j])
-# for i in range(950,1200,200):
-#     for j in range(275, 400, 50):
-#         turbine_location.append([i,j])
-
-for i in range(850,1200,100):
+for i in range(850,1200,200):
     for j in range(250, 400, 50):
         turbine_location.append([i,j])
+for i in range(950,1200,200):
+    for j in range(275, 400, 50):
+        turbine_location.append([i,j])
+
+# for i in range(850,1200,100):
+#     for j in range(250, 400, 50):
+#         turbine_location.append([i,j])
 
 farm_options.turbine_coordinates =[
     [Constant(xy[0]),Constant(xy[1])] for xy in turbine_location
@@ -147,7 +147,7 @@ print(power_output)
 # specifies the control we want to vary in the optimisation
 
 
-optimise_angle_only = False
+optimise_angle_only = True
 optimise_layout_only = False
 if optimise_angle_only:
     if farm_options.considering_yaw:

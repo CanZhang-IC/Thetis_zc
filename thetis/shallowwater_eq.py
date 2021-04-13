@@ -739,7 +739,7 @@ class TurbineDragTerm(ShallowWaterMomentumTerm):
                     c_t = farm.friction_coefficient(uv_old, total_h,farm.alpha_ebb)
                     unorm = abs(dot(uv_old, n))
                     cross_result = uv[0]*n[1] - uv[1]*n[0]
-                    f += c_t * density * unorm * dot(uv,n) * dot(self.u_test, n)  / total_h* farm.dx #+  30 * c_t * density  * cross_result * inner(self.u_test, as_vector((-uv_old[1],uv_old[0]))) * dot(uv_old,n)/sqrt(dot(uv_old,uv_old))  / total_h* farm.dx
+                    f += c_t * density * unorm * dot(uv,n) * dot(self.u_test, n)  / total_h* farm.dx +  20 * c_t * density  * cross_result * inner(self.u_test, as_vector((-uv_old[1],uv_old[0]))) * dot(uv_old,n)/sqrt(dot(uv_old,uv_old))  / total_h* farm.dx
                              
                 else:
                     density = farm.turbine_density
