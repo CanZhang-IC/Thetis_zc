@@ -4,12 +4,14 @@ from pyadjoint import minimize
 import numpy
 op2.init(log_level=INFO)
 import sys
-sys.path.append('..')
+sys.path.append('../..')
 import prepare.utm, prepare.myboundary_30min
 
-ouput_dir = '../../outputs/middle_30min_from100'
+file_dir = '../../'
 
-mesh2d = Mesh('../mesh/mesh.msh')
+output_dir = file_dir+'../outputs/4.yaw/Yaw_Zhoushan/middle_30min-test'
+
+mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 #timestepping options
 dt = 30*60 # reduce this if solver does not converge
 t_export = 30*60 
@@ -17,25 +19,25 @@ t_export = 30*60
 #t_end = 1216800+ 13*60*60 # spring
 t_end = 885600 + 13*60*60 # middle
 #t_end = 612000 + 13*60*60 # neap
-#t_end = 30*60
+# t_end = 10*30*60
 
 
 P1 = FunctionSpace(mesh2d, "CG", 1)
 
 # read bathymetry code
-chk = DumbCheckpoint('../prepare/bathymetry', mode=FILE_READ)
+chk = DumbCheckpoint(file_dir+'prepare/bathymetry', mode=FILE_READ)
 bathymetry2d = Function(P1)
 chk.load(bathymetry2d, name='bathymetry')
 chk.close()
 
 #read viscosity / manning boundaries code
-chk = DumbCheckpoint('../prepare/viscosity', mode=FILE_READ)
+chk = DumbCheckpoint(file_dir+'prepare/viscosity', mode=FILE_READ)
 h_viscosity = Function(P1, name='viscosity')
 chk.load(h_viscosity)
 chk.close()
 
 #manning = Function(P1,name='manning')
-chk = DumbCheckpoint('../prepare/manning', mode=FILE_READ)
+chk = DumbCheckpoint(file_dir+'prepare/manning', mode=FILE_READ)
 manning = Function(bathymetry2d.function_space(), name='manning')
 chk.load(manning)
 chk.close()
@@ -64,7 +66,7 @@ options.use_nonlinear_equations = True
 options.simulation_export_time = t_export
 options.simulation_end_time = t_end
 options.coriolis_frequency = coriolis_2d
-options.output_directory = ouput_dir
+options.output_directory = output_dir
 options.check_volume_conservation_2d = True
 options.fields_to_export = ['uv_2d', 'elev_2d']
 options.fields_to_export_hdf5 = ['uv_2d', 'elev_2d']
@@ -122,7 +124,7 @@ farm_options.turbine_axis = [Constant(120) for i in range(len(farm_options.turbi
 options.discrete_tidal_turbine_farms[2] = farm_options
 
 ###spring:676,middle:492,neap:340###
-solver_obj.load_state(492, outputdir='../../outputs/redata_30min_normaldepth')
+solver_obj.load_state(492, outputdir=file_dir+'../outputs/redata_30min_normaldepth')
 #solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
 
 # Operation of tidal turbine farm through a callback

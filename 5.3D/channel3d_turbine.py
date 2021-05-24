@@ -15,18 +15,27 @@ import time
 
 t_start = time.time()
 
-n_layers = 4
-outputdir = '../../outputs/3D/rectangular'
-lx = 500
-ly = 100
-nx = 100
-ny = 50
+n_layers = 6
+outputdir = '../../outputs/5.3D/April27'
+lx = 2000
+ly = 600
+nx = 50
+ny = 25
+
 mesh2d = RectangleMesh(nx, ny, lx, ly)
 # mesh2d = Mesh('../prepare_ideal_meshes/rectangular2.msh')
 print_output('Exporting to ' + outputdir)
-t_end = 200*20
+t_end = 200*50
 t_export = 20
 
+# P1_2d = FunctionSpace(mesh2d, 'CG', 1)
+# bathymetry_2d = Function(P1_2d, name='Bathymetry')
+# depth_oce = 20.0
+# depth_riv = 7.0
+# xy = SpatialCoordinate(mesh2d)
+# bath_ufl_expr = depth_oce - (depth_oce-depth_riv)*xy[0]/lx
+
+# bathymetry_2d.interpolate(bath_ufl_expr)
 H = Constant(40)  # depth
 P1_2d = FunctionSpace(mesh2d, "CG", 1)
 bathymetry_2d = Function(P1_2d)
@@ -59,15 +68,15 @@ solver_obj.create_fields()
 
 xyz = SpatialCoordinate(solver_obj.mesh)
 v_b = 1000
-v_inner = 1
-v_length = 5
+v_inner = 10
+v_length = 200
 h_viscosity = Function(solver_obj.function_spaces.P1, name='viscosity')
 h_viscosity.interpolate(conditional(le(xyz[0], v_length), v_b+v_inner-xyz[0]*v_b/v_length, conditional(ge(xyz[0],lx-v_length),(xyz[0]-(lx-v_length))*v_b/v_length+v_inner,v_inner)))
 File(outputdir+'/viscosity.pvd').write(h_viscosity)
 options.horizontal_viscosity = h_viscosity
 options.vertical_viscosity = Constant(1)
 
-turbine_xyz = [250, 50, -20]
+turbine_xyz = [lx/2, ly/2, -H/2]
 D = 20
 th = 6  # thickness of disc
 turbine_dims = [th, D, D]
@@ -100,7 +109,7 @@ u_ramped = Constant(0.0)
 def update_forcings(t):
     u_ramped.assign(tanh(t/50.)*u_in)
 
-solver_obj.bnd_functions['shallow_water'] = {inflow_tag: {'un': -u_ramped}, outflow_tag: {'elev': 0, 'un': u_ramped}}
+solver_obj.bnd_functions['shallow_water'] = {inflow_tag: {'un': -u_ramped}, outflow_tag: {'elev': Constant(0),'un': u_ramped}}
 solver_obj.bnd_functions['momentum'] = {inflow_tag: {'symm': None}, outflow_tag: {'symm': None}}
 
 # solver_obj.load_state(19,outputdir=outputdir)

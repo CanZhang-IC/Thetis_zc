@@ -520,25 +520,18 @@ class Clarke_Wright(object):
         
 if __name__ == '__main__':
     turbine_locations = []
-    df = h5py.File('./diagnostic_controls.hdf5','r+')
-    for name, data in df.items():
-        for i in data[-1]:
-            turbine_locations.append(i)
+    # df = h5py.File('./diagnostic_controls.hdf5','r+')
+    # for name, data in df.items():
+    #     for i in data[-1]:
+    #         turbine_locations.append(i)
     # site_x1, site_y1, site_x2, site_y2 = 443342 ,3322632, 443591, 3322845
     # for x in np.arange(site_x1+20, site_x2-20, 60):
     #      for y in np.arange(site_y1+20, site_y2-20, 50):
     #          turbine_locations.append(x)
     #          turbine_locations.append(y)
-    # turbine_locations=[760.        , 160.        , 779.49681974, 182.80135892,
-    #    791.0495674 , 210.48787958, 814.28994971, 229.45986336,
-    #    816.45835488, 160.        , 845.72732647, 166.59408795,
-    #    866.99395457, 189.12785533, 839.60214818, 245.56676241,
-    #    891.72879469, 206.31966837, 911.58308915, 292.29731629,
-    #    883.78474286, 281.00657136, 855.49174295, 271.0273383 ,
-    #    920.17188078, 215.99847063, 950.18210255, 217.5150043 ,
-    #    965.85573043, 243.30627277, 995.75868127, 248.28074774]
-    landpointlocation =[500,0]
-    CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = False, show_result = True, figname='ideal_cable')
+    turbine_locations=[443352.0, 3322768.3347583604, 443352.0, 3322835.0, 443374.1113270062, 3322801.6676603947, 443437.56298443285, 3322834.999867297, 443417.7407217903, 3322800.2574864584, 443396.2227036166, 3322834.999972416, 443506.38903723174, 3322806.188887035, 443478.63952297514, 3322835.0, 443459.95853204705, 3322799.6303443755, 443486.30872563156, 3322769.533489844, 443564.5730315057, 3322798.5286971047, 443534.138643771, 3322835.0, 443394.8434891821, 3322767.4596569347, 443439.5975496541, 3322765.1974341725, 443531.93248310627, 3322775.4060471654, 443580.99988955917, 3322835.0]
+    landpointlocation =[444000,3323000]
+    CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = True, show_result = True, figname='ideal_cable')
     print ('Cable length:',CC.compute_cable_cost())
     print(CC.compute_cable_cost_order())
 

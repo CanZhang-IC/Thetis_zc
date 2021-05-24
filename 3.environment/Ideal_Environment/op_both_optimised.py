@@ -21,19 +21,19 @@ import time
 t_start = time.time()
 
 H = 40
-output_dir = '../../outputs/3.environment/op_both_optimised'
+output_dir = '../../../outputs/3.environment/op_both_optimised'
 #Comment for testing forward model
-test_gradient = False
+test_gradient = True
 optimise = False
 
 ### set up the Thetis solver obj as usual ###
-mesh2d = Mesh('../prepare_ideal_meshes/headland_environment.msh')
+mesh2d = Mesh('../../prepare_ideal_meshes/rectangular3_environment.msh')
 
 tidal_amplitude = 5.
 tidal_period = 12.42*60*60
 timestep = 300
 t_export = 600
-t_end = 60*t_export + tidal_period 
+t_end =  5*t_export#tidal_period 
 
 
 #set viscosity bumps at in-flow boundaries.
@@ -102,13 +102,15 @@ site_x1, site_x2, site_y1, site_y2 = 920, 1080, 250, 350
 #     for j in range(275,350,26):
 #         turbinelocation.append([i,j])
 # farm_options.turbine_coordinates =[[Constant(i[0]),Constant(i[1])] for i in turbinelocation]
-turbinelocation = [ 940.99622721,  278.12651935,  930.00058971,  314.20668265,  939.21780156,
-  339.99989611,  985.40633076,  277.58408466,  969.9846422,   314.45807632,
-  979.18438453,  339.99986719, 1030.04808955,  286.1660301,  1030.0032597,
-  314.13751769, 1020.89742146,  339.99973408, 1069.99994384,  287.89694904,
- 1069.99990261,  313.96703808, 1060.82207018,  339.99990523]
-farm_options.turbine_coordinates = [[Constant(turbinelocation[2*i]),Constant(turbinelocation[2*i+1])]for i in range(int(len(turbinelocation)/2))]
-farm_options.considering_yaw = False
+
+# turbinelocation = [ 940.99622721,  278.12651935,  930.00058971,  314.20668265,  939.21780156,
+#   339.99989611,  985.40633076,  277.58408466,  969.9846422,   314.45807632,
+#   979.18438453,  339.99986719, 1030.04808955,  286.1660301,  1030.0032597,
+#   314.13751769, 1020.89742146,  339.99973408, 1069.99994384,  287.89694904,
+#  1069.99990261,  313.96703808, 1060.82207018,  339.99990523]
+# farm_options.turbine_coordinates = [[Constant(turbinelocation[2*i]),Constant(turbinelocation[2*i+1])]for i in range(int(len(turbinelocation)/2))]
+farm_options.turbine_coordinates = [[Constant(800),Constant(50)]]
+farm_options.considering_yaw = True
 
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
@@ -119,14 +121,14 @@ def update_forcings(t):
     tidal_elev.project(tidal_amplitude*sin(omega*t + omega/Constant(pow(g*H, 0.5))*x[0]))
 
 #set initial condition
-# solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=tidal_elev)
-solver_obj.load_state(60, '../../outputs/3.environment/restart')
+solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=tidal_elev)
+# solver_obj.load_state(60, '../../../outputs/3.environment/restart')
 
 # Operation of tidal turbine farm through a callback
 cb = turbines.TurbineFunctionalCallback(solver_obj)
 solver_obj.add_callback(cb, 'timestep')
 
-cb2 = rmse_r2.RMSECallback(solver_obj,'../../outputs/3.environment/restart',3)
+cb2 = rmse_r2.RMSECallback(solver_obj,'../../../outputs/3.environment/restart2',3)
 solver_obj.add_callback(cb2,'timestep')
 
 # start computer forward model
@@ -134,24 +136,25 @@ solver_obj.iterate(update_forcings=update_forcings)
 
 ###set up interest functional and control###
 power_output= sum(cb.integrated_power)
-interest_functional = power_output-cb2.RMSEaverage
+interest_functional = power_output-cb2.RMSE_current[-1]
 
 print(interest_functional)
 # specifies the control we want to vary in the optimisation
-optimise_angle_only = False
-# if farm_options.considering_yaw:
-#     if optimise_angle_only:
-#         if farm_options.considering_yaw:
-#             c = [Control(x) for x in farm_options.turbine_axis]
-#         else:
-#             raise Exception('You should turn on the yaw considering!')      
-#     else:
-#         c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy] + [Control(x) for x in farm_options.turbine_axis]
-# else:
-#     c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy]
-c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy]
+optimise_angle_only = True
+if farm_options.considering_yaw:
+    if optimise_angle_only:
+        if farm_options.considering_yaw:
+            c = [Control(x) for x in farm_options.turbine_axis]
+        else:
+            raise Exception('You should turn on the yaw considering!')      
+    else:
+        c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy] + [Control(x) for x in farm_options.turbine_axis]
+else:
+    c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy]
+# c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy]
 turbine_density = Function(solver_obj.function_spaces.P1_2d, name='turbine_density')
 turbine_density.interpolate(solver_obj.tidal_farms[0].turbine_density)
+
 # a number of callbacks to provide output during the optimisation iterations:
 # - ControlsExportOptimisationCallback export the turbine_friction values (the control)
 #            to outputs/control_turbine_friction.pvd. This can also be used to checkpoint
@@ -200,13 +203,13 @@ if test_gradient:
     # values between 0 and 1 and choose a random direction dtd to vary it in
 
     # this tests whether the above Taylor series residual indeed converges to zero at 2nd order in h as h->0
-    m0 = [Constant(10) for i in range(len(farm_options.turbine_axis))]
+    m0 = [Constant(0) for i in range(len(farm_options.turbine_axis))]
     h0 = [Constant(1) for i in range(len(farm_options.turbine_axis))]
-    m0 = []
-    for i in turbinelocation:
-        m0.append(Constant(i[0]))
-        m0.append(Constant(i[1]))
-    h0 = [Constant(1) for i in range(len(m0))]
+    # m0 = []
+    # for i in farm_options.turbine_coordinates:
+    #     m0.append(i[0])
+    #     m0.append(i[1])
+    # h0 = [Constant(1) for i in range(len(m0))]
     minconv = taylor_test(rf, m0, h0)
     print_output("Order of convergence with taylor test (should be 2) = {}".format(minconv))
 

@@ -138,6 +138,6 @@ with timed_stage('initialising manning'):
 chk = DumbCheckpoint('viscosity', mode=FILE_CREATE)
 with timed_stage('initialising viscosity'):
   h_viscosity = Function(V, name='viscosity')
-  h_viscosity.interpolate(Max(1, 1000 * (1. - u / 8e2)))
+  h_viscosity.interpolate(Max(0.01, 1000 * (1. - u / 8e2)))
   chk.store(h_viscosity, name='viscosity')
   File('viscosity.pvd').write(h_viscosity)
