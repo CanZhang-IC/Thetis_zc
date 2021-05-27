@@ -22,7 +22,8 @@ ly = 600
 nx = 50
 ny = 25
 
-mesh2d = RectangleMesh(nx, ny, lx, ly)
+# mesh2d = RectangleMesh(nx, ny, lx, ly)
+mesh2d = Mesh('../prepare_ideal_meshes/conference_mesh2.msh')
 # mesh2d = Mesh('../prepare_ideal_meshes/rectangular2.msh')
 print_output('Exporting to ' + outputdir)
 t_end = 200*50

@@ -733,13 +733,24 @@ class TurbineDragTerm(ShallowWaterMomentumTerm):
         for farm in self.tidal_farms:
             if farm.__class__.__name__ == 'DiscreteTidalTurbineFarm':
                 if farm.considering_yaw:
-                    density = farm.turbine_density
-                    # density1 = farm.turbine_density1
-                    n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
-                    c_t = farm.friction_coefficient(uv_old, total_h,farm.alpha_ebb)
-                    unorm = abs(dot(uv_old, n))
-                    cross_result = uv[0]*n[1] - uv[1]*n[0]
-                    f += c_t * density * unorm * dot(uv,n) * dot(self.u_test, n)  / total_h* farm.dx +  20 * c_t * density  * cross_result * inner(self.u_test, as_vector((-uv_old[1],uv_old[0]))) * dot(uv_old,n)/sqrt(dot(uv_old,uv_old))  / total_h* farm.dx
+                    if farm.considering_individual_thrust_coefficient:
+                        density = farm.turbine_density
+                        n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
+                        farm.individual_CtTimesDensity(uv_old, total_h)
+                        c_t_density = farm.individual_CTD_density
+                        farm.individual_extra_CtTimesDensity(uv_old, total_h)
+                        c_t_density_extra = farm.individual_extra_CTD_density
+                        unorm = abs(dot(uv_old, n))
+                        cross_result = uv[0]*n[1] - uv[1]*n[0]
+                        f += c_t_density * unorm * dot(uv,n) * dot(self.u_test, n) / total_h *farm.dx +  30 * c_t_density_extra  * cross_result * inner(self.u_test, as_vector((-uv_old[1],uv_old[0]))) * dot(uv_old,n)/sqrt(dot(uv_old,uv_old))  / total_h * farm.dx
+                    else:
+                        density = farm.turbine_density
+                        n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
+                        c_t = farm.friction_coefficient(uv_old, total_h)
+                        c_t_extra = farm.friction_coefficient_extra(uv_old,total_h)
+                        unorm = abs(dot(uv_old, n))
+                        cross_result = uv[0]*n[1] - uv[1]*n[0]
+                        f += c_t * density * unorm * dot(uv,n) * dot(self.u_test, n)  / total_h* farm.dx +  30 * c_t_extra * density  * cross_result * inner(self.u_test, as_vector((-uv_old[1],uv_old[0]))) * dot(uv_old,n)/sqrt(dot(uv_old,uv_old))  / total_h* farm.dx
                              
                 else:
                     density = farm.turbine_density

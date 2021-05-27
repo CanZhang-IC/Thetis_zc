@@ -2,6 +2,7 @@
 Classes related to tidal turbine farms in Thetis.
 """
 from firedrake import *
+from firedrake.assemble_expressions import assemble_expression
 from .log import *
 from .callback import DiagnosticCallback
 from .optimisation import DiagnosticOptimisationCallback
@@ -24,27 +25,77 @@ class TidalTurbine:
             fric += self.C_support * self.A_support
         return fric
 
-    def velocity_correction(self, uv, depth, yaw_angle):
+    def velocity_correction(self, uv, depth):
         fric = self._thrust_area(uv)
         if self.upwind_correction:
             return 0.5*(1+sqrt(1-fric/(self.diameter*depth)))
         else:
             return 1
 
-    def friction_coefficient(self, uv, depth, yaw_angle):
+    def friction_coefficient(self, uv, depth):
         thrust_area = self._thrust_area(uv)
-        alpha = self.velocity_correction(uv, depth, yaw_angle)
+        alpha = self.velocity_correction(uv, depth)
+        return thrust_area/2./alpha**2
+    
+    def friction_coefficient_extra(self, uv, depth):
+        C_T = self.thrust_coefficient(uv)
+        A_T = pi * self.diameter**2 / 4
+        thrust_area = C_T * A_T
+        alpha = self.velocity_correction(uv, depth)
         return thrust_area/2./alpha**2
 
-    def power(self, uv, depth, yaw_angle):
+    def power(self, uv, depth):
         # ratio of discrete to upstream velocity (NOTE: should include support drag!)
-        fric = self._thrust_area(uv)
-        alpha = self.velocity_correction(uv, depth, yaw_angle)
+        alpha = self.velocity_correction(uv, depth)
         C_T = self.thrust_coefficient(uv)
         A_T = pi * self.diameter**2 / 4
         uv3 = dot(uv, uv)**1.5 / alpha**3  # upwind cubed velocity
         # this assumes the velocity through the turbine does not change due to the support (is this correct?)
         return 0.25*C_T*A_T*(1+sqrt(1-C_T))*uv3
+    
+    def individual_power(self,uv,depth,individual_thrust_coefficient):
+        # ratio of discrete to upstream velocity (NOTE: should include support drag!)
+        C_T = individual_thrust_coefficient
+        A_T = pi * self.diameter**2 / 4
+        fric = C_T * A_T
+        if self.C_support:
+            fric += self.C_support * self.A_support
+       
+        if self.upwind_correction:
+            alpha = 0.5*(1+sqrt(1-fric/(self.diameter*depth)))
+        else:
+            alpha = 1
+
+        uv3 = dot(uv, uv)**1.5 / alpha**3  # upwind cubed velocity
+        # this assumes the velocity through the turbine does not change due to the support (is this correct?)
+        return 0.25*C_T*A_T*(1+sqrt(1-C_T))*uv3
+
+    def individual_friction_coefficient(self,uv,depth,individual_thrust_coefficient):
+        C_T = individual_thrust_coefficient
+        A_T = pi * self.diameter**2 / 4
+        fric = C_T * A_T
+        if self.C_support:
+            thrust_area = (fric + self.C_support * self.A_support)
+        else:
+            thrust_area = fric
+        if self.upwind_correction:
+            alpha = 0.5*(1+sqrt(1-thrust_area/(self.diameter*depth)))
+        else:
+            alpha = 1
+        return thrust_area/2./alpha**2
+
+    def individual_extra_friction_coefficient(self,uv,depth,individual_thrust_coefficient):
+        C_T = individual_thrust_coefficient
+        A_T = pi * self.diameter**2 / 4
+        fric = C_T * A_T
+        thrust_area = fric
+        if self.upwind_correction:
+            alpha = 0.5*(1+sqrt(1-thrust_area/(self.diameter*depth)))
+        else:
+            alpha = 1
+        return thrust_area/2./alpha**2
+
+
 
 
 class ConstantThrustTurbine(TidalTurbine):
@@ -129,15 +180,23 @@ class TidalTurbineFarm:
             self.turbine = TabulatedThrustTurbine(options.turbine_options, upwind_correction=upwind_correction)
         self.dx = dx
         self.turbine_density = turbine_density
-        self.turbine_density1 = turbine_density
+        
         self.turbine_density_list = []
         self.break_even_wattage = options.break_even_wattage
+        self.individual_CTD_density = turbine_density # the product of c_t, density and dx which will be used in shallowwater_eq.py
+        self.individual_extra_CTD_density = turbine_density
 
     def number_of_turbines(self):
         return assemble(self.turbine_density * self.dx)
 
-    def power_output(self, uv, depth, yaw_angle):
-        return assemble(self.turbine.power(uv, depth, yaw_angle) * self.turbine_density * self.dx)
+    def power_output(self, uv, depth):
+        return assemble(self.turbine.power(uv, depth) * self.turbine_density * self.dx)
+
+    def friction_coefficient(self, uv, depth):
+        return self.turbine.friction_coefficient(uv, depth)
+
+    def friction_coefficient_extra(self, uv, depth):
+        return self.turbine.friction_coefficient_extra(uv, depth)
 
     def each_turbine_power_output(self, uv, depth, yaw_angle):
         powerlist = []
@@ -150,9 +209,6 @@ class TidalTurbineFarm:
 
             powerlist.append(assemble(self.turbine.power(uv_eff, depth, yaw_angle) * eachdensity * self.dx))
         return powerlist
-
-    def friction_coefficient(self, uv, depth, yaw_angle):
-        return self.turbine.friction_coefficient(uv, depth, yaw_angle)
 
 
 class DiscreteTidalTurbineFarm(TidalTurbineFarm):
@@ -180,7 +236,7 @@ class DiscreteTidalTurbineFarm(TidalTurbineFarm):
         self.considering_yaw = options.considering_yaw
         if self.considering_yaw:
             if len(options.turbine_axis) == 0:
-                print_output("None turbine axis angle is given when considering yaw effect, applying the default angle 0 for each turbine!!!")
+                print_output("None turbine axis angle is given when considering yaw effect. Applying the default angle 0 for each turbine!")
                 options.turbine_axis = [Constant(0) for i in range(len(options.turbine_coordinates)*2)]
             # self.alpha_flood = sum((conditional((x[0]-xi)**2+(x[1]-yi)**2 < 2*radius**2, alphai/180*pi, 0) \
             #     for alphai,(xi,yi) in zip(options.turbine_axis[:len(options.turbine_coordinates)],options.turbine_coordinates)))
@@ -188,8 +244,20 @@ class DiscreteTidalTurbineFarm(TidalTurbineFarm):
                 for alphai,(xi,yi) in zip(options.turbine_axis,options.turbine_coordinates)))
         else:
             if len(options.turbine_axis) != 0:
-                print_output("Turbine axis angle isn't needed when not considering yaw effect, emptying the list automatically!!!")
+                print_output("Turbine axis angle isn't needed when not considering yaw effect. Emptying the list automatically!")
             options.turbine_axis = []
+        
+        self.considering_individual_thrust_coefficient = options.considering_individual_thrust_coefficient
+        if self.considering_individual_thrust_coefficient:
+            if len(options.individual_thrust_coefficient) == 0:
+                print_output("None individual thrust coefficient is given when considering it. Applying the default value 0.6 for each turbine!")
+                options.individual_thrust_coefficient = [0.6 for i in range(len(options.turbine_coordinates)*2)]
+        else:
+            if len(options.individual_thrust_coefficient) != 0:
+                print_output("Individual thrust coefficient isn't needed. Emptying the list automatically!")
+                options.individual_thrust_coefficient = []
+        self.individual_thrust_coefficient = list(options.individual_thrust_coefficient)
+
 
         # V = FunctionSpace(self.mesh, 'CG', 1)
         # test_angle = Function(V, name='angle')
@@ -222,30 +290,26 @@ class DiscreteTidalTurbineFarm(TidalTurbineFarm):
 
             self.turbine_density = self.turbine_density + bump/(radius**2 * unit_bump_integral)
 
-            
-            
             turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
             turbinepvd.project(self.turbine_density)
             File('turbinedensity.pvd').write(turbinepvd)
 
-
-            # ### one more density for enhancing the y_force
-            # dx0 = (x[0] - coord[0])/radius 
-            # dx1 = (x[1] - coord[1])/radius / 2
-            # psi_x = conditional(lt(abs(dx0), 1), exp(1-1/(1-dx0**2)), 0)
-            # psi_y = conditional(lt(abs(dx1), 1), exp(1-1/(1-dx1**2)), 0)
-            # bump = psi_x * psi_y
-
-            # unit_bump_integral = 1.45661  # integral of bump function for radius=1 (copied from OpenTidalFarm who used Wolfram)
-            # self.turbine_density1 = self.turbine_density1 + (bump)/(radius**2 * unit_bump_integral)
             self.turbine_density_list.append(bump/(radius**2 * unit_bump_integral))
 
-            # turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
-            # turbinepvd.project(self.turbine_density+self.turbine_density1)
-            # File('turbinedensity1.pvd').write(turbinepvd)
+    def individual_power_output(self, uv, depth):
+        sum_power = 0
+        for eachdensity,itc in zip(self.turbine_density_list, self.individual_thrust_coefficient) :
+            sum_power += assemble(self.turbine.individual_power(uv,depth,itc)*eachdensity*self.dx)
+        return sum_power
+    
+    def individual_CtTimesDensity(self, uv, depth):
+        for eachdensity,itc in zip(self.turbine_density_list, self.individual_thrust_coefficient) :
+            self.individual_CTD_density = self.individual_CTD_density + self.turbine.individual_friction_coefficient(uv,depth,itc)*eachdensity
 
-
-
+    def individual_extra_CtTimesDensity(self, uv, depth):
+        for eachdensity,itc in zip(self.turbine_density_list, self.individual_thrust_coefficient) :
+            self.individual_extra_CTD_density = self.individual_extra_CTD_density + self.turbine.individual_extra_friction_coefficient(uv,depth,itc)*eachdensity
+        
 
 class TurbineFunctionalCallback(DiagnosticCallback):
     """
@@ -293,20 +357,25 @@ class TurbineFunctionalCallback(DiagnosticCallback):
                     uv_eff = self.uv 
             else:
                     uv_eff = self.uv 
-            power = farm.power_output(uv_eff, self.depth, farm.alpha_ebb)
+            if farm.considering_individual_thrust_coefficient:
+                power = farm.individual_power_output(uv_eff, self.depth)
+            else:
+                power = farm.power_output(uv_eff, self.depth)
             # current_power.append(power)
             self.current_power[i] = power
             self.integrated_power[i] += power * self.dt
             self.average_power[i] = self.integrated_power[i] / self.time_period
             self.average_profit[i] = self.average_power[i] - self.break_even_wattage[i] * self.cost[i]
 
-            density = farm.turbine_density
-            n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
-            c_t = farm.friction_coefficient(self.uv, self.depth,farm.alpha_ebb)
-            unorm = abs(dot(self.uv, n))
-            cross_result = self.uv[0]*n[1] - self.uv[1]*n[0]
-            F_force = assemble(c_t * density * unorm * dot(self.uv,n) * dx)
-            Extar_force = assemble(30 * c_t * density  * cross_result  * dot(self.uv,n) * dx)
+            # density = farm.turbine_density
+            # n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
+            # c_t = farm.friction_coefficient(self.uv, self.depth)
+            # unorm = abs(dot(self.uv, n))
+            # cross_result = self.uv[0]*n[1] - self.uv[1]*n[0]
+            # F_force = assemble(c_t * density * unorm * dot(self.uv,n) * dx)
+            # Extar_force = assemble(30 * c_t * density  * cross_result  * dot(self.uv,n) * dx)
+            F_force = 0
+            Extar_force = 0
             
         return self.current_power, self.average_power, self.integrated_power, self.average_profit, F_force, Extar_force
 
@@ -382,12 +451,12 @@ class EachTurbineFunctionalCallback(DiagnosticCallback):
         self.time_period = self.time_period + self.dt
         current_power = []
         for i, farm in enumerate(self.farms):
-            # if farm.considering_yaw:
-            #     n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
-            #     uv_eff = dot(self.uv,n)
-            # else:
-            #     uv_eff = self.uv
-            powerlist = farm.each_turbine_power_output(self.uv, self.depth, farm.alpha_ebb)
+            if farm.considering_yaw:
+                n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
+                uv_eff = dot(self.uv,n)
+            else:
+                uv_eff = self.uv
+            powerlist = farm.each_turbine_power_output(uv_eff, self.depth)
             current_power.append(powerlist)
             for ii,power in enumerate(powerlist):
                 self.integrated_power[i][ii] += power * self.dt

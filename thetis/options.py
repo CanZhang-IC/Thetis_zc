@@ -409,10 +409,14 @@ class DiscreteTidalTurbineFarmOptions(TidalTurbineFarmOptions):
                              help='bool: Apply flow correction to correct for upwind velocity').tag(config=True)
     quadrature_degree = PositiveInteger(10,
                                         help='Quadrature degree for thrust force and power output integral').tag(config=True)
-    turbine_axis = List(default_value=[], help='The direction of turbine axis').tag(config=True)
+    
     considering_yaw = Bool(True,
                              help='bool: consider the yaw effects for each turbine').tag(config=True)
+    turbine_axis = List(default_value=[], help='The direction of turbine axis').tag(config=True)
     # farm_alpha = FiredrakeScalarExpression(Constant(0.0), help='Yaw angle function') 
+    considering_individual_thrust_coefficient = Bool(False,
+                             help='bool: consider thrust coefficient for each turbine').tag(config=True)
+    individual_thrust_coefficient = List(default_value=[], help='Trust coefficient for each turbine').tag(config=True)
 
 
 class CommonModelOptions(FrozenConfigurable):
