@@ -28,11 +28,14 @@ Extrude{site_x, 0, 0} { Point{1000}; Layers{site_x/element_size}; }
 Extrude{0, site_y, 0} { Line{105}; Layers{site_y/element_size}; }
 Line Loop(110) = {106, -108, -105, 107};
 
+// point_x = 450;
+// point_y = 250;
+// area_circle = 40;
 // //effected area
-// Point(21) = {560, 210, 0, element_size_coarse};
-// Point(22) = {640, 210, 0, element_size_coarse};
-// Point(23) = {640, 290, 0, element_size_coarse};
-// Point(24) = {560, 290, 0, element_size_coarse};
+// Point(21) = {point_x - area_circle, point_y - area_circle, 0, element_size_coarse};
+// Point(22) = {point_x + area_circle, point_y - area_circle, 0, element_size_coarse};
+// Point(23) = {point_x + area_circle, point_y + area_circle, 0, element_size_coarse};
+// Point(24) = {point_x - area_circle, point_y + area_circle, 0, element_size_coarse};
 
 
 // Line(2100) = {23, 24};

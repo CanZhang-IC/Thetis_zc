@@ -20,15 +20,15 @@ import yagmail
 
 t_start = time.time()
 
-get_index = os.path.basename(sys.argv[0])
-namelength = len('closed_boundary_upwind')
-angle = get_index[namelength:-3]
+# get_index = os.path.basename(sys.argv[0])
+# namelength = len('closed_boundary_upwind')
+# angle = get_index[namelength:-3]
 
-# angle = 30
+angle1,angle2 = 10, 0
 H = 0.5
 speed = -0.33
-output_name = '0.05_0.5/f40_angle'+str(angle)
-output_dir = '../../../outputs/4.yaw/Yaw_Ideal/extraforce_sensitive/'+output_name
+output_name = 'mesh_0.05_0.5_f30/angle_'+str(angle1)+'_'+str(angle2)
+output_dir = '../../../outputs/4.yaw/Yaw_Ideal/experiments/'+output_name
 #Comment for testing forward model
 
 ### set up the Thetis solver obj as usual ##
@@ -106,11 +106,11 @@ location_turbine = []
 #     location_turbine.append([25+0.3*i, 2.5])
 # farm_options.turbine_coordinates = [[Constant(xy[0]),Constant(xy[1])] for xy in location_turbine]
 farm_options.turbine_coordinates =[
-    [Constant(25),Constant(2.5)],
+    [Constant(25),Constant(2.5)],[Constant(25+5*farm_options.turbine_options.diameter),Constant(2.5)]
     ]
 
 farm_options.considering_yaw = True
-farm_options.turbine_axis = [Constant(angle)]
+farm_options.turbine_axis = [Constant(angle1),Constant(angle2)]
 
 # farm_options.farm_alpha = Function(P1_2d)
 #add turbines to SW_equations
@@ -142,7 +142,7 @@ solver_obj.add_callback(cb, 'timestep')
 #detector location in the wake area
 locations=[]
 names=[]
-xx=[1,2,3,4,6,8,10]
+xx=[1,2,3,4,6,8,10,12]
 yy=[-1,-0.8,-0.6,-0.5,-0.4,-0.2,-0.1, 0, 0.1,0.2,0.4,0.5,0.6,0.8,1]
 for i in xx:
     for j in yy:

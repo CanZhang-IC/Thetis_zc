@@ -7,14 +7,14 @@ import numpy as np
 #This is because the scipy.interpolate is not good at working with unstructured grid data.
 #So we set a rectangular area with high resolution by firedrake.at function and
 #then the scipy.interpolate can work well with the data inside the rectangular.
-min_x, min_y,max_x,max_y= 420000,3300000,470000,3340000
+min_x, min_y,max_x,max_y= 428500,3306000,460000,3335511
 n = 100 #ensure adequate mesh points to refine our solution
 gridxy1 = np.mgrid[min_x:max_x:100j, min_y:max_y:100j].T
 gridxy = np.reshape(gridxy1, (n*n, 2))
 gridx, gridy = gridxy.T
 
 ###Read in the large domain's mesh
-large_mesh2d = Mesh('../../../paper2/continuemethod/mesh/mesh.msh') # this is where you should make changes 
+large_mesh2d = Mesh('/media/can/can_disk/thetis_new/paper2/continuemethod/mesh/mesh.msh')# this is where you should make changes 
 
 ###Functionspace for elevation
 P1 = FunctionSpace(large_mesh2d, "DG", 1)
@@ -22,7 +22,7 @@ P1 = FunctionSpace(large_mesh2d, "DG", 1)
 VP = VectorFunctionSpace(large_mesh2d, "DG", 1)
 
 #location where the elevation and velocity outputs from the large domain stores
-h5file_dir = '../../../paper2/continuemethod/outputs/paper2validation_5min/hdf5' # this is where you should make changes 
+h5file_dir = '/media/can/can_disk/thetis_new/paper2/continuemethod/outputs/paper2validation_5min/hdf5' # this is where you should make changes 
 
 # Be careful here!!!
 # The 'dt' in the small domain's script must be the same with 't_export' in the large domain's script

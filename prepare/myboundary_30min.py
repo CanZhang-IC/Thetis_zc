@@ -6,7 +6,7 @@ import os
 
 # print(os.getcwd())
 
-min_x, min_y,max_x,max_y= 420000,3300000,470000,3340000
+min_x, min_y,max_x,max_y= 428500,3306000,460000,3335511
 n = 100 #ensure adequate mesh points to refine our solution
 gridxy1 = np.mgrid[min_x:max_x:100j, min_y:max_y:100j].T
 gridxy = np.reshape(gridxy1, (n*n, 2))

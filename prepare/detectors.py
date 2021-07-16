@@ -1,7 +1,7 @@
 from thetis import *
 import pyproj
 
-tidegauge_file = '../prepare/tidal_gauges.csv'  # name of your file
+tidegauge_file = '../../prepare/tidal_gauges.csv'  # name of your file
 
 UTM_ZONE = pyproj.Proj(
         proj='utm',

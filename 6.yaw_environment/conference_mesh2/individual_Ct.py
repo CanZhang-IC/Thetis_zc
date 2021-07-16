@@ -31,11 +31,11 @@ t_start = time.time()
 #     angle = int(angle_H[:2])
 #     H = int(angle_H[2:])
 
-P_factor = 1
+P_factor = 0.5
 angle, H = 0, 40 
 
 speed = 2
-output_dir = '../../../outputs/6.yaw_environment/Yaw_Ideal/individual/conference_mesh2_with_effected_area/P_factor_'+str(P_factor)+'-yaw_effect_op'
+output_dir = '../../../outputs/6.yaw_environment/Yaw_Ideal/individual/conference_mesh2_with_effected_area/considering_environment_effect/P_factor_'+str(P_factor)+'-yaw_effect_op_no_individual'
 #Comment for testing forward model
 
 ### set up the Thetis solver obj as usual ##
@@ -123,8 +123,8 @@ farm_options.turbine_coordinates =[
 farm_options.considering_yaw = True
 farm_options.turbine_axis = [Constant(angle) for i in range(len(farm_options.turbine_coordinates))]
 
-farm_options.considering_individual_thrust_coefficient = True
-farm_options.individual_thrust_coefficient = [Constant(0.6) for i in range(len(farm_options.turbine_coordinates))]
+farm_options.considering_individual_thrust_coefficient = False
+farm_options.individual_thrust_coefficient = [Constant(0.3) for i in range(len(farm_options.turbine_coordinates))]
 
 # farm_options.farm_alpha = Function(P1_2d)
 #add turbines to SW_equations
@@ -161,7 +161,8 @@ solver_obj.iterate(update_forcings=update_forcings)
 
 # ###set up interest functional and control###
 power_output= sum(cb.current_power)
-interest_functional = (P_factor*(power_output/7643.52)-(1-P_factor)*(cb2.RMSE_current[-1]/7040.53))*7643.52
+maxoutput, maxeffect = 7328.671791585828, 5892.947034894364
+interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(cb2.RMSE_current[-1]/maxeffect))*maxoutput
 print(interest_functional,power_output,cb2.RMSE_current[-1])
 
 
@@ -178,7 +179,7 @@ optimise_layout_only = False
 #     c =  [Control(x) for xy in farm_options.turbine_coordinates for x in xy] 
 # else:
 #     c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy] + [Control(x) for x in farm_options.turbine_axis]
-c =  [Control(x) for x in farm_options.turbine_axis]
+c =  [Control(x) for x in farm_options.turbine_axis] + [Control(x) for x in farm_options.individual_thrust_coefficient]
 turbine_density = Function(solver_obj.function_spaces.P1_2d, name='turbine_density')
 turbine_density.interpolate(solver_obj.tidal_farms[0].turbine_density)
 # a number of callbacks to provide output during the optimisation iterations:
@@ -228,8 +229,8 @@ if 0:
     # this tests whether the above Taylor series residual indeed converges to zero at 2nd order in h as h->0
     # m0 =  [Constant(x) for xy in farm_options.turbine_coordinates for x in xy] + [Constant(x) for x in farm_options.turbine_axis]
     # h0 =  [Constant(1) for xy in farm_options.turbine_coordinates for x in xy] +[Constant(1) for x in farm_options.turbine_axis]
-    m0 =  [Constant(0.6) for x in farm_options.turbine_axis] + [Constant(0) for x in farm_options.turbine_axis] 
-    h0 =  [Constant(0.1) for x in farm_options.turbine_axis] + [Constant(1) for x in farm_options.turbine_axis] 
+    m0 =  [Constant(0) for x in farm_options.turbine_axis] + [Constant(0.6) for x in farm_options.turbine_axis] 
+    h0 =  [Constant(0) for x in farm_options.turbine_axis] + [Constant(0.1) for x in farm_options.turbine_axis] 
     # m0 =  [Constant(x) for xy in farm_options.turbine_coordinates for x in xy] 
     # h0 =  [Constant(1) for xy in farm_options.turbine_coordinates for x in xy] 
     minconv = taylor_test(rf, m0, h0)
@@ -245,8 +246,8 @@ if 1:
     #   https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fmin_l_bfgs_b.html
     # options, such as maxiter and pgtol can be passed on.
     if optimise_angle_only:
-        lb = [-90]*len(farm_options.turbine_axis)
-        ub = [90]*len(farm_options.turbine_axis)
+        lb = [-90]*len(farm_options.turbine_axis) + [0.1]*len(farm_options.individual_thrust_coefficient)
+        ub = [90]*len(farm_options.turbine_axis) + [0.6]*len(farm_options.individual_thrust_coefficient)
         td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 200, 'ptol': 1e-3})
     elif optimise_layout_only:
         site_x = 400.

@@ -1,11 +1,13 @@
 #! /bin/bash
 
-for i in $( seq 0 10 40)
+for i in $( seq 0 10 30)
 do
-    cp closed_boundary_upwind.py closed_boundary_upwind$i.py
-    mpirun -np 8 python closed_boundary_upwind$i.py
-    rm closed_boundary_upwind$i.py
+    # cp one_turbine.py one_turbine$i.py
+    # mpirun -np 8 python one_turbine$i.py
+    # rm one_turbine$i.py
+    
+    cp two_turbines.py two_turbines$i.py
+    mpirun -np 8 python two_turbines$i.py
+    rm two_turbines$i.py
 done
-
-# shutdown -h now
 

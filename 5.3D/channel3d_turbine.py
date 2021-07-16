@@ -22,8 +22,8 @@ ly = 600
 nx = 50
 ny = 25
 
-# mesh2d = RectangleMesh(nx, ny, lx, ly)
-mesh2d = Mesh('../prepare_ideal_meshes/conference_mesh2.msh')
+mesh2d = RectangleMesh(nx, ny, lx, ly)
+# mesh2d = Mesh('../prepare_ideal_meshes/conference_mesh2.msh')
 # mesh2d = Mesh('../prepare_ideal_meshes/rectangular2.msh')
 print_output('Exporting to ' + outputdir)
 t_end = 200*50
@@ -55,7 +55,7 @@ options.solve_temperature = False
 options.use_implicit_vertical_diffusion = True
 options.use_bottom_friction = True
 options.quadratic_drag_coefficient = Constant(0.0025)
-options.use_ale_moving_mesh = False
+options.use_ale_moving_mesh = True
 options.use_lax_friedrichs_velocity = False
 options.simulation_export_time = t_export
 options.simulation_end_time = t_end
@@ -68,8 +68,8 @@ options.fields_to_export = ['uv_2d', 'elev_2d', 'uv_3d',
 solver_obj.create_fields()
 
 xyz = SpatialCoordinate(solver_obj.mesh)
-v_b = 1000
-v_inner = 10
+v_b = 100
+v_inner = 1
 v_length = 200
 h_viscosity = Function(solver_obj.function_spaces.P1, name='viscosity')
 h_viscosity.interpolate(conditional(le(xyz[0], v_length), v_b+v_inner-xyz[0]*v_b/v_length, conditional(ge(xyz[0],lx-v_length),(xyz[0]-(lx-v_length))*v_b/v_length+v_inner,v_inner)))

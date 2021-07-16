@@ -41,7 +41,10 @@ class TidalTurbine:
         C_T = self.thrust_coefficient(uv)
         A_T = pi * self.diameter**2 / 4
         thrust_area = C_T * A_T
-        alpha = self.velocity_correction(uv, depth)
+        if self.upwind_correction:
+            alpha = 0.5*(1+sqrt(1-thrust_area/(self.diameter*depth)))
+        else:
+            alpha = 1
         return thrust_area/2./alpha**2
 
     def power(self, uv, depth):
@@ -87,8 +90,7 @@ class TidalTurbine:
     def individual_extra_friction_coefficient(self,uv,depth,individual_thrust_coefficient):
         C_T = individual_thrust_coefficient
         A_T = pi * self.diameter**2 / 4
-        fric = C_T * A_T
-        thrust_area = fric
+        thrust_area = C_T * A_T
         if self.upwind_correction:
             alpha = 0.5*(1+sqrt(1-thrust_area/(self.diameter*depth)))
         else:
@@ -185,6 +187,7 @@ class TidalTurbineFarm:
         self.break_even_wattage = options.break_even_wattage
         self.individual_CTD_density = turbine_density # the product of c_t, density and dx which will be used in shallowwater_eq.py
         self.individual_extra_CTD_density = turbine_density
+        self.turbine_density_individual_power = []
 
     def number_of_turbines(self):
         return assemble(self.turbine_density * self.dx)
@@ -238,10 +241,10 @@ class DiscreteTidalTurbineFarm(TidalTurbineFarm):
             if len(options.turbine_axis) == 0:
                 print_output("None turbine axis angle is given when considering yaw effect. Applying the default angle 0 for each turbine!")
                 options.turbine_axis = [Constant(0) for i in range(len(options.turbine_coordinates)*2)]
-            # self.alpha_flood = sum((conditional((x[0]-xi)**2+(x[1]-yi)**2 < 2*radius**2, alphai/180*pi, 0) \
-            #     for alphai,(xi,yi) in zip(options.turbine_axis[:len(options.turbine_coordinates)],options.turbine_coordinates)))
+            self.alpha_flood = sum((conditional((x[0]-xi)**2+(x[1]-yi)**2 < 2*radius**2, alphai/180*pi, 0) \
+                for alphai,(xi,yi) in zip(options.turbine_axis[:len(options.turbine_coordinates)],options.turbine_coordinates)))
             self.alpha_ebb = sum((conditional((x[0]-xi)**2+(x[1]-yi)**2 < 2*radius**2, alphai/180*pi, 0) \
-                for alphai,(xi,yi) in zip(options.turbine_axis,options.turbine_coordinates)))
+                for alphai,(xi,yi) in zip(options.turbine_axis[len(options.turbine_coordinates):],options.turbine_coordinates)))
         else:
             if len(options.turbine_axis) != 0:
                 print_output("Turbine axis angle isn't needed when not considering yaw effect. Emptying the list automatically!")
@@ -277,6 +280,7 @@ class DiscreteTidalTurbineFarm(TidalTurbineFarm):
 
         radius = self.turbine.diameter * 0.5
         for coord in coordinates:
+
             dx0 = (x[0] - coord[0])/radius
             dx1 = (x[1] - coord[1])/radius
             psi_x = conditional(lt(abs(dx0), 1), exp(1-1/(1-dx0**2)), 0)
@@ -294,12 +298,19 @@ class DiscreteTidalTurbineFarm(TidalTurbineFarm):
             turbinepvd.project(self.turbine_density)
             File('turbinedensity.pvd').write(turbinepvd)
 
+
             self.turbine_density_list.append(bump/(radius**2 * unit_bump_integral))
+
+            psi_x = conditional(lt(abs(dx0), 1), 1, 0)
+            psi_y = conditional(lt(abs(dx1), 1), 1, 0)
+            bump = psi_x * psi_y
+            self.turbine_density_individual_power.append(bump)
 
     def individual_power_output(self, uv, depth):
         sum_power = 0
-        for eachdensity,itc in zip(self.turbine_density_list, self.individual_thrust_coefficient) :
-            sum_power += assemble(self.turbine.individual_power(uv,depth,itc)*eachdensity*self.dx)
+        ### Reason for multiply with 'self.turbine_density' is the error:IndexError: tuple index out of range.
+        for eachdensity,itc in zip(self.turbine_density_individual_power, self.individual_thrust_coefficient) :
+            sum_power += assemble(self.turbine.individual_power(uv,depth,itc)*eachdensity*self.turbine_density*self.dx)
         return sum_power
     
     def individual_CtTimesDensity(self, uv, depth):
@@ -351,7 +362,9 @@ class TurbineFunctionalCallback(DiagnosticCallback):
         for i, farm in enumerate(self.farms):
             if farm.__class__.__name__ == 'DiscreteTidalTurbineFarm':
                 if farm.considering_yaw:
-                    n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
+                    n_ebb = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
+                    n_flood = as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood)))
+                    n = conditional(self.uv[0]<0 , n_ebb, n_flood)   
                     uv_eff = dot(self.uv,n)
                 else:
                     uv_eff = self.uv 
@@ -452,7 +465,9 @@ class EachTurbineFunctionalCallback(DiagnosticCallback):
         current_power = []
         for i, farm in enumerate(self.farms):
             if farm.considering_yaw:
-                n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
+                n_ebb = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
+                n_flood = as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood)))
+                n = conditional(self.uv[0]<0 , n_ebb, n_flood)  
                 uv_eff = dot(self.uv,n)
             else:
                 uv_eff = self.uv
@@ -513,11 +528,12 @@ class MinimumDistanceConstraints(pyadjoint.InequalityConstraint):
         * ``function(self, m)``
         * ``jacobian(self, m)``
     """
-    def __init__(self, turbine_positions, turbine_axis, minimum_distance, optimise_layout_only):
+    def __init__(self, turbine_positions, turbine_axis, turbine_itcs, minimum_distance, optimise_layout_only):
         """Create MinimumDistanceConstraints
 
         :param turbine_positions: list of [x,y] where x and y are either float or Constant
         :param turbine_axis: list of [x] where x is either float or Constant
+        :param turbine_itcs:  list of [x] where x is the individual thrust coefficient and is either float or Constant
         :param minimum_distance: The minimum distance allowed between turbines.
         """
         if optimise_layout_only:
@@ -525,15 +541,17 @@ class MinimumDistanceConstraints(pyadjoint.InequalityConstraint):
             self._minimum_distance = minimum_distance
             self._nturbines = len(turbine_positions)
             self._naxis = 0
+            self._nitcs = 0
         else:
-            self._turbines = [float(xi) for xy in turbine_positions for xi in xy] + [float(x) for x in turbine_axis]
+            self._turbines = [float(xi) for xy in turbine_positions for xi in xy] + [float(x) for x in turbine_axis] +[float(x) for x in turbine_itcs]
             self._minimum_distance = minimum_distance
             self._nturbines = len(turbine_positions)
             self._naxis = len(turbine_axis)
+            self._nitcs = len(turbine_itcs)
 
     def length(self):
         """Returns the number of constraints ``len(function(m))``."""
-        return int(self._nturbines*(self._nturbines-1)/2)+int(self._naxis)
+        return int(self._nturbines*(self._nturbines-1)/2) + int(self._naxis) + int(self._nitcs)
 
     def function(self, m):
         """Return an object which must be positive for the point to be feasible.
@@ -553,6 +571,9 @@ class MinimumDistanceConstraints(pyadjoint.InequalityConstraint):
 
         for i in range(self._naxis):
             inequality_constraints.append((m[self._nturbines+i]- 0))
+
+        for i in range(self._nitcs):
+            inequality_constraints.append((m[self._nturbines+ self._naxis +i]- 0))
 
         inequality_constraints = numpy.array(inequality_constraints)
         if any(inequality_constraints <= 0):
@@ -574,7 +595,7 @@ class MinimumDistanceConstraints(pyadjoint.InequalityConstraint):
         """
         print_output("Calculating gradient of equality constraint")
 
-        grad_h = numpy.zeros((self.length(), self._nturbines*2+self._naxis))
+        grad_h = numpy.zeros((self.length(), self._nturbines*2+self._naxis+self._nitcs))
         row = 0
         for i in range(self._nturbines):
             for j in range(self._nturbines):
@@ -587,7 +608,11 @@ class MinimumDistanceConstraints(pyadjoint.InequalityConstraint):
                 grad_h[row, 2*j+1] = -2*(m[2*i+1] - m[2*j+1])
                 row += 1
         for i in range(self._naxis):
-            grad_h[row, i+self._nturbines] = 1
+            grad_h[row, i + self._nturbines] = 1
+            row +=1
+
+        for i in range(self._nitcs):
+            grad_h[row, i + self._nturbines + self._naxis] = 1
             row +=1
 
         return grad_h
