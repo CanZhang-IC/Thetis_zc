@@ -14,7 +14,7 @@ t_start = time.time()
 
 file_dir = '../../'
 
-output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/oneturbine-spring-5min_e&v'
+output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/spring-bothl_y-5min_e&v'
 
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
@@ -114,16 +114,21 @@ farm_options.upwind_correction = True
 
 xmin,ymin,xmax,ymax = 443340, 3322634, 443592, 3322848 
 x_c, y_c= (xmin+xmax)/2, (ymin+ymax)/2
-farm_options.turbine_coordinates =[[Constant(x_c),Constant(y_c)]]
-# site_x1, site_y1, site_x2, site_y2 = 443340, 3322634, 443592, 3322848 
+turbine_location = []
+for x in range(xmin+20,xmax-20,60):
+    for y in range(ymin+20,ymax-20,120):
+        turbine_location.append([x,y])
+for x in range(xmin+20+30,xmax-20,60):
+    for y in range(ymin+20+60,ymax-20,120):
+        turbine_location.append([x,y])
 
-# farm_options.turbine_coordinates = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 50)]
+farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
 
 farm_options.considering_yaw = True
-farm_options.turbine_axis = [Constant(0) for i in range(len(farm_options.turbine_coordinates))] + [Constant(0) for i in range(len(farm_options.turbine_coordinates))]
+farm_options.turbine_axis = [Constant(0) for i in range(len(farm_options.turbine_coordinates))] + [Constant(180) for i in range(len(farm_options.turbine_coordinates))]
 
-farm_options.considering_individual_thrust_coefficient = False
-farm_options.individual_thrust_coefficient = [Constant(0.6) for i in range(len(farm_options.turbine_axis))]
+farm_options.considering_individual_thrust_coefficient = True
+farm_options.individual_thrust_coefficient = [Constant(0.6) for i in range(len(farm_options.turbine_coordinates))]
 
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
@@ -149,12 +154,11 @@ solver_obj.add_callback(cb, 'timestep')
 solver_obj.iterate(update_forcings=update_forcings)
 
 # ###set up interest functional and control###
-interest_functional= sum(cb.current_power)
+interest_functional= sum(cb.average_power)
 print_output(interest_functional)
 
 # specifies the control we want to vary in the optimisation
-c =[Control(x) for x in farm_options.turbine_axis]
-
+c =[Control(x) for xy in farm_options.turbine_coordinates for x in xy] + [Control(i) for i in farm_options.turbine_axis] + [Control(i) for i in farm_options.individual_thrust_coefficient]
 # a number of callbacks to provide output during the optimisation iterations:
 # - ControlsExportOptimisationCallback export the turbine_friction values (the control)
 #            to outputs/control_turbine_friction.pvd. This can also be used to checkpoint
@@ -203,8 +207,8 @@ if 0:
 
     # this tests whether the above Taylor series residual indeed converges to zero at 2nd order in h as h->0
    
-    m0 =  [Constant(x) for x in farm_options.turbine_axis] 
-    h0 =  [Constant(1) for x in farm_options.turbine_axis] 
+    m0 =  [Constant(x) for xy in farm_options.turbine_coordinates for x in xy] + [Constant(i) for i in farm_options.turbine_axis] + [Constant(i) for i in farm_options.individual_thrust_coefficient]
+    h0 =  [Constant(1) for xy in farm_options.turbine_coordinates for x in xy] + [Constant(1) for i in farm_options.turbine_axis] + [Constant(1) for i in farm_options.individual_thrust_coefficient]
 
     minconv = taylor_test(rf, m0, h0)
     print_output("Order of convergence with taylor test (should be 2) = {}".format(minconv))
@@ -218,18 +222,26 @@ if 1:
     # By default scipy's implementation of L-BFGS-B is used, see
     #   https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fmin_l_bfgs_b.html
     # options, such as maxiter and pgtol can be passed on.
-    lb = [-360]*len(farm_options.turbine_axis) + [0.1]*len(farm_options.individual_thrust_coefficient)
-    ub = [360]*len(farm_options.turbine_axis) + [0.6]*len(farm_options.individual_thrust_coefficient)
-    td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 200, 'ptol': 1e-3})
+    optimise_layout_only = False
+    d = farm_options.turbine_options.diameter
+
+    lb = list(np.array([[xmin+d, ymin+d] for _ in farm_options.turbine_coordinates]).flatten()) + [-360]*len(farm_options.turbine_axis) + [0.3] * len(farm_options.individual_thrust_coefficient)
+    ub = list(np.array([[xmax-d, ymax-d] for _ in farm_options.turbine_coordinates]).flatten()) + [360] *len(farm_options.turbine_axis) + [0.6] * len(farm_options.individual_thrust_coefficient)
+
+    mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, farm_options.individual_thrust_coefficient, 40. ,optimise_layout_only)
+    
+    td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
+            options={'maxiter': 200, 'pgtol': 1e-3})
 
 
 t_end = time.time()
 print('time cost: {0:.2f}min'.format((t_end - t_start)/60))
 
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-if rank == 0 :
-    yag = yagmail.SMTP(user = '623001493@qq.com',password = 'Zc623oo1493', host = 'smtp.qq.com')
-    yag.send(to = ['canzhang2019@gmail.com'], subject = 'Python done', contents = ['One turbine Spring Optimisation Finished'])
-else:
-    pass
+if 1:
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
+    if rank == 0 :
+        yag = yagmail.SMTP(user = '623001493@qq.com',password = 'Zc623oo1493', host = 'smtp.qq.com')
+        yag.send(to = ['canzhang2019@gmail.com'], subject = 'Python done', contents = ['Location and Yaw Spring Optimisation Finished.'])
+    else:
+        pass

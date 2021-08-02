@@ -17,22 +17,22 @@ t_start = time.time()
 
 n_layers = 6
 outputdir = '../../outputs/5.3D/rectangular'
-lx = 50
-ly = 1.2
+lx = 2000
+ly = 600
 # nx = 150
 # ny = 50
 # mesh2d = RectangleMesh(nx, ny, lx, ly)
 mesh2d = Mesh('./rectangular.msh')
 print_output('Exporting to ' + outputdir)
 t_end = 100*20
-t_export = 20
+t_export = 5
 
-H = Constant(0.54)  # depth
+H = Constant(54)  # depth
 P1_2d = FunctionSpace(mesh2d, "CG", 1)
 bathymetry_2d = Function(P1_2d)
 bathymetry_2d.assign(H)
 
-u_in = 0.35
+u_in = 3.5
 w_max = 5e-3
 
 # create solver
@@ -67,9 +67,9 @@ File(outputdir+'/viscosity.pvd').write(h_viscosity)
 options.horizontal_viscosity = h_viscosity
 options.vertical_viscosity = h_viscosity
 
-turbine_xyz = [25, 0.6, -0.27]
-D = 0.27
-th = 0.1  # thickness of disc
+turbine_xyz = [lx/2, ly/2, -H/2]
+D = 27
+th = 10  # thickness of disc
 turbine_dims = [th, D, D]
 C_T = 0.8
 A_T = pi*(D/2)**2

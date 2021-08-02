@@ -14,7 +14,7 @@ t_start = time.time()
 
 file_dir = '../../'
 
-output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/l_only-spring-5min_e&v'
+output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/intermediate-noyaw-5min_e&v'
 
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
@@ -22,8 +22,8 @@ mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 dt = 5*60 # reduce this if solver does not converge
 t_export = 30*60 
 # t_end = 1555200
-t_end = 1216800+ 13*60*60 # spring
-# t_end = 885600 + 13*60*60 # middle
+# t_end = 1216800+ 13*60*60 # spring
+t_end = 885600 + 13*60*60 # middle
 # t_end = 612000 + 13*60*60 # neap
 
 P1 = FunctionSpace(mesh2d, "CG", 1)
@@ -113,22 +113,25 @@ farm_options.turbine_options.diameter = 20
 farm_options.upwind_correction = True
 
 xmin,ymin,xmax,ymax = 443340, 3322634, 443592, 3322848 
-x_c, y_c= (xmin+xmax)/2, (ymin+ymax)/2
+
 turbine_location = []
 for x in range(xmin+20,xmax-20,60):
-    for y in range(ymin+20,ymax-20,60):
+    for y in range(ymin+20,ymax-20,120):
         turbine_location.append([x,y])
-        # turbine_location.append(y)
+for x in range(xmin+20+30,xmax-20,60):
+    for y in range(ymin+20+60,ymax-20,120):
+        turbine_location.append([x,y])
 farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
-# farm_options.turbine_coordinates =[[Constant(x_c),Constant(y_c)],[Constant(x_c),Constant(y_c-20)],[Constant(x_c),Constant(y_c+20)]]
-farm_options.considering_yaw = True
-farm_options.turbine_axis = [Constant(0) for i in range(len(farm_options.turbine_coordinates))] + [Constant(0) for i in range(len(farm_options.turbine_coordinates))]
 
-farm_options.considering_individual_thrust_coefficient = True
+farm_options.considering_yaw = False
+farm_options.turbine_axis = [Constant(-260.7) for i in range(len(farm_options.turbine_coordinates))] + [Constant(109) for i in range(len(farm_options.turbine_coordinates))]
+
+farm_options.considering_individual_thrust_coefficient = False
 farm_options.individual_thrust_coefficient = [Constant(0.6) for i in range(len(farm_options.turbine_axis))]
 
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
+
 
 def update_forcings(t):
   with timed_stage('update forcings'):
@@ -141,7 +144,7 @@ def update_forcings(t):
 
 ###spring:676,middle:492,neap:340###
 # solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
-solver_obj.load_state(676, outputdir='../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/restart_5min-e&v-2')
+solver_obj.load_state(492, outputdir='../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/restart_5min-e&v')
 
 # Operation of tidal turbine farm through a callback
 cb = turbines.TurbineFunctionalCallback(solver_obj)
@@ -151,7 +154,7 @@ solver_obj.add_callback(cb, 'timestep')
 solver_obj.iterate(update_forcings=update_forcings)
 
 # ###set up interest functional and control###
-interest_functional= sum(cb.current_power)
+interest_functional= sum(cb.average_power)
 print_output(interest_functional)
 
 # specifies the control we want to vary in the optimisation
@@ -192,7 +195,7 @@ def derivative_cb_pre(controls):
 rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list,
         eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
 
-if 1:
+if 0:
     # whenever the forward model is changed - for example different terms in the equation,
     # different types of boundary conditions, etc. - it is a good idea to test whether the
     # gradient computed by the adjoint is still correct, as some steps in the model may
@@ -213,7 +216,7 @@ if 1:
 
     assert minconv > 1.95
 
-if 0:
+if 1:
     # Optimise the control for minimal functional (i.e. maximum profit)
     # with a gradient based optimisation algorithm using the reduced functional
     # to replay the model, and computing its derivative via the adjoint
@@ -226,7 +229,7 @@ if 0:
     lb = np.array([[xmin+d, ymin+d] for _ in farm_options.turbine_coordinates]).flatten()
     ub = np.array([[xmax-d, ymax-d] for _ in farm_options.turbine_coordinates]).flatten()
 
-    mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40. ,optimise_layout_only)
+    mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, farm_options.individual_thrust_coefficient, 40. ,optimise_layout_only)
     
     td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
             options={'maxiter': 200, 'pgtol': 1e-3})
@@ -235,10 +238,11 @@ if 0:
 t_end = time.time()
 print('time cost: {0:.2f}min'.format((t_end - t_start)/60))
 
-# comm = MPI.COMM_WORLD
-# rank = comm.Get_rank()
-# if rank == 0 :
-#     yag = yagmail.SMTP(user = '623001493@qq.com',password = 'Zc623oo1493', host = 'smtp.qq.com')
-#     yag.send(to = ['canzhang2019@gmail.com'], subject = 'Python done', contents = ['One turbine Spring Optimisation Finished'])
-# else:
-#     pass
+if 1:
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
+    if rank == 0 :
+        yag = yagmail.SMTP(user = '623001493@qq.com',password = 'Zc623oo1493', host = 'smtp.qq.com')
+        yag.send(to = ['canzhang2019@gmail.com'], subject = 'Python done', contents = ['Intermediate Optimisation: No YAW Finished.'])
+    else:
+        pass

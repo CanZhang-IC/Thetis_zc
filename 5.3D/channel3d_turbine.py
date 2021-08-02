@@ -19,7 +19,7 @@ n_layers = 6
 outputdir = '../../outputs/5.3D/April27'
 lx = 2000
 ly = 600
-nx = 50
+nx = 100
 ny = 25
 
 mesh2d = RectangleMesh(nx, ny, lx, ly)
@@ -43,7 +43,7 @@ bathymetry_2d = Function(P1_2d)
 bathymetry_2d.assign(H)
 
 u_in = 3.0
-w_max = 5e-3
+w_max = 5e-4
 
 # create solver
 solver_obj = solver.FlowSolver(mesh2d, bathymetry_2d, n_layers)
@@ -69,13 +69,13 @@ solver_obj.create_fields()
 
 xyz = SpatialCoordinate(solver_obj.mesh)
 v_b = 100
-v_inner = 1
-v_length = 200
+v_inner = 0.1
+v_length = 50
 h_viscosity = Function(solver_obj.function_spaces.P1, name='viscosity')
 h_viscosity.interpolate(conditional(le(xyz[0], v_length), v_b+v_inner-xyz[0]*v_b/v_length, conditional(ge(xyz[0],lx-v_length),(xyz[0]-(lx-v_length))*v_b/v_length+v_inner,v_inner)))
 File(outputdir+'/viscosity.pvd').write(h_viscosity)
 options.horizontal_viscosity = h_viscosity
-options.vertical_viscosity = Constant(1)
+options.vertical_viscosity = h_viscosity
 
 turbine_xyz = [lx/2, ly/2, -H/2]
 D = 20

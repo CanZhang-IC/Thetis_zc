@@ -1,22 +1,25 @@
-res = 0.05;
-t_res = 0.01;
-rad = 0.27;
+res = 20;
+t_res = 5;
+rad = 27;
 
-Point(1) ={15,0,0,res};
-Point(2) ={45,0,0,res};
-Point(3) ={45,1.2,0,res};
-Point(4) ={15,1.2,0,res};
+x_end = 2000;
+y_end = 600;
+
+Point(1) ={0,0,0,res};
+Point(2) ={x_end,0,0,res};
+Point(3) ={x_end,y_end,0,res};
+Point(4) ={0,y_end,0,res};
 
 //circle centre point
-Point(5) = {25,0.6,0,t_res};
+Point(5) = {x_end/2,y_end/2,0,t_res};
 //left
-Point(6) = {25-rad,0.6,0,t_res};
+Point(6) = {x_end/2-rad,y_end/2,0,t_res};
 //right
-Point(7) = {25+rad,0.6,0,t_res};
+Point(7) = {x_end/2+rad,y_end/2,0,t_res};
 //top
-Point(8) = {25,0.6+rad,0,t_res};
+Point(8) = {x_end/2,y_end/2+rad,0,t_res};
 //bottom
-Point(9) = {25,0.6-rad,0,t_res};
+Point(9) = {x_end/2,y_end/2-rad,0,t_res};
 
 Line(1) = {1,2};
 Line(2) = {2,3};
