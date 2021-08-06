@@ -24,18 +24,16 @@ get_index = os.path.basename(sys.argv[0])
 namelength = len('two_turbines')
 angle = get_index[namelength:-3]
 
-angle2,angle1 = angle, 0
+angle2,angle1 = angle, 30
 H = 0.5
 speed = -0.33
-output_name = 'mesh_0.05_0.5_f20/v_1e-3/two_turbines/angle_'+str(angle1)+'_'+str(angle2)
+output_name = 'mesh_0.05_0.5_f30_v_1e-2/two_turbines/angle_'+str(angle1)+'_'+str(angle2)
 output_dir = '../../../outputs/4.yaw/Yaw_Ideal/experiments/'+output_name
 #Comment for testing forward model
 
 ### set up the Thetis solver obj as usual ##
 mesh2d = Mesh('../../prepare_ideal_meshes/experiment_mesh.msh')
 
-tidal_amplitude = 5.
-tidal_period = 12.42*60*60
 timestep = 30
 t_export = 2 * timestep
 t_end = 20*t_export #12000
@@ -45,7 +43,7 @@ t_end = 20*t_export #12000
 P1_2d = FunctionSpace(mesh2d, 'CG', 1)
 x = SpatialCoordinate(mesh2d)
 # h_viscosity = Constant(1e-2)
-viscosity = 1e-3
+viscosity = 1e-2
 h_viscosity = Function(P1_2d).interpolate(conditional(le(x[0], 1), 1+viscosity-x[0], viscosity))
 File(output_dir+'/viscosity.pvd').write(h_viscosity)
 
@@ -110,7 +108,7 @@ farm_options.turbine_coordinates =[
     ]
 
 farm_options.considering_yaw = True
-farm_options.turbine_axis = [Constant(angle1),Constant(angle2)]
+farm_options.turbine_axis = [Constant(angle1),Constant(angle2),Constant(angle1),Constant(angle2)]
 
 # farm_options.farm_alpha = Function(P1_2d)
 #add turbines to SW_equations

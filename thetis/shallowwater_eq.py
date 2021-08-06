@@ -737,7 +737,7 @@ class TurbineDragTerm(ShallowWaterMomentumTerm):
                         density = farm.turbine_density
                         n_ebb = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
                         n_flood = as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood)))
-                        n = conditional(uv[0]<0 , n_ebb, n_flood)  
+                        n = conditional(dot(uv_old,as_vector((0,1)))>0 , n_ebb, n_flood) 
                         farm.individual_CtTimesDensity(uv_old, total_h)
                         c_t_density = farm.individual_CTD_density
                         farm.individual_extra_CtTimesDensity(uv_old, total_h)
@@ -749,12 +749,12 @@ class TurbineDragTerm(ShallowWaterMomentumTerm):
                         density = farm.turbine_density
                         n_ebb = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
                         n_flood = as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood)))
-                        n = conditional(uv[0]<0 , n_ebb, n_flood)  
+                        n = conditional(dot(uv_old,as_vector((0,1)))>0, n_ebb, n_flood)  
                         c_t = farm.friction_coefficient(uv_old, total_h)
                         c_t_extra = farm.friction_coefficient_extra(uv_old,total_h)
                         unorm = abs(dot(uv_old, n))
                         cross_result = uv[0]*n[1] - uv[1]*n[0]
-                        f += c_t * density * unorm * dot(uv,n) * dot(self.u_test, n)  / total_h* farm.dx +  30 * c_t_extra * density  * cross_result * inner(self.u_test, as_vector((-uv_old[1],uv_old[0]))) * dot(uv_old,n)/sqrt(dot(uv_old,uv_old))  / total_h* farm.dx
+                        f += c_t * density * unorm * dot(uv,n) * dot(self.u_test, n)  / total_h* farm.dx +  30 * c_t_extra * density  * cross_result * inner(self.u_test, as_vector((-uv_old[1],uv_old[0]))) * dot(uv_old,n) /sqrt(dot(uv_old,uv_old))  / total_h* farm.dx
                              
                 else:
                     density = farm.turbine_density

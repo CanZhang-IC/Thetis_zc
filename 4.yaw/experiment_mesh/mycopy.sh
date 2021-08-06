@@ -1,6 +1,6 @@
 #! /bin/bash
 
-for i in $( seq 0 10 30)
+for i in $( seq -30 10 30)
 do
     # cp one_turbine.py one_turbine$i.py
     # mpirun -np 8 python one_turbine$i.py
