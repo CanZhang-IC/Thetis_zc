@@ -601,6 +601,9 @@ class MinimumDistanceConstraints(pyadjoint.InequalityConstraint):
             for j in range(self._nturbines):
                 if i <= j:
                     continue
+                if self._nitcs > 0:
+                    if m[self._nturbines+ self._naxis +i] < 1e-5 or m[self._nturbines+ self._naxis +i] < 1e-5:
+                        continue
 
                 grad_h[row, 2*i] = 2*(m[2*i] - m[2*j])
                 grad_h[row, 2*j] = -2*(m[2*i] - m[2*j])
