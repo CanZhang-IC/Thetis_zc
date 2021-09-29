@@ -244,9 +244,15 @@ field_metadata['hcc_metric_3d'] = {
     'unit': '-',
     'filename': 'HCCMetric3d',
 }
-field_metadata['turbine_density_2d'] = {
-    'name': 'Turbine density',
-    'shortname': 'Turbine density',
-    'unit': 'm-2',
-    'filename': 'turbine_density_2d'
+field_metadata['q_2d'] = {
+    'name': 'Non-hydrostatic pressure at bottom',
+    'shortname': 'NH pressure',
+    'unit': 'Pa',
+    'filename': 'NHPressure2d',
+}
+field_metadata['w_2d'] = {
+    'name': 'Depth averaged vertical velocity',
+    'shortname': 'Depth averaged vertical velocity',
+    'unit': 'm s-1',
+    'filename': 'VertVelo2d',
 }

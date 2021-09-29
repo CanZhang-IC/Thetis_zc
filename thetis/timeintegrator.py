@@ -414,10 +414,10 @@ class PressureProjectionPicard(TimeIntegrator):
         for k in sorted(self.fields_old):
             self.fields_old[k].assign(self.fields[k])
 
-    def advance(self, t, updateForcings=None):
+    def advance(self, t, update_forcings=None):
         """Advances equations for one time step."""
-        if updateForcings is not None:
-            updateForcings(t + self.dt)
+        if update_forcings is not None:
+            update_forcings(t + self.dt)
         self.solution_old.assign(self.solution)
 
         for it in range(self.iterations):
@@ -659,8 +659,8 @@ class SSPRK22ALE(TimeIntegrator):
         """
         if self._nontrivial:
             # Solve $u = M^{-1}q$
-            #with timed_region('sol1_assemble_A'):
-            #    assemble(self.a, self.lin_solver.A)
+            with timed_region('sol1_assemble_A'):
+                assemble(self.a, self.lin_solver.A)
             with timed_region('sol1_solve'):
                 self.lin_solver.solve(self.solution, self.mu)
 
@@ -670,8 +670,8 @@ class SSPRK22ALE(TimeIntegrator):
         """
         if self._nontrivial:
             # Evaluate $k = \Delta t F(u)$
-            #with timed_region('pre2_asseble_f'):
-            #    assemble(self.l, self.tendency)
+            with timed_region('pre2_asseble_f'):
+                assemble(self.l, self.tendency)
             # $q = \frac{1}{2}q + \frac{1}{2}q_{old} + \frac{1}{2}k$
             with timed_region('pre2_incr_rhs'):
                 self.mu.assign(0.5*self.mu + 0.5*self.mu_old + 0.5*self.tendency)
@@ -691,8 +691,8 @@ class SSPRK22ALE(TimeIntegrator):
         """
         if self._nontrivial:
             # Solve $u = M^{-1}q$
-            #with timed_region('sol2_assemble_A'):
-            #    assemble(self.a, self.lin_solver.A)
+            with timed_region('sol2_assemble_A'):
+                assemble(self.a, self.lin_solver.A)
             with timed_region('sol2_solve'):
                 self.lin_solver.solve(self.solution, self.mu)
 

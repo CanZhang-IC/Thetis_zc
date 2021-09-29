@@ -7,7 +7,7 @@ The advection-diffusion equation of depth-integrated tracer :math:`q=HT` in cons
     \frac{\partial q}{\partial t}
     + \nabla_h \cdot (\textbf{u} q)
     = \nabla_h \cdot (\mu_h \nabla_h q)
-    :label: tracer_eq_2d
+    :label: cons_tracer_eq_2d
 
 where :math:`\nabla_h` denotes horizontal gradient, :math:`\textbf{u}` are the horizontal
 velocities, and
@@ -15,11 +15,14 @@ velocities, and
 """
 from __future__ import absolute_import
 from .utility import *
-from .equation import Equation
-from .tracer_eq_2d import HorizontalDiffusionTerm, TracerTerm
+from .tracer_eq_2d import HorizontalDiffusionTerm, TracerTerm, TracerEquation2D
 
 __all__ = [
     'ConservativeTracerEquation2D',
+    'ConservativeTracerTerm',
+    'ConservativeHorizontalAdvectionTerm',
+    'ConservativeHorizontalDiffusionTerm',
+    'ConservativeSourceTerm',
 ]
 
 
@@ -28,18 +31,14 @@ class ConservativeTracerTerm(TracerTerm):
     Generic depth-integrated tracer term that provides commonly used members and mapping for
     boundary functions.
     """
-    def __init__(self, function_space, depth,
-                 use_lax_friedrichs=False,
-                 sipg_parameter=Constant(10.0)):
+    def __init__(self, function_space, depth, options, test_function=None):
         """
         :arg function_space: :class:`FunctionSpace` where the solution belongs
         :arg depth: :class: `DepthExpression` containing depth info
-        :kwarg bool use_lax_friedrichs: whether to use Lax Friedrichs stabilisation
-        :kwarg sipg_parameter: :class: `Constant` or :class: `Function` penalty parameter for SIPG
+        :arg options: :class`ModelOptions2d` containing parameters
         """
-        super().__init__(function_space, depth,
-                         use_lax_friedrichs=use_lax_friedrichs,
-                         sipg_parameter=sipg_parameter)
+        super(ConservativeTracerTerm, self).__init__(function_space, depth, options,
+                                                     test_function=test_function)
 
     # TODO: at the moment this is the same as TracerTerm, but we probably want to overload its
     # get_bnd_functions method
@@ -88,7 +87,7 @@ class ConservativeHorizontalAdvectionTerm(ConservativeTracerTerm):
             f += (flux_up[0] * jump(self.test, self.normal[0])
                   + flux_up[1] * jump(self.test, self.normal[1])) * self.dS
             # Lax-Friedrichs stabilization
-            if self.use_lax_friedrichs:
+            if self.options.use_lax_friedrichs_tracer:
                 if uv_p1 is not None:
                     gamma = 0.5*abs((avg(uv_p1)[0]*self.normal('-')[0]
                                      + avg(uv_p1)[1]*self.normal('-')[1]))*lax_friedrichs_factor
@@ -97,22 +96,22 @@ class ConservativeHorizontalAdvectionTerm(ConservativeTracerTerm):
                 else:
                     gamma = 0.5*abs(un_av)*lax_friedrichs_factor
                 f += gamma*dot(jump(self.test), jump(solution))*self.dS
-            if bnd_conditions is not None:
-                for bnd_marker in self.boundary_markers:
-                    funcs = bnd_conditions.get(bnd_marker)
-                    ds_bnd = ds(int(bnd_marker), degree=self.quad_degree)
-                    c_in = solution
-                    if funcs is not None:
-                        c_ext, uv_ext, eta_ext = self.get_bnd_functions(c_in, uv, elev, bnd_marker, bnd_conditions)
-                        uv_av = 0.5*(uv + uv_ext)
-                        un_av = self.normal[0]*uv_av[0] + self.normal[1]*uv_av[1]
-                        s = 0.5*(sign(un_av) + 1.0)
-                        flux_up = c_in*uv*s + c_ext*uv_ext*(1-s)
-                        f += (flux_up[0]*self.normal[0]
-                              + flux_up[1]*self.normal[1])*self.test*ds_bnd
-                    else:
-                        f += c_in * (uv[0]*self.normal[0]
-                                     + uv[1]*self.normal[1])*self.test*ds_bnd
+        if bnd_conditions is not None:
+            for bnd_marker in self.boundary_markers:
+                funcs = bnd_conditions.get(bnd_marker)
+                ds_bnd = ds(int(bnd_marker), degree=self.quad_degree)
+                c_in = solution
+                if funcs is not None:
+                    c_ext, uv_ext, eta_ext = self.get_bnd_functions(c_in, uv, elev, bnd_marker, bnd_conditions)
+                    uv_av = 0.5*(uv + uv_ext)
+                    un_av = self.normal[0]*uv_av[0] + self.normal[1]*uv_av[1]
+                    s = 0.5*(sign(un_av) + 1.0)
+                    flux_up = c_in*uv*s + c_ext*uv_ext*(1-s)
+                    f += (flux_up[0]*self.normal[0]
+                          + flux_up[1]*self.normal[1])*self.test*ds_bnd
+                else:
+                    f += c_in * (uv[0]*self.normal[0]
+                                 + uv[1]*self.normal[1])*self.test*ds_bnd
 
         return -f
 
@@ -134,13 +133,12 @@ class ConservativeHorizontalDiffusionTerm(ConservativeTracerTerm, HorizontalDiff
             \text{jump}(\phi \textbf{n}_h) dS \\
         &- \int_\Gamma \mu_h (\nabla_h \phi) \cdot \textbf{n}_h ds
 
-    where :math:`\sigma` is a penalty parameter,
-    see Epshteyn and Riviere (2007).
+    where :math:`\sigma` is a penalty parameter, see Hillewaert (2013).
 
-    Epshteyn and Riviere (2007). Estimation of penalty parameters for symmetric
-    interior penalty Galerkin methods. Journal of Computational and Applied
-    Mathematics, 206(2):843-872. http://dx.doi.org/10.1016/j.cam.2006.08.029
-
+    Hillewaert, Koen (2013). Development of the discontinuous Galerkin method
+    for high-resolution, large scale CFD and acoustics in industrial
+    geometries. PhD Thesis. Université catholique de Louvain.
+    https://dial.uclouvain.be/pr/boreal/object/boreal:128254/
     """
     # TODO: at the moment the same as HorizontalDiffusionTerm
     # do we need additional H-derivative term?
@@ -168,21 +166,11 @@ class ConservativeSourceTerm(ConservativeTracerTerm):
         return -f
 
 
-class ConservativeTracerEquation2D(Equation):
+class ConservativeTracerEquation2D(TracerEquation2D):
     """
     2D tracer advection-diffusion equation :eq:`tracer_eq` in conservative form
     """
-    def __init__(self, function_space, depth,
-                 use_lax_friedrichs=False,
-                 sipg_parameter=Constant(10.0)):
-        """
-        :arg function_space: :class:`FunctionSpace` where the solution belongs
-        :arg depth: :class: `DepthExpression` containing depth info
-        :kwarg bool use_lax_friedrichs: whether to use Lax Friedrichs stabilisation
-        :kwarg sipg_parameter: :class: `Constant` or :class: `Function` penalty parameter for SIPG
-        """
-        super(ConservativeTracerEquation2D, self).__init__(function_space)
-        args = (function_space, depth, use_lax_friedrichs, sipg_parameter)
-        self.add_term(ConservativeHorizontalAdvectionTerm(*args), 'explicit')
-        self.add_term(ConservativeHorizontalDiffusionTerm(*args), 'explicit')
-        self.add_term(ConservativeSourceTerm(*args), 'source')
+    def add_terms(self, *args, **kwargs):
+        self.add_term(ConservativeHorizontalAdvectionTerm(*args, **kwargs), 'explicit')
+        self.add_term(ConservativeHorizontalDiffusionTerm(*args, **kwargs), 'explicit')
+        self.add_term(ConservativeSourceTerm(*args, **kwargs), 'source')

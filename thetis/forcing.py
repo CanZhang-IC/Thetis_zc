@@ -2,7 +2,6 @@
 Routines for interpolating forcing fields for the 3D solver.
 """
 from firedrake import *
-import numpy as np
 import scipy.spatial.qhull as qhull
 import thetis.timezone as timezone
 import thetis.interpolation as interpolation
@@ -713,7 +712,7 @@ class TidalBoundaryForcing(object):
             # interpolate in the whole domain
             self.nodes = np.arange(self.elev_field.dat.data_with_halos.shape[0])
         else:
-            bc = DirichletBC(fs, 0., boundary_ids, method='geometric')
+            bc = DirichletBC(fs, 0., boundary_ids)
             self.nodes = bc.nodes
         self._empty_set = self.nodes.size == 0
 

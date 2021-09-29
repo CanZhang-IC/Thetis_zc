@@ -59,6 +59,7 @@ def rst_all_options(cls, nspace=0, prefix=None):
         lines.append(indent(dedent(help), 4 + nspace))
         lines.append('')
         lines.append(indent("Default:\n", 4 + nspace))
+        dvr = dvr or 'None'
         lines.append(indent(dvr.replace("\\n", "\\\\n"), 4 + nspace))
         if extra is not None:
             lines.append(indent(extra, 4 + nspace))
@@ -148,7 +149,7 @@ class FiredrakeConstantTraitlet(TraitType):
         self.error(obj, value)
 
     def default_value_repr(self):
-        return 'Constant({:})'.format(self.default_value.dat.data[0])
+        return 'Constant({:})'.format(float(self.default_value))
 
 
 class FiredrakeCoefficient(TraitType):
@@ -162,7 +163,7 @@ class FiredrakeCoefficient(TraitType):
 
     def default_value_repr(self):
         if isinstance(self.default_value, Constant):
-            return 'Constant({:})'.format(self.default_value.dat.data[0])
+            return 'Constant({:})'.format(float(self.default_value))
         return 'Function'
 
 
@@ -178,7 +179,7 @@ class FiredrakeScalarExpression(TraitType):
 
     def default_value_repr(self):
         if isinstance(self.default_value, Constant):
-            return 'Constant({:})'.format(self.default_value.dat.data[0])
+            return 'Constant({:})'.format(float(self.default_value))
         if isinstance(self.default_value, Function):
             return 'Function'
         return 'UFL scalar expression'
@@ -196,7 +197,7 @@ class FiredrakeVectorExpression(TraitType):
 
     def default_value_repr(self):
         if isinstance(self.default_value, Constant):
-            return 'Constant({:})'.format(self.default_value.dat.data[0])
+            return 'Constant({:})'.format(float(self.default_value))
         if isinstance(self.default_value, Function):
             return 'Function'
         return 'UFL vector expression'
