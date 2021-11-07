@@ -10,11 +10,11 @@ import prepare.utm
 #constituents = ['M2', 'S2', 'N2', 'K2', 'K1', 'O1', 'P1', 'Q1', 'M4', 'MS4', 'MN4' ]
 constituents = ['Q1', 'O1', 'P1', 'K1', 'N2', 'M2', 'S2', 'K2']
 tide = uptide.Tides(constituents)
-tide.set_initial_time(datetime.datetime(2013,8,13,0,0,0)) #year, month, day, hour, min, sec
+tide.set_initial_time(datetime.datetime(2013,8,9,0,0,0)) #year, month, day, hour, min, sec
 
-grid_file_name = "../../Netcdf/grid_file.nc"
-data_file_name = "../../Netcdf/data_file.nc"
-ranges=((122.27, 122.64),(29.84, 30.15))
+grid_file_name = "/media/can/can_disk/thetis_new/Git_mythetis/Netcdf/grid_file.nc"
+data_file_name = "/media/can/can_disk/thetis_new/Git_mythetis/Netcdf/data_file.nc"
+ranges=((122.2, 122.6),(29.9, 30.2))
 tnci = uptide.tidal_netcdf.OTPSncTidalInterpolator(tide, grid_file_name, data_file_name, ranges)
 
 utm_zone=51

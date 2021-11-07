@@ -27,7 +27,7 @@ angle = get_index[namelength:-3]
 angle2,angle1 = angle, 30
 H = 0.5
 speed = -0.33
-output_name = 'mesh_0.05_0.5_f30_v_1e-2/two_turbines/angle_'+str(angle1)+'_'+str(angle2)
+output_name = 'mesh_0.05_0.5_f30_v_1e-3_qdc0.005/two_turbines/angle_'+str(angle1)+'_'+str(angle2)
 output_dir = '../../../outputs/4.yaw/Yaw_Ideal/experiments/'+output_name
 #Comment for testing forward model
 
@@ -43,7 +43,7 @@ t_end = 20*t_export #12000
 P1_2d = FunctionSpace(mesh2d, 'CG', 1)
 x = SpatialCoordinate(mesh2d)
 # h_viscosity = Constant(1e-2)
-viscosity = 1e-2
+viscosity = 1e-3
 h_viscosity = Function(P1_2d).interpolate(conditional(le(x[0], 1), 1+viscosity-x[0], viscosity))
 File(output_dir+'/viscosity.pvd').write(h_viscosity)
 
@@ -71,7 +71,7 @@ options.timestepper_options.solver_parameters = {'snes_monitor': None,
                                                 'mat_type': 'aij'
                                                 }
 options.horizontal_viscosity = h_viscosity
-options.quadratic_drag_coefficient = Constant(0.0025)
+options.quadratic_drag_coefficient = Constant(0.005)
 
 # assign boundary conditions
 left_tag = 1

@@ -3,8 +3,8 @@ from firedrake_adjoint import *
 from pyadjoint import minimize
 op2.init(log_level=INFO)
 import sys
-sys.path.append('..')
-import prepare.utm, prepare.myboundary_30min
+sys.path.append('../..')
+import prepare.utm, prepare.myboundary
 import prepare_cable.Hybrid_Code
 from prepare_cable.cable_overloaded import cablelength
 import numpy
@@ -12,34 +12,36 @@ import time
 
 t_start = time.time()
 
-ouput_dir = '../../outputs/cable-middle'
+file_dir = '../../'
 
-mesh2d = Mesh('../mesh/mesh.msh')
+output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/test'
+
+mesh2d = Mesh(file_dir+'mesh/mesh.msh')
+
 #timestepping options
-dt = 30*60 # reduce this if solver does not converge
+dt = 5*60 # reduce this if solver does not converge
 t_export = 30*60 
-#t_end = 1555200
-#t_end = 1216800+ 60*60 # spring
+# t_end = 1555200
+# t_end = 1216800+ 13*60*60 # spring
 t_end = 885600 + 13*60*60 # middle
-#t_end = 612000 + 13*60*60 # neap
-#t_end = 30*60
+# t_end = 612000 + 13*60*60 # neap
 
 P1 = FunctionSpace(mesh2d, "CG", 1)
 
 # read bathymetry code
-chk = DumbCheckpoint('../prepare/bathymetry', mode=FILE_READ)
+chk = DumbCheckpoint(file_dir+'prepare/bathymetry', mode=FILE_READ)
 bathymetry2d = Function(P1)
 chk.load(bathymetry2d, name='bathymetry')
 chk.close()
 
 #read viscosity / manning boundaries code
-chk = DumbCheckpoint('../prepare/viscosity', mode=FILE_READ)
+chk = DumbCheckpoint(file_dir+'prepare/viscosity', mode=FILE_READ)
 h_viscosity = Function(P1, name='viscosity')
 chk.load(h_viscosity)
 chk.close()
 
 #manning = Function(P1,name='manning')
-chk = DumbCheckpoint('../prepare/manning', mode=FILE_READ)
+chk = DumbCheckpoint(file_dir+'prepare/manning', mode=FILE_READ)
 manning = Function(bathymetry2d.function_space(), name='manning')
 chk.load(manning)
 chk.close()
@@ -66,7 +68,7 @@ options.use_nonlinear_equations = True
 options.simulation_export_time = t_export
 options.simulation_end_time = t_end
 options.coriolis_frequency = coriolis_2d
-options.output_directory = ouput_dir
+options.output_directory = output_dir
 options.check_volume_conservation_2d = True
 options.fields_to_export = ['uv_2d', 'elev_2d']
 options.fields_to_export_hdf5 = ['uv_2d', 'elev_2d']
@@ -98,28 +100,24 @@ solver_obj.bnd_functions['shallow_water'] = {
         200: {'elev': tidal_elev},  #set open boundaries to tidal_elev function
   }
 
-def update_forcings(t):
-  with timed_stage('update forcings'):
-    print_output("Updating tidal field at t={}".format(t))
-    elev = prepare.myboundary_30min.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
-    tidal_elev.project(elev) 
-    v = prepare.myboundary_30min.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
-    tidal_v.project(v)
-    print_output("Done updating tidal field")
-
-
-
 
 # Initialise Discrete turbine farm characteristics
 farm_options = DiscreteTidalTurbineFarmOptions()
 farm_options.turbine_type = 'constant'
 farm_options.turbine_options.thrust_coefficient = 0.6
 farm_options.turbine_options.diameter = 20
-farm_options.upwind_correction = False
+farm_options.upwind_correction = True
 
-site_x1, site_y1, site_x2, site_y2 = 443342 ,3322632, 443591, 3322845
+xmin,ymin,xmax,ymax = 443340, 3322634, 443592, 3322848 
 
-farm_options.turbine_coordinates = [[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 50)]
+turbine_location = []
+for x in range(xmin+20,xmax-20,60):
+    for y in range(ymin+20,ymax-20,120):
+        turbine_location.append([x,y])
+for x in range(xmin+20+30,xmax-20,60):
+    for y in range(ymin+20+60,ymax-20,120):
+        turbine_location.append([x,y])
+farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
 # when 'farm_options.considering_yaw' is False, 
 # the farm_options.turbine_axis would be an empty list, 
 # so only the coordinates are optimised.
@@ -127,125 +125,134 @@ farm_options.considering_yaw = False
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
 
+def update_forcings(t):
+  with timed_stage('update forcings'):
+    print_output("Updating tidal field at t={}".format(t))
+    elev = prepare.myboundary.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
+    tidal_elev.project(elev) 
+    v = prepare.myboundary.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
+    tidal_v.project(v)
+    print_output("Done updating tidal field")
+
 ###spring:676,middle:492,neap:340###
-solver_obj.load_state(492, outputdir='../../outputs/redata_30min_normaldepth')
+solver_obj.load_state(492, outputdir='../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/restart_5min-e&v')
 #solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
 
 # Operation of tidal turbine farm through a callback
 cb = turbines.TurbineFunctionalCallback(solver_obj)
 solver_obj.add_callback(cb, 'timestep')
 
-cb2 = turbines.EachTurbineFunctionalCallback(solver_obj)
-solver_obj.add_callback(cb2,'timestep')
+# cb2 = turbines.EachTurbineFunctionalCallback(solver_obj)
+# solver_obj.add_callback(cb2,'timestep')
 
 # start computer forward model
 solver_obj.iterate(update_forcings=update_forcings)
 
-#File('turbinedensity.pvd').write(solver_obj.fields.turbine_density_2d)
-###set up interest functional and control###
-power_output= sum(cb.integrated_power)
+# #File('turbinedensity.pvd').write(solver_obj.fields.turbine_density_2d)
+# ###set up interest functional and control###
+# power_output= sum(cb.integrated_power)
 
-###cable length###
-turbine_locations = [float(x) for xy in farm_options.turbine_coordinates for x in xy]
-landpointlocation = [444000,3323000]
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-if rank == 0:
-    cableclass = prepare_cable.Hybrid_Code.CableCostGA(turbine_locations, landpointlocation)
-    order_w = cableclass.compute_cable_cost_order()
-else:
-    order_w = []
-order_w = comm.bcast(order_w, root=0)
+# ###cable length###
+# turbine_locations = [float(x) for xy in farm_options.turbine_coordinates for x in xy]
+# landpointlocation = [444000,3323000]
+# comm = MPI.COMM_WORLD
+# rank = comm.Get_rank()
+# if rank == 0:
+#     cableclass = prepare_cable.Hybrid_Code.CableCostGA(turbine_locations, landpointlocation)
+#     order_w = cableclass.compute_cable_cost_order()
+# else:
+#     order_w = []
+# order_w = comm.bcast(order_w, root=0)
 
 
-landpointlocation_con = [Constant(x) for x in landpointlocation]
-order_con = [Constant(i) for j in order_w for i in j]
-cablecost = cablelength([x for xy in farm_options.turbine_coordinates for x in xy],landpointlocation_con,order_con)
+# landpointlocation_con = [Constant(x) for x in landpointlocation]
+# order_con = [Constant(i) for j in order_w for i in j]
+# cablecost = cablelength([x for xy in farm_options.turbine_coordinates for x in xy],landpointlocation_con,order_con)
 
-c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy] 
-turbine_density = Function(solver_obj.function_spaces.P1_2d, name='turbine_density')
-turbine_density.interpolate(solver_obj.tidal_farms[0].turbine_density)
+# c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy] 
+# turbine_density = Function(solver_obj.function_spaces.P1_2d, name='turbine_density')
+# turbine_density.interpolate(solver_obj.tidal_farms[0].turbine_density)
 
-interest_functional = (power_output-cablecost*100)/1e7
-# print(power_output, cablecost, interest_functional)
-# a number of callbacks to provide output during the optimisation iterations:
-# - ControlsExportOptimisationCallback export the turbine_friction values (the control)
-#            to outputs/control_turbine_friction.pvd. This can also be used to checkpoint
-#            the optimisation by using the export_type='hdf5' option.
-# - DerivativesExportOptimisationCallback export the derivative of the functional wrt
-#            the control as computed by the adjoint to outputs/derivative_turbine_friction.pvd
-# - UserExportOptimisationCallback can be used to output any further functions used in the
-#            forward model. Note that only function states that contribute to the functional are
-#            guaranteed to be updated when the model is replayed for different control values.
-# - FunctionalOptimisationCallback simply writes out the (scaled) functional values
-# - the TurbineOptimsationCallback outputs the average power, cost and profit (for each
-#            farm if multiple are defined)
-callback_list = optimisation.OptimisationCallbackList([
-    optimisation.ConstantControlOptimisationCallback(solver_obj, array_dim=len(c)),
-    optimisation.DerivativeConstantControlOptimisationCallback(solver_obj, array_dim=len(c)),
-    optimisation.UserExportOptimisationCallback(solver_obj, [turbine_density, solver_obj.fields.uv_2d]),
-    optimisation.FunctionalOptimisationCallback(solver_obj),
-    turbines.TurbineOptimisationCallback(solver_obj, cb),
-    turbines.EachTurbineOptimisationCallback(solver_obj,cb2),
-])
-# callbacks to indicate start of forward and adjoint runs in log
-def eval_cb_pre(controls):
-    print_output("FORWARD RUN:")
-    print_output("angle: {}".format([float(c) for c in controls]))
+# interest_functional =power_output#(power_output-cablecost*100)/1e7
+# # print(power_output, cablecost, interest_functional)
+# # a number of callbacks to provide output during the optimisation iterations:
+# # - ControlsExportOptimisationCallback export the turbine_friction values (the control)
+# #            to outputs/control_turbine_friction.pvd. This can also be used to checkpoint
+# #            the optimisation by using the export_type='hdf5' option.
+# # - DerivativesExportOptimisationCallback export the derivative of the functional wrt
+# #            the control as computed by the adjoint to outputs/derivative_turbine_friction.pvd
+# # - UserExportOptimisationCallback can be used to output any further functions used in the
+# #            forward model. Note that only function states that contribute to the functional are
+# #            guaranteed to be updated when the model is replayed for different control values.
+# # - FunctionalOptimisationCallback simply writes out the (scaled) functional values
+# # - the TurbineOptimsationCallback outputs the average power, cost and profit (for each
+# #            farm if multiple are defined)
+# callback_list = optimisation.OptimisationCallbackList([
+#     optimisation.ConstantControlOptimisationCallback(solver_obj, array_dim=len(c)),
+#     optimisation.DerivativeConstantControlOptimisationCallback(solver_obj, array_dim=len(c)),
+#     optimisation.UserExportOptimisationCallback(solver_obj, [turbine_density, solver_obj.fields.uv_2d]),
+#     optimisation.FunctionalOptimisationCallback(solver_obj),
+#     turbines.TurbineOptimisationCallback(solver_obj, cb),
+#     # turbines.EachTurbineOptimisationCallback(solver_obj,cb2),
+# ])
+# # callbacks to indicate start of forward and adjoint runs in log
+# def eval_cb_pre(controls):
+#     print_output("FORWARD RUN:")
+#     print_output("angle: {}".format([float(c) for c in controls]))
 
-def derivative_cb_pre(controls):
-    print_output("ADJOINT RUN:")
-    print_output("angle: {}".format([float(c) for c in controls]))
+# def derivative_cb_pre(controls):
+#     print_output("ADJOINT RUN:")
+#     print_output("angle: {}".format([float(c) for c in controls]))
 
-# this reduces the functional J(u, m) to a function purely of the control m:
-# rf(m) = J(u(m), m) where the velocities u(m) of the entire simulation
-# are computed by replaying the forward model for any provided turbine coordinates m
-rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list,
-        eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
+# # this reduces the functional J(u, m) to a function purely of the control m:
+# # rf(m) = J(u(m), m) where the velocities u(m) of the entire simulation
+# # are computed by replaying the forward model for any provided turbine coordinates m
+# rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list,
+#         eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
 
-if 0:
-    # whenever the forward model is changed - for example different terms in the equation,
-    # different types of boundary conditions, etc. - it is a good idea to test whether the
-    # gradient computed by the adjoint is still correct, as some steps in the model may
-    # not have been annotated correctly. This can be done via the Taylor test.
-    # Using the standard Taylor series, we should have (for a sufficiently smooth problem):
-    #   rf(td0+h*dtd) - rf(td0) - < drf/dtd(rf0), h dtd> = O(h^2)
+# if 0:
+#     # whenever the forward model is changed - for example different terms in the equation,
+#     # different types of boundary conditions, etc. - it is a good idea to test whether the
+#     # gradient computed by the adjoint is still correct, as some steps in the model may
+#     # not have been annotated correctly. This can be done via the Taylor test.
+#     # Using the standard Taylor series, we should have (for a sufficiently smooth problem):
+#     #   rf(td0+h*dtd) - rf(td0) - < drf/dtd(rf0), h dtd> = O(h^2)
 
-    # we choose a random point in the control space, i.e. a randomized turbine density with
-    # values between 0 and 1 and choose a random direction dtd to vary it in
+#     # we choose a random point in the control space, i.e. a randomized turbine density with
+#     # values between 0 and 1 and choose a random direction dtd to vary it in
 
-    # this tests whether the above Taylor series residual indeed converges to zero at 2nd order in h as h->0
-    m1 =[[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 50)]
-    m0 = [i for j in m1 for i in j]
+#     # this tests whether the above Taylor series residual indeed converges to zero at 2nd order in h as h->0
+#     m1 =[[Constant(x), Constant(y)] for x in numpy.arange(site_x1+20, site_x2-20, 60) for y in numpy.arange(site_y1+20, site_y2-20, 50)]
+#     m0 = [i for j in m1 for i in j]
 
-    h0 = [Constant(1) for i in range(len(farm_options.turbine_coordinates)*2)]
+#     h0 = [Constant(1) for i in range(len(farm_options.turbine_coordinates)*2)]
 
-    minconv = taylor_test(rf, m0, h0)
-    print_output("Order of convergence with taylor test (should be 2) = {}".format(minconv))
+#     minconv = taylor_test(rf, m0, h0)
+#     print_output("Order of convergence with taylor test (should be 2) = {}".format(minconv))
 
-    assert minconv > 1.95
+#     assert minconv > 1.95
 
-if 1:
-    # Optimise the control for minimal functional (i.e. maximum profit)
-    # with a gradient based optimisation algorithm using the reduced functional
-    # to replay the model, and computing its derivative via the adjoint
-    # By default scipy's implementation of L-BFGS-B is used, see
-    #   https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fmin_l_bfgs_b.html
-    # options, such as maxiter and pgtol can be passed on.
+# if 0:
+#     # Optimise the control for minimal functional (i.e. maximum profit)
+#     # with a gradient based optimisation algorithm using the reduced functional
+#     # to replay the model, and computing its derivative via the adjoint
+#     # By default scipy's implementation of L-BFGS-B is used, see
+#     #   https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fmin_l_bfgs_b.html
+#     # options, such as maxiter and pgtol can be passed on.
 
-    r = farm_options.turbine_options.diameter/2.
+#     r = farm_options.turbine_options.diameter/2.
 
-    lb = np.array([[site_x1+r, site_y1+r] for _ in farm_options.turbine_coordinates]).flatten()
-    ub = np.array([[site_x2-r, site_y2-r] for _ in farm_options.turbine_coordinates]).flatten()
+#     lb = np.array([[site_x1+r, site_y1+r] for _ in farm_options.turbine_coordinates]).flatten()
+#     ub = np.array([[site_x2-r, site_y2-r] for _ in farm_options.turbine_coordinates]).flatten()
     
-    if farm_options.considering_yaw:
-        lb = list(lb) + [0]*len(farm_options.turbine_coordinates)
-        ub = list(ub) + [360]*len(farm_options.turbine_coordinates)
+#     if farm_options.considering_yaw:
+#         lb = list(lb) + [0]*len(farm_options.turbine_coordinates)
+#         ub = list(ub) + [360]*len(farm_options.turbine_coordinates)
 
-    mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
+#     mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, 40.)
     
-    td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
-            options={'maxiter': 1000, 'pgtol': 1e-3})
+#     td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
+#             options={'maxiter': 1000, 'pgtol': 1e-3})
 
-t_end = time.time()
-print('time cost:', t_end - t_start, 's')
+# t_end = time.time()
+# print('time cost:', t_end - t_start, 's')
