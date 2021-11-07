@@ -24,13 +24,13 @@ t_start = time.time()
 H = 40
 distance = 10
 speed = 2
-output_dir = '../../../outputs/sediment/hydro'
+output_dir = '../../../outputs/sediment/test/hydro'
 
 ### set up the Thetis solver obj as usual ##
-mesh2d = Mesh('../../prepare_ideal_meshes/rectangular.msh')
+mesh2d = Mesh('../../prepare_ideal_meshes/conference_mesh2_with_effected_area.msh')
 
-dt = 1
-t_end = 100
+dt = 30
+t_end = dt*100
 # export interval in seconds
 t_export = np.round(t_end/40, 0)
 

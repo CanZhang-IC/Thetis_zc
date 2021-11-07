@@ -20,11 +20,12 @@ import h5py
 import yagmail
 
 t_start = time.time()
-
+name = 'normal'
+print(name)
 H = 40
 distance = 10
 speed = 2
-output_dir = '../../../outputs/4.yaw/Yaw_Ideal/op-conference_mesh2-5_40/f20-cos00/test'#forward-aligned-both-op'
+output_dir = '../../../outputs/test-'+str(name)#4.yaw/Yaw_Ideal/op-conference_mesh2-5_40/f20-cos00/test'#forward-aligned-both-op'
 #Comment for testing forward model
 
 ### set up the Thetis solver obj as usual ##
@@ -33,7 +34,7 @@ mesh2d = Mesh('../../prepare_ideal_meshes/conference_mesh2.msh')
 tidal_amplitude = 5.
 tidal_period = 12.42*60*60
 timestep = 60
-t_export = 2 * timestep
+t_export = 2 * 60
 t_end = 20*t_export #12000
 
 #set viscosity bumps at in-flow boundaries.

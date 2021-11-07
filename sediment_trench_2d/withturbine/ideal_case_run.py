@@ -19,27 +19,24 @@ import time
 import h5py
 import yagmail
 import matplotlib.pyplot as plt
+import bathymetry_changes_callback 
 
 t_start = time.time()
 
 conservative = False
 
+P_factor = 0.5
 H = 40
 distance = 10
 speed = 2
-output_dir = '../../../outputs/sediment/run'#'../../../outputs/4.yaw/Yaw_Ideal/op-conference_mesh2-5_40/f20-cos00/test'#forward-aligned-both-op'
-#Comment for testing forward model
+output_dir = '../../../outputs/sediment/test/run_100_12_op_0.5'
 
 ### set up the Thetis solver obj as usual ##
-mesh2d = Mesh('../../prepare_ideal_meshes/rectangular.msh')
-
-# timestep = 5
-# t_export = 2 * timestep 
-# t_end = 6*20*t_export #12000
+mesh2d = Mesh('../../prepare_ideal_meshes/conference_mesh2_with_effected_area.msh')
 
 morfac = 100
-dt = 1
-end_time = 30*3600
+dt = 30
+end_time = 30*1200
 
 diffusivity = 0.15
 
@@ -52,6 +49,7 @@ vector_dg = VectorFunctionSpace(mesh2d, "DG", 1)
 h_viscosity = Constant(1e-6)
 
 bathymetry_2d = Function(V, name='bathymetry_2d').assign(Constant(40))
+initial_bathymetry_2d = Function(V, name='bathymetry_2d').assign(Constant(40))
 
 # initialise velocity and elevation
 chk = DumbCheckpoint("../../../outputs/sediment/hydrodynamics_trench/elevation", mode=FILE_READ)
@@ -138,13 +136,15 @@ turbine_location = []
 #     for j in range(275, 400, 50):
 #         turbine_location.append([i,j])
 
-for i in range(850,1200,100):
+for i in range(1450,1800,100):
     for j in range(250, 400, 50):
         turbine_location.append([i,j])
 
+# turbine_location = [1533.7677940147619, 238.42127956411298, 1523.1986992983088, 304.22227845195505, 1508.7693318280867, 341.5290252202772, 1569.6309058898694, 256.13673063855407, 1558.8645630099643, 322.33156242300277, 1578.8926348489072, 356.9563561204352, 1644.677449632057, 224.80173130452548, 1592.4992077269844, 288.9550299718026, 1615.3308858611126, 373.45647319532765, 1751.5742443339452, 210.0, 1738.7286845818496, 273.5534701577489, 1651.7494487242504, 390.0]
+
 farm_options.turbine_coordinates =[
-    # [Constant(xy[0]),Constant(xy[1])] for xy in turbine_location
-    [Constant(500),Constant(50)]
+    [Constant(xy[0]),Constant(xy[1])] for xy in turbine_location
+    # [Constant(turbine_location[2*i]),Constant(turbine_location[2*i+1])] for i in range(int(len(turbine_location)/2))
     ]
 farm_options.considering_yaw = False
 
@@ -158,34 +158,188 @@ options.discrete_tidal_turbine_farms[2] = farm_options
 #set initial condition
 solver_obj.assign_initial_conditions(uv=as_vector((-Constant(speed), 0.0)), elev=tidal_elev)
 
-# # Operation of tidal turbine farm through a callback
-# cb = turbines.TurbineFunctionalCallback(solver_obj)
-# solver_obj.add_callback(cb, 'timestep')
+# Operation of tidal turbine farm through a callback
+cb = turbines.TurbineFunctionalCallback(solver_obj)
+solver_obj.add_callback(cb, 'timestep')
+
+#Effected area location
+E_area_centre_point = [1400,250]
+E_area_circle = 40
+
+# Operation of tidal turbine farm about each turbine output through a callback
+cb2 = bathymetry_changes_callback.BathymetryCallback(solver_obj, initial_bathymetry_2d, E_area_centre_point, E_area_circle)
+solver_obj.add_callback(cb2,'timestep')
 
 # start computer forward model
 solver_obj.iterate()#update_forcings=update_forcings)
 
-# record final bathymetry for plotting
-xaxisthetis1 = []
-baththetis1 = []
+# ###set up interest functional and control###
+power_output= sum(cb.average_power)
+maxoutput, maxeffect = 7579.476290597467, 994.0157143521978
+interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(cb2.b_c_average/maxeffect))*maxoutput
+print(interest_functional,power_output,cb2.b_c_average)
 
-for i in np.linspace(100, 900, 1000):
-    xaxisthetis1.append(i)
-    if conservative:
-        baththetis1.append(-solver_obj.fields.bathymetry_2d.at([i, 50]))
+
+# specifies the control we want to vary in the optimisation
+optimise_angle_only = False
+optimise_layout_only = True
+# if optimise_angle_only:
+#     if farm_options.considering_yaw:
+#         c = [Control(x) for x in farm_options.turbine_axis]
+#     else:
+#         raise Exception('You should turn on the yaw considering!')    
+# elif optimise_layout_only:
+
+#     c =  [Control(x) for xy in farm_options.turbine_coordinates for x in xy] 
+# else:
+#     c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy] + [Control(x) for x in farm_options.turbine_axis]
+c = [Control(x) for xy in farm_options.turbine_coordinates for x in xy] #+  [Control(x) for x in farm_options.turbine_axis] + [Control(x) for x in farm_options.individual_thrust_coefficient]
+
+# a number of callbacks to provide output during the optimisation iterations:
+# - ControlsExportOptimisationCallback export the turbine_friction values (the control)
+#            to outputs/control_turbine_friction.pvd. This can also be used to checkpoint
+#            the optimisation by using the export_type='hdf5' option.
+# - DerivativesExportOptimisationCallback export the derivative of the functional wrt
+#            the control as computed by the adjoint to outputs/derivative_turbine_friction.pvd
+# - UserExportOptimisationCallback can be used to output any further functions used in the
+#            forward model. Note that only function states that contribute to the functional are
+#            guaranteed to be updated when the model is replayed for different control values.
+# - FunctionalOptimisationCallback simply writes out the (scaled) functional values
+# - the TurbineOptimsationCallback outputs the average power, cost and profit (for each
+#            farm if multiple are defined)
+turbine_density = Function(solver_obj.function_spaces.P1_2d, name='turbine_density')
+turbine_density.interpolate(solver_obj.tidal_farms[0].turbine_density)
+callback_list = optimisation.OptimisationCallbackList([
+    optimisation.ConstantControlOptimisationCallback(solver_obj, array_dim=len(c)),
+    optimisation.DerivativeConstantControlOptimisationCallback(solver_obj, array_dim=len(c)),
+    optimisation.UserExportOptimisationCallback(solver_obj, [turbine_density, solver_obj.fields.uv_2d]),
+    optimisation.FunctionalOptimisationCallback(solver_obj),
+])
+# callbacks to indicate start of forward and adjoint runs in log
+def eval_cb_pre(controls):
+    print_output("FORWARD RUN:")
+    print_output("Controls: {}".format([float(c) for c in controls]))
+
+def derivative_cb_pre(controls):
+    print_output("ADJOINT RUN:")
+    print_output("Controls: {}".format([float(c) for c in controls]))
+
+# this reduces the functional J(u, m) to a function purely of the control m:
+# rf(m) = J(u(m), m) where the velocities u(m) of the entire simulation
+# are computed by replaying the forward model for any provided turbine coordinates m
+rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list,
+        eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
+
+if 0:
+    # whenever the forward model is changed - for example different terms in the equation,
+    # different types of boundary conditions, etc. - it is a good idea to test whether the
+    # gradient computed by the adjoint is still correct, as some steps in the model may
+    # not have been annotated correctly. This can be done via the Taylor test.
+    # Using the standard Taylor series, we should have (for a sufficiently smooth problem):
+    #   rf(td0+h*dtd) - rf(td0) - < drf/dtd(rf0), h dtd> = O(h^2)
+
+    # we choose a random point in the control space, i.e. a randomized turbine density with
+    # values between 0 and 1 and choose a random direction dtd to vary it in
+
+    # this tests whether the above Taylor series residual indeed converges to zero at 2nd order in h as h->0
+    # m0 =  [Constant(x) for xy in farm_options.turbine_coordinates for x in xy] + [Constant(x) for x in farm_options.turbine_axis]
+    # h0 =  [Constant(1) for xy in farm_options.turbine_coordinates for x in xy] +[Constant(1) for x in farm_options.turbine_axis]
+    m0 =  [Constant(x) for xy in farm_options.turbine_coordinates for x in xy]#+[Constant(x) for x in farm_options.turbine_axis] + [Constant(x) for x in farm_options.individual_thrust_coefficient] 
+    h0 =  [Constant(1) for xy in farm_options.turbine_coordinates for x in xy] #+ [Constant(1) for x in farm_options.turbine_axis] + [Constant(0.1) for x in farm_options.individual_thrust_coefficient] 
+    # m0 =  [Constant(x) for xy in farm_options.turbine_coordinates for x in xy] 
+    # h0 =  [Constant(1) for xy in farm_options.turbine_coordinates for x in xy] 
+    minconv = taylor_test(rf, m0, h0)
+    print_output("Order of convergence with taylor test (should be 2) = {}".format(minconv))
+
+    assert minconv > 1.95
+
+if 1:
+    # Optimise the control for minimal functional (i.e. maximum profit)
+    # with a gradient based optimisation algorithm using the reduced functional
+    # to replay the model, and computing its derivative via the adjoint
+    # By default scipy's implementation of L-BFGS-B is used, see
+    #   https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fmin_l_bfgs_b.html
+    # options, such as maxiter and pgtol can be passed on.
+    if optimise_angle_only:
+        lb = [-90]*len(farm_options.turbine_axis) + [0.1]*len(farm_options.individual_thrust_coefficient)
+        ub = [90]*len(farm_options.turbine_axis) + [0.6]*len(farm_options.individual_thrust_coefficient)
+        td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 200, 'ptol': 1e-3})
+    elif optimise_layout_only:
+        site_x = 400.
+        site_y = 200.
+        site_x_start = 1400.
+        site_y_start = 200.
+        r = farm_options.turbine_options.diameter/2.
+
+        lb = np.array([[site_x_start+r, site_y_start+r] for _ in farm_options.turbine_coordinates]).flatten()
+        ub = np.array([[site_x_start+site_x-r, site_y_start+site_y-r] for _ in farm_options.turbine_coordinates]).flatten()
+
+        mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, farm_options.individual_thrust_coefficient, 40. ,optimise_layout_only)
+        
+        td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
+                options={'maxiter': 200, 'pgtol': 1e-3})
     else:
-        baththetis1.append(-solver_obj.fields.bathymetry_2d.at([i, 50]))
+        site_x = 400.
+        site_y = 200.
+        site_x_start = 1400.
+        site_y_start = 200.
+        r = farm_options.turbine_options.diameter/2.
 
-if os.getenv('THETIS_REGRESSION_TEST') is None:
-    # Compare model and experimental results
-    # (this part is skipped when run as a test)
-    # data = np.genfromtxt('experimental_data.csv', delimiter=',')
+        lb = np.array([[site_x_start+r, site_y_start+r] for _ in farm_options.turbine_coordinates]).flatten()
+        ub = np.array([[site_x_start+site_x-r, site_y_start+site_y-r] for _ in farm_options.turbine_coordinates]).flatten()
+        
+        if farm_options.considering_yaw:
+            lb = list(lb) + [-90]*len(farm_options.turbine_axis)
+            ub = list(ub) + [90]*len(farm_options.turbine_axis)
 
-    # plt.scatter([i[0] for i in data], [i[1] for i in data], label='Experimental Data')
+        if farm_options.considering_individual_thrust_coefficient:
+            lb = list(lb) + [0.1]*len(farm_options.individual_thrust_coefficient)
+            ub = list(ub) + [0.6]*len(farm_options.individual_thrust_coefficient)
 
-    plt.plot(xaxisthetis1, baththetis1, label='Thetis')
-    plt.legend()
-    plt.show()
+        mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, farm_options.individual_thrust_coefficient, 40. ,optimise_layout_only)
+        
+        td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
+                options={'maxiter': 200, 'pgtol': 1e-3})
+
+t_end = time.time()
+print('time cost: {0:.2f}min'.format((t_end - t_start)/60))
+
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+if rank == 0 :
+    yag = yagmail.SMTP(user = '623001493@qq.com',password = 'Zc623oo1493', host = 'smtp.qq.com')
+    yag.send(to = ['canzhang2019@gmail.com'], subject = 'Python done', contents = ['College computer Python Finished'+str(P_factor)])
+else:
+    pass
+
+
+# final_bathymetry = Function(V, name = 'final_bathymetry').interpolate(-solver_obj.fields.bathymetry_2d) 
+# File('final_bathymetry.pvd').write(final_bathymetry)
+
+# bathymetry_changes = Function(V, name='bathymetry_changes').interpolate(initial_bathymetry_2d + final_bathymetry)
+# File('bathymetry_changes.pvd').write(bathymetry_changes)
+
+# # record final bathymetry for plotting
+# xaxisthetis1 = []
+# baththetis1 = []
+
+# for i in np.linspace(100, 900, 1000):
+#     xaxisthetis1.append(i)
+#     if conservative:
+#         baththetis1.append(-solver_obj.fields.bathymetry_2d.at([i, 50]))
+#     else:
+#         baththetis1.append(-solver_obj.fields.bathymetry_2d.at([i, 50]))
+
+# if os.getenv('THETIS_REGRESSION_TEST') is None:
+#     # Compare model and experimental results
+#     # (this part is skipped when run as a test)
+#     # data = np.genfromtxt('experimental_data.csv', delimiter=',')
+
+#     # plt.scatter([i[0] for i in data], [i[1] for i in data], label='Experimental Data')
+
+    # plt.plot(xaxisthetis1, baththetis1, label='Thetis')
+    # plt.legend()
+    # plt.show()
 
 
 
