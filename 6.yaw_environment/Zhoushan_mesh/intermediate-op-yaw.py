@@ -21,7 +21,7 @@ file_dir = '../../'
 
 P_factor = 1
 print_output(str(P_factor))
-output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/ebb_tide/intermediate-yaw_op-P_factor_'+str(P_factor)+'-5min_e&v'
+output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/start_from_zero/intermediate-yaw_op-P_factor_'+str(P_factor)+'-5min_e&v'
 
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
@@ -30,9 +30,8 @@ dt = 5*60 # reduce this if solver does not converge
 t_export = 30*60 
 # t_end = 1555200
 # t_end = 1216800+ 13*60*60 # spring
-# t_end = 885600 + 13*60*60 # middle
+t_end = 885600 + 13*60*60 # middle
 # t_end = 612000 + 13*60*60 # neap
-t_end = 900300 + 13*30*60
 
 
 P1 = FunctionSpace(mesh2d, "CG", 1)
@@ -133,9 +132,11 @@ for x in range(xmin+20+30,xmax-20,60):
 farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
 
 farm_options.considering_yaw = True
-flood_dir,ebb_dir = [151.16498222165774, 158.5544801109472, 139.21937282396664, 138.08305879290157, 124.96583232750241, 115.81910043683706, 122.45039350653985, 90.7905468922789, 151.82514064875716, 137.42231283489394, 139.31962364099329, 107.92321470506059],[271.05995847732805, 358.4803421898285, 289.66268839560024, 290.57781969194, 301.2642266120518, 305.56975116938287, 334.1911304453266, 324.0491913809176, 450.0, 305.72560256885924, 315.6020927982799, 344.27854640341263]
+# flood_dir,ebb_dir = [151.16498222165774, 158.5544801109472, 139.21937282396664, 138.08305879290157, 124.96583232750241, 115.81910043683706, 122.45039350653985, 90.7905468922789, 151.82514064875716, 137.42231283489394, 139.31962364099329, 107.92321470506059],[271.05995847732805, 358.4803421898285, 289.66268839560024, 290.57781969194, 301.2642266120518, 305.56975116938287, 334.1911304453266, 324.0491913809176, 450.0, 305.72560256885924, 315.6020927982799, 344.27854640341263]
 
-farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
+# farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
+
+farm_options.turbine_axis = [Constant(180) for i in range(len(farm_options.turbine_coordinates))] + [Constant(360) for i in range(len(farm_options.turbine_coordinates))]
 
 farm_options.considering_individual_thrust_coefficient = False
 
@@ -155,29 +156,29 @@ def update_forcings(t):
 
 ###spring:676,middle:492,neap:340###
 # solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
-solver_obj.load_state(500, outputdir='../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/restart_5min-e&v')
+solver_obj.load_state(492, outputdir='../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/restart_5min-e&v')
 
 # Operation of tidal turbine farm through a callback
 cb = turbines.TurbineFunctionalCallback(solver_obj)
 solver_obj.add_callback(cb, 'timestep')
 
-# #Effected area location
-# E_area_centre_point = [(xmin+xmax)/2,ymax+800]
-# E_area_circle = 60
+#Effected area location
+E_area_centre_point = [(xmin+xmax)/2,ymax+800]
+E_area_circle = 60
 
-# # Operation of tidal turbine farm about each turbine output through a callback
-# cb2 = rmse_r2.RMSECallback(solver_obj,'../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/forward/intermediate-forward-5min_e&v', E_area_centre_point, E_area_circle)
-# solver_obj.add_callback(cb2,'timestep')
+# Operation of tidal turbine farm about each turbine output through a callback
+cb2 = rmse_r2.RMSECallback(solver_obj,'../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/forward/intermediate-forward-5min_e&v', E_area_centre_point, E_area_circle)
+solver_obj.add_callback(cb2,'timestep')
 
 # start computer forward model
 solver_obj.iterate(update_forcings=update_forcings)
 
 # ###set up interest functional and control###
-# power_output= sum(cb.average_power)
-# maxoutput, maxeffect = 2240.59217875929, 5457.175419775745
-# interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(cb2.RMSEaverage/maxeffect))*maxoutput
-# print(interest_functional,power_output,cb2.RMSEaverage)
-interest_functional = sum(cb.average_power)
+power_output= sum(cb.average_power)
+maxoutput, maxeffect = 2240.59217875929, 5457.175419775745
+interest_functional = power_output/1e3#P_factor*(power_output/maxoutput)-(1-P_factor)*(cb2.RMSEaverage/maxeffect)
+print(interest_functional,power_output,cb2.RMSEaverage)
+# interest_functional = sum(cb.average_power)
 
 # specifies the control we want to vary in the optimisation
 c =[Control(x) for x in farm_options.turbine_axis]#[Control(x) for xy in farm_options.turbine_coordinates for x in xy]
@@ -238,7 +239,7 @@ if 0:
 
     assert minconv > 1.95
 
-if 0:
+if 1:
     # Optimise the control for minimal functional (i.e. maximum profit)
     # with a gradient based optimisation algorithm using the reduced functional
     # to replay the model, and computing its derivative via the adjoint

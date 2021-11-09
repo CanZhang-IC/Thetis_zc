@@ -18,7 +18,7 @@ t_start = time.time()
 # namelength = len('intermediate-forward-yaw')
 # P_factor = float(get_index[namelength:-3])
 
-P_factor = 1.0
+P_factor = 1
 
 file_dir = '../../'
 
@@ -132,7 +132,7 @@ for x in range(xmin+20+30,xmax-20,60):
 farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
 
 
-result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/intermediate-yaw_op-P_factor_'+str(P_factor)+'-5min_e&v'
+result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/around_1/intermediate-yaw_op-P_factor_'+str(P_factor)+'-5min_e&v'
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
@@ -189,7 +189,7 @@ solver_obj.iterate(update_forcings=update_forcings)
 # ###set up interest functional and control###
 power_output= sum(cb.average_power)
 maxoutput, maxeffect = 2240.59217875929, 5457.175419775745
-interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(cb2.RMSEaverage/maxeffect))*maxoutput
+interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(cb2.RMSEaverage/maxeffect))
 
 if rank ==0:
 
