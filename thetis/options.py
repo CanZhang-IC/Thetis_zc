@@ -7,6 +7,7 @@ objects.
 from .configuration import *
 from firedrake import Constant
 from .sediment_model import SedimentModel
+from collections import OrderedDict
 
 
 class TimeStepperOptions(FrozenHasTraits):
@@ -121,6 +122,21 @@ class ExplicitTimestepperOptions2d(ExplicitTimestepperOptions):
     solver_parameters_tracer = PETScSolverParameters({
         'ksp_type': 'gmres',
         'pc_type': 'sor',
+    }).tag(config=True)
+
+
+class IMEXTimestepperOptions2d(SemiImplicitTimestepperOptions2d):
+    """Options for 2d implicit-explicit time integrators"""
+    # TODO: Meaningful solver parameters
+    solver_parameters = PETScSolverParameters({
+        'ksp_type': 'gmres',
+        'pc_type': 'fieldsplit',
+        'pc_fieldsplit_type': 'multiplicative',
+    }).tag(config=True)
+    solver_parameters_dirk = PETScSolverParameters({
+        'ksp_type': 'gmres',
+        'pc_type': 'fieldsplit',
+        'pc_fieldsplit_type': 'multiplicative',
     }).tag(config=True)
 
 
@@ -348,23 +364,6 @@ class LinearEquationOfStateOptions(EquationOfStateOptions):
     beta = Float(0.77, help='Saline contraction coefficient of ocean water').tag(config=True)
 
 
-# class TidalTurbineOptions(FrozenHasTraits):
-#     """Tidal turbine parameters"""
-#     thrust_coefficient = PositiveFloat(
-#         0.8, help='Thrust coefficient C_T').tag(config=True)
-#     diameter = PositiveFloat(
-#         18., help='Turbine diameter').tag(config=True)
-
-
-# class TidalTurbineFarmOptions(FrozenHasTraits, TraitType):
-#     """Tidal turbine farm options"""
-#     name = 'Farm options'
-#     turbine_options = TidalTurbineOptions()
-#     turbine_density = FiredrakeScalarExpression(
-#         Constant(0.0), help='Density of turbines within the farm')
-#     break_even_wattage = NonNegativeFloat(
-#         0.0, help='Average power production per turbine required to break even')
-
 class TidalTurbineOptions(FrozenHasTraits):
     """Tidal turbine parameters"""
     name = 'Tidal turbine options'
@@ -386,6 +385,8 @@ class ConstantTidalTurbineOptions(TidalTurbineOptions):
 class RatedTidalTurbineOptions(TidalTurbineOptions):
     """Options for tidal turbine with analytical thrust based on rated speed"""
     name = 'Rated tidal turbine options'
+    thrust_coefficient = PositiveFloat(
+        0.8, help='Thrust coefficient C_T').tag(config=True)
     rated_speed = PositiveFloat(
         3.0, help='Rated speed').tag(config=True)
     cut_in_speed = NonNegativeFloat(
@@ -431,7 +432,6 @@ class DiscreteTidalTurbineFarmOptions(TidalTurbineFarmOptions):
                              help='bool: Apply flow correction to correct for upwind velocity').tag(config=True)
     quadrature_degree = PositiveInteger(10,
                                         help='Quadrature degree for thrust force and power output integral').tag(config=True)
-    
     considering_yaw = Bool(True,
                              help='bool: consider the yaw effects for each turbine').tag(config=True)
     turbine_axis = List(default_value=[], help='The direction of turbine axis').tag(config=True)
@@ -439,6 +439,22 @@ class DiscreteTidalTurbineFarmOptions(TidalTurbineFarmOptions):
     considering_individual_thrust_coefficient = Bool(False,
                              help='bool: consider thrust coefficient for each turbine').tag(config=True)
     individual_thrust_coefficient = List(default_value=[], help='Trust coefficient for each turbine').tag(config=True)
+
+
+class TracerFieldOptions(FrozenHasTraits):
+    """Tracer field options"""
+    name = 'Tracer options'
+    source = FiredrakeScalarExpression(
+        None, allow_none=True, help='Source term for the tracer equation')
+    diffusivity = FiredrakeScalarExpression(
+        None, allow_none=True, help='Diffusion coefficient for the tracer equation')
+    metadata = Dict({
+        'label': 'tracer_2d',
+        'name': 'Depth averaged tracer',
+        'filename': 'Tracer2d',
+        'shortname': 'Tracer',
+        'unit': '-',
+    }, help='Dictionary of metadata for the tracer field')
 
 
 @attach_paired_options("free_surface_timestepper_type",
@@ -708,7 +724,7 @@ class SedimentModelOptions(FrozenHasTraits):
                                    ('DIRK33', SemiImplicitTimestepperOptions2d),
                                    ('SteadyState', SteadyStateTimestepperOptions2d),
                                    ('PressureProjectionPicard', PressureProjectionTimestepperOptions2d),
-                                   ('SSPIMEX', SemiImplicitTimestepperOptions2d),
+                                   ('SSPIMEX', IMEXTimestepperOptions2d),
                                    ],
                                   "timestepper_options",
                                   default_value='CrankNicolson',
@@ -758,7 +774,7 @@ class ModelOptions2d(CommonModelOptions):
     discrete_tidal_turbine_farms = Dict(trait=DiscreteTidalTurbineFarmOptions(),
                                         default_value={},
                                         help='Dictionary mapping subdomain ids to the options of the corresponding farm')
-                                        
+
     check_tracer_conservation = Bool(
         False, help="""
         Compute total tracer mass at every export
@@ -793,29 +809,38 @@ class ModelOptions2d(CommonModelOptions):
         False, help="Use SUPG stabilisation in tracer advection").tag(config=True)
 
     def __init__(self, *args, **kwargs):
-        self.tracer_metadata = {}
+        self.tracer = OrderedDict()
         super(ModelOptions2d, self).__init__(*args, **kwargs)
 
-    def add_tracer_2d(self, label, name, filename, shortname=None, unit='-', source=None):
+    def add_tracer_2d(self, label, name, filename, shortname=None, unit='-', source=None, diffusivity=None):
         """
         Define a 2D tracer field
 
         :arg label: field label used internally by Thetis, e.g. 'tracer_2d'
-        :arg name: human readable name for the tracer field, e.g. 'Tracer concentration'
+        :arg name: human readable name for the tracer field, e.g. 'Depth averaged tracer'
         :arg filename: file name for outputs, e.g. 'Tracer2d'
         :kwarg shortname: short version of name, e.g. 'Tracer'
         :kwarg unit: units for field, e.g. '-'
         :kwarg source: associated source term
+        :kwarg diffusivity: associated diffusivity coefficient
         """
+        assert isinstance(label, str)
+        assert isinstance(name, str)
+        assert isinstance(filename, str)
+        assert shortname is None or isinstance(shortname, str)
+        assert isinstance(unit, str)
+        assert label not in self.tracer, f"Field '{label}' already exists."
         assert ' ' not in label, "Labels cannot contain spaces"
         assert ' ' not in filename, "Filenames cannot contain spaces"
-        self.tracer_metadata[label] = {
+        self.tracer[label] = TracerFieldOptions()
+        self.tracer[label].metadata = {
             'name': name,
             'shortname': shortname or name,
             'unit': unit,
             'filename': filename,
-            'source': source,  # TODO: Validate input
         }
+        self.tracer[label].source = source
+        self.tracer[label].diffusivity = diffusivity
 
 
 @attach_paired_options("timestepper_type",

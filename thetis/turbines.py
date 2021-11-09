@@ -336,7 +336,6 @@ class TurbineFunctionalCallback(DiagnosticCallback):
         if not hasattr(solver_obj, 'tidal_farms'):
             solver_obj.create_equations()
         self.farms = solver_obj.tidal_farms
-        
         nfarms = len(self.farms)
         super().__init__(solver_obj, array_dim=nfarms, **kwargs)
 
@@ -369,13 +368,15 @@ class TurbineFunctionalCallback(DiagnosticCallback):
                     uv_eff = dot(self.uv,n)
                 else:
                     uv_eff = self.uv 
+            else:
+                    uv_eff = self.uv 
+            if farm.__class__.__name__ == 'DiscreteTidalTurbineFarm':
                 if farm.considering_individual_thrust_coefficient:
                     power = farm.individual_power_output(uv_eff, self.depth)
                 else:
                     power = farm.power_output(uv_eff, self.depth)
             else:
-                    uv_eff = self.uv 
-            power = farm.power_output(uv_eff, self.depth)
+                power = farm.power_output(uv_eff, self.depth)
             # current_power.append(power)
             self.current_power[i] = power
             self.integrated_power[i] += power * self.dt

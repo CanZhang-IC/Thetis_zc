@@ -40,12 +40,6 @@ field_metadata['uv_2d'] = {
     'unit': 'm s-1',
     'filename': 'Velocity2d',
 }
-field_metadata['tracer_2d'] = {
-    'name': 'Depth averaged tracer',
-    'shortname': 'Tracer',
-    'unit': '',
-    'filename': 'Tracer2d',
-}
 field_metadata['sediment_2d'] = {
     'name': 'Sediment',
     'shortname': 'Sediment',
@@ -255,4 +249,10 @@ field_metadata['w_2d'] = {
     'shortname': 'Depth averaged vertical velocity',
     'unit': 'm s-1',
     'filename': 'VertVelo2d',
+}
+field_metadata['turbine_density_2d'] = {
+    'name': 'Turbine density',
+    'shortname': 'Turbine density',
+    'unit': 'm-2',
+    'filename': 'turbine_density_2d'
 }
