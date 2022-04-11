@@ -20,9 +20,9 @@ file_dir = '../../'
 # namelength = len('paper3_run')
 # P_factor = float(get_index[namelength:-3])
 
-P_factor = 0.8
-print_output(str(P_factor))
-output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome/intermediate-yaw_op-P_factor_'+str(P_factor)+'-5min_e&v'
+P_factor = 1.0
+
+output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-yaw_op-P_factor_'+str(P_factor)+'-5min_e&v-from0.8-17-3'
 
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
@@ -132,20 +132,18 @@ for x in range(xmin+20+30,xmax-20,60):
         turbine_location.append([x,y])
 farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
 
-# farm_options.considering_yaw = True
-# ### flood_dir,ebb_dir = [151.16498222165774, 158.5544801109472, 139.21937282396664, 138.08305879290157, 124.96583232750241, 115.81910043683706, 122.45039350653985, 90.7905468922789, 151.82514064875716, 137.42231283489394, 139.31962364099329, 107.92321470506059],[271.05995847732805, 358.4803421898285, 289.66268839560024, 290.57781969194, 301.2642266120518, 305.56975116938287, 334.1911304453266, 324.0491913809176, 450.0, 305.72560256885924, 315.6020927982799, 344.27854640341263]
+farm_options.considering_yaw = True
 
-# ### farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
 
 # farm_options.turbine_axis = [Constant(180) for i in range(len(farm_options.turbine_coordinates))] + [Constant(360) for i in range(len(farm_options.turbine_coordinates))]
 
-result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome/intermediate-yaw_op-P_factor_'+str(0.7)+'-5min_e&v'
+result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-yaw_op-P_factor_'+str(P_factor)+'-5min_e&v-from0.8-17-2'
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
     def_file = h5py.File(result_output_dir+'/diagnostic_'+'controls'+'.hdf5','r+')
     for name, data in def_file.items():
-        all_controls = list(data[-1])
+        all_controls = list(data[4])
         iteration_numbers = len(data)
 else:
     all_controls = None
@@ -153,7 +151,6 @@ else:
 all_controls = comm.bcast(all_controls,root = 0)
 iteration_numbers = comm.bcast(iteration_numbers, root = 0)
 
-farm_options.considering_yaw = True
 flood_dir,ebb_dir = all_controls[:12], all_controls[12:]
 
 farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
@@ -183,22 +180,30 @@ cb = turbines.TurbineFunctionalCallback(solver_obj)
 solver_obj.add_callback(cb, 'timestep')
 
 #Effected area location
-E_area_centre_point = [(xmin+xmax)/2,ymax+800]
+E_area_centre_point = [(xmin+xmax)/2,(ymax+ymin)/2+(214+400)]
 E_area_circle = 60
 
 # Operation of tidal turbine farm about each turbine output through a callback
-cb2 = rmse_r2.RMSECallback(solver_obj,'../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/forward/intermediate-forward-5min_e&v', E_area_centre_point, E_area_circle)
+cb2 = rmse_r2.RMSECallback(solver_obj,'../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/forward', E_area_centre_point, E_area_circle)
 solver_obj.add_callback(cb2,'timestep')
+
+#Effected area location
+E_area_centre_point = [(xmin+xmax)/2,(ymax+ymin)/2-(214+400)]
+E_area_circle = 60
+
+# Operation of tidal turbine farm about each turbine output through a callback
+cb3 = rmse_r2.RMSECallback(solver_obj,'../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/forward', E_area_centre_point, E_area_circle)
+solver_obj.add_callback(cb3,'timestep')
 
 # start computer forward model
 solver_obj.iterate(update_forcings=update_forcings)
 
-# ###set up interest functional and control###
+###set up interest functional and control###
 power_output= sum(cb.average_power)
-maxoutput, maxeffect = 2306.956713596631,	3389.005152125812
-interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(cb2.RMSEaverage/maxeffect))*maxoutput
-print(interest_functional,power_output,cb2.RMSEaverage)
-# interest_functional = sum(cb.average_power)
+maxoutput, maxeffect = 27.557767857331886, 2339.4165461688895
+effect_two = cb2.RMSEaverage+cb3.RMSEaverage
+interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(effect_two/maxeffect))
+print(interest_functional,power_output,effect_two)
 
 # specifies the control we want to vary in the optimisation
 c =[Control(x) for x in farm_options.turbine_axis]#[Control(x) for xy in farm_options.turbine_coordinates for x in xy]
@@ -273,7 +278,7 @@ if 1:
     ub = [270]*int(len(farm_options.turbine_axis)/2) + [450]*int(len(farm_options.turbine_axis)/2) 
 
     
-    td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 100, 'ptol': 1e-3})
+    td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 200, 'ptol': 1e-3})
 
 
 t_end = time.time()

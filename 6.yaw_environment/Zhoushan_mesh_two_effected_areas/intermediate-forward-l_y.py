@@ -18,11 +18,11 @@ t_start = time.time()
 # namelength = len('intermediate-forward-l_y')
 # P_factor = float(get_index[namelength:-3])
 
-P_factor = 0.7
+P_factor = 0.4
 
 file_dir = '../../'
 
-output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome/forward/intermediate-forward-l_y-P_factor_'+str(P_factor)+'-5min_e&v'
+output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/forward/intermediate-forward-l_y-P_factor_'+str(P_factor)+'-5min_e&v'
 
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
@@ -130,8 +130,10 @@ xmin,ymin,xmax,ymax = 443340, 3322634, 443592, 3322848
 #     for y in range(ymin+20+60,ymax-20,120):
 #         turbine_location.append([x,y])
 # farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
+# farm_options.considering_yaw = True
+# farm_options.turbine_axis = [Constant(180) for i in range(len(farm_options.turbine_coordinates))] + [Constant(360) for i in range(len(farm_options.turbine_coordinates))]
 
-result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome/intermediate-op-l_y-P_factor_'+str(P_factor)+'-5min_e&v'
+result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-op-l_y-P_factor_'+str(P_factor)+'-5min_e&v'
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
@@ -176,26 +178,35 @@ cb = turbines.TurbineFunctionalCallback(solver_obj)
 solver_obj.add_callback(cb, 'timestep')
 
 #Effected area location
-E_area_centre_point = [(xmin+xmax)/2,ymax+800]
+E_area_centre_point = [(xmin+xmax)/2,(ymax+ymin)/2+(214+400)]
 E_area_circle = 60
 
 # Operation of tidal turbine farm about each turbine output through a callback
-cb2 = rmse_r2.RMSECallback(solver_obj,'../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/forward/intermediate-forward-5min_e&v', E_area_centre_point, E_area_circle)
+cb2 = rmse_r2.RMSECallback(solver_obj,'../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/forward', E_area_centre_point, E_area_circle)
 solver_obj.add_callback(cb2,'timestep')
+
+#Effected area location
+E_area_centre_point = [(xmin+xmax)/2,(ymax+ymin)/2-(214+400)]
+E_area_circle = 60
+
+# Operation of tidal turbine farm about each turbine output through a callback
+cb3 = rmse_r2.RMSECallback(solver_obj,'../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/forward', E_area_centre_point, E_area_circle)
+solver_obj.add_callback(cb3,'timestep')
 
 # start computer forward model
 solver_obj.iterate(update_forcings=update_forcings)
 
-# ###set up interest functional and control###
+###set up interest functional and control###
 power_output= sum(cb.average_power)
-maxoutput, maxeffect = 2878.5484077248657,	4466.967951758459
-interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(cb2.RMSEaverage/maxeffect))*maxoutput
+maxoutput, maxeffect = 27.557767857331886, 2339.4165461688895
+effect_two = cb2.RMSEaverage+cb3.RMSEaverage
+interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(effect_two/maxeffect))+1.2
 
 if rank ==0:
 
     with open('result-l_y.txt','a+') as f:
         f.write(str(P_factor)+'\t')
-        f.write(str(interest_functional)+'\t'+str(power_output)+'\t'+str(cb2.RMSEaverage)+'\t')
+        f.write(str(interest_functional)+'\t'+str(power_output)+'\t'+str(effect_two)+'\t')
         f.write(str(iteration_numbers) +'\n')
 else:
     pass

@@ -10,6 +10,7 @@ import os
 import time
 import yagmail
 import rmse_r2
+import h5py
 
 t_start = time.time()
 
@@ -17,11 +18,11 @@ t_start = time.time()
 # namelength = len('intermediate-op-l_y')
 # P_factor = float(get_index[namelength:-3])
 
-P_factor = 0.9
+P_factor = 0.8
 
 file_dir = '../../'
 
-output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/intermediate-op-l_y-P_factor_'+str(P_factor)+'-5min_e&v'
+output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome/intermediate-op-l_y-P_factor_'+str(P_factor)+'-5min_e&v3'
 
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
@@ -129,10 +130,33 @@ for x in range(xmin+20+30,xmax-20,60):
     for y in range(ymin+20+60,ymax-20,120):
         turbine_location.append([x,y])
 farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
-
 farm_options.considering_yaw = True
-farm_options.turbine_axis = [Constant(0) for i in range(12)] + [Constant(0) for i in range(12)]
+farm_options.turbine_axis = [Constant(180) for i in range(len(farm_options.turbine_coordinates))] + [Constant(360) for i in range(len(farm_options.turbine_coordinates))]
 
+
+# ## Read layout and yaw angle from previous optimised results
+# result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome/intermediate-op-l_y-P_factor_'+str(P_factor-0.1)+'-5min_e&v'
+# comm = MPI.COMM_WORLD
+# rank = comm.Get_rank()
+# if rank == 0:
+#     def_file = h5py.File(result_output_dir+'/diagnostic_'+'controls'+'.hdf5','r+')
+#     for name, data in def_file.items():
+#         all_controls = list(data[-1])
+#         iteration_numbers = len(data)
+# else:
+#     all_controls = None
+#     iteration_numbers = None
+# all_controls = comm.bcast(all_controls,root = 0)
+# iteration_numbers = comm.bcast(iteration_numbers, root = 0)
+
+# farm_options.turbine_coordinates = [[Constant(all_controls[2*i]),Constant(all_controls[2*i+1])] for i in range(12)]
+
+# farm_options.considering_yaw = True
+# flood_dir,ebb_dir = all_controls[24:36], all_controls[36:]
+
+# farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
+
+### Turn off the optimisation for thrust coefficient
 farm_options.considering_individual_thrust_coefficient = False
 farm_options.individual_thrust_coefficient = [Constant(0.6) for i in range(len(farm_options.turbine_axis))]
 
@@ -169,8 +193,9 @@ solver_obj.iterate(update_forcings=update_forcings)
 
 ###set up interest functional and control###
 power_output= sum(cb.average_power)
-maxoutput, maxeffect = 2496.5816979409865,  3098.6729698567997
+maxoutput, maxeffect = 2878.5484077248657,	4466.967951758459
 interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(cb2.RMSEaverage/maxeffect))*maxoutput
+print(interest_functional,power_output,cb2.RMSEaverage)
 
 # specifies the control we want to vary in the optimisation
 c =[Control(x) for xy in farm_options.turbine_coordinates for x in xy] + [Control(i) for i in farm_options.turbine_axis]
@@ -250,13 +275,13 @@ if 1:
 
 
 t_end = time.time()
-print('time cost: {0:.2f}min'.format((t_end - t_start)/60))
+print('time cost: {0:.2f}h'.format((t_end - t_start)/60/60))
 
 if 1:
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
     if rank == 0 :
-        yag = yagmail.SMTP(user = '623001493@qq.com',password = 'Zc623oo1493', host = 'smtp.qq.com')
-        yag.send(to = ['canzhang2019@gmail.com'], subject = 'Python done', contents = ['Intermediate Optimisation cost: '+str((t_end - t_start)/60/60/24) + 'days.'+'P_factoe:'+str(P_factor)])
+        yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
+        yag.send(to = ['canzhang2019@gmail.com'], subject = 'Python done', contents = ['Intermediate Optimisation cost: '+str((t_end - t_start)/60/60) + 'h.'+'P_factoe:'+str(P_factor)])
     else:
         pass

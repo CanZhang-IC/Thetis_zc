@@ -1100,7 +1100,7 @@ Line Loop( 61 ) = {31};
 
 
 point_x = (443340+443592)/2;
-point_y = 3322848+800;
+point_y = (3322848+3322634)/2-(214+400);
 area_circle = 60;
 //effected area
 Point(20021) = {point_x - area_circle, point_y - area_circle, 0};

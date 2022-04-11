@@ -18,11 +18,11 @@ t_start = time.time()
 # namelength = len('intermediate-forward-yaw')
 # P_factor = float(get_index[namelength:-3])
 
-P_factor = 1
+P_factor = 0.7
 
 file_dir = '../../'
 
-output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/forward/intermediate-forward-yaw-P_factor_'+str(P_factor)+'-5min_e&v'
+output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome/forward/intermediate-forward-yaw-P_factor_'+str(P_factor)+'-5min_e&v2'
 
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
@@ -132,7 +132,7 @@ for x in range(xmin+20+30,xmax-20,60):
 farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
 
 
-result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/around_1/intermediate-yaw_op-P_factor_'+str(P_factor)+'-5min_e&v'
+result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome/intermediate-yaw_op-P_factor_'+str(P_factor)+'-5min_e&v'
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
@@ -152,7 +152,6 @@ flood_dir,ebb_dir = all_controls[:12], all_controls[12:]
 farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
 
 farm_options.considering_individual_thrust_coefficient = False
-farm_options.individual_thrust_coefficient = [Constant(0.6) for i in range(len(farm_options.turbine_axis))]
 
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
@@ -188,12 +187,12 @@ solver_obj.iterate(update_forcings=update_forcings)
 
 # ###set up interest functional and control###
 power_output= sum(cb.average_power)
-maxoutput, maxeffect = 2240.59217875929, 5457.175419775745
-interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(cb2.RMSEaverage/maxeffect))
+maxoutput, maxeffect = 2306.956713596631,	3389.005152125812
+interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(cb2.RMSEaverage/maxeffect))*maxoutput    
 
 if rank ==0:
 
-    with open('result.txt','a+') as f:
+    with open('result-yaw.txt','a+') as f:
         f.write(str(P_factor)+'\t')
         f.write(str(interest_functional)+'\t'+str(power_output)+'\t'+str(cb2.RMSEaverage)+'\t')
         f.write(str(iteration_numbers) +'\n')
