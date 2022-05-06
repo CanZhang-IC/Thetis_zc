@@ -11,7 +11,7 @@ import time
 import yagmail
 import rmse_r2
 import h5py
-
+# start from the postino of 0.2 but set the yaw angle as 100 and 280 for flood and ebb respectively
 t_start = time.time()
 
 # get_index = os.path.basename(sys.argv[0])
@@ -22,7 +22,7 @@ P_factor = 0.4
 
 file_dir = '../../'
 
-output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-op-l_y-P_factor_'+str(P_factor)+'-5min_e&v-location'
+output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-op-l_y-P_factor_'+str(P_factor)+'-5min_e&v'
 
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
@@ -122,39 +122,40 @@ farm_options.upwind_correction = True
 
 xmin,ymin,xmax,ymax = 443340, 3322634, 443592, 3322848 
 
-turbine_location = []
-for x in range(xmin+20,xmax-20,60):
-    for y in range(ymin+20,ymax-20,120):
-        turbine_location.append([x,y])
-for x in range(xmin+20+30,xmax-20,60):
-    for y in range(ymin+20+60,ymax-20,120):
-        turbine_location.append([x,y])
-farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
-farm_options.considering_yaw = False
-farm_options.turbine_axis = [Constant(180) for i in range(len(farm_options.turbine_coordinates))] + [Constant(360) for i in range(len(farm_options.turbine_coordinates))]
+# turbine_location = []
+# for x in range(xmin+20,xmax-20,60):
+#     for y in range(ymin+20,ymax-20,120):
+#         turbine_location.append([x,y])
+# for x in range(xmin+20+30,xmax-20,60):
+#     for y in range(ymin+20+60,ymax-20,120):
+#         turbine_location.append([x,y])
+# farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
+# farm_options.considering_yaw = True
+# farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbine_coordinates))] + [Constant(280) for i in range(len(farm_options.turbine_coordinates))]
 
 
-# ## Read layout and yaw angle from previous optimised results
-# result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-op-l_y-P_factor_'+str(0.2)+'-5min_e&v'
-# comm = MPI.COMM_WORLD
-# rank = comm.Get_rank()
-# if rank == 0:
-#     def_file = h5py.File(result_output_dir+'/diagnostic_'+'controls'+'.hdf5','r+')
-#     for name, data in def_file.items():
-#         all_controls = list(data[-1])
-#         iteration_numbers = len(data)
-# else:
-#     all_controls = None
-#     iteration_numbers = None
-# all_controls = comm.bcast(all_controls,root = 0)
-# iteration_numbers = comm.bcast(iteration_numbers, root = 0)
+## Read layout and yaw angle from previous optimised results
+result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-op-l_y-P_factor_'+str(0.2)+'-5min_e&v'
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+if rank == 0:
+    def_file = h5py.File(result_output_dir+'/diagnostic_'+'controls'+'.hdf5','r+')
+    for name, data in def_file.items():
+        all_controls = list(data[-1])
+        iteration_numbers = len(data)
+else:
+    all_controls = None
+    iteration_numbers = None
+all_controls = comm.bcast(all_controls,root = 0)
+iteration_numbers = comm.bcast(iteration_numbers, root = 0)
 
-# farm_options.turbine_coordinates = [[Constant(all_controls[2*i]),Constant(all_controls[2*i+1])] for i in range(12)]
+farm_options.turbine_coordinates = [[Constant(all_controls[2*i]),Constant(all_controls[2*i+1])] for i in range(12)]
 
-# farm_options.considering_yaw = False
+farm_options.considering_yaw = True
+farm_options.turbine_axis = [Constant(100) for i in range(len(farm_options.turbine_coordinates))] + [Constant(280) for i in range(len(farm_options.turbine_coordinates))]
 # flood_dir,ebb_dir = all_controls[24:36], all_controls[36:]
-
 # farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
+
 
 ### Turn off the optimisation for thrust coefficient
 farm_options.considering_individual_thrust_coefficient = False
@@ -201,9 +202,11 @@ solver_obj.iterate(update_forcings=update_forcings)
 
 ###set up interest functional and control###
 power_output= sum(cb.average_power)
-maxoutput, maxeffect = 1818.4037718654538, 2245.5080114214334
+maxoutput, maxeffect = 27.557767857331886, 2339.4165461688895
 effect_two = cb2.RMSEaverage+cb3.RMSEaverage
-interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(effect_two/maxeffect))+1.2
+extra_i =1-( P_factor - (1-P_factor))
+
+interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(effect_two/maxeffect))+extra_i
 print(interest_functional,power_output,effect_two)
 
 # specifies the control we want to vary in the optimisation

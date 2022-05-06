@@ -14,15 +14,13 @@ import rmse_r2
 
 t_start = time.time()
 
-# get_index = os.path.basename(sys.argv[0])
-# namelength = len('intermediate-forward-l_y')
-# P_factor = float(get_index[namelength:-3])
+get_index = os.path.basename(sys.argv[0])
+P_factor = float(get_index[:-3])
+# P_factor = float(1.0)
 
-P_factor = 0.4
 
 file_dir = '../../'
-
-output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/forward/intermediate-forward-l_y-P_factor_'+str(P_factor)+'-5min_e&v-location'
+output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/forward/intermediate-forward-l_y-P_factor_'+str(P_factor)+'-5min_e&v'
 
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
@@ -133,11 +131,16 @@ xmin,ymin,xmax,ymax = 443340, 3322634, 443592, 3322848
 # farm_options.considering_yaw = True
 # farm_options.turbine_axis = [Constant(180) for i in range(len(farm_options.turbine_coordinates))] + [Constant(360) for i in range(len(farm_options.turbine_coordinates))]
 
-result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-op-l_y-P_factor_'+str(P_factor)+'-5min_e&v-location'
+if P_factor == 1.0:
+    e_name = '3'
+else:
+    e_name = ''
+# result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-op-l_y-P_factor_'+str(P_factor)+'-5min_e&v'+e_name
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
-    def_file = h5py.File(result_output_dir+'/diagnostic_'+'controls'+'.hdf5','r+')
+    # def_file = h5py.File(result_output_dir+'/diagnostic_'+'controls'+'.hdf5','r+')
+    def_file = h5py.File('./diagnostic_'+'controls'+'.hdf5','r+')
     for name, data in def_file.items():
         all_controls = list(data[-1])
         iteration_numbers = len(data)
@@ -149,9 +152,10 @@ iteration_numbers = comm.bcast(iteration_numbers, root = 0)
 
 farm_options.turbine_coordinates = [[Constant(all_controls[2*i]),Constant(all_controls[2*i+1])] for i in range(12)]
 
-farm_options.considering_yaw = False
-# flood_dir,ebb_dir = all_controls[24:36], all_controls[36:]
-# farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
+farm_options.considering_yaw = True
+flood_dir,ebb_dir = all_controls[24:36], all_controls[36:]
+
+farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
 
 farm_options.considering_individual_thrust_coefficient = False
 
@@ -197,20 +201,29 @@ solver_obj.iterate(update_forcings=update_forcings)
 
 ###set up interest functional and control###
 power_output= sum(cb.average_power)
-maxoutput, maxeffect = 1818.4037718654538, 2245.5080114214334
+maxoutput, maxeffect = 27.557767857331886, 2339.4165461688895
 effect_two = cb2.RMSEaverage+cb3.RMSEaverage
-interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(effect_two/maxeffect))+1.2
 
-if rank ==0:
+extra_i =1-( P_factor - (1-P_factor))
 
-    with open('result-l_y.txt','a+') as f:
-        f.write(str(P_factor)+'\t')
-        f.write(str(interest_functional)+'\t'+str(power_output)+'\t'+str(effect_two)+'\t')
-        f.write(str(iteration_numbers) +'\n')
-else:
-    pass
+interest_functional = (P_factor*(power_output/maxoutput)-(1-P_factor)*(effect_two/maxeffect))+extra_i
+
+
 
 t_end = time.time()
 print('time cost: {0:.2f}min'.format((t_end - t_start)/60))
+
+outputstr = str(P_factor)+'\t'+str(interest_functional)+'\t'+str(power_output)+'\t'+str(effect_two)+'\t'+str(iteration_numbers)
+
+if 1:
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
+    if rank == 0 :
+        with open('result-l_y.txt','a+') as f:
+            f.write(outputstr +'\n')
+        yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
+        yag.send(to = ['623001493@qq.com'], subject = 'Output Check', contents = [str(P_factor)+' '+str(interest_functional)[:5]+' '+str(power_output)[:6]+' '+str(effect_two)+' '+str(iteration_numbers)])
+    else:
+        pass
 
 
