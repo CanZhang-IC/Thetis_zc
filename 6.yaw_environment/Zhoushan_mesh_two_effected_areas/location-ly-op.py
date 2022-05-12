@@ -295,7 +295,7 @@ if 1:
         mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, farm_options.individual_thrust_coefficient, 40. ,optimise_layout_only)
         
         td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
-                options={'maxiter': 50, 'pgtol': 1e-3})
+                options={'maxiter': 100, 'pgtol': 1e-3})
 
 
 t_end = time.time()

@@ -22,7 +22,7 @@ P_factor = 1.0
 
 file_dir = '../../'
 
-output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-op-l_y-P_factor_'+str(P_factor)+'-5min_e&v3'
+output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-op-l_y-P_factor_'+str(P_factor)+'-5min_e&v'
 
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
@@ -135,13 +135,13 @@ xmin,ymin,xmax,ymax = 443340, 3322634, 443592, 3322848
 
 
 ## Read layout and yaw angle from previous optimised results
-result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-op-l_y-P_factor_'+str(P_factor)+'-5min_e&v2'
+result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-op-l_y-P_factor_'+str(P_factor)+'-5min_e&v-location'
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
     def_file = h5py.File(result_output_dir+'/diagnostic_'+'controls'+'.hdf5','r+')
     for name, data in def_file.items():
-        all_controls = list(data[-11])
+        all_controls = list(data[-50 ])
         iteration_numbers = len(data)
 else:
     all_controls = None
@@ -152,9 +152,9 @@ iteration_numbers = comm.bcast(iteration_numbers, root = 0)
 farm_options.turbine_coordinates = [[Constant(all_controls[2*i]),Constant(all_controls[2*i+1])] for i in range(12)]
 
 farm_options.considering_yaw = True
-# farm_options.turbine_axis = [Constant(100) for i in range(len(farm_options.turbine_coordinates))] + [Constant(280) for i in range(len(farm_options.turbine_coordinates))]
-flood_dir,ebb_dir = all_controls[24:36], all_controls[36:]
-farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
+farm_options.turbine_axis = [Constant(100) for i in range(len(farm_options.turbine_coordinates))] + [Constant(280) for i in range(len(farm_options.turbine_coordinates))]
+# flood_dir,ebb_dir = all_controls[24:36], all_controls[36:]
+# farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
 
 
 ### Turn off the optimisation for thrust coefficient
