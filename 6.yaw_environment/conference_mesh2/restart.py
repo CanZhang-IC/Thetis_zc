@@ -31,11 +31,11 @@ t_start = time.time()
 #     angle = int(angle_H[:2])
 #     H = int(angle_H[2:])
 
-# P_factor = 1
+P_factor = 1
 angle, H = 0, 40 
 
 speed = 2
-output_dir = '../../../outputs/6.yaw_environment/Yaw_Ideal/restart-conference_mesh2_with_effected_area-one-core'
+output_dir = '../../../outputs/6.yaw_environment/Yaw_Ideal/restart-conference_mesh2_with_effected_area'
 #Comment for testing forward model
 
 ### set up the Thetis solver obj as usual ##

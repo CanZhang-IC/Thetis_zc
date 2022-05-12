@@ -21,9 +21,9 @@ import yagmail
 
 t_start = time.time()
 
-get_index = os.path.basename(sys.argv[0])
-namelength = len('paper3_run')
-P_factor = float(get_index[namelength:-3])
+# get_index = os.path.basename(sys.argv[0])
+# namelength = len('paper3_run')
+# P_factor = float(get_index[namelength:-3])
 
 # if angle_H[0] == '0':
 #     angle = 0
@@ -32,7 +32,7 @@ P_factor = float(get_index[namelength:-3])
 #     angle = int(angle_H[:2])
 #     H = int(angle_H[2:])
 
-# P_factor = 1
+P_factor = 1
 angle, H = 0, 40 
 
 speed = 2
@@ -44,7 +44,7 @@ mesh2d = Mesh('../../prepare_ideal_meshes/conference_mesh2_with_effected_area.ms
 
 timestep = 60
 t_export = 2 * timestep
-t_end = 20*t_export #12000
+t_end = 2*t_export #12000
 
 
 #set viscosity bumps at in-flow boundaries.
@@ -212,7 +212,7 @@ def derivative_cb_pre(controls):
 rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list,
         eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
 
-if 0:
+if 1:
     # whenever the forward model is changed - for example different terms in the equation,
     # different types of boundary conditions, etc. - it is a good idea to test whether the
     # gradient computed by the adjoint is still correct, as some steps in the model may
@@ -235,7 +235,7 @@ if 0:
 
     assert minconv > 1.95
 
-if 1:
+if 0:
     # Optimise the control for minimal functional (i.e. maximum profit)
     # with a gradient based optimisation algorithm using the reduced functional
     # to replay the model, and computing its derivative via the adjoint
