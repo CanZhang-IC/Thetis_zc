@@ -15,9 +15,9 @@ rmse_velocity=[]
 rmse_direction=[]
 
 thetisfilenames=[
-        'restart_30min-e&v','restart_5min-e&v',
+       'restart-tidal_forcing'
       ]
-names_30min = ['restart_30min','restart_30min-e&v']
+names_30min = ['restart_30min','restart_30min-e&v','restart_30min(larger myboundary setting)','restart-tidal_forcing']
 
 
 for filename in thetisfilenames:
@@ -44,7 +44,7 @@ for filename in thetisfilenames:
 		    velocity_direction.append(float(both[i][1]))
 
 
-		det_file = '../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/'+filename+"/diagnostic_detectors.hdf5"
+		det_file = '../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh_30min/'+filename+"/diagnostic_detectors.hdf5"
 		df = h5py.File(det_file, 'r+')
 		xvelocity=[]
 		yvelocity=[]

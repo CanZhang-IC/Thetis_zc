@@ -28,21 +28,21 @@ Extrude{site_x, 0, 0} { Point{1000}; Layers{site_x/element_size}; }
 Extrude{0, site_y, 0} { Line{105}; Layers{site_y/element_size}; }
 Line Loop(110) = {106, -108, -105, 107};
 
-// point_x = 450;
-// point_y = 250;
-// area_circle = 40;
-// //effected area
-// Point(21) = {point_x - area_circle, point_y - area_circle, 0, element_size_coarse};
-// Point(22) = {point_x + area_circle, point_y - area_circle, 0, element_size_coarse};
-// Point(23) = {point_x + area_circle, point_y + area_circle, 0, element_size_coarse};
-// Point(24) = {point_x - area_circle, point_y + area_circle, 0, element_size_coarse};
+point_x = 450;
+point_y = 250;
+area_circle = 40;
+//effected area
+Point(21) = {point_x - area_circle, point_y - area_circle, 0, element_size_coarse};
+Point(22) = {point_x + area_circle, point_y - area_circle, 0, element_size_coarse};
+Point(23) = {point_x + area_circle, point_y + area_circle, 0, element_size_coarse};
+Point(24) = {point_x - area_circle, point_y + area_circle, 0, element_size_coarse};
 
 
-// Line(2100) = {23, 24};
-// Line(2101) = {24, 21};
-// Line(2102) = {21, 22};
-// Line(2103) = {22, 23};
-// Line Loop(2104) = {2100, 2101, 2102, 2103};
+Line(2100) = {23, 24};
+Line(2101) = {24, 21};
+Line(2102) = {21, 22};
+Line(2103) = {22, 23};
+Line Loop(2104) = {2100, 2101, 2102, 2103};
 
 
 
