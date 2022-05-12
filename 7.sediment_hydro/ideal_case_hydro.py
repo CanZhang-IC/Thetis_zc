@@ -25,12 +25,10 @@ t_start = time.time()
 H = 40
 distance = 10
 speed = 2
-output_dir = './outputs/pure-hydro-v1'
-
+output_dir = '../../outputs/sediment/pure_hydro-v1'
 
 ### set up the Thetis solver obj as usual ##
-mesh2d = Mesh('./mesh.msh')#../../prepare_ideal_meshes/conference_mesh2_with_effected_area.msh')
-
+mesh2d = Mesh('./mesh.msh')
 
 
 dt = 30
@@ -107,8 +105,7 @@ uv, elev = solver_obj.fields.solution_2d.split()
 
 # comm = MPI.COMM_WORLD
 # rank = comm.Get_rank()
-# if rank == 0:
-    
+# if rank == 0:  
 #     if not os.path.exists(checkpoint_dir):
 #         os.makedirs(checkpoint_dir)
 # else:

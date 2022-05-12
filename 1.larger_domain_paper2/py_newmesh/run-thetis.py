@@ -3,14 +3,16 @@ import detectors
 import tidal_forcing
 import utm
 import yagmail
+import time
 
+t_start = time.time()
 
-output_dir = '../outputs/5min-4cores-220428-1'
+output_dir = '../../../outputs/position-test-4cores'
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
 dt = 5*60 # reduce this if solver does not converge
 t_export = 5*60 
-t_end = 1555200 # e.g. 16days+ 2day spin up = 1382400 s + 172800s = 1555200 s
+t_end = 3600*24*1# 1555200 # e.g. 16days+ 2day spin up = 1382400 s + 172800s = 1555200 s
 #640800: 16/08/2013 09:59
 
 P1 = FunctionSpace(mesh2d, "CG", 1)
@@ -112,10 +114,12 @@ def update_forcings(t):
 
 solverObj.iterate(update_forcings=update_forcings)
 
+t_end = time.time()
+
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
     yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
-    yag.send(to = ['623001493@qq.com'], subject = 'Python done', contents = ['College computer Python Finished'])
+    yag.send(to = ['623001493@qq.com'], subject = 'Python done', contents = ['Large domain from paper2 time cose with 4 cores: {0:.2f}h.'.format((t_end-t_start)/60/60)])
 else:
     pass
