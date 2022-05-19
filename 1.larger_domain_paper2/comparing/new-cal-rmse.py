@@ -15,7 +15,7 @@ rmse_velocity=[]
 rmse_direction=[]
 
 names=[
-	'5min-1cores-sediment'
+	'5min-16cores-220512-497min'
       ]
 
 for filename in names:
@@ -41,7 +41,7 @@ for filename in names:
 			velocity_magnitude.append(float(both[i][0]))
 			velocity_direction.append(float(both[i][1]))
 
-		det_file = "../outputs/"+filename+"/diagnostic_detectors.hdf5"
+		det_file = "../../../outputs/"+filename+"/diagnostic_detectors.hdf5"
 		df = h5py.File(det_file, 'r+')
 		xvelocity=[]
 		yvelocity=[]

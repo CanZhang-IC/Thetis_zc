@@ -7,12 +7,12 @@ import time
 
 t_start = time.time()
 
-output_dir = '../../../outputs/position-test-4cores'
+output_dir = '../../../outputs/5min-1core-220513'
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
 dt = 5*60 # reduce this if solver does not converge
 t_export = 5*60 
-t_end = 3600*24*1# 1555200 # e.g. 16days+ 2day spin up = 1382400 s + 172800s = 1555200 s
+t_end = 1555200 # e.g. 16days+ 2day spin up = 1382400 s + 172800s = 1555200 s
 #640800: 16/08/2013 09:59
 
 P1 = FunctionSpace(mesh2d, "CG", 1)

@@ -94,7 +94,7 @@ solver_parameters = {
     'ksp_type': 'preonly',
     'pc_type': 'lu',
     'pc_factor_mat_solver_packages': 'mumps',
-    'ksp_monitor_true_residual': True
+    # 'ksp_monitor_true_residual': True
     }
 
 # Before we solve the Eikonal equation, let's solve a Laplace equation to

@@ -22,7 +22,7 @@ file_dir = '../../'
 
 P_factor = 1.0
 
-output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-yaw_op-P_factor_'+str(P_factor)+'-5min_e&v-from0.8-17-3'
+output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-yaw_op-P_factor_'+str(P_factor)+'-5min_e&v'
 
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
@@ -135,25 +135,25 @@ farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in t
 farm_options.considering_yaw = True
 
 
-# farm_options.turbine_axis = [Constant(180) for i in range(len(farm_options.turbine_coordinates))] + [Constant(360) for i in range(len(farm_options.turbine_coordinates))]
+farm_options.turbine_axis = [Constant(100) for i in range(len(farm_options.turbine_coordinates))] + [Constant(280) for i in range(len(farm_options.turbine_coordinates))]
 
-result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-yaw_op-P_factor_'+str(P_factor)+'-5min_e&v-from0.8-17-2'
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-if rank == 0:
-    def_file = h5py.File(result_output_dir+'/diagnostic_'+'controls'+'.hdf5','r+')
-    for name, data in def_file.items():
-        all_controls = list(data[4])
-        iteration_numbers = len(data)
-else:
-    all_controls = None
-    iteration_numbers = None
-all_controls = comm.bcast(all_controls,root = 0)
-iteration_numbers = comm.bcast(iteration_numbers, root = 0)
+# result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-yaw_op-P_factor_'+str(P_factor)+'-5min_e&v-from0.8-17-2'
+# comm = MPI.COMM_WORLD
+# rank = comm.Get_rank()
+# if rank == 0:
+#     def_file = h5py.File(result_output_dir+'/diagnostic_'+'controls'+'.hdf5','r+')
+#     for name, data in def_file.items():
+#         all_controls = list(data[4])
+#         iteration_numbers = len(data)
+# else:
+#     all_controls = None
+#     iteration_numbers = None
+# all_controls = comm.bcast(all_controls,root = 0)
+# iteration_numbers = comm.bcast(iteration_numbers, root = 0)
 
-flood_dir,ebb_dir = all_controls[:12], all_controls[12:]
+# flood_dir,ebb_dir = all_controls[:12], all_controls[12:]
 
-farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
+# farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
 
 farm_options.considering_individual_thrust_coefficient = False
 
@@ -184,7 +184,7 @@ E_area_centre_point = [(xmin+xmax)/2,(ymax+ymin)/2+(214+400)]
 E_area_circle = 60
 
 # Operation of tidal turbine farm about each turbine output through a callback
-cb2 = rmse_r2.RMSECallback(solver_obj,'../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/forward', E_area_centre_point, E_area_circle)
+cb2 = rmse_r2.RMSECallback(solver_obj,'../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/restart_5min-e&v', E_area_centre_point, E_area_circle)
 solver_obj.add_callback(cb2,'timestep')
 
 #Effected area location
@@ -192,7 +192,7 @@ E_area_centre_point = [(xmin+xmax)/2,(ymax+ymin)/2-(214+400)]
 E_area_circle = 60
 
 # Operation of tidal turbine farm about each turbine output through a callback
-cb3 = rmse_r2.RMSECallback(solver_obj,'../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/forward', E_area_centre_point, E_area_circle)
+cb3 = rmse_r2.RMSECallback(solver_obj,'../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/restart_5min-e&v', E_area_centre_point, E_area_circle)
 solver_obj.add_callback(cb3,'timestep')
 
 # start computer forward model
