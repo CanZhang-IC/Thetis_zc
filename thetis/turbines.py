@@ -370,8 +370,11 @@ class TurbineFunctionalCallback(DiagnosticCallback):
                     uv_eff = self.uv 
             else:
                     uv_eff = self.uv 
-            if farm.considering_individual_thrust_coefficient:
-                power = farm.individual_power_output(uv_eff, self.depth)
+            if farm.__class__.__name__ == 'DiscreteTidalTurbineFarm':
+                if farm.considering_individual_thrust_coefficient:
+                    power = farm.individual_power_output(uv_eff, self.depth)
+                else:
+                    power = farm.power_output(uv_eff, self.depth)
             else:
                 power = farm.power_output(uv_eff, self.depth)
             # current_power.append(power)

@@ -8,12 +8,13 @@ sys.path.append('../..')
 import prepare.utm, prepare.myboundary, prepare.detectors
 import os
 import time
+import yagmail
 
 start_time = time.time()
 
 file_dir = '../../'
 
-output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/restart_5min-e&v-2'
+output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/restart_5min-e&v'
 
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
@@ -111,8 +112,8 @@ def update_forcings(t):
     print_output("Done updating tidal field")
 
 ###spring:676,middle:492,neap:340###
-# solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
-solver_obj.load_state(634, outputdir='../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/restart_5min-e&v')
+solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
+# solver_obj.load_state(634, outputdir='../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/restart_5min-e&v')
 
 #place detectors code
 with stop_annotating():
@@ -125,3 +126,12 @@ solver_obj.iterate(update_forcings=update_forcings)
 end_time = time.time()
 
 print('The time cost is {0:.2f} min'.format((end_time-start_time)/60))
+
+if 1:
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
+    if rank == 0 :
+        yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
+        yag.send(to = ['canzhang2019@gmail.com'], subject = 'Python done', contents = ['Restart 16cores done'])
+    else:
+        pass
