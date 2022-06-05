@@ -3,7 +3,6 @@ Module for three dimensional baroclinic solver
 """
 from __future__ import absolute_import
 from .utility import *
-from .utility3d import *
 from . import shallowwater_eq
 from . import momentum_eq
 from . import tracer_eq
@@ -11,6 +10,7 @@ from . import turbulence
 from . import coupled_timeintegrator
 import thetis.limiter as limiter
 import time as time_mod
+import numpy as np
 from mpi4py import MPI
 from . import exporter
 import weakref
@@ -154,7 +154,6 @@ class FlowSolver(FrozenClass):
         """Do export initial state. False if continuing a simulation"""
 
         self._simulation_continued = False
-        self._field_preproc_funcs = {}
         self._isfrozen = True
 
     def compute_dx_factor(self):
@@ -165,7 +164,7 @@ class FlowSolver(FrozenClass):
         degree. It is used to compute maximal stable time steps.
         """
         p = self.options.polynomial_degree
-        if self.options.element_family in ['rt-dg', 'bdm-dg']:
+        if self.options.element_family == 'rt-dg':
             # velocity space is essentially p+1
             p = self.options.polynomial_degree + 1
         # assuming DG basis functions on triangles
@@ -231,7 +230,7 @@ class FlowSolver(FrozenClass):
         """
         u = u_scale
         if isinstance(u_scale, Constant):
-            u = float(u_scale)
+            u = u_scale.dat.data[0]
         min_dx = self.fields.h_elem_size_2d.dat.data.min()
         # alpha = 0.5 if self.options.element_family == 'rt-dg' else 1.0
         # dt = alpha*1.0/10.0/(self.options.polynomial_degree + 1)*min_dx/u
@@ -253,7 +252,7 @@ class FlowSolver(FrozenClass):
         """
         w = w_scale
         if isinstance(w_scale, Constant):
-            w = float(w_scale)
+            w = w_scale.dat.data[0]
         min_dz = self.fields.v_elem_size_2d.dat.data.min()
         # alpha = 0.5 if self.options.element_family == 'rt-dg' else 1.0
         # dt = alpha*1.0/1.5/(self.options.polynomial_degree + 1)*min_dz/w
@@ -272,13 +271,11 @@ class FlowSolver(FrozenClass):
         """
         nu = nu_scale
         if isinstance(nu_scale, Constant):
-            nu = float(nu_scale)
+            nu = nu_scale.dat.data[0]
         min_dx = self.fields.h_elem_size_2d.dat.data.min()
         factor = 2.0
-        if self.options.element_family == 'bdm-dg':
-            factor = 1.8
         if self.options.timestepper_type == 'LeapFrog':
-            factor *= 0.6
+            factor = 1.2
         min_dx *= factor*self.compute_dx_factor()
         dt = (min_dx)**2/nu
         dt = self.comm.allreduce(dt, op=MPI.MIN)
@@ -289,34 +286,24 @@ class FlowSolver(FrozenClass):
         Computes number of elements, nodes etc and prints to sdtout
         """
         nnodes = self.function_spaces.P1_2d.dim()
-        P1DG_2d = self.function_spaces.P1DG_2d
-        nelem2d = int(P1DG_2d.dim()/P1DG_2d.ufl_cell().num_vertices())
+        ntriangles = int(self.function_spaces.P1DG_2d.dim()/3)
         nlayers = self.mesh.topology.layers - 1
-        nprisms = nelem2d*nlayers
-        dofs_elev2d = self.function_spaces.H_2d.dim()
-        dofs_u2d = self.function_spaces.U_2d.dim()
-        dofs_u3d = self.function_spaces.U.dim()
-        dofs_w3d = self.function_spaces.W.dim()
-        dofs_t3d = self.function_spaces.H.dim()
-        dofs_t3d_core = int(dofs_t3d/self.comm.size)
+        nprisms = ntriangles*nlayers
+        dofs_per_elem = len(self.function_spaces.H.finat_element.entity_dofs())
+        ntracer_dofs = dofs_per_elem*nprisms
         min_h_size = self.comm.allreduce(self.fields.h_elem_size_2d.dat.data.min(), MPI.MIN)
         max_h_size = self.comm.allreduce(self.fields.h_elem_size_2d.dat.data.max(), MPI.MAX)
         min_v_size = self.comm.allreduce(self.fields.v_elem_size_3d.dat.data.min(), MPI.MIN)
         max_v_size = self.comm.allreduce(self.fields.v_elem_size_3d.dat.data.max(), MPI.MAX)
 
-        print_output(f'Element family: {self.options.element_family}, degree: {self.options.polynomial_degree}')
-        print_output(f'2D cell type: {self.mesh2d.ufl_cell()}')
-        print_output(f'2D mesh: {nnodes} vertices, {nelem2d} elements')
-        print_output(f'3D mesh: {nlayers} layers, {nprisms} prisms')
-        print_output(f'Horizontal element size: {min_h_size:.2f} ... {max_h_size:.2f} m')
-        print_output(f'Vertical element size: {min_v_size:.3f} ... {max_v_size:.3f} m')
-        print_output(f'Number of 2D elevation DOFs: {dofs_elev2d}')
-        print_output(f'Number of 2D velocity DOFs: {dofs_u2d}')
-        print_output(f'Number of 3D h. velocity DOFs: {dofs_u3d}')
-        print_output(f'Number of 3D v. velocity DOFs: {dofs_w3d}')
-        print_output(f'Number of 3D tracer DOFs: {dofs_t3d}')
-        print_output(f'Number of cores: {self.comm.size}')
-        print_output(f'Tracer DOFs per core: ~{dofs_t3d_core:.1f}')
+        print_output('2D mesh: {:} nodes, {:} triangles'.format(nnodes, ntriangles))
+        print_output('3D mesh: {:} layers, {:} prisms'.format(nlayers, nprisms))
+        print_output('Horizontal element size: {:.2f} ... {:.2f} m'.format(min_h_size, max_h_size))
+        print_output('Vertical element size: {:.3f} ... {:.3f} m'.format(min_v_size, max_v_size))
+        print_output('Element family: {:}, degree: {:}'.format(self.options.element_family, self.options.polynomial_degree))
+        print_output('Number of tracer DOFs: {:}'.format(ntracer_dofs))
+        print_output('Number of cores: {:}'.format(self.comm.size))
+        print_output('Tracer DOFs per core: ~{:.1f}'.format(float(ntracer_dofs)/self.comm.size))
 
     def set_time_step(self):
         """
@@ -408,19 +395,12 @@ class FlowSolver(FrozenClass):
         self.function_spaces.P1DGv = get_functionspace(self.mesh, 'DG', 1, 'DG', 1, name='P1DGv', vector=True)
 
         # function spaces for (u,v) and w
-        if self.options.element_family in ['rt-dg', 'bdm-dg']:
-            h_family_prefix = self.options.element_family.split('-')[0].upper()
-            h_family_suffix = {'triangle': 'F', 'quadrilateral': 'CF'}
-            h_cell = self.mesh2d.ufl_cell().cellname()
-            hfam = h_family_prefix + h_family_suffix[h_cell]
-            h_degree = self.options.polynomial_degree + 1
-            self.function_spaces.U = get_functionspace(self.mesh, hfam, h_degree, 'DG', self.options.polynomial_degree, name='U', hdiv=True)
+        if self.options.element_family == 'rt-dg':
+            self.function_spaces.U = get_functionspace(self.mesh, 'RT', self.options.polynomial_degree+1, 'DG', self.options.polynomial_degree, name='U', hdiv=True)
             self.function_spaces.W = get_functionspace(self.mesh, 'DG', self.options.polynomial_degree, 'CG', self.options.polynomial_degree+1, name='W', hdiv=True)
-            self.function_spaces.U_2d = get_functionspace(self.mesh2d, hfam, h_degree, name='U_2d')
         elif self.options.element_family == 'dg-dg':
             self.function_spaces.U = get_functionspace(self.mesh, 'DG', self.options.polynomial_degree, 'DG', self.options.polynomial_degree, name='U', vector=True)
             self.function_spaces.W = get_functionspace(self.mesh, 'DG', self.options.polynomial_degree, 'DG', self.options.polynomial_degree, name='W', vector=True)
-            self.function_spaces.U_2d = get_functionspace(self.mesh2d, 'DG', self.options.polynomial_degree, name='U_2d', vector=True)
         else:
             raise Exception('Unsupported finite element family {:}'.format(self.options.element_family))
 
@@ -434,6 +414,11 @@ class FlowSolver(FrozenClass):
         self.function_spaces.P1v_2d = get_functionspace(self.mesh2d, 'CG', 1, name='P1v_2d', vector=True)
         self.function_spaces.P1DG_2d = get_functionspace(self.mesh2d, 'DG', 1, name='P1DG_2d')
         self.function_spaces.P1DGv_2d = get_functionspace(self.mesh2d, 'DG', 1, name='P1DGv_2d', vector=True)
+        # 2D velocity space
+        if self.options.element_family == 'rt-dg':
+            self.function_spaces.U_2d = get_functionspace(self.mesh2d, 'RT', self.options.polynomial_degree+1, name='U_2d')
+        elif self.options.element_family == 'dg-dg':
+            self.function_spaces.U_2d = get_functionspace(self.mesh2d, 'DG', self.options.polynomial_degree, name='U_2d', vector=True)
         self.function_spaces.H_2d = get_functionspace(self.mesh2d, 'DG', self.options.polynomial_degree, name='H_2d')
         self.function_spaces.V_2d = MixedFunctionSpace([self.function_spaces.U_2d, self.function_spaces.H_2d], name='V_2d')
 
@@ -441,12 +426,14 @@ class FlowSolver(FrozenClass):
         if self.options.use_quadratic_pressure:
             self.function_spaces.P2DGxP2 = get_functionspace(self.mesh, 'DG', 2, 'CG', 2, name='P2DGxP2')
             self.function_spaces.P2DG_2d = get_functionspace(self.mesh2d, 'DG', 2, name='P2DG_2d')
-            self.function_spaces.H_bhead = self.function_spaces.P2DGxP2
-            self.function_spaces.H_bhead_2d = self.function_spaces.P2DG_2d
             if self.options.element_family == 'dg-dg':
                 self.function_spaces.P2DGxP1DGv = get_functionspace(self.mesh, 'DG', 2, 'DG', 1, name='P2DGxP1DGv', vector=True, dim=2)
+                self.function_spaces.H_bhead = self.function_spaces.P2DGxP2
+                self.function_spaces.H_bhead_2d = self.function_spaces.P2DG_2d
                 self.function_spaces.U_int_pg = self.function_spaces.P2DGxP1DGv
-            else:
+            elif self.options.element_family == 'rt-dg':
+                self.function_spaces.H_bhead = self.function_spaces.P2DGxP2
+                self.function_spaces.H_bhead_2d = self.function_spaces.P2DG_2d
                 self.function_spaces.U_int_pg = self.function_spaces.U
         else:
             self.function_spaces.P1DGxP2 = get_functionspace(self.mesh, 'DG', 1, 'CG', 2, name='P1DGxP2')
@@ -455,6 +442,97 @@ class FlowSolver(FrozenClass):
             self.function_spaces.U_int_pg = self.function_spaces.U
 
         self._isfrozen = True
+
+    def set_sipg_parameter(self):
+        r"""
+        Compute a penalty parameter which ensures stability of the Interior Penalty method
+        used for viscosity and diffusivity terms, from Epshteyn et al. 2007
+        (http://dx.doi.org/10.1016/j.cam.2006.08.029).
+
+        The scheme is stable if
+
+        ..math::
+            \alpha|_K > 3*X*p*(p+1)*\cot(\theta_K),
+
+        for all elements :math:`K`, where
+
+        ..math::
+            X = \frac{\max_{x\in K}(\nu(x))}{\min_{x\in K}(\nu(x))},
+
+        :math:`p` the degree, and :math:`\theta_K` is the minimum angle in the element.
+        """
+        degree_h, degree_v = self.function_spaces.U.ufl_element().degree()
+        alpha_h = Constant(5.0*degree_h*(degree_h+1) if degree_h != 0 else 1.5)
+        alpha_v = Constant(5.0*degree_v*(degree_v+1) if degree_v != 0 else 1.0)
+        degree_h_tracer, degree_v_tracer = self.function_spaces.H.ufl_element().degree()
+        alpha_h_tracer = Constant(5.0*degree_h_tracer*(degree_h_tracer+1) if degree_h_tracer != 0 else 1.5)
+        alpha_v_tracer = Constant(5.0*degree_v_tracer*(degree_v_tracer+1) if degree_v_tracer != 0 else 1.0)
+        degree_h_turb, degree_v_turb = self.function_spaces.turb_space.ufl_element().degree()
+        alpha_h_turb = Constant(5.0*degree_h_turb*(degree_h_turb+1) if degree_h_turb != 0 else 1.5)
+        alpha_v_turb = Constant(5.0*degree_v_turb*(degree_v_turb+1) if degree_v_turb != 0 else 1.0)
+
+        if self.options.use_automatic_sipg_parameter:
+
+            # Compute minimum angle in 2d mesh
+            theta2d = get_minimum_angles_2d(self.mesh2d)
+            min_angle = theta2d.vector().gather().min()
+            print_output("Minimum angle in 2D mesh: {:.2f} degrees".format(np.rad2deg(min_angle)))
+
+            # Expand minimum angle field to extruded mesh
+            P0 = self.function_spaces.P0
+            theta = Function(P0)
+            ExpandFunctionTo3d(theta2d, theta).solve()
+            cot_theta = 1.0/tan(theta)
+
+            # Horizontal component
+            nu = self.options.horizontal_viscosity
+            if nu is not None:
+                self.options.sipg_parameter = Function(P0)
+                self.options.sipg_parameter.interpolate(alpha_h*get_sipg_ratio(nu)*cot_theta)
+                max_sipg = self.options.sipg_parameter.vector().gather().max()
+                print_output("Maximum SIPG value in horizontal: {:.2f}".format(max_sipg))
+            else:
+                print_output("SIPG parameter in horizontal: {:.2f}".format(alpha_h.values()[0]))
+
+            # Vertical component
+            print_output("SIPG parameter in vertical: {:.2f}".format(alpha_v.values()[0]))
+
+            # Penalty parameter for tracers / turbulence model
+            if self.options.solve_salinity or self.options.solve_temperature or self.options.use_turbulence:
+
+                # Horizontal component
+                nu = self.options.horizontal_diffusivity
+                if nu is not None:
+                    scaling = get_sipg_ratio(nu)*cot_theta
+                    if self.options.solve_salinity or self.options.solve_temperature:
+                        self.options.sipg_parameter_tracer = Function(P0)
+                        self.options.sipg_parameter_tracer.interpolate(alpha_h_tracer*scaling)
+                        max_sipg = self.options.sipg_parameter_tracer.vector().gather().max()
+                        print_output("Maximum tracer SIPG value in horizontal: {:.2f}".format(max_sipg))
+                    if self.options.use_turbulence:
+                        self.options.sipg_parameter_turb = Function(P0)
+                        self.options.sipg_parameter_turb.interpolate(alpha_h_turb*scaling)
+                        max_sipg = self.options.sipg_parameter_turb.vector().gather().max()
+                        print_output("Maximum turbulence SIPG value in horizontal: {:.2f}".format(max_sipg))
+                else:
+                    if self.options.solve_salinity or self.options.solve_temperature:
+                        print_output("Tracer SIPG parameter in horizontal: {:.2f}".format(alpha_h_tracer.values()[0]))
+                    if self.options.use_turbulence:
+                        print_output("Turbulence SIPG parameter in horizontal: {:.2f}".format(alpha_h_turb.values()[0]))
+
+                # Vertical component
+                if self.options.solve_salinity or self.options.solve_temperature:
+                    print_output("Tracer SIPG parameter in vertical: {:.2f}".format(alpha_v_tracer.values()[0]))
+                if self.options.use_turbulence:
+                    print_output("Turbulence SIPG parameter in vertical: {:.2f}".format(alpha_v_turb.values()[0]))
+        else:
+            print_output("Using default SIPG parameters")
+            self.options.sipg_parameter.assign(alpha_h)
+            self.options.sipg_parameter_tracer.assign(alpha_h_tracer)
+            self.options.sipg_parameter_turb.assign(alpha_h_turb)
+        self.options.sipg_parameter_vertical.assign(alpha_v)
+        self.options.sipg_parameter_vertical_tracer.assign(alpha_v_tracer)
+        self.options.sipg_parameter_vertical_turb.assign(alpha_v_turb)
 
     def create_fields(self):
         """
@@ -604,41 +682,9 @@ class FlowSolver(FrozenClass):
 
         self._isfrozen = True
 
-    def add_new_field(self, function, label, name, filename, shortname=None, unit='-', preproc_func=None):
-        """
-        Add a field to :attr:`fields`.
-
-        :arg function: representation of the field as a :class:`Function`
-        :arg label: field label used internally by Thetis, e.g. 'tracer_3d'
-        :arg name: human readable name for the tracer field, e.g. 'Tracer concentration'
-        :arg filename: file name for outputs, e.g. 'Tracer3d'
-        :kwarg shortname: short version of name, e.g. 'Tracer'
-        :kwarg unit: units for field, e.g. '-'
-        :kwarg preproc_func: optional pre-processor function which will be called before exporting
-        """
-        assert isinstance(function, Function)
-        assert isinstance(label, str)
-        assert isinstance(name, str)
-        assert isinstance(filename, str)
-        assert shortname is None or isinstance(shortname, str)
-        assert isinstance(unit, str)
-        assert preproc_func is None or callable(preproc_func)
-        assert label not in field_metadata, f"Field '{label}' already exists."
-        assert ' ' not in label, "Labels cannot contain spaces"
-        assert ' ' not in filename, "Filenames cannot contain spaces"
-        field_metadata[label] = {
-            'name': name,
-            'shortname': shortname or name,
-            'unit': unit,
-            'filename': filename,
-        }
-        self.fields[label] = function
-        if preproc_func is not None:
-            self._field_preproc_funcs[label] = preproc_func
-
     def create_equations(self):
         """
-        Creates equation instances
+        Creates all dynamic equations and time integrators
         """
         if 'uv_3d' not in self.fields:
             self.create_fields()
@@ -649,122 +695,141 @@ class FlowSolver(FrozenClass):
             filehandler = logging.logging.FileHandler(logfile, mode='w')
             filehandler.setFormatter(logging.logging.Formatter('%(message)s'))
             output_logger.addHandler(filehandler)
+        self.set_sipg_parameter()
 
         self.depth = DepthExpression(self.fields.bathymetry_2d,
                                      use_nonlinear_equations=self.options.use_nonlinear_equations)
 
-        self.equations = AttrDict()
-        self.equations.sw = shallowwater_eq.ModeSplit2DEquations(
+        self.eq_sw = shallowwater_eq.ModeSplit2DEquations(
             self.fields.solution_2d.function_space(),
             self.depth, self.options)
 
         expl_bottom_friction = self.options.use_bottom_friction and not self.options.use_implicit_vertical_diffusion
-        self.equations.momentum = momentum_eq.MomentumEquation(
-            self.fields.uv_3d.function_space(),
-            bathymetry=self.fields.bathymetry_2d.view_3d,
-            v_elem_size=self.fields.v_elem_size_3d,
-            h_elem_size=self.fields.h_elem_size_3d,
-            use_nonlinear_equations=self.options.use_nonlinear_equations,
-            use_lax_friedrichs=self.options.use_lax_friedrichs_velocity,
-            use_bottom_friction=expl_bottom_friction,
-            sipg_factor=self.options.sipg_factor,
-            sipg_factor_vertical=self.options.sipg_factor_vertical)
+        self.eq_momentum = momentum_eq.MomentumEquation(self.fields.uv_3d.function_space(),
+                                                        bathymetry=self.fields.bathymetry_2d.view_3d,
+                                                        v_elem_size=self.fields.v_elem_size_3d,
+                                                        h_elem_size=self.fields.h_elem_size_3d,
+                                                        use_nonlinear_equations=self.options.use_nonlinear_equations,
+                                                        use_lax_friedrichs=self.options.use_lax_friedrichs_velocity,
+                                                        use_bottom_friction=expl_bottom_friction,
+                                                        sipg_parameter=self.options.sipg_parameter,
+                                                        sipg_parameter_vertical=self.options.sipg_parameter_vertical)
         if self.options.use_implicit_vertical_diffusion:
-            self.equations.vertmomentum = momentum_eq.MomentumEquation(
-                self.fields.uv_3d.function_space(),
-                bathymetry=self.fields.bathymetry_2d.view_3d,
-                v_elem_size=self.fields.v_elem_size_3d,
-                h_elem_size=self.fields.h_elem_size_3d,
-                use_nonlinear_equations=False,
-                use_lax_friedrichs=self.options.use_lax_friedrichs_velocity,
-                use_bottom_friction=self.options.use_bottom_friction,
-                sipg_factor=self.options.sipg_factor,
-                sipg_factor_vertical=self.options.sipg_factor_vertical)
+            self.eq_vertmomentum = momentum_eq.MomentumEquation(self.fields.uv_3d.function_space(),
+                                                                bathymetry=self.fields.bathymetry_2d.view_3d,
+                                                                v_elem_size=self.fields.v_elem_size_3d,
+                                                                h_elem_size=self.fields.h_elem_size_3d,
+                                                                use_nonlinear_equations=False,
+                                                                use_lax_friedrichs=self.options.use_lax_friedrichs_velocity,
+                                                                use_bottom_friction=self.options.use_bottom_friction,
+                                                                sipg_parameter=self.options.sipg_parameter,
+                                                                sipg_parameter_vertical=self.options.sipg_parameter_vertical)
         if self.options.solve_salinity:
-            self.equations.salt = tracer_eq.TracerEquation(
-                self.fields.salt_3d.function_space(),
-                bathymetry=self.fields.bathymetry_2d.view_3d,
-                v_elem_size=self.fields.v_elem_size_3d,
-                h_elem_size=self.fields.h_elem_size_3d,
-                use_lax_friedrichs=self.options.use_lax_friedrichs_tracer,
-                use_symmetric_surf_bnd=self.options.element_family == 'dg-dg',
-                sipg_factor=self.options.sipg_factor_tracer,
-                sipg_factor_vertical=self.options.sipg_factor_vertical_tracer)
+            self.eq_salt = tracer_eq.TracerEquation(self.fields.salt_3d.function_space(),
+                                                    bathymetry=self.fields.bathymetry_2d.view_3d,
+                                                    v_elem_size=self.fields.v_elem_size_3d,
+                                                    h_elem_size=self.fields.h_elem_size_3d,
+                                                    use_lax_friedrichs=self.options.use_lax_friedrichs_tracer,
+                                                    use_symmetric_surf_bnd=self.options.element_family == 'dg-dg',
+                                                    sipg_parameter=self.options.sipg_parameter_tracer,
+                                                    sipg_parameter_vertical=self.options.sipg_parameter_vertical_tracer)
             if self.options.use_implicit_vertical_diffusion:
-                self.equations.salt_vdff = tracer_eq.TracerEquation(
-                    self.fields.salt_3d.function_space(),
-                    bathymetry=self.fields.bathymetry_2d.view_3d,
-                    v_elem_size=self.fields.v_elem_size_3d,
-                    h_elem_size=self.fields.h_elem_size_3d,
-                    use_lax_friedrichs=self.options.use_lax_friedrichs_tracer,
-                    sipg_factor=self.options.sipg_factor_tracer,
-                    sipg_factor_vertical=self.options.sipg_factor_vertical_tracer)
+                self.eq_salt_vdff = tracer_eq.TracerEquation(self.fields.salt_3d.function_space(),
+                                                             bathymetry=self.fields.bathymetry_2d.view_3d,
+                                                             v_elem_size=self.fields.v_elem_size_3d,
+                                                             h_elem_size=self.fields.h_elem_size_3d,
+                                                             use_lax_friedrichs=self.options.use_lax_friedrichs_tracer,
+                                                             sipg_parameter=self.options.sipg_parameter_tracer,
+                                                             sipg_parameter_vertical=self.options.sipg_parameter_vertical_tracer)
 
         if self.options.solve_temperature:
-            self.equations.temp = tracer_eq.TracerEquation(
-                self.fields.temp_3d.function_space(),
-                bathymetry=self.fields.bathymetry_2d.view_3d,
-                v_elem_size=self.fields.v_elem_size_3d,
-                h_elem_size=self.fields.h_elem_size_3d,
-                use_lax_friedrichs=self.options.use_lax_friedrichs_tracer,
-                use_symmetric_surf_bnd=self.options.element_family == 'dg-dg',
-                sipg_factor=self.options.sipg_factor_tracer,
-                sipg_factor_vertical=self.options.sipg_factor_vertical_tracer)
+            self.eq_temp = tracer_eq.TracerEquation(self.fields.temp_3d.function_space(),
+                                                    bathymetry=self.fields.bathymetry_2d.view_3d,
+                                                    v_elem_size=self.fields.v_elem_size_3d,
+                                                    h_elem_size=self.fields.h_elem_size_3d,
+                                                    use_lax_friedrichs=self.options.use_lax_friedrichs_tracer,
+                                                    use_symmetric_surf_bnd=self.options.element_family == 'dg-dg',
+                                                    sipg_parameter=self.options.sipg_parameter_tracer,
+                                                    sipg_parameter_vertical=self.options.sipg_parameter_vertical_tracer)
             if self.options.use_implicit_vertical_diffusion:
-                self.equations.temp_vdff = tracer_eq.TracerEquation(
-                    self.fields.temp_3d.function_space(),
-                    bathymetry=self.fields.bathymetry_2d.view_3d,
-                    v_elem_size=self.fields.v_elem_size_3d,
-                    h_elem_size=self.fields.h_elem_size_3d,
-                    use_lax_friedrichs=self.options.use_lax_friedrichs_tracer,
-                    sipg_factor=self.options.sipg_factor_tracer,
-                    sipg_factor_vertical=self.options.sipg_factor_vertical_tracer)
+                self.eq_temp_vdff = tracer_eq.TracerEquation(self.fields.temp_3d.function_space(),
+                                                             bathymetry=self.fields.bathymetry_2d.view_3d,
+                                                             v_elem_size=self.fields.v_elem_size_3d,
+                                                             h_elem_size=self.fields.h_elem_size_3d,
+                                                             use_lax_friedrichs=self.options.use_lax_friedrichs_tracer,
+                                                             sipg_parameter=self.options.sipg_parameter_tracer,
+                                                             sipg_parameter_vertical=self.options.sipg_parameter_vertical_tracer)
 
-        self.equations.sw.bnd_functions = self.bnd_functions['shallow_water']
-        self.equations.momentum.bnd_functions = self.bnd_functions['momentum']
+        self.eq_sw.bnd_functions = self.bnd_functions['shallow_water']
+        self.eq_momentum.bnd_functions = self.bnd_functions['momentum']
         if self.options.solve_salinity:
-            self.equations.salt.bnd_functions = self.bnd_functions['salt']
+            self.eq_salt.bnd_functions = self.bnd_functions['salt']
         if self.options.solve_temperature:
-            self.equations.temp.bnd_functions = self.bnd_functions['temp']
+            self.eq_temp.bnd_functions = self.bnd_functions['temp']
         if self.options.use_turbulence and self.options.turbulence_model_type == 'gls':
             if self.options.use_turbulence_advection:
                 # explicit advection equations
-                self.equations.tke_adv = tracer_eq.TracerEquation(
-                    self.fields.tke_3d.function_space(),
-                    bathymetry=self.fields.bathymetry_2d.view_3d,
-                    v_elem_size=self.fields.v_elem_size_3d,
-                    h_elem_size=self.fields.h_elem_size_3d,
-                    use_lax_friedrichs=self.options.use_lax_friedrichs_tracer,
-                    sipg_factor=self.options.sipg_factor_turb,
-                    sipg_factor_vertical=self.options.sipg_factor_vertical_turb)
-                self.equations.psi_adv = tracer_eq.TracerEquation(
-                    self.fields.psi_3d.function_space(),
-                    bathymetry=self.fields.bathymetry_2d.view_3d,
-                    v_elem_size=self.fields.v_elem_size_3d,
-                    h_elem_size=self.fields.h_elem_size_3d,
-                    use_lax_friedrichs=self.options.use_lax_friedrichs_tracer,
-                    sipg_factor=self.options.sipg_factor_turb,
-                    sipg_factor_vertical=self.options.sipg_factor_vertical_turb)
+                self.eq_tke_adv = tracer_eq.TracerEquation(self.fields.tke_3d.function_space(),
+                                                           bathymetry=self.fields.bathymetry_2d.view_3d,
+                                                           v_elem_size=self.fields.v_elem_size_3d,
+                                                           h_elem_size=self.fields.h_elem_size_3d,
+                                                           use_lax_friedrichs=self.options.use_lax_friedrichs_tracer,
+                                                           sipg_parameter=self.options.sipg_parameter_turb,
+                                                           sipg_parameter_vertical=self.options.sipg_parameter_vertical_turb)
+                self.eq_psi_adv = tracer_eq.TracerEquation(self.fields.psi_3d.function_space(),
+                                                           bathymetry=self.fields.bathymetry_2d.view_3d,
+                                                           v_elem_size=self.fields.v_elem_size_3d,
+                                                           h_elem_size=self.fields.h_elem_size_3d,
+                                                           use_lax_friedrichs=self.options.use_lax_friedrichs_tracer,
+                                                           sipg_parameter=self.options.sipg_parameter_turb,
+                                                           sipg_parameter_vertical=self.options.sipg_parameter_vertical_turb)
             # implicit vertical diffusion eqn with production terms
-            self.equations.tke_diff = turbulence.TKEEquation(
-                self.fields.tke_3d.function_space(),
-                self.turbulence_model,
-                bathymetry=self.fields.bathymetry_2d.view_3d,
-                v_elem_size=self.fields.v_elem_size_3d,
-                h_elem_size=self.fields.h_elem_size_3d)
-            self.equations.psi_diff = turbulence.PsiEquation(
-                self.fields.psi_3d.function_space(),
-                self.turbulence_model,
-                bathymetry=self.fields.bathymetry_2d.view_3d,
-                v_elem_size=self.fields.v_elem_size_3d,
-                h_elem_size=self.fields.h_elem_size_3d)
+            self.eq_tke_diff = turbulence.TKEEquation(self.fields.tke_3d.function_space(),
+                                                      self.turbulence_model,
+                                                      bathymetry=self.fields.bathymetry_2d.view_3d,
+                                                      v_elem_size=self.fields.v_elem_size_3d,
+                                                      h_elem_size=self.fields.h_elem_size_3d)
+            self.eq_psi_diff = turbulence.PsiEquation(self.fields.psi_3d.function_space(),
+                                                      self.turbulence_model,
+                                                      bathymetry=self.fields.bathymetry_2d.view_3d,
+                                                      v_elem_size=self.fields.v_elem_size_3d,
+                                                      h_elem_size=self.fields.h_elem_size_3d)
+
+        # ----- Time integrators
+        self.dt_mode = '3d'  # 'split'|'2d'|'3d' use constant 2d/3d dt, or split
+        if self.options.timestepper_type == 'LeapFrog':
+            self.timestepper = coupled_timeintegrator.CoupledLeapFrogAM3(weakref.proxy(self))
+        elif self.options.timestepper_type == 'SSPRK22':
+            self.timestepper = coupled_timeintegrator.CoupledTwoStageRK(weakref.proxy(self))
+        else:
+            raise Exception('Unknown time integrator type: '+str(self.options.timestepper_type))
+
+        # ----- File exporters
+        # create export_managers and store in a list
+        self.exporters = OrderedDict()
+        if not self.options.no_exports:
+            e = exporter.ExportManager(self.options.output_directory,
+                                       self.options.fields_to_export,
+                                       self.fields,
+                                       field_metadata,
+                                       export_type='vtk',
+                                       verbose=self.options.verbose > 0)
+            self.exporters['vtk'] = e
+            hdf5_dir = os.path.join(self.options.output_directory, 'hdf5')
+            e = exporter.ExportManager(hdf5_dir,
+                                       self.options.fields_to_export_hdf5,
+                                       self.fields,
+                                       field_metadata,
+                                       export_type='hdf5',
+                                       verbose=self.options.verbose > 0)
+            self.exporters['hdf5'] = e
 
         # ----- Operators
         tot_uv_3d = self.fields.uv_3d + self.fields.uv_dav_3d
         self.w_solver = VerticalVelocitySolver(self.fields.w_3d,
                                                tot_uv_3d,
                                                self.fields.bathymetry_2d.view_3d,
-                                               self.equations.momentum.bnd_functions)
+                                               self.eq_momentum.bnd_functions)
         self.uv_averager = VerticalIntegrator(self.fields.uv_3d,
                                               self.fields.uv_dav_3d,
                                               bottom_to_top=True,
@@ -803,9 +868,8 @@ class FlowSolver(FrozenClass):
                                                      bathymetry=self.fields.bathymetry_2d.view_3d,
                                                      elevation=self.fields.elev_cg_2d.view_3d)
             self.int_pg_calculator = momentum_eq.InternalPressureGradientCalculator(
-                self.fields, self.fields.bathymetry_2d.view_3d,
+                self.fields, self.fields.bathymetry_2d.view_3d, self.options,
                 self.bnd_functions['momentum'],
-                internal_pg_scalar=self.options.internal_pg_scalar,
                 solver_parameters=self.options.timestepper_options.solver_parameters_momentum_explicit)
         self.extract_surf_dav_uv = SubFunctionExtractor(self.fields.uv_dav_3d,
                                                         self.fields.uv_dav_2d,
@@ -823,32 +887,12 @@ class FlowSolver(FrozenClass):
                                                                 self.fields.max_h_diff,
                                                                 weak_form=True)
 
-        self._isfrozen = True
-
-    def create_timestepper(self):
-        """
-        Creates time stepper instance
-        """
-        if not hasattr(self, 'equations'):
-            self.create_equations()
-
-        self._isfrozen = False
-
-        self.dt_mode = '3d'  # 'split'|'2d'|'3d' use constant 2d/3d dt, or split
-        if self.options.timestepper_type == 'LeapFrog':
-            self.timestepper = coupled_timeintegrator.CoupledLeapFrogAM3(weakref.proxy(self))
-        elif self.options.timestepper_type == 'SSPRK22':
-            self.timestepper = coupled_timeintegrator.CoupledTwoStageRK(weakref.proxy(self))
-        else:
-            raise Exception('Unknown time integrator type: '+str(self.options.timestepper_type))
-
+        # ----- set initial values
         self.fields.bathymetry_2d.project(self.bathymetry_cg_2d)
         self.mesh_updater.initialize()
         self.compute_mesh_stats()
         self.set_time_step()
         self.timestepper.set_dt(self.dt, self.dt_2d)
-        self.next_export_t = self.simulation_time + self.options.simulation_export_time
-
         # compute maximal diffusivity for explicit schemes
         degree_h, degree_v = self.function_spaces.H.ufl_element().degree()
         max_diff_alpha = 1.0/60.0/max((degree_h*(degree_h + 1)), 1.0)  # FIXME depends on element type and order
@@ -856,53 +900,9 @@ class FlowSolver(FrozenClass):
         d = self.fields.max_h_diff.dat.data
         print_output('max h diff {:} - {:}'.format(d.min(), d.max()))
 
-        self._isfrozen = True
-
-    def create_exporters(self):
-        """
-        Creates file exporters
-        """
-        if not hasattr(self, 'timestepper'):
-            self.create_timestepper()
-        self._isfrozen = False
-
-        # ----- File exporters
-        # create export_managers and store in a list
-        self.exporters = OrderedDict()
-        if not self.options.no_exports:
-            e = exporter.ExportManager(self.options.output_directory,
-                                       self.options.fields_to_export,
-                                       self.fields,
-                                       field_metadata,
-                                       export_type='vtk',
-                                       verbose=self.options.verbose > 0,
-                                       preproc_funcs=self._field_preproc_funcs)
-            self.exporters['vtk'] = e
-            hdf5_dir = os.path.join(self.options.output_directory, 'hdf5')
-            e = exporter.ExportManager(hdf5_dir,
-                                       self.options.fields_to_export_hdf5,
-                                       self.fields,
-                                       field_metadata,
-                                       export_type='hdf5',
-                                       verbose=self.options.verbose > 0,
-                                       preproc_funcs=self._field_preproc_funcs)
-            self.exporters['hdf5'] = e
-
-        self._isfrozen = True
-
-    def initialize(self):
-        """
-        Creates function spaces, equations, time stepper and exporters
-        """
-        if not hasattr(self.function_spaces, 'U'):
-            self.create_function_spaces()
-        if not hasattr(self, 'equations'):
-            self.create_equations()
-        if not hasattr(self, 'timestepper'):
-            self.create_timestepper()
-        if not hasattr(self, 'exporters'):
-            self.create_exporters()
+        self.next_export_t = self.simulation_time + self.options.simulation_export_time
         self._initialized = True
+        self._isfrozen = True
 
     def assign_initial_conditions(self, elev=None, salt=None, temp=None,
                                   uv_2d=None, uv_3d=None, tke=None, psi=None):
@@ -925,7 +925,7 @@ class FlowSolver(FrozenClass):
         :type psi: scalar 3D :class:`Function`, :class:`Constant`, or an expression
         """
         if not self._initialized:
-            self.initialize()
+            self.create_equations()
         if elev is not None:
             self.fields.elev_2d.project(elev)
         if uv_2d is not None:
@@ -1009,7 +1009,7 @@ class FlowSolver(FrozenClass):
         :kwarg int iteration: Overrides the iteration count in the hdf5 files.
         """
         if not self._initialized:
-            self.initialize()
+            self.create_equations()
         if outputdir is None:
             outputdir = self.options.output_directory
         self._simulation_continued = True
@@ -1141,7 +1141,7 @@ class FlowSolver(FrozenClass):
             be called on every export.
         """
         if not self._initialized:
-            self.initialize()
+            self.create_equations()
 
         self.options.check_salinity_conservation &= self.options.solve_salinity
         self.options.check_salinity_overshoot &= self.options.solve_salinity

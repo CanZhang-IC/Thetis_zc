@@ -294,9 +294,9 @@ class DiscreteTidalTurbineFarm(TidalTurbineFarm):
 
             self.turbine_density = self.turbine_density + bump/(radius**2 * unit_bump_integral)
 
-            turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
-            turbinepvd.project(self.turbine_density)
-            File('turbinedensity.pvd').write(turbinepvd)
+            # turbinepvd = Function(FunctionSpace(self.mesh,'CG',1))
+            # turbinepvd.project(self.turbine_density)
+            # File('turbinedensity.pvd').write(turbinepvd)
 
 
             self.turbine_density_list.append(bump/(radius**2 * unit_bump_integral))

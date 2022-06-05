@@ -11,5 +11,9 @@
 <Piece Source="dist_0_1.vtu" />
 <Piece Source="dist_0_2.vtu" />
 <Piece Source="dist_0_3.vtu" />
+<Piece Source="dist_0_4.vtu" />
+<Piece Source="dist_0_5.vtu" />
+<Piece Source="dist_0_6.vtu" />
+<Piece Source="dist_0_7.vtu" />
 </PUnstructuredGrid>
 </VTKFile>

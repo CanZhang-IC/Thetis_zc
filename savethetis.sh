@@ -1,1 +1,1 @@
-cp -r /home/zc3019/firedrake/src/thetis/thetis ./
+cp -r /home/can/firedrake/src/thetis/thetis ./

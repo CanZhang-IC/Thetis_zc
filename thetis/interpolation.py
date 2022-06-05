@@ -50,6 +50,7 @@ import glob
 import os
 from .timezone import *
 from .log import *
+import numpy as np
 import scipy.spatial.qhull as qhull
 import netCDF4
 from abc import ABCMeta, abstractmethod

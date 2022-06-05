@@ -15,6 +15,7 @@ from firedrake import *
 from .callback import DiagnosticCallback
 from .exporter import ExportManager
 import thetis.field_defs as field_defs
+import numpy
 from abc import abstractmethod
 
 
@@ -229,7 +230,7 @@ class DiagnosticOptimisationCallback(DiagnosticCallback):
         if len(args) > 0:
             functional = args[0]
         else:
-            functional = np.nan
+            functional = numpy.nan
 
         if self.append_to_log:
             self.push_to_log(functional, values)
@@ -253,7 +254,6 @@ class FunctionalOptimisationCallback(DiagnosticOptimisationCallback):
 
     def message_str(self, functional):
         return 'Functional value: {}'.format(functional)
-
 
 class ConstantControlOptimisationCallback(DiagnosticOptimisationCallback):
     """

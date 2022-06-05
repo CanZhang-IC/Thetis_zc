@@ -15,7 +15,7 @@ rmse_velocity=[]
 rmse_direction=[]
 
 thetisfilenames=[
-        'restart_30min-e&v','restart_5min-e&v',
+	'continuous'
       ]
 names_30min = ['restart_30min','restart_30min-e&v']
 
@@ -44,7 +44,7 @@ for filename in thetisfilenames:
 		    velocity_direction.append(float(both[i][1]))
 
 
-		det_file = '../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/'+filename+"/diagnostic_detectors.hdf5"
+		det_file = '../../../outputs/0.validation/'+filename+"/diagnostic_detectors.hdf5"
 		df = h5py.File(det_file, 'r+')
 		xvelocity=[]
 		yvelocity=[]
@@ -56,7 +56,7 @@ for filename in thetisfilenames:
 
 		if filename in ['restart_5min-e&v' ]:
 			print(filename+'-2')
-			det_file = '../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/'+filename+"-2/diagnostic_detectors.hdf5"
+			det_file = '../../../outputs/0.validation/'+filename+"-2/diagnostic_detectors.hdf5"
 			df = h5py.File(det_file,'r+')
 			for name, data in df.items():
 				if name == stationname:

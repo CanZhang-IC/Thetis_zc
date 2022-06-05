@@ -7,7 +7,6 @@ objects.
 from .configuration import *
 from firedrake import Constant
 from .sediment_model import SedimentModel
-from collections import OrderedDict
 
 
 class TimeStepperOptions(FrozenHasTraits):
@@ -46,11 +45,6 @@ class SemiImplicitTimestepperOptions2d(TimeStepperOptions):
 class SteadyStateTimestepperOptions2d(TimeStepperOptions):
     """Options for 2d steady state solver"""
     solver_parameters = PETScSolverParameters({
-        'ksp_type': 'preonly',
-        'pc_type': 'lu',
-        'mat_type': 'aij'
-    }).tag(config=True)
-    solver_parameters_tracer = PETScSolverParameters({
         'ksp_type': 'preonly',
         'pc_type': 'lu',
         'mat_type': 'aij'
@@ -122,21 +116,6 @@ class ExplicitTimestepperOptions2d(ExplicitTimestepperOptions):
     solver_parameters_tracer = PETScSolverParameters({
         'ksp_type': 'gmres',
         'pc_type': 'sor',
-    }).tag(config=True)
-
-
-class IMEXTimestepperOptions2d(SemiImplicitTimestepperOptions2d):
-    """Options for 2d implicit-explicit time integrators"""
-    # TODO: Meaningful solver parameters
-    solver_parameters = PETScSolverParameters({
-        'ksp_type': 'gmres',
-        'pc_type': 'fieldsplit',
-        'pc_fieldsplit_type': 'multiplicative',
-    }).tag(config=True)
-    solver_parameters_dirk = PETScSolverParameters({
-        'ksp_type': 'gmres',
-        'pc_type': 'fieldsplit',
-        'pc_fieldsplit_type': 'multiplicative',
     }).tag(config=True)
 
 
@@ -385,8 +364,6 @@ class ConstantTidalTurbineOptions(TidalTurbineOptions):
 class RatedTidalTurbineOptions(TidalTurbineOptions):
     """Options for tidal turbine with analytical thrust based on rated speed"""
     name = 'Rated tidal turbine options'
-    thrust_coefficient = PositiveFloat(
-        0.8, help='Thrust coefficient C_T').tag(config=True)
     rated_speed = PositiveFloat(
         3.0, help='Rated speed').tag(config=True)
     cut_in_speed = NonNegativeFloat(
@@ -432,6 +409,7 @@ class DiscreteTidalTurbineFarmOptions(TidalTurbineFarmOptions):
                              help='bool: Apply flow correction to correct for upwind velocity').tag(config=True)
     quadrature_degree = PositiveInteger(10,
                                         help='Quadrature degree for thrust force and power output integral').tag(config=True)
+    
     considering_yaw = Bool(True,
                              help='bool: consider the yaw effects for each turbine').tag(config=True)
     turbine_axis = List(default_value=[], help='The direction of turbine axis').tag(config=True)
@@ -441,63 +419,17 @@ class DiscreteTidalTurbineFarmOptions(TidalTurbineFarmOptions):
     individual_thrust_coefficient = List(default_value=[], help='Trust coefficient for each turbine').tag(config=True)
 
 
-class TracerFieldOptions(FrozenHasTraits):
-    """Tracer field options"""
-    name = 'Tracer options'
-    source = FiredrakeScalarExpression(
-        None, allow_none=True, help='Source term for the tracer equation')
-    diffusivity = FiredrakeScalarExpression(
-        None, allow_none=True, help='Diffusion coefficient for the tracer equation')
-    metadata = Dict({
-        'label': 'tracer_2d',
-        'name': 'Depth averaged tracer',
-        'filename': 'Tracer2d',
-        'shortname': 'Tracer',
-        'unit': '-',
-    }, help='Dictionary of metadata for the tracer field')
-
-
-@attach_paired_options("free_surface_timestepper_type",
-                       PairedEnum([('SSPRK33', ExplicitTimestepperOptions2d),
-                                   ('ForwardEuler', ExplicitTimestepperOptions2d),
-                                   ('BackwardEuler', SemiImplicitTimestepperOptions2d),
-                                   ('CrankNicolson', CrankNicolsonTimestepperOptions2d),
-                                   ('DIRK22', SemiImplicitTimestepperOptions2d),
-                                   ('DIRK33', SemiImplicitTimestepperOptions2d),
-                                   ],
-                                  "free_surface_timestepper_options",
-                                  default_value='CrankNicolson',
-                                  help='Name of the free surface time integrator').tag(config=True),
-                       Instance(TimeStepperOptions, args=()).tag(config=True))
-class NonhydrostaticModelOptions(FrozenHasTraits):
-    """Options for non-hydrostatic models"""
-    name = 'Non-hydrostatic 2D/3D models'
-    solve_nonhydrostatic_pressure = Bool(False, help='Solve equations with the non-hydrostatic pressure').tag(config=True)
-    q_degree = NonNegativeInteger(
-        None, allow_none=True, help="Polynomial degree of the non-hydrostatic pressure space").tag(config=True)
-    update_free_surface = Bool(True, help='Update free surface elevation after pressure projection/correction step').tag(config=True)
-    solver_parameters = PETScSolverParameters({
-        'snes_type': 'ksponly',
-        'ksp_type': 'preonly',
-        'mat_type': 'aij',
-        'pc_type': 'lu',
-        'pc_factor_mat_solver_type': 'mumps',
-        'mat_mumps_icntl_14': 200,
-    }).tag(config=True)
-
-
 class CommonModelOptions(FrozenConfigurable):
     """Options that are common for both 2d and 3d models"""
     name = 'Model options'
-    nh_model_options = Instance(NonhydrostaticModelOptions, args=()).tag(config=True)
     polynomial_degree = NonNegativeInteger(1, help='Polynomial degree of elements').tag(config=True)
     element_family = Enum(
-        ['dg-dg', 'rt-dg', 'bdm-dg', 'dg-cg'],
+        ['dg-dg', 'rt-dg', 'dg-cg'],
         default_value='dg-dg',
         help="""Finite element family
 
-        2D solver supports 'dg-dg', 'rt-dg', 'bdm-dg', or 'dg-cg' velocity-pressure pairs.
-        3D solver supports 'dg-dg', 'rt-dg', or 'bdm-dg' velocity-pressure pairs.""").tag(config=True)
+        2D solver supports 'dg-dg', 'rt-dg', or 'dg-cg' velocity-pressure pairs.
+        3D solver supports 'dg-dg', or 'rt-dg' velocity-pressure pairs.""").tag(config=True)
 
     use_nonlinear_equations = Bool(True, help='Use nonlinear shallow water equations').tag(config=True)
     use_grad_div_viscosity_term = Bool(
@@ -557,13 +489,6 @@ class CommonModelOptions(FrozenConfigurable):
         Maximum horizontal viscosity
 
         Used to compute max stable diffusion time step.
-        """).tag(config=True)
-    horizontal_diffusivity_scale = FiredrakeConstantTraitlet(
-        Constant(1.0), help="""
-        Maximum horizontal diffusivity
-
-        Used to compute the mesh Peclet number in
-        the 2D tracer SUPG stabilization scheme.
         """).tag(config=True)
     output_directory = Unicode(
         'outputs', help="Directory where model output files are stored").tag(config=True)
@@ -631,10 +556,24 @@ class CommonModelOptions(FrozenConfigurable):
         None, allow_none=True, help="Source term for 2D tracer equation").tag(config=True)
     horizontal_diffusivity = FiredrakeCoefficient(
         None, allow_none=True, help="Horizontal diffusivity for tracers and sediment").tag(config=True)
-    sipg_factor = FiredrakeScalarExpression(
-        Constant(1.0), help="Penalty parameter scaling factor for horizontal viscosity terms.").tag(config=True)
-    sipg_factor_tracer = FiredrakeScalarExpression(
-        Constant(1.0), help="Penalty parameter scaling factor for horizontal diffusivity terms.").tag(config=True)
+    use_automatic_sipg_parameter = Bool(False, help=r"""
+        Toggle automatic computation of the SIPG penalty parameter used in viscosity and
+        diffusivity terms.
+
+        By default, this parameter is set to
+
+        ..math::
+            \alpha = 5p(p+1),
+
+        where :math:`p` is the polynomial degree of the velocity space.
+
+        For anisotropic meshes, it is advisable to use the automatic SIPG parameter,
+        rather than the default.
+        """).tag(config=True)
+    sipg_parameter = FiredrakeScalarExpression(
+        Constant(10.0), help="Penalty parameter used for horizontal viscosity terms.").tag(config=True)
+    sipg_parameter_tracer = FiredrakeScalarExpression(
+        Constant(10.0), help="Penalty parameter used for horizontal diffusivity terms.").tag(config=True)
 
 
 class SedimentModelOptions(FrozenHasTraits):
@@ -642,16 +581,11 @@ class SedimentModelOptions(FrozenHasTraits):
     solve_suspended_sediment = Bool(False, help='Solve suspended sediment transport equation').tag(config=True)
     use_sediment_conservative_form = Bool(False, help='Solve 2D sediment transport in the conservative form').tag(config=True)
     use_bedload = Bool(False, help='Use bedload transport in sediment model').tag(config=True)
-    use_sediment_slide = Bool(False, help='Use sediment slide mechanism in sediment model').tag(config=True)
     use_angle_correction = Bool(True, help='Switch to use slope effect angle correction').tag(config=True)
     use_slope_mag_correction = Bool(True, help='Switch to use slope effect magnitude correction').tag(config=True)
     use_secondary_current = Bool(False, help='Switch to use secondary current for helical flow effect').tag(config=True)
-    average_sediment_size = FiredrakeScalarExpression(None, allow_none=True, help='Average sediment size').tag(config=True)
-    slide_region = FiredrakeScalarExpression(None, allow_none=True, help="""Region where sediment slide occurs.
-
-                                             If None then sediment slide is applied over whole domain.
-                                             """).tag(config=True)
-    bed_reference_height = FiredrakeScalarExpression(None, allow_none=True, help='Bottom bed reference height').tag(config=True)
+    average_sediment_size = NonNegativeFloat(allow_none=False, help='Average sediment size').tag(config=True)
+    bed_reference_height = NonNegativeFloat(allow_none=False, help='Bottom bed reference height').tag(config=True)
     use_advective_velocity_correction = Bool(True, help="""
         Switch to apply correction to advective velocity used in sediment equation
 
@@ -660,13 +594,6 @@ class SedimentModelOptions(FrozenHasTraits):
         """).tag(config=True)
     porosity = FiredrakeCoefficient(
         Constant(0.4), help="Bed porosity for exner equation").tag(config=True)
-    max_angle = FiredrakeConstantTraitlet(
-        Constant(32), help="Angle of repose for sediment slide mechanism in degrees").tag(config=True)
-    sed_slide_length_scale = FiredrakeConstantTraitlet(
-        Constant(0), help="""Length scale for sediment slide mechanism.
-
-                           This should normally be the average meshgrid size.
-                           """).tag(config=True)
     morphological_acceleration_factor = FiredrakeConstantTraitlet(
         Constant(1), help="""Rate at which timestep in exner equation is accelerated compared to timestep for model
 
@@ -676,7 +603,7 @@ class SedimentModelOptions(FrozenHasTraits):
         None, allow_none=True, help="""Viscosity used to derive morphology terms.
 
         Usually equal to horizontal viscosity but can be set to have a different value""").tag(config=True)
-    sediment_density = FiredrakeScalarExpression(
+    sediment_density = FiredrakeConstantTraitlet(
         Constant(2650), help='Density of sediment').tag(config=True)
     secondary_current_parameter = FiredrakeConstantTraitlet(
         Constant(0.75), help='Parameter controlling secondary current').tag(config=True)
@@ -724,7 +651,7 @@ class SedimentModelOptions(FrozenHasTraits):
                                    ('DIRK33', SemiImplicitTimestepperOptions2d),
                                    ('SteadyState', SteadyStateTimestepperOptions2d),
                                    ('PressureProjectionPicard', PressureProjectionTimestepperOptions2d),
-                                   ('SSPIMEX', IMEXTimestepperOptions2d),
+                                   ('SSPIMEX', SemiImplicitTimestepperOptions2d),
                                    ],
                                   "timestepper_options",
                                   default_value='CrankNicolson',
@@ -747,26 +674,6 @@ class ModelOptions2d(CommonModelOptions):
         Coefficient: Wetting and drying parameter :math:`\alpha`.
 
         Used in bathymetry displacement function that ensures positive water depths. Unit is meters.
-        """).tag(config=True)
-    use_automatic_wetting_and_drying_alpha = Bool(False, help=r"""
-        Toggle automatic computation of the alpha parameter used in wetting and drying schemes.
-
-        By default, this parameter is set to 0.5.
-
-        For problems whose bathymetry varies wildly in coastal regions, it is advisable to use the
-        automatic wetting and drying parameter, rather than the default.
-        """).tag(config=True)
-    wetting_and_drying_alpha_min = FiredrakeScalarExpression(
-        None, allow_none=True, help=r"""
-        Minimum value to be taken by wetting and drying parameter :math:`\alpha`.
-
-        Note this is only relevant if `use_automatic_wetting_and_drying_alpha` is set to ``True``.
-        """).tag(config=True)
-    wetting_and_drying_alpha_max = FiredrakeScalarExpression(
-        Constant(2.0), allow_none=True, help=r"""
-        Maximum value to be taken by wetting and drying parameter :math:`\alpha`.
-
-        Note this is only relevant if `use_automatic_wetting_and_drying_alpha` is set to ``True``.
         """).tag(config=True)
     tidal_turbine_farms = Dict(trait=TidalTurbineFarmOptions(),
                                default_value={}, help='Dictionary mapping subdomain ids to the options of the corresponding farm')
@@ -799,48 +706,6 @@ class ModelOptions2d(CommonModelOptions):
 
         Advects tracer in the associated (constant) velocity field.
         """).tag(config=True)
-    tracer_element_family = Enum(
-        ['dg', 'cg'],
-        default_value='dg',
-        help="""Finite element family for tracer transport
-
-        2D solver supports 'dg' or 'cg'.""").tag(config=True)
-    use_supg_tracer = Bool(
-        False, help="Use SUPG stabilisation in tracer advection").tag(config=True)
-
-    def __init__(self, *args, **kwargs):
-        self.tracer = OrderedDict()
-        super(ModelOptions2d, self).__init__(*args, **kwargs)
-
-    def add_tracer_2d(self, label, name, filename, shortname=None, unit='-', source=None, diffusivity=None):
-        """
-        Define a 2D tracer field
-
-        :arg label: field label used internally by Thetis, e.g. 'tracer_2d'
-        :arg name: human readable name for the tracer field, e.g. 'Depth averaged tracer'
-        :arg filename: file name for outputs, e.g. 'Tracer2d'
-        :kwarg shortname: short version of name, e.g. 'Tracer'
-        :kwarg unit: units for field, e.g. '-'
-        :kwarg source: associated source term
-        :kwarg diffusivity: associated diffusivity coefficient
-        """
-        assert isinstance(label, str)
-        assert isinstance(name, str)
-        assert isinstance(filename, str)
-        assert shortname is None or isinstance(shortname, str)
-        assert isinstance(unit, str)
-        assert label not in self.tracer, f"Field '{label}' already exists."
-        assert ' ' not in label, "Labels cannot contain spaces"
-        assert ' ' not in filename, "Filenames cannot contain spaces"
-        self.tracer[label] = TracerFieldOptions()
-        self.tracer[label].metadata = {
-            'name': name,
-            'shortname': shortname or name,
-            'unit': unit,
-            'filename': filename,
-        }
-        self.tracer[label].source = source
-        self.tracer[label].diffusivity = diffusivity
 
 
 @attach_paired_options("timestepper_type",
@@ -971,13 +836,11 @@ class ModelOptions3d(CommonModelOptions):
         Constant(10.0), help="Constant temperature if temperature is not solved").tag(config=True)
     constant_salinity = FiredrakeConstantTraitlet(
         Constant(0.0), help="Constant salinity if salinity is not solved").tag(config=True)
-    sipg_factor_vertical = FiredrakeScalarExpression(
-        Constant(1.0), help="Penalty parameter scaling factor for vertical viscosity terms.").tag(config=True)
-    sipg_factor_vertical_tracer = FiredrakeScalarExpression(
-        Constant(1.0), help="Penalty parameter scaling factor for vertical diffusivity terms.").tag(config=True)
-    sipg_factor_turb = FiredrakeScalarExpression(
-        Constant(1.0), help="Penalty parameter scaling factor for horizontal diffusivity terms of the turbulence model.").tag(config=True)
-    sipg_factor_vertical_turb = FiredrakeScalarExpression(
-        Constant(1.0), help="Penalty parameter scaling factor for vertical diffusivity terms of the turbulence model.").tag(config=True)
-    internal_pg_scalar = FiredrakeConstantTraitlet(
-        None, allow_none=True, help="A constant to scale the internal pressure gradient. Used to ramp up the model.").tag(config=True)
+    sipg_parameter_vertical = FiredrakeScalarExpression(
+        Constant(10.0), help="Penalty parameter used for vertical viscosity terms.").tag(config=True)
+    sipg_parameter_vertical_tracer = FiredrakeScalarExpression(
+        Constant(10.0), help="Penalty parameter used for vertical diffusivity terms.").tag(config=True)
+    sipg_parameter_turb = FiredrakeScalarExpression(
+        Constant(1.5), help="Penalty parameter used for horizontal diffusivity terms of the turbulence model.").tag(config=True)
+    sipg_parameter_vertical_turb = FiredrakeScalarExpression(
+        Constant(1.0), help="Penalty parameter used for vertical diffusivity terms of the turbulence model.").tag(config=True)

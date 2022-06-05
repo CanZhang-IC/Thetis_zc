@@ -38,8 +38,7 @@ class TracerTerm(Term):
     def __init__(self, function_space,
                  bathymetry=None, v_elem_size=None, h_elem_size=None,
                  use_symmetric_surf_bnd=True, use_lax_friedrichs=True,
-                 sipg_factor=Constant(1.0),
-                 sipg_factor_vertical=Constant(1.0)):
+                 sipg_parameter=Constant(10.0), sipg_parameter_vertical=Constant(10.0)):
         """
         :arg function_space: :class:`FunctionSpace` where the solution belongs
         :kwarg bathymetry: bathymetry of the domain
@@ -50,8 +49,6 @@ class TracerTerm(Term):
             element size
         :kwarg bool use_symmetric_surf_bnd: If True, use symmetric surface boundary
             condition in the horizontal advection term
-        :kwarg sipg_factor: :class: `Constant` or :class: `Function` horizontal SIPG penalty scaling factor
-        :kwarg sipg_factor_vertical: :class: `Constant` or :class: `Function` vertical SIPG penalty scaling factor
         """
         super(TracerTerm, self).__init__(function_space)
         self.bathymetry = bathymetry
@@ -62,8 +59,8 @@ class TracerTerm(Term):
         self.vertical_dg = continuity.vertical == 'dg'
         self.use_symmetric_surf_bnd = use_symmetric_surf_bnd
         self.use_lax_friedrichs = use_lax_friedrichs
-        self.sipg_factor = sipg_factor
-        self.sipg_factor_vertical = sipg_factor_vertical
+        self.sipg_parameter = sipg_parameter
+        self.sipg_parameter_vertical = sipg_parameter_vertical
 
         # define measures with a reasonable quadrature degree
         p, q = self.function_space.ufl_element().degree()
@@ -137,7 +134,7 @@ class HorizontalAdvectionTerm(TracerTerm):
     :math:`\text{avg}` denote the jump and average operators across the
     interface.
     """
-    def residual(self, solution, solution_old, fields, fields_old, bnd_conditions):
+    def residual(self, solution, solution_old, fields, fields_old, bnd_conditions=None):
         if fields_old.get('uv_3d') is None:
             return 0
         elev = fields_old['elev_3d']
@@ -168,22 +165,23 @@ class HorizontalAdvectionTerm(TracerTerm):
             if self.use_lax_friedrichs:
                 gamma = 0.5*abs(un_av)*lax_friedrichs_factor
                 f += gamma*dot(jump(self.test), jump(solution))*(self.dS_v + self.dS_h)
-            for bnd_marker in self.boundary_markers:
-                funcs = bnd_conditions.get(bnd_marker)
-                ds_bnd = ds_v(int(bnd_marker), degree=self.quad_degree)
-                if funcs is None:
-                    continue
-                else:
-                    c_in = solution
-                    c_ext, uv_ext, eta_ext = self.get_bnd_functions(c_in, uv, elev, bnd_marker, bnd_conditions)
-                    # add interior tracer flux
-                    f += c_in*(uv[0]*self.normal[0]
-                               + uv[1]*self.normal[1])*self.test*ds_bnd
-                    # add boundary contribution if inflow
-                    uv_av = 0.5*(uv + uv_ext)
-                    un_av = self.normal[0]*uv_av[0] + self.normal[1]*uv_av[1]
-                    s = 0.5*(sign(un_av) + 1.0)
-                    f += (1-s)*(c_ext - c_in)*un_av*self.test*ds_bnd
+            if bnd_conditions is not None:
+                for bnd_marker in self.boundary_markers:
+                    funcs = bnd_conditions.get(bnd_marker)
+                    ds_bnd = ds_v(int(bnd_marker), degree=self.quad_degree)
+                    if funcs is None:
+                        continue
+                    else:
+                        c_in = solution
+                        c_ext, uv_ext, eta_ext = self.get_bnd_functions(c_in, uv, elev, bnd_marker, bnd_conditions)
+                        # add interior tracer flux
+                        f += c_in*(uv[0]*self.normal[0]
+                                   + uv[1]*self.normal[1])*self.test*ds_bnd
+                        # add boundary contribution if inflow
+                        uv_av = 0.5*(uv + uv_ext)
+                        un_av = self.normal[0]*uv_av[0] + self.normal[1]*uv_av[1]
+                        s = 0.5*(sign(un_av) + 1.0)
+                        f += (1-s)*(c_ext - c_in)*un_av*self.test*ds_bnd
 
         if self.use_symmetric_surf_bnd:
             f += solution*(uv[0]*self.normal[0] + uv[1]*self.normal[1])*self.test*ds_surf
@@ -211,7 +209,7 @@ class VerticalAdvectionTerm(TracerTerm):
     In the case of ALE moving mesh we substitute :math:`w` with :math:`w - w_m`,
     :math:`w_m` being the mesh velocity.
     """
-    def residual(self, solution, solution_old, fields, fields_old, bnd_conditions):
+    def residual(self, solution, solution_old, fields, fields_old, bnd_conditions=None):
         w = fields_old.get('w')
         if w is None:
             return 0
@@ -255,18 +253,17 @@ class HorizontalDiffusionTerm(TracerTerm):
         &- \int_{\mathcal{I}_h\cup\mathcal{I}_v} \sigma \text{avg}(\mu_h) \text{jump}(T \textbf{n}_h) \cdot
             \text{jump}(\phi \textbf{n}_h) dS
 
-    where :math:`\sigma` is a penalty parameter, see Hillewaert (2013).
+    where :math:`\sigma` is a penalty parameter,
+    see Epshteyn and Riviere (2007).
 
-    Hillewaert, Koen (2013). Development of the discontinuous Galerkin method
-    for high-resolution, large scale CFD and acoustics in industrial
-    geometries. PhD Thesis. Université catholique de Louvain.
-    https://dial.uclouvain.be/pr/boreal/object/boreal:128254/
+    Epshteyn and Riviere (2007). Estimation of penalty parameters for symmetric
+    interior penalty Galerkin methods. Journal of Computational and Applied
+    Mathematics, 206(2):843-872. http://dx.doi.org/10.1016/j.cam.2006.08.029
     """
-    def residual(self, solution, solution_old, fields, fields_old, bnd_conditions):
+    def residual(self, solution, solution_old, fields, fields_old, bnd_conditions=None):
         if fields_old.get('diffusivity_h') is None:
             return 0
         diffusivity_h = fields_old['diffusivity_h']
-        sipg_factor = self.sipg_factor
         diff_tensor = as_matrix([[diffusivity_h, 0, 0],
                                  [0, diffusivity_h, 0],
                                  [0, 0, 0]])
@@ -277,19 +274,20 @@ class HorizontalDiffusionTerm(TracerTerm):
         f += inner(grad_test, diff_flux)*self.dx
 
         if self.horizontal_dg:
-            h_cell = self.mesh.ufl_cell().sub_cells()[0]
-            p, q = self.function_space.ufl_element().degree()
-            cp = (p + 1) * (p + 2) / 2 if h_cell == triangle else (p + 1)**2
-            # by default the factor is multiplied by 2 to ensure convergence
-            sigma = cp * FacetArea(self.mesh) / CellVolume(self.mesh)
-            sp = sigma('+')
-            sm = sigma('-')
-            sigma_max = sipg_factor * conditional(sp > sm, sp, sm)
+            assert self.h_elem_size is not None, 'h_elem_size must be defined'
+            assert self.v_elem_size is not None, 'v_elem_size must be defined'
+            # TODO compute elemsize as CellVolume/FacetArea
+            # h = n.D.n where D = diag(h_h, h_h, h_v)
+
+            elemsize = (self.h_elem_size*(self.normal[0]**2
+                                          + self.normal[1]**2)
+                        + self.v_elem_size*self.normal[2]**2)
+            alpha = self.sipg_parameter
+            assert alpha is not None
+            sigma = avg(alpha/elemsize)
             ds_interior = (self.dS_h + self.dS_v)
-            f += sigma_max * inner(
-                jump(self.test, self.normal),
-                dot(avg(diff_tensor), jump(solution, self.normal))
-            )*ds_interior
+            f += sigma*inner(jump(self.test, self.normal),
+                             dot(avg(diff_tensor), jump(solution, self.normal)))*ds_interior
             f += -inner(avg(dot(diff_tensor, grad(self.test))),
                         jump(solution, self.normal))*ds_interior
             f += -inner(jump(self.test, self.normal),
@@ -317,19 +315,18 @@ class VerticalDiffusionTerm(TracerTerm):
         &- \int_{\mathcal{I}_{h}} \sigma \text{avg}(\mu) \text{jump}(T n_z) \cdot
             \text{jump}(\phi n_z) dS
 
-    where :math:`\sigma` is a penalty parameter, see Hillewaert (2013).
+    where :math:`\sigma` is a penalty parameter,
+    see Epshteyn and Riviere (2007).
 
-    Hillewaert, Koen (2013). Development of the discontinuous Galerkin method
-    for high-resolution, large scale CFD and acoustics in industrial
-    geometries. PhD Thesis. Université catholique de Louvain.
-    https://dial.uclouvain.be/pr/boreal/object/boreal:128254/
+    Epshteyn and Riviere (2007). Estimation of penalty parameters for symmetric
+    interior penalty Galerkin methods. Journal of Computational and Applied
+    Mathematics, 206(2):843-872. http://dx.doi.org/10.1016/j.cam.2006.08.029
     """
-    def residual(self, solution, solution_old, fields, fields_old, bnd_conditions):
+    def residual(self, solution, solution_old, fields, fields_old, bnd_conditions=None):
         if fields_old.get('diffusivity_v') is None:
             return 0
 
         diffusivity_v = fields_old['diffusivity_v']
-        sipg_factor = self.sipg_factor_vertical
 
         grad_test = Dx(self.test, 2)
         diff_flux = dot(diffusivity_v, Dx(solution, 2))
@@ -338,19 +335,19 @@ class VerticalDiffusionTerm(TracerTerm):
         f += inner(grad_test, diff_flux)*self.dx
 
         if self.vertical_dg:
-            p, q = self.function_space.ufl_element().degree()
-            cp = (q + 1)**2
-            l_normal = CellVolume(self.mesh) / FacetArea(self.mesh)
-            # by default the factor is multiplied by 2 to ensure convergence
-            sigma = sipg_factor * cp / l_normal
-            sp = sigma('+')
-            sm = sigma('-')
-            sigma_max = conditional(sp > sm, sp, sm)
+            assert self.h_elem_size is not None, 'h_elem_size must be defined'
+            assert self.v_elem_size is not None, 'v_elem_size must be defined'
+            # TODO compute elemsize as CellVolume/FacetArea
+            # h = n.D.n where D = diag(h_h, h_h, h_v)
+            elemsize = (self.h_elem_size*(self.normal[0]**2
+                                          + self.normal[1]**2)
+                        + self.v_elem_size*self.normal[2]**2)
+            alpha = self.sipg_parameter_vertical
+            assert alpha is not None
+            sigma = avg(alpha/elemsize)
             ds_interior = (self.dS_h)
-            f += sigma_max*inner(
-                jump(self.test, self.normal[2]),
-                dot(avg(diffusivity_v), jump(solution, self.normal[2]))
-            )*ds_interior
+            f += sigma*inner(jump(self.test, self.normal[2]),
+                             dot(avg(diffusivity_v), jump(solution, self.normal[2])))*ds_interior
             f += -inner(avg(dot(diffusivity_v, Dx(self.test, 2))),
                         jump(solution, self.normal[2]))*ds_interior
             f += -inner(jump(self.test, self.normal[2]),
@@ -370,7 +367,7 @@ class SourceTerm(TracerTerm):
 
     where :math:`\sigma` is a user defined scalar :class:`Function`.
     """
-    def residual(self, solution, solution_old, fields, fields_old, bnd_conditions):
+    def residual(self, solution, solution_old, fields, fields_old, bnd_conditions=None):
         f = 0
         source = fields_old.get('source')
         if source is not None:
@@ -385,8 +382,7 @@ class TracerEquation(Equation):
     def __init__(self, function_space,
                  bathymetry=None, v_elem_size=None, h_elem_size=None,
                  use_symmetric_surf_bnd=True, use_lax_friedrichs=True,
-                 sipg_factor=Constant(10.0),
-                 sipg_factor_vertical=Constant(10.0)):
+                 sipg_parameter=Constant(10.0), sipg_parameter_vertical=Constant(10.0)):
         """
         :arg function_space: :class:`FunctionSpace` where the solution belongs
         :kwarg bathymetry: bathymetry of the domain
@@ -397,14 +393,12 @@ class TracerEquation(Equation):
             element size
         :kwarg bool use_symmetric_surf_bnd: If True, use symmetric surface boundary
             condition in the horizontal advection term
-        :kwarg sipg_factor: :class: `Constant` or :class: `Function` horizontal SIPG penalty scaling factor
-        :kwarg sipg_factor_vertical: :class: `Constant` or :class: `Function` vertical SIPG penalty scaling factor
         """
         super(TracerEquation, self).__init__(function_space)
 
         args = (function_space, bathymetry,
                 v_elem_size, h_elem_size, use_symmetric_surf_bnd, use_lax_friedrichs,
-                sipg_factor, sipg_factor_vertical)
+                sipg_parameter, sipg_parameter_vertical)
         self.add_term(HorizontalAdvectionTerm(*args), 'explicit')
         self.add_term(VerticalAdvectionTerm(*args), 'explicit')
         self.add_term(HorizontalDiffusionTerm(*args), 'explicit')

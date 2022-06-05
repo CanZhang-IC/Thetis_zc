@@ -15,6 +15,7 @@ where :math:`S` is :math:`q` for conservative and :math:`T` for non-conservative
 velocities, and :math:`\mu_h` denotes horizontal diffusivity.
 """
 from __future__ import absolute_import
+from .utility import *
 from .equation import Equation
 from .tracer_eq_2d import HorizontalDiffusionTerm, HorizontalAdvectionTerm, TracerTerm
 from .conservative_tracer_eq_2d import ConservativeHorizontalAdvectionTerm
@@ -33,14 +34,16 @@ class SedimentTerm(TracerTerm):
     """
     Generic sediment term that provides commonly used members.
     """
-    def __init__(self, function_space, depth, options, sediment_model, conservative=False):
+    def __init__(self, function_space, depth, sediment_model,
+                 use_lax_friedrichs=True, sipg_parameter=Constant(10.0), conservative=False):
         """
         :arg function_space: :class:`FunctionSpace` where the solution belongs
         :arg depth: :class:`DepthExpression` containing depth info
-        :arg options: :class`ModelOptions2d` containing parameters
+        :kwarg bool use_lax_friedrichs: whether to use Lax Friedrichs stabilisation
+        :kwarg sipg_parameter: :class:`Constant` or :class:`Function` penalty parameter for SIPG
         :kwarg bool conservative: whether to use conservative tracer
         """
-        super(SedimentTerm, self).__init__(function_space, depth, options)
+        super(SedimentTerm, self).__init__(function_space, depth)
         self.sediment_model = sediment_model
         self.conservative = conservative
 
@@ -86,7 +89,7 @@ class SedimentDiffusionTerm(SedimentTerm, HorizontalDiffusionTerm):
 class SedimentErosionTerm(SedimentTerm):
     """
     Erosion term for sediment equation"""
-    def residual(self, solution, solution_old, fields, fields_old, bnd_conditions):
+    def residual(self, solution, solution_old, fields, fields_old, bnd_conditions=None):
         ero = self.sediment_model.get_erosion_term()
         if not self.conservative:
             elev = fields['elev_2d']
@@ -98,7 +101,7 @@ class SedimentErosionTerm(SedimentTerm):
 class SedimentDepositionTerm(SedimentTerm):
     """
     Deposition term for sediment equation"""
-    def residual(self, solution, solution_old, fields, fields_old, bnd_conditions):
+    def residual(self, solution, solution_old, fields, fields_old, bnd_conditions=None):
         depo = self.sediment_model.get_deposition_coefficient()
         elev = fields['elev_2d']
         H = self.depth.get_total_depth(elev)
@@ -108,18 +111,22 @@ class SedimentDepositionTerm(SedimentTerm):
 
 class SedimentEquation2D(Equation):
     """
-    2D sediment advection-diffusion equation: :eq:`tracer_eq_2d` or :eq:`cons_tracer_eq_2d`
+    2D sediment advection-diffusion equation: :eq:`tracer_eq_2d` or :eq:`conservative_tracer_eq_2d`
     with sediment source and sink term
     """
-    def __init__(self, function_space, depth, options, sediment_model, conservative=False):
+    def __init__(self, function_space, depth, sediment_model,
+                 use_lax_friedrichs=False,
+                 sipg_parameter=Constant(10.0),
+                 conservative=False):
         """
         :arg function_space: :class:`FunctionSpace` where the solution belongs
         :arg depth: :class:`DepthExpression` containing depth info
-        :arg options: :class`ModelOptions2d` containing parameters
+        :kwarg bool use_lax_friedrichs: whether to use Lax Friedrichs stabilisation
+        :kwarg sipg_parameter: :class:`Constant` or :class:`Function` penalty parameter for SIPG
         :kwarg bool conservative: whether to use conservative tracer
         """
         super(SedimentEquation2D, self).__init__(function_space)
-        args = (function_space, depth, options, sediment_model, conservative)
+        args = (function_space, depth, sediment_model, use_lax_friedrichs, sipg_parameter, conservative)
         if conservative:
             self.add_term(ConservativeSedimentAdvectionTerm(*args), 'explicit')
         else:
