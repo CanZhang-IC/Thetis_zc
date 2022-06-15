@@ -10,11 +10,11 @@ import os
 import time
 import yagmail
 
-start_time = time.time()
+t_start = time.time()
 
 file_dir = '../../'
 
-output_dir = '../../../outputs/0.validation/continuous'
+output_dir = '../../../outputs/0.validation/continuous-4cores'
 
 mesh2d = Mesh(file_dir+'mesh_continuous/mesh.msh')
 
@@ -123,15 +123,14 @@ solver_obj.add_callback(cb, 'timestep')
 # start computer forward model
 solver_obj.iterate(update_forcings=update_forcings)
 
-end_time = time.time()
+t_end = time.time()
 
 print('The time cost is {0:.2f} min'.format((end_time-start_time)/60))
 
-if 1:
-    comm = MPI.COMM_WORLD
-    rank = comm.Get_rank()
-    if rank == 0 :
-        yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
-        yag.send(to = ['canzhang2019@gmail.com'], subject = 'Python done', contents = ['validation continuous done,time cost: {0:.2f}min.'.format((end_time-start_time)/60)])
-    else:
-        pass
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+if rank == 0:
+    yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
+    yag.send(to = ['623001493@qq.com'], subject = 'My computer', contents = [output_dir+' ###### '+ 'Time cose: {0:.2f}h.'.format((t_end-t_start)/60/60)])
+else:
+    pass

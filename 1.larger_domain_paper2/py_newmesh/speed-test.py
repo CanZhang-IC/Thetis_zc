@@ -120,6 +120,6 @@ comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
     yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
-    yag.send(to = ['623001493@qq.com'], subject = 'Python done', contents = ['My computer: Large domain from paper2 time cose with 1 core: {0:.2f}min.'.format((t_end-t_start)/60)])
+    yag.send(to = ['623001493@qq.com'], subject = 'My computer', contents = [output_dir+' ###### '+ 'Time cose: {0:.2f}h.'.format((t_end-t_start)/60/60)])
 else:
     pass

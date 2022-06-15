@@ -7,7 +7,7 @@ import time
 
 t_start = time.time()
 
-output_dir = '../../../outputs/5min-1core-220513'
+output_dir = '../../../outputs/paper2validation-2cores'
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
 dt = 5*60 # reduce this if solver does not converge
@@ -115,11 +115,12 @@ def update_forcings(t):
 solverObj.iterate(update_forcings=update_forcings)
 
 t_end = time.time()
+print((t_end-t_start)/60/60)
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
     yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
-    yag.send(to = ['623001493@qq.com'], subject = 'Python done', contents = ['Large domain from paper2 time cose with 4 cores: {0:.2f}h.'.format((t_end-t_start)/60/60)])
+    yag.send(to = ['623001493@qq.com'], subject = 'My computer', contents = [output_dir+' ###### '+ 'Time cose: {0:.2f}h.'.format((t_end-t_start)/60/60)])
 else:
     pass

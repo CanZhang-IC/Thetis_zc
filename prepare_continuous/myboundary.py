@@ -22,7 +22,7 @@ P1 = FunctionSpace(large_mesh2d, "DG", 1)
 VP = VectorFunctionSpace(large_mesh2d, "DG", 1)
 
 #location where the elevation and velocity outputs from the large domain stores
-h5file_dir = '../../../outputs/paper2validation_5min/hdf5' # this is where you should make changes 
+h5file_dir = '../../../outputs/paper2validation-4cores/hdf5' # this is where you should make changes 
 
 # Be careful here!!!
 # The 'dt' in the small domain's script must be the same with 't_export' in the large domain's script

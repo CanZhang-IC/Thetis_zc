@@ -1,17 +1,18 @@
 from thetis import *
-import detectors
 import tidal_forcing_past
 import utm
 import yagmail
+import time
+
+time_start = time.time()
 
 
-output_dir = '../outputs/5min-4cores-sediment-hydro'
+output_dir = '../../../outputs/1.larger_domain_paper2/sediment-hydro-4cores'
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
 dt = 5*60 # reduce this if solver does not converge
-t_export = 5*60 
-t_end = 86400 # e.g. 16days+ 2day spin up = 1382400 s + 172800s = 1555200 s
-#640800: 16/08/2013 09:59
+t_export = 30*60 
+t_end = 86400 # e.g. 24*60*60=86400
 
 P1 = FunctionSpace(mesh2d, "CG", 1)
 
@@ -129,10 +130,14 @@ chk = DumbCheckpoint("./elevation", mode=FILE_CREATE)
 chk.store(elev, name="elevation")
 chk.close()
 
+time_end= time.time()
+
+
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
     yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
     yag.send(to = ['623001493@qq.com'], subject = 'Python done', contents = ['College computer Python Finished'])
+    print('Time cost: {0:.2f}h'.format((time_end-time_start)/60/60))
 else:
     pass

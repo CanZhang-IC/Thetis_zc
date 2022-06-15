@@ -5,14 +5,14 @@ import utm
 import yagmail
 import time
 
-time_start= time.time()
+t_start= time.time()
 
-output_dir = '../outputs/5min-4cores-sediment-exner'
+output_dir = '../../../outputs/1.larger_domain_paper2/test1'
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
 dt = 5*60 # reduce this if solver does not converge
 t_export = 5*60 
-t_end = 885600 + 13*60*60 # e.g. 16days+ 2day spin up = 1382400 s + 172800s = 1555200 s
+t_end =  13*60*60 # e.g. 16days+ 2day spin up = 1382400 s + 172800s = 1555200 s
 #640800: 16/08/2013 09:59
 
 P1 = FunctionSpace(mesh2d, "CG", 1)
@@ -123,14 +123,19 @@ solver_obj.bnd_functions['shallow_water'] = {
 DG_2d = FunctionSpace(mesh2d, "DG", 1)
 vector_dg = VectorFunctionSpace(mesh2d, "DG", 1)
 
-chk = DumbCheckpoint("../../../outputs/paper2validation/hdf5/Elevation2d_00492", mode=FILE_READ)
+chk = DumbCheckpoint("../../../outputs/1.larger_domain_paper2/py-sediment/hdf5/Elevation2d_02952", mode=FILE_READ)
 elev = Function(DG_2d, name="elev_2d")
 chk.load(elev)
 chk.close()
 
-chk = DumbCheckpoint("../../../outputs/paper2validation/hdf5/Velocity2d_00492", mode=FILE_READ)
+chk = DumbCheckpoint("../../../outputs/1.larger_domain_paper2/py-sediment/hdf5/Velocity2d_02952", mode=FILE_READ)
 uv = Function(vector_dg, name="uv_2d")
 chk.load(uv)
+chk.close()
+
+chk = DumbCheckpoint("../../../outputs/1.larger_domain_paper2/py-sediment/hdf5/Sediment2d_02952", mode=FILE_READ)
+sed = Function(DG_2d, name="sediment_2d")
+chk.load(sed)
 chk.close()
 
 if options.sediment_model_options.solve_suspended_sediment:
@@ -139,7 +144,7 @@ if options.sediment_model_options.solve_suspended_sediment:
     solver_obj.bnd_functions['sediment'] = {
         200: {'elev': tidal_elev, 'equilibrium': None}}
     # set initial conditions
-    solver_obj.assign_initial_conditions(uv=uv, elev=elev)
+    solver_obj.assign_initial_conditions(uv=uv, elev=elev,sediment=sed)
 
 else:
     # set initial conditions
@@ -162,14 +167,13 @@ def update_forcings(t):
 
 solver_obj.iterate(update_forcings=update_forcings)
 
-time_end= time.time()
-
+t_end = time.time()
+print((t_end-t_start)/60/60)
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
     yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
-    yag.send(to = ['623001493@qq.com'], subject = 'Python done', contents = ['College computer Python Finished'])
-    print('Time cost: {0:.2f}h'.format((time_end-time_start)/60/60))
+    yag.send(to = ['623001493@qq.com'], subject = 'Python done', contents = [output_dir+' ###### '+ 'Time cose: {0:.2f}h.'.format((t_end-t_start)/60/60)])
 else:
     pass

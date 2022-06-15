@@ -4,7 +4,7 @@ import utm
 from scipy.io import netcdf_file
 import scipy.interpolate
 
-main_dir = '/home/can/Git_thetis'
+main_dir = '../../..'
 mesh2d = Mesh('../mesh/mesh.msh')
 
 
