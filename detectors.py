@@ -2,7 +2,6 @@ from thetis import *
 import pyproj
 import numpy as np
 
-main_dir = '/media/can/can_disk/thetis_new/continuemethod'
 tidegauge_file = 'tidal_gauges.csv'  # name of your file
 
 UTM_ZONE = pyproj.Proj(
@@ -39,8 +38,22 @@ def get_detectors(mesh2d):
     return select_and_move_detectors(mesh2d, gauge_xy, unique_names, maximum_distance=10e3)#Select those detectors that are within the domain and/or move them to the nearest cell centre within the domain
 
 if __name__ == "__main__":
-    mesh2d = Mesh(main_dir+'/mesh/mesh.msh')  # mesh file
-    locations, names = get_detectors(mesh2d)
+    mesh2d = Mesh('./mesh/mesh.msh')  # mesh file
+    import pandas as pd
+    df_file = pd.read_excel('./location.xlsx',usecols="M:N")
+    print(df_file.keys())
+    xx = np.array(df_file['X.1'][30:48])
+    yy = np.array(df_file['Y.1'][30:48])
+    names = []
+    for i in range(len(xx)):
+        names.append('point ' + str(i))
+    locations = []
+    for x,y in zip(xx,yy):
+        locations.append([x,y])
+    print(list(locations))
+
+
+    # locations, names = get_detectors(mesh2d)
     if mesh2d.comm.rank == 0: # only processor 0
         print_output("Found detectors: {}".format(names))
         # write out shape-file
@@ -55,3 +68,4 @@ if __name__ == "__main__":
             print(xy,name)
             point = shapely.geometry.Point(xy[0], xy[1])
             shpfile.write({'properties': {'name': 'point'}, 'geometry': shapely.geometry.mapping(point)})
+

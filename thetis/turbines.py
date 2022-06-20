@@ -188,6 +188,8 @@ class TidalTurbineFarm:
         self.individual_CTD_density = turbine_density # the product of c_t, density and dx which will be used in shallowwater_eq.py
         self.individual_extra_CTD_density = turbine_density
         self.turbine_density_individual_power = []
+        self.considering_b_e_water_depth = options.considering_b_e_water_depth
+        self.b_e_water_depth = options.b_e_water_depth
 
     def number_of_turbines(self):
         return assemble(self.turbine_density * self.dx)
@@ -212,6 +214,9 @@ class TidalTurbineFarm:
 
             powerlist.append(assemble(self.turbine.power(uv_eff, depth, yaw_angle) * eachdensity * self.dx))
         return powerlist
+
+    def break_even_wattage_water_depth(self):
+        return assemble(self.b_e_water_depth * self.turbine_density * self.dx)
 
 
 class DiscreteTidalTurbineFarm(TidalTurbineFarm):
@@ -347,6 +352,7 @@ class TurbineFunctionalCallback(DiagnosticCallback):
         if self.append_to_log:
             print_output('Number of turbines = {}'.format(sum(self.cost)))
         self.break_even_wattage = [getattr(farm, 'break_even_wattage') for farm in self.farms]
+        self.break_even_wattage_water_depth = [farm.break_even_wattage_water_depth() for farm in self.farms]
 
         # time-integrated quantities:
         self.integrated_power = [0] * nfarms
@@ -381,7 +387,10 @@ class TurbineFunctionalCallback(DiagnosticCallback):
             self.current_power[i] = power
             self.integrated_power[i] += power * self.dt
             self.average_power[i] = self.integrated_power[i] / self.time_period
-            self.average_profit[i] = self.average_power[i] - self.break_even_wattage[i] * self.cost[i]
+            if farm.considering_b_e_water_depth:
+                self.average_profit[i] = self.average_power[i] - self.break_even_wattage_water_depth[i]
+            else:
+                self.average_profit[i] = self.average_power[i] - self.break_even_wattage[i] * self.cost[i]
 
             # density = farm.turbine_density
             # n = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))

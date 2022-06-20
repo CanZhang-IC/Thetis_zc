@@ -1,0 +1,671 @@
+nohup: ignoring input
+firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
+Using default SIPG parameters
+dt = 300
+Using time integrator: CrankNicolson
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+    0     0 T=      0.00 eta norm:     0.0000 u norm:     0.0023  0.00
+volume2d rel. error  0.0000e+00
+Updating tidal field at t=300
+Done updating tidal field
+  0 SNES Function norm 9.472400072747e+06 
+  1 SNES Function norm 1.385555789075e+01 
+Updating tidal field at t=600
+Done updating tidal field
+  0 SNES Function norm 5.078385517754e+06 
+  1 SNES Function norm 9.081172913663e+01 
+Updating tidal field at t=900
+Done updating tidal field
+  0 SNES Function norm 2.777861839713e+06 
+  1 SNES Function norm 2.279145413112e+02 
+Updating tidal field at t=1200
+Done updating tidal field
+  0 SNES Function norm 2.268839806419e+06 
+  1 SNES Function norm 3.239176061099e+02 
+Updating tidal field at t=1500
+Done updating tidal field
+  0 SNES Function norm 2.247668111499e+06 
+  1 SNES Function norm 4.257761640041e+02 
+Updating tidal field at t=1800
+Done updating tidal field
+  0 SNES Function norm 2.404566417117e+06 
+  1 SNES Function norm 6.368452988191e+02 
+    1     6 T=   1800.00 eta norm: 12623.3721 u norm:  7358.8944 130.71
+volume2d rel. error  2.9230e-02
+Updating tidal field at t=2100
+Done updating tidal field
+  0 SNES Function norm 2.587118457802e+06 
+  1 SNES Function norm 8.032762717053e+02 
+Updating tidal field at t=2400
+Done updating tidal field
+  0 SNES Function norm 2.714167574334e+06 
+  1 SNES Function norm 7.687493198857e+02 
+Updating tidal field at t=2700
+Done updating tidal field
+  0 SNES Function norm 2.764612076875e+06 
+  1 SNES Function norm 5.528070276109e+02 
+Updating tidal field at t=3000
+Done updating tidal field
+  0 SNES Function norm 2.745647437619e+06 
+  1 SNES Function norm 2.909448873037e+02 
+Updating tidal field at t=3300
+Done updating tidal field
+  0 SNES Function norm 2.670347118291e+06 
+  1 SNES Function norm 1.032440835802e+02 
+Updating tidal field at t=3600
+Done updating tidal field
+  0 SNES Function norm 2.548655933451e+06 
+  1 SNES Function norm 2.934300410864e+01 
+    2    12 T=   3600.00 eta norm: 19297.9758 u norm: 13153.9082 131.57
+volume2d rel. error  4.6981e-02
+Updating tidal field at t=3900
+Done updating tidal field
+  0 SNES Function norm 2.389931135200e+06 
+  1 SNES Function norm 2.113357247966e+01 
+Updating tidal field at t=4200
+Done updating tidal field
+  0 SNES Function norm 2.207099205912e+06 
+  1 SNES Function norm 2.120710851666e+01 
+Updating tidal field at t=4500
+Done updating tidal field
+  0 SNES Function norm 2.017894752561e+06 
+  1 SNES Function norm 2.440389403971e+01 
+Updating tidal field at t=4800
+Done updating tidal field
+  0 SNES Function norm 1.841511422022e+06 
+  1 SNES Function norm 3.030195776660e+01 
+Updating tidal field at t=5100
+Done updating tidal field
+  0 SNES Function norm 1.697141300098e+06 
+  1 SNES Function norm 4.571106029429e+01 
+Updating tidal field at t=5400
+Done updating tidal field
+  0 SNES Function norm 1.592295755288e+06 
+  1 SNES Function norm 7.891586825545e+01 
+    3    18 T=   5400.00 eta norm: 23661.2416 u norm: 18332.3338 128.92
+volume2d rel. error  5.7958e-02
+Updating tidal field at t=5700
+Done updating tidal field
+  0 SNES Function norm 1.520669224953e+06 
+  1 SNES Function norm 1.312752814101e+02 
+Updating tidal field at t=6000
+Done updating tidal field
+  0 SNES Function norm 1.465138153940e+06 
+  1 SNES Function norm 1.951232273112e+02 
+Updating tidal field at t=6300
+Done updating tidal field
+  0 SNES Function norm 1.406608038741e+06 
+  1 SNES Function norm 2.584458358184e+02 
+Updating tidal field at t=6600
+Done updating tidal field
+  0 SNES Function norm 1.332522824868e+06 
+  1 SNES Function norm 3.119938915740e+02 
+Updating tidal field at t=6900
+Done updating tidal field
+  0 SNES Function norm 1.241832340179e+06 
+  1 SNES Function norm 3.514949686792e+02 
+Updating tidal field at t=7200
+Done updating tidal field
+  0 SNES Function norm 1.145504251886e+06 
+  1 SNES Function norm 3.670955027855e+02 
+    4    24 T=   7200.00 eta norm: 29657.1944 u norm: 19987.8920 131.26
+volume2d rel. error  7.3771e-02
+Updating tidal field at t=7500
+Done updating tidal field
+  0 SNES Function norm 1.062825542538e+06 
+  1 SNES Function norm 3.459671733622e+02 
+Updating tidal field at t=7800
+Done updating tidal field
+  0 SNES Function norm 1.012471161525e+06 
+  1 SNES Function norm 2.813378231690e+02 
+Updating tidal field at t=8100
+Done updating tidal field
+  0 SNES Function norm 9.991295410154e+05 
+  1 SNES Function norm 1.881051559279e+02 
+Updating tidal field at t=8400
+Done updating tidal field
+  0 SNES Function norm 1.009423522726e+06 
+  1 SNES Function norm 9.881445406767e+01 
+Updating tidal field at t=8700
+Done updating tidal field
+  0 SNES Function norm 1.020872563187e+06 
+  1 SNES Function norm 3.835522711853e+01 
+Updating tidal field at t=9000
+Done updating tidal field
+  0 SNES Function norm 1.014441676916e+06 
+  1 SNES Function norm 1.023037873535e+01 
+    5    30 T=   9000.00 eta norm: 33161.0968 u norm: 18369.9861 126.58
+volume2d rel. error  8.2711e-02
+Updating tidal field at t=9300
+Done updating tidal field
+  0 SNES Function norm 9.805932304962e+05 
+  1 SNES Function norm 5.906415430817e+00 
+Updating tidal field at t=9600
+Done updating tidal field
+  0 SNES Function norm 9.206699761897e+05 
+  1 SNES Function norm 1.037147086231e+01 
+Updating tidal field at t=9900
+Done updating tidal field
+  0 SNES Function norm 8.445792385421e+05 
+  1 SNES Function norm 2.193496441479e+01 
+Updating tidal field at t=10200
+Done updating tidal field
+  0 SNES Function norm 7.678893330511e+05 
+  1 SNES Function norm 3.273769805649e+01 
+Updating tidal field at t=10500
+Done updating tidal field
+  0 SNES Function norm 7.078184499579e+05 
+  1 SNES Function norm 3.845373829515e+01 
+Updating tidal field at t=10800
+Done updating tidal field
+  0 SNES Function norm 6.781326391258e+05 
+  1 SNES Function norm 3.833248361443e+01 
+    6    36 T=  10800.00 eta norm: 31171.6873 u norm: 16859.3115 135.45
+volume2d rel. error  7.7729e-02
+Updating tidal field at t=11100
+Done updating tidal field
+  0 SNES Function norm 6.835603880106e+05 
+  1 SNES Function norm 3.387767302738e+01 
+Updating tidal field at t=11400
+Done updating tidal field
+  0 SNES Function norm 7.198529959516e+05 
+  1 SNES Function norm 2.745729421729e+01 
+Updating tidal field at t=11700
+Done updating tidal field
+  0 SNES Function norm 7.790259271395e+05 
+  1 SNES Function norm 2.108797223768e+01 
+Updating tidal field at t=12000
+Done updating tidal field
+  0 SNES Function norm 8.546656875610e+05 
+  1 SNES Function norm 1.594397757558e+01 
+Updating tidal field at t=12300
+Done updating tidal field
+  0 SNES Function norm 9.434745640137e+05 
+  1 SNES Function norm 1.250884199452e+01 
+Updating tidal field at t=12600
+Done updating tidal field
+  0 SNES Function norm 1.043944551784e+06 
+  1 SNES Function norm 1.083930259809e+01 
+    7    42 T=  12600.00 eta norm: 28414.2371 u norm: 15318.6154 138.39
+volume2d rel. error  7.0884e-02
+Updating tidal field at t=12900
+Done updating tidal field
+  0 SNES Function norm 1.154768359622e+06 
+  1 SNES Function norm 1.062511997036e+01 
+Updating tidal field at t=13200
+Done updating tidal field
+  0 SNES Function norm 1.273695951677e+06 
+  1 SNES Function norm 1.135659991134e+01 
+Updating tidal field at t=13500
+Done updating tidal field
+  0 SNES Function norm 1.397493820968e+06 
+  1 SNES Function norm 1.280200878888e+01 
+Updating tidal field at t=13800
+Done updating tidal field
+  0 SNES Function norm 1.522243077752e+06 
+  1 SNES Function norm 1.531402662787e+01 
+Updating tidal field at t=14100
+Done updating tidal field
+  0 SNES Function norm 1.643773583366e+06 
+  1 SNES Function norm 1.944525623351e+01 
+Updating tidal field at t=14400
+Done updating tidal field
+  0 SNES Function norm 1.758013763118e+06 
+  1 SNES Function norm 2.553258988148e+01 
+    8    48 T=  14400.00 eta norm: 25227.0569 u norm: 12179.5269 137.56
+volume2d rel. error  6.2846e-02
+Updating tidal field at t=14700
+Done updating tidal field
+  0 SNES Function norm 1.861750378300e+06 
+  1 SNES Function norm 3.372741350454e+01 
+Updating tidal field at t=15000
+Done updating tidal field
+  0 SNES Function norm 1.952807574730e+06 
+  1 SNES Function norm 4.414975684344e+01 
+Updating tidal field at t=15300
+Done updating tidal field
+  0 SNES Function norm 2.030383253474e+06 
+  1 SNES Function norm 5.616152336043e+01 
+Updating tidal field at t=15600
+Done updating tidal field
+  0 SNES Function norm 2.094980735945e+06 
+  1 SNES Function norm 6.925735124484e+01 
+Updating tidal field at t=15900
+Done updating tidal field
+  0 SNES Function norm 2.147293810681e+06 
+  1 SNES Function norm 8.241339683709e+01 
+Updating tidal field at t=16200
+Done updating tidal field
+  0 SNES Function norm 2.188157871067e+06 
+  1 SNES Function norm 9.519847165474e+01 
+    9    54 T=  16200.00 eta norm: 19372.0304 u norm:  8087.5746 143.91
+volume2d rel. error  4.7923e-02
+Updating tidal field at t=16500
+Done updating tidal field
+  0 SNES Function norm 2.218495666909e+06 
+  1 SNES Function norm 1.069744334412e+02 
+Updating tidal field at t=16800
+Done updating tidal field
+  0 SNES Function norm 2.240089997735e+06 
+  1 SNES Function norm 1.175065848383e+02 
+Updating tidal field at t=17100
+Done updating tidal field
+  0 SNES Function norm 2.254851996769e+06 
+  1 SNES Function norm 1.264693932542e+02 
+Updating tidal field at t=17400
+Done updating tidal field
+  0 SNES Function norm 2.265586776357e+06 
+  1 SNES Function norm 1.337066440364e+02 
+Updating tidal field at t=17700
+Done updating tidal field
+  0 SNES Function norm 2.274583228891e+06 
+  1 SNES Function norm 1.389936060248e+02 
+Updating tidal field at t=18000
+Done updating tidal field
+  0 SNES Function norm 2.283048296758e+06 
+  1 SNES Function norm 1.426131753723e+02 
+   10    60 T=  18000.00 eta norm: 11454.6981 u norm:  5576.1891 146.35
+volume2d rel. error  2.7557e-02
+Updating tidal field at t=18300
+Done updating tidal field
+  0 SNES Function norm 2.291787817444e+06 
+  1 SNES Function norm 1.448255104944e+02 
+Updating tidal field at t=18600
+Done updating tidal field
+  0 SNES Function norm 2.301390973620e+06 
+  1 SNES Function norm 1.461632058099e+02 
+Updating tidal field at t=18900
+Done updating tidal field
+  0 SNES Function norm 2.311688230900e+06 
+  1 SNES Function norm 1.469806714208e+02 
+Updating tidal field at t=19200
+Done updating tidal field
+  0 SNES Function norm 2.321694633402e+06 
+  1 SNES Function norm 1.474147769638e+02 
+Updating tidal field at t=19500
+Done updating tidal field
+  0 SNES Function norm 2.330796760229e+06 
+  1 SNES Function norm 1.476190445425e+02 
+Updating tidal field at t=19800
+Done updating tidal field
+  0 SNES Function norm 2.338279046384e+06 
+  1 SNES Function norm 1.471183603479e+02 
+   11    66 T=  19800.00 eta norm:  4175.7337 u norm:  7431.9768 145.74
+volume2d rel. error  5.5115e-03
+Updating tidal field at t=20100
+Done updating tidal field
+  0 SNES Function norm 2.343119299326e+06 
+  1 SNES Function norm 1.460241549579e+02 
+Updating tidal field at t=20400
+Done updating tidal field
+  0 SNES Function norm 2.344331475489e+06 
+  1 SNES Function norm 1.447629433054e+02 
+Updating tidal field at t=20700
+Done updating tidal field
+  0 SNES Function norm 2.341692279087e+06 
+  1 SNES Function norm 1.432986512334e+02 
+Updating tidal field at t=21000
+Done updating tidal field
+  0 SNES Function norm 2.334979402870e+06 
+  1 SNES Function norm 1.419342007942e+02 
+Updating tidal field at t=21300
+Done updating tidal field
+  0 SNES Function norm 2.323637239039e+06 
+  1 SNES Function norm 1.413719613809e+02 
+Updating tidal field at t=21600
+Done updating tidal field
+  0 SNES Function norm 2.306747512573e+06 
+  1 SNES Function norm 1.417715170873e+02 
+   12    72 T=  21600.00 eta norm:  7774.1322 u norm: 11924.3414 143.47
+volume2d rel. error -1.6421e-02
+Updating tidal field at t=21900
+Done updating tidal field
+  0 SNES Function norm 2.283384426867e+06 
+  1 SNES Function norm 1.421954863919e+02 
+Updating tidal field at t=22200
+Done updating tidal field
+  0 SNES Function norm 2.253144244363e+06 
+  1 SNES Function norm 1.415654475083e+02 
+Updating tidal field at t=22500
+Done updating tidal field
+  0 SNES Function norm 2.215842814774e+06 
+  1 SNES Function norm 1.399814410176e+02 
+Updating tidal field at t=22800
+Done updating tidal field
+  0 SNES Function norm 2.171894191668e+06 
+  1 SNES Function norm 1.381592999721e+02 
+Updating tidal field at t=23100
+Done updating tidal field
+  0 SNES Function norm 2.122176652918e+06 
+  1 SNES Function norm 1.367553134744e+02 
+Updating tidal field at t=23400
+Done updating tidal field
+  0 SNES Function norm 2.066564312814e+06 
+  1 SNES Function norm 1.361537023279e+02 
+   13    78 T=  23400.00 eta norm: 15744.0618 u norm: 16897.5710 135.92
+volume2d rel. error -3.7621e-02
+Updating tidal field at t=23700
+Done updating tidal field
+  0 SNES Function norm 2.004624869082e+06 
+  1 SNES Function norm 1.362538145845e+02 
+Updating tidal field at t=24000
+Done updating tidal field
+  0 SNES Function norm 1.935287126511e+06 
+  1 SNES Function norm 1.367577787187e+02 
+Updating tidal field at t=24300
+Done updating tidal field
+  0 SNES Function norm 1.857177906765e+06 
+  1 SNES Function norm 1.371463595140e+02 
+Updating tidal field at t=24600
+Done updating tidal field
+  0 SNES Function norm 1.770515994305e+06 
+  1 SNES Function norm 1.371557207183e+02 
+Updating tidal field at t=24900
+Done updating tidal field
+  0 SNES Function norm 1.677961350523e+06 
+  1 SNES Function norm 1.366579950798e+02 
+Updating tidal field at t=25200
+Done updating tidal field
+  0 SNES Function norm 1.583235063025e+06 
+  1 SNES Function norm 1.358310527040e+02 
+   14    84 T=  25200.00 eta norm: 23580.3459 u norm: 21003.2172 134.93
+volume2d rel. error -5.7681e-02
+Updating tidal field at t=25500
+Done updating tidal field
+  0 SNES Function norm 1.489313222266e+06 
+  1 SNES Function norm 1.350892581261e+02 
+Updating tidal field at t=25800
+Done updating tidal field
+  0 SNES Function norm 1.397833533396e+06 
+  1 SNES Function norm 1.344754338456e+02 
+Updating tidal field at t=26100
+Done updating tidal field
+  0 SNES Function norm 1.309329179403e+06 
+  1 SNES Function norm 1.338761833983e+02 
+Updating tidal field at t=26400
+Done updating tidal field
+  0 SNES Function norm 1.223917323706e+06 
+  1 SNES Function norm 1.329178164384e+02 
+Updating tidal field at t=26700
+Done updating tidal field
+  0 SNES Function norm 1.141793564454e+06 
+  1 SNES Function norm 1.312243073015e+02 
+Updating tidal field at t=27000
+Done updating tidal field
+  0 SNES Function norm 1.063665011647e+06 
+  1 SNES Function norm 1.287729067567e+02 
+   15    90 T=  27000.00 eta norm: 30547.5302 u norm: 23463.6557 140.21
+volume2d rel. error -7.5461e-02
+Updating tidal field at t=27300
+Done updating tidal field
+  0 SNES Function norm 9.906348659089e+05 
+  1 SNES Function norm 1.256778535985e+02 
+Updating tidal field at t=27600
+Done updating tidal field
+  0 SNES Function norm 9.239996117253e+05 
+  1 SNES Function norm 1.220507791888e+02 
+Updating tidal field at t=27900
+Done updating tidal field
+  0 SNES Function norm 8.650822981906e+05 
+  1 SNES Function norm 1.179555619839e+02 
+Updating tidal field at t=28200
+Done updating tidal field
+  0 SNES Function norm 8.148827696023e+05 
+  1 SNES Function norm 1.130776573273e+02 
+Updating tidal field at t=28500
+Done updating tidal field
+  0 SNES Function norm 7.745191212765e+05 
+  1 SNES Function norm 1.074283555696e+02 
+Updating tidal field at t=28800
+Done updating tidal field
+  0 SNES Function norm 7.450516110750e+05 
+  1 SNES Function norm 1.012005896148e+02 
+   16    96 T=  28800.00 eta norm: 35997.4436 u norm: 24099.7653 137.85
+volume2d rel. error -8.9350e-02
+Updating tidal field at t=29100
+Done updating tidal field
+  0 SNES Function norm 7.278424239069e+05 
+  1 SNES Function norm 9.461091393067e+01 
+Updating tidal field at t=29400
+Done updating tidal field
+  0 SNES Function norm 7.234931807705e+05 
+  1 SNES Function norm 8.816245110303e+01 
+Updating tidal field at t=29700
+Done updating tidal field
+  0 SNES Function norm 7.319027040681e+05 
+  1 SNES Function norm 8.214943980875e+01 
+Updating tidal field at t=30000
+Done updating tidal field
+  0 SNES Function norm 7.515565245461e+05 
+  1 SNES Function norm 7.661089216328e+01 
+Updating tidal field at t=30300
+Done updating tidal field
+  0 SNES Function norm 7.806896771959e+05 
+  1 SNES Function norm 7.144781890618e+01 
+Updating tidal field at t=30600
+Done updating tidal field
+  0 SNES Function norm 8.175531891660e+05 
+  1 SNES Function norm 6.653932445516e+01 
+   17   102 T=  30600.00 eta norm: 39290.1289 u norm: 23168.9996 139.93
+volume2d rel. error -9.7765e-02
+Updating tidal field at t=30900
+Done updating tidal field
+  0 SNES Function norm 8.604355387424e+05 
+  1 SNES Function norm 6.181284852419e+01 
+Updating tidal field at t=31200
+Done updating tidal field
+  0 SNES Function norm 9.075175873574e+05 
+  1 SNES Function norm 5.720656382352e+01 
+Updating tidal field at t=31500
+Done updating tidal field
+  0 SNES Function norm 9.573085429142e+05 
+  1 SNES Function norm 5.261192504699e+01 
+Updating tidal field at t=31800
+Done updating tidal field
+  0 SNES Function norm 1.008978697046e+06 
+  1 SNES Function norm 4.813512720089e+01 
+Updating tidal field at t=32100
+Done updating tidal field
+  0 SNES Function norm 1.061891408787e+06 
+  1 SNES Function norm 4.383290188134e+01 
+Updating tidal field at t=32400
+Done updating tidal field
+  0 SNES Function norm 1.115726267936e+06 
+  1 SNES Function norm 3.967627774899e+01 
+   18   108 T=  32400.00 eta norm: 40050.1969 u norm: 21010.4961 145.93
+volume2d rel. error -9.9780e-02
+Updating tidal field at t=32700
+Done updating tidal field
+  0 SNES Function norm 1.169897382180e+06 
+  1 SNES Function norm 3.582609243788e+01 
+Updating tidal field at t=33000
+Done updating tidal field
+  0 SNES Function norm 1.224268276512e+06 
+  1 SNES Function norm 3.255916192272e+01 
+Updating tidal field at t=33300
+Done updating tidal field
+  0 SNES Function norm 1.279079304329e+06 
+  1 SNES Function norm 2.998706460490e+01 
+Updating tidal field at t=33600
+Done updating tidal field
+  0 SNES Function norm 1.334808754862e+06 
+  1 SNES Function norm 2.805007390501e+01 
+Updating tidal field at t=33900
+Done updating tidal field
+  0 SNES Function norm 1.391599054152e+06 
+  1 SNES Function norm 2.663734531365e+01 
+Updating tidal field at t=34200
+Done updating tidal field
+  0 SNES Function norm 1.449320468152e+06 
+  1 SNES Function norm 2.605004494877e+01 
+   19   114 T=  34200.00 eta norm: 38240.7826 u norm: 17904.5403 152.14
+volume2d rel. error -9.5303e-02
+Updating tidal field at t=34500
+Done updating tidal field
+  0 SNES Function norm 1.507979003658e+06 
+  1 SNES Function norm 2.646347516695e+01 
+Updating tidal field at t=34800
+Done updating tidal field
+  0 SNES Function norm 1.566329066250e+06 
+  1 SNES Function norm 2.895004310072e+01 
+Updating tidal field at t=35100
+Done updating tidal field
+  0 SNES Function norm 1.624938166129e+06 
+  1 SNES Function norm 3.345941777706e+01 
+Updating tidal field at t=35400
+Done updating tidal field
+  0 SNES Function norm 1.683024915169e+06 
+  1 SNES Function norm 4.024299682791e+01 
+Updating tidal field at t=35700
+Done updating tidal field
+  0 SNES Function norm 1.741318435146e+06 
+  1 SNES Function norm 4.897751483763e+01 
+Updating tidal field at t=36000
+Done updating tidal field
+  0 SNES Function norm 1.799055210900e+06 
+  1 SNES Function norm 5.927187662387e+01 
+   20   120 T=  36000.00 eta norm: 34019.2025 u norm: 14205.6330 148.14
+volume2d rel. error -8.4721e-02
+Updating tidal field at t=36300
+Done updating tidal field
+  0 SNES Function norm 1.855991900032e+06 
+  1 SNES Function norm 7.069090869107e+01 
+Updating tidal field at t=36600
+Done updating tidal field
+  0 SNES Function norm 1.911487914595e+06 
+  1 SNES Function norm 8.280231446367e+01 
+Updating tidal field at t=36900
+Done updating tidal field
+  0 SNES Function norm 1.965629514058e+06 
+  1 SNES Function norm 9.526545600634e+01 
+Updating tidal field at t=37200
+Done updating tidal field
+  0 SNES Function norm 2.017604420630e+06 
+  1 SNES Function norm 1.081839094389e+02 
+Updating tidal field at t=37500
+Done updating tidal field
+  0 SNES Function norm 2.066940111277e+06 
+  1 SNES Function norm 1.209772087581e+02 
+Updating tidal field at t=37800
+Done updating tidal field
+  0 SNES Function norm 2.113143807361e+06 
+  1 SNES Function norm 1.334268353168e+02 
+   21   126 T=  37800.00 eta norm: 27496.5659 u norm: 10383.3734 139.13
+volume2d rel. error -6.8294e-02
+Updating tidal field at t=38100
+Done updating tidal field
+  0 SNES Function norm 2.157367000789e+06 
+  1 SNES Function norm 1.451738059615e+02 
+Updating tidal field at t=38400
+Done updating tidal field
+  0 SNES Function norm 2.199107471715e+06 
+  1 SNES Function norm 1.554568525685e+02 
+Updating tidal field at t=38700
+Done updating tidal field
+  0 SNES Function norm 2.239999652585e+06 
+  1 SNES Function norm 1.638168462705e+02 
+Updating tidal field at t=39000
+Done updating tidal field
+  0 SNES Function norm 2.278814148067e+06 
+  1 SNES Function norm 1.698638288974e+02 
+Updating tidal field at t=39300
+Done updating tidal field
+  0 SNES Function norm 2.315874042399e+06 
+  1 SNES Function norm 1.739261069401e+02 
+Updating tidal field at t=39600
+Done updating tidal field
+  0 SNES Function norm 2.351111390340e+06 
+  1 SNES Function norm 1.765312261370e+02 
+   22   132 T=  39600.00 eta norm: 19187.6570 u norm:  7442.3167 143.28
+volume2d rel. error -4.7212e-02
+Updating tidal field at t=39900
+Done updating tidal field
+  0 SNES Function norm 2.384044413736e+06 
+  1 SNES Function norm 1.786550033113e+02 
+Updating tidal field at t=40200
+Done updating tidal field
+  0 SNES Function norm 2.413908732081e+06 
+  1 SNES Function norm 1.806391592411e+02 
+Updating tidal field at t=40500
+Done updating tidal field
+  0 SNES Function norm 2.439797584944e+06 
+  1 SNES Function norm 1.830818329653e+02 
+Updating tidal field at t=40800
+Done updating tidal field
+  0 SNES Function norm 2.461103027907e+06 
+  1 SNES Function norm 1.862155098585e+02 
+Updating tidal field at t=41100
+Done updating tidal field
+  0 SNES Function norm 2.476222181260e+06 
+  1 SNES Function norm 1.886077237550e+02 
+Updating tidal field at t=41400
+Done updating tidal field
+  0 SNES Function norm 2.485996059531e+06 
+  1 SNES Function norm 1.910659483501e+02 
+   23   138 T=  41400.00 eta norm: 10093.4556 u norm:  7819.7998 144.40
+volume2d rel. error -2.3601e-02
+Updating tidal field at t=41700
+Done updating tidal field
+  0 SNES Function norm 2.488396893418e+06 
+  1 SNES Function norm 1.921836819525e+02 
+Updating tidal field at t=42000
+Done updating tidal field
+  0 SNES Function norm 2.484512670780e+06 
+  1 SNES Function norm 1.932419369051e+02 
+Updating tidal field at t=42300
+Done updating tidal field
+  0 SNES Function norm 2.473402892243e+06 
+  1 SNES Function norm 1.930325955769e+02 
+Updating tidal field at t=42600
+Done updating tidal field
+  0 SNES Function norm 2.457400168493e+06 
+  1 SNES Function norm 1.928591041853e+02 
+Updating tidal field at t=42900
+Done updating tidal field
+  0 SNES Function norm 2.436495595295e+06 
+  1 SNES Function norm 1.920536562448e+02 
+Updating tidal field at t=43200
+Done updating tidal field
+  0 SNES Function norm 2.412213072054e+06 
+  1 SNES Function norm 1.931372851038e+02 
+   24   144 T=  43200.00 eta norm:  3929.0886 u norm: 11398.7795 135.40
+volume2d rel. error  7.5840e-04
+The time cost is 55.69 min
+The time cost is 55.69 min
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+The time cost is 55.69 min
+The time cost is 55.69 min
+The time cost is 55.69 min
+The time cost is 55.69 min
+The time cost is 55.69 min
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+The time cost is 55.69 min

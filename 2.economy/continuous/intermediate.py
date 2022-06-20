@@ -129,7 +129,7 @@ farm_options.turbine_density = turbine_density
 # this is used to scale the cost, which is assumed to be linear with the number of turbines,
 # in such a way that the cost is expressed in kW which can be subtracted from the profit
 # which is calculated as the power extracted by the turbines
-farm_options.break_even_wattage = BE
+farm_options.break_even_wattage = BE/10
 options.tidal_turbine_farms[turbine_area_PhyID] = farm_options
 
 # we first run the "forward" model with no turbines
@@ -157,7 +157,7 @@ solver_obj.add_callback(cb, 'timestep')
 # run as normal (this run will be annotated by firedrake_adjoint)
 # solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
 ###spring:676,middle:492,neap:340###
-solver_obj.load_state(492,outputdir='../../../outputs/0.validation/continuous')
+solver_obj.load_state(492,outputdir='../../../outputs/0.validation/continuous-4cores')
 
 solver_obj.iterate(update_forcings=update_forcings)
 
@@ -244,6 +244,6 @@ comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
     yag = yagmail.SMTP(user = '623001493@qq.com', password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
-    yag.send(to = ['canzhang2019@gmail.com'],subject = 'Python Done', contents = ['BE'+str(BE)[:-2]+'time cost: {0:.2f}min.'.format((end_time-start_time)/60)])
+    yag.send(to = ['canzhang2019@gmail.com'],subject = 'Python Done', contents = ['intermediate-BE'+str(BE)[:-2]+'time cost: {0:.2f}min.'.format((end_time-start_time)/60)])
 else:
     pass

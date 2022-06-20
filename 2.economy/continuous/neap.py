@@ -14,7 +14,7 @@ start_time = time.time()
 
 get_index = os.path.basename(sys.argv[0])
 BE = float(get_index[:-3])
-# BE = 0
+
 output_dir = '../../../outputs/2.economy/continuous/neap/BE'+str(BE)[:-2]
 
 file_dir = '../../'
@@ -129,7 +129,7 @@ farm_options.turbine_density = turbine_density
 # this is used to scale the cost, which is assumed to be linear with the number of turbines,
 # in such a way that the cost is expressed in kW which can be subtracted from the profit
 # which is calculated as the power extracted by the turbines
-farm_options.break_even_wattage = BE/10
+farm_options.break_even_wattage = BE
 options.tidal_turbine_farms[turbine_area_PhyID] = farm_options
 
 # we first run the "forward" model with no turbines
@@ -243,7 +243,7 @@ print('The time cost is {0:.2f} min'.format((end_time-start_time)/60))
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
-    yag = yagmail.SMTP(user = '623001493@qq.com', password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
+    yag = yagmail.SMTP(user = '623001493@qq.com', password = 'Zc623oo1493', host = 'smtp.qq.com')
     yag.send(to = ['canzhang2019@gmail.com'],subject = 'Python Done', contents = ['BE'+str(BE)[:-2]+'time cost: {0:.2f}min.'.format((end_time-start_time)/60)])
 else:
     pass

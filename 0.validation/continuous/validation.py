@@ -14,14 +14,14 @@ t_start = time.time()
 
 file_dir = '../../'
 
-output_dir = '../../../outputs/0.validation/continuous-4cores'
+output_dir = '../../../outputs/test/continuous-4cores'
 
 mesh2d = Mesh(file_dir+'mesh_continuous/mesh.msh')
 
 #timestepping options
 dt = 5*60 # reduce this if solver does not converge
 t_export = 30*60 
-t_end = 1555200
+t_end = 24*60*60
 # t_end = 1216800+ 13*60*60 # spring
 # t_end = 885600 + 13*60*60 # middle
 # t_end = 612000 + 13*60*60 # neap
@@ -125,7 +125,7 @@ solver_obj.iterate(update_forcings=update_forcings)
 
 t_end = time.time()
 
-print('The time cost is {0:.2f} min'.format((end_time-start_time)/60))
+print('The time cost is {0:.2f} min'.format((t_end-t_start)/60))
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()

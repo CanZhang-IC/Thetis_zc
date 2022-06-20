@@ -243,7 +243,7 @@ print('The time cost is {0:.2f} min'.format((end_time-start_time)/60))
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
-    yag = yagmail.SMTP(user = '623001493@qq.com', password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
+    yag = yagmail.SMTP(user = '623001493@qq.com', password = 'Zc623oo1493', host = 'smtp.qq.com')
     yag.send(to = ['canzhang2019@gmail.com'],subject = 'Python Done', contents = ['BE'+str(BE)[:-2]+'time cost: {0:.2f}min.'.format((end_time-start_time)/60)])
 else:
     pass

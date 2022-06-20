@@ -93,7 +93,7 @@ def get_breakeven_bathymetry(max_depth,best_depth,min_depth,forbidden_depth):
 
 chk = DumbCheckpoint('breakeven_bathymetry', mode=FILE_CREATE)
 with timed_stage('initialising bathymetry'):
-  max_depth,best_depth,min_depth,forbidden_depth = 40,40,40,20
+  max_depth,best_depth,min_depth,forbidden_depth = 30,30,30,20
   breakeven_bathymetry = get_breakeven_bathymetry(max_depth,best_depth,min_depth,forbidden_depth)
   smoothen_bathymetry(breakeven_bathymetry)
   smoothen_bathymetry(breakeven_bathymetry)

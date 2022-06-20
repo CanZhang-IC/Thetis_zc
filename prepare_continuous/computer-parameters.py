@@ -74,6 +74,31 @@ with timed_stage('initialising bathymetry'):
   chk.store(bathymetry2d, name='bathymetry')
   File('bathymetry.pvd').write(bathymetry2d)
 
+###suitable bathymetry for turbine
+def get_breakeven_bathymetry(max_depth,best_depth,min_depth,forbidden_depth):
+  P1 = FunctionSpace(mesh2d,"CG",1)
+  breakeven_bathymetry = Function(P1,name="breakeven_bathymetry")
+  bvector = bathymetry2d.dat.data
+  breakeven_bvector = breakeven_bathymetry.dat.data
+  for i,depth in enumerate(bvector):
+    if depth < forbidden_depth:
+      breakeven_bvector[i] = 100
+    elif depth < min_depth:
+      breakeven_bvector[i] = 1+(min_depth-depth)/best_depth
+    elif depth > max_depth:
+      breakeven_bvector[i] = 1+(depth-max_depth)/best_depth
+    else:
+      breakeven_bvector[i] = 1
+  return breakeven_bathymetry
+
+chk = DumbCheckpoint('breakeven_bathymetry', mode=FILE_CREATE)
+with timed_stage('initialising bathymetry'):
+  max_depth,best_depth,min_depth,forbidden_depth = 40,40,40,20
+  breakeven_bathymetry = get_breakeven_bathymetry(max_depth,best_depth,min_depth,forbidden_depth)
+  smoothen_bathymetry(breakeven_bathymetry)
+  smoothen_bathymetry(breakeven_bathymetry)
+  chk.store(breakeven_bathymetry, name='breakeven_bathymetry')
+  File('breakeven_bathymetry.pvd').write(breakeven_bathymetry)
 
 
 # typical length scale

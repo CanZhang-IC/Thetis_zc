@@ -15,7 +15,7 @@ rmse_velocity=[]
 rmse_direction=[]
 
 names=[
-	'5min-16cores-220512-497min'
+	'0.validation/continuous'
       ]
 
 for filename in names:

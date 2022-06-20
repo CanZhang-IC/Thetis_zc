@@ -399,6 +399,10 @@ class TidalTurbineFarmOptions(FrozenHasTraits, TraitType):
         Constant(0.0), help='Density of turbines within the farm')
     break_even_wattage = NonNegativeFloat(
         0.0, help='Average power production per turbine required to break even')
+    considering_b_e_water_depth = Bool(False,
+                             help='bool: Considering the water depth effection on the break even value').tag(config=True)
+    b_e_water_depth = FiredrakeScalarExpression(
+        Constant(0.0), help='Density of turbines within the farm')
 
 
 class DiscreteTidalTurbineFarmOptions(TidalTurbineFarmOptions):
