@@ -174,6 +174,8 @@ The free surface and momentum equations then become:
 
 """
 from __future__ import absolute_import
+from curses.ascii import FF
+from multiprocessing import Condition
 from .utility import *
 from .equation import Term, Equation
 
@@ -754,7 +756,14 @@ class TurbineDragTerm(ShallowWaterMomentumTerm):
                         c_t_extra = farm.friction_coefficient_extra(uv_old,total_h)
                         unorm = abs(dot(uv_old, n))
                         cross_result = uv[0]*n[1] - uv[1]*n[0]
-                        f += c_t * density * unorm * dot(uv,n) * dot(self.u_test, n)  / total_h* farm.dx +  30 * c_t_extra * density  * cross_result * inner(self.u_test, as_vector((-uv_old[1],uv_old[0]))) * dot(uv_old,n) /sqrt(dot(uv_old,uv_old))  / total_h* farm.dx
+                        #速度方向与平板方向
+                        d_vp= dot(uv_old,n)
+                        #速度逆时针垂直方向与平板方向
+                        d_pvp = dot(as_vector((-uv_old[1],uv_old[0])),n)
+                        #额外力的方向
+                        y_direction = conditional(d_vp * d_pvp > 0, as_vector((-uv_old[1],uv_old[0])), as_vector((uv_old[1],-uv_old[0])))
+
+                        f += c_t * density * unorm * dot(uv,n) * dot(self.u_test, n)  / total_h* farm.dx +  30 * c_t_extra * density  * cross_result * inner(self.u_test, y_direction) * dot(uv_old,n) /sqrt(dot(uv_old,uv_old))  / total_h* farm.dx
                              
                 else:
                     density = farm.turbine_density

@@ -14,16 +14,16 @@ t_start = time.time()
 
 file_dir = '../../'
 
-output_dir = '../../../outputs/test/continuous-4cores'
+output_dir = '../../../outputs/test/continuous-intermediate'
 
 mesh2d = Mesh(file_dir+'mesh_continuous/mesh.msh')
 
 #timestepping options
 dt = 5*60 # reduce this if solver does not converge
 t_export = 30*60 
-t_end = 24*60*60
+# t_end = 24*60*60
 # t_end = 1216800+ 13*60*60 # spring
-# t_end = 885600 + 13*60*60 # middle
+t_end = 885600 + 13*60*60 # middle
 # t_end = 612000 + 13*60*60 # neap
 
 P1 = FunctionSpace(mesh2d, "CG", 1)
@@ -112,8 +112,8 @@ def update_forcings(t):
     print_output("Done updating tidal field")
 
 ###spring:676,middle:492,neap:340###
-solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
-# solver_obj.load_state(634, outputdir='../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/restart_5min-e&v')
+# solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
+solver_obj.load_state(492, outputdir='../../../outputs/0.validation/continuous-4cores')
 
 #place detectors code
 with stop_annotating():

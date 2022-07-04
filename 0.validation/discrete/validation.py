@@ -10,18 +10,18 @@ import os
 import time
 import yagmail
 
-t_start = time.time()
+start_time = time.time()
 
 file_dir = '../../'
 
-output_dir = '../../../outputs/0.validation/test/discrete-8cores'
-
+output_dir = '../../../outputs/0.validation/discrete-4cores'
+print_output(output_dir[17:])
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
 #timestepping options
 dt = 5*60 # reduce this if solver does not converge
 t_export = 30*60 
-t_end = 24*60*60
+t_end = 1555200
 # t_end = 1216800+ 13*60*60 # spring
 # t_end = 885600 + 13*60*60 # middle
 # t_end = 612000 + 13*60*60 # neap
@@ -112,8 +112,8 @@ def update_forcings(t):
     print_output("Done updating tidal field")
 
 ###spring:676,middle:492,neap:340###
-solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
-# solver_obj.load_state(634, outputdir='../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/restart_5min-e&v')
+# solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
+solver_obj.load_state(483, outputdir='../../../outputs/0.validation/discrete-4cores-1')
 
 #place detectors code
 with stop_annotating():
@@ -123,14 +123,14 @@ solver_obj.add_callback(cb, 'timestep')
 # start computer forward model
 solver_obj.iterate(update_forcings=update_forcings)
 
-t_end = time.time()
+end_time = time.time()
+print_output('time cost: {0:.2f}h'.format((end_time - start_time)/60/60))
 
-print('The time cost is {0:.2f} min'.format((t_end-t_start)/60))
-
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-if rank == 0:
-    yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
-    yag.send(to = ['623001493@qq.com'], subject = 'My computer', contents = [output_dir+' ###### '+ 'Time cose: {0:.2f}h.'.format((t_end-t_start)/60/60)])
-else:
-    pass
+if 1:
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
+    if rank == 0 :
+        yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
+        yag.send(to = ['623001493@qq.com'], subject = output_dir[17:], contents = ['Time cose: {0:.2f}h.'.format((end_time-start_time)/60/60)])
+    else:
+        pass

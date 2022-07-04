@@ -7,7 +7,7 @@ import time
 
 t_start = time.time()
 
-output_dir = '../../../outputs/speed-test/core-1'
+output_dir = '../../../outputs/speed-test/core-4'
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
 dt = 5*60 # reduce this if solver does not converge

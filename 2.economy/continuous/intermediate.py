@@ -16,6 +16,7 @@ get_index = os.path.basename(sys.argv[0])
 BE = float(get_index[:-3])
 
 output_dir = '../../../outputs/2.economy/continuous/intermediate/BE'+str(BE)[:-2]
+print_output(output_dir[17:])
 
 file_dir = '../../'
 mesh2d = Mesh(file_dir+'mesh_continuous/mesh.msh')
@@ -104,7 +105,7 @@ options.timestepper_options.solver_parameters = {'snes_monitor': None,
 tidal_elev = Function(bathymetry2d.function_space())
 tidal_v = Function(VectorFunctionSpace(mesh2d,"CG",1))
 solver_obj.bnd_functions['shallow_water'] = {
-        1000: {'elev': tidal_elev,'uv':tidal_v},  #set open boundaries to tidal_elev function
+        200: {'elev': tidal_elev,'uv':tidal_v},  #set open boundaries to tidal_elev function
   }
 
 def update_forcings(t):
@@ -237,13 +238,13 @@ if optimise:
     File(output_dir+'/optimal_density.pvd').write(td_opt)
 
 end_time = time.time()
+print_output('time cost: {0:.2f}h'.format((end_time - start_time)/60/60))
 
-print('The time cost is {0:.2f} min'.format((end_time-start_time)/60))
-
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-if rank == 0:
-    yag = yagmail.SMTP(user = '623001493@qq.com', password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
-    yag.send(to = ['canzhang2019@gmail.com'],subject = 'Python Done', contents = ['intermediate-BE'+str(BE)[:-2]+'time cost: {0:.2f}min.'.format((end_time-start_time)/60)])
-else:
-    pass
+if 1:
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
+    if rank == 0 :
+        yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
+        yag.send(to = ['623001493@qq.com'], subject = output_dir[17:], contents = ['Time cose: {0:.2f}h.'.format((end_time-start_time)/60/60)])
+    else:
+        pass

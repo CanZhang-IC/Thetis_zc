@@ -5,9 +5,10 @@ import utm
 import yagmail
 import time
 
-t_start= time.time()
+start_time = time.time()
 
-output_dir = '../../../outputs/1.larger_domain_paper2/test1'
+output_dir = '../../../outputs/1.larger_domain_paper2/test2'
+print_output(output_dir)
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
 dt = 5*60 # reduce this if solver does not converge
@@ -151,7 +152,7 @@ else:
     solver_obj.assign_initial_conditions(uv=uv, elev=elev)
 # solver_obj.assign_initial_conditions(uv=uv,elev=elev)
 # restarting
-# solver_obj.load_state(288,outputdir='../outputs/5min-1core-sediment-hydro')
+# solver_obj.load_state(2952,outputdir='../../../outputs/1.larger_domain_paper2/py-sediment')
 
 #place detectors code
 locations, names = detectors.get_detectors(mesh2d)
@@ -161,19 +162,20 @@ solver_obj.add_callback(cb, 'timestep')
 def update_forcings(t):
     with timed_stage('update forcings'):
         # print_output("Updating tidal field at t={}".format(t))
-        tidal_forcing.set_tidal_field(tidal_elev, t)
+        tidal_forcing.set_tidal_field(tidal_elev, t+2952*dt)
         # print_output("Done updating tidal field")
 
 
 solver_obj.iterate(update_forcings=update_forcings)
 
-t_end = time.time()
-print((t_end-t_start)/60/60)
+end_time = time.time()
+print_output('time cost: {0:.2f}h'.format((end_time - start_time)/60/60))
 
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-if rank == 0:
-    yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
-    yag.send(to = ['623001493@qq.com'], subject = 'Python done', contents = [output_dir+' ###### '+ 'Time cose: {0:.2f}h.'.format((t_end-t_start)/60/60)])
-else:
-    pass
+if 1:
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
+    if rank == 0 :
+        yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
+        yag.send(to = ['623001493@qq.com'], subject = output_dir[17:], contents = ['Time cose: {0:.2f}h.'.format((end_time-start_time)/60/60)])
+    else:
+        pass

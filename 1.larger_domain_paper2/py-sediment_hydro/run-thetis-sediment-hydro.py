@@ -1,18 +1,21 @@
 from thetis import *
+import detectors
 import tidal_forcing_past
 import utm
 import yagmail
 import time
 
-time_start = time.time()
+start_time = time.time()
 
 
-output_dir = '../../../outputs/1.larger_domain_paper2/sediment-hydro-4cores'
+output_dir = '../../../outputs/1.larger_domain_paper2/sediment-hydro'
+print_output(output_dir[17:])
 mesh2d = Mesh('../mesh/mesh.msh')
 #timestepping options
 dt = 5*60 # reduce this if solver does not converge
 t_export = 30*60 
-t_end = 86400 # e.g. 24*60*60=86400
+t_end = 86400 # e.g. 16days+ 2day spin up = 1382400 s + 172800s = 1555200 s
+#640800: 16/08/2013 09:59
 
 P1 = FunctionSpace(mesh2d, "CG", 1)
 
@@ -28,7 +31,7 @@ h_viscosity = Function(P1, name='viscosity')
 chk.load(h_viscosity)
 chk.close()
 
-#manning = Constant(0.02)
+manning = Constant(0.2)
 # chk = DumbCheckpoint('manning', mode=FILE_READ)
 # manning = Function(bathymetry2d.function_space(), name='manning')
 # chk.load(manning)
@@ -68,15 +71,15 @@ options.timestepper_options.use_semi_implicit_linearization = True#If True use a
 options.use_wetting_and_drying = True #Wetting and drying is included through the modified bathymetry formulation of Karna et al. (2011). 
 options.wetting_and_drying_alpha = Constant(0.5) #need to check if this is a good value
 
-# options.manning_drag_coefficient = manning 
+options.manning_drag_coefficient = manning 
 #options.quadratic_drag_coefficient = Constant(0.0015)
 
-# define parameters
-average_size = 1.5*1e-5
-ksp = Constant(3*average_size)
-# using nikuradse friction
-options.nikuradse_bed_roughness = ksp
-options.norm_smoother = Constant(0.1)
+# # define parameters
+# average_size = 5e-5
+# ksp = Constant(3*average_size)
+# # using nikuradse friction
+# options.nikuradse_bed_roughness = ksp
+# options.norm_smoother = Constant(1)
 
 options.horizontal_viscosity = h_viscosity #the viscosity 'cushion' we created in initialisation & loaded above
 #Epshteyn and Riviere (2007). Estimation of penalty parameters for symmetric interior penalty Galerkin methods. Journal of Computational and Applied Mathematics, 206(2):843-872. http://dx.doi.org/10.1016/j.cam.2006.08.029
@@ -93,8 +96,6 @@ options.timestepper_options.solver_parameters = {'snes_monitor': None,
                                                  'mat_type': 'aij'
                                                  }
 
-
-
     
 # set boundary/initial conditions code
 tidal_elev = Function(bathymetry2d.function_space())
@@ -103,15 +104,6 @@ solverObj.bnd_functions['shallow_water'] = {
   }
   
 solverObj.assign_initial_conditions(uv=Constant((1e-7,0.0)),elev=Constant(0.0))
-
-#restarting
-#solverObj.load_state(660,outputdir='/home/can/Git_thetis/chapter1/larger_field_paper2/outputs/5min-4cores-220428-1')
-
-
-# #place detectors code
-# locations, names = detectors.get_detectors(mesh2d)
-# cb = DetectorsCallback(solverObj, locations, ['elev_2d', 'uv_2d'], name='detectors',detector_names=names)
-# solverObj.add_callback(cb, 'timestep')
 
 def update_forcings(t):
     with timed_stage('update forcings'):
@@ -122,22 +114,14 @@ def update_forcings(t):
 
 solverObj.iterate(update_forcings=update_forcings)
 
-uv, elev = solverObj.fields.solution_2d.split()
-chk = DumbCheckpoint("./velocity", mode=FILE_CREATE)
-chk.store(uv, name="velocity")
-chk.close()
-chk = DumbCheckpoint("./elevation", mode=FILE_CREATE)
-chk.store(elev, name="elevation")
-chk.close()
+end_time = time.time()
+print_output('time cost: {0:.2f}h'.format((end_time - start_time)/60/60))
 
-time_end= time.time()
-
-
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-if rank == 0:
-    yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
-    yag.send(to = ['623001493@qq.com'], subject = 'Python done', contents = ['College computer Python Finished'])
-    print('Time cost: {0:.2f}h'.format((time_end-time_start)/60/60))
-else:
-    pass
+if 1:
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
+    if rank == 0 :
+        yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
+        yag.send(to = ['623001493@qq.com'], subject = output_dir[17:], contents = ['Time cose: {0:.2f}h.'.format((end_time-start_time)/60/60)])
+    else:
+        pass

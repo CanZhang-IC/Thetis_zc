@@ -130,7 +130,8 @@ class SedimentModel(object):
         # calculate critical shields parameter thetacr
         self.R = Constant(self.rhos/self.rhow - 1)
 
-        self.dstar = Constant(self.average_size*((self.g*self.R)/(self.viscosity**2))**(1/3))
+        # self.dstar = Constant(self.average_size*((self.g*self.R)/(self.viscosity**2))**(1/3))
+        self.dstar = Constant(self.average_size*((self.g*self.R)/(1e-6**2))**(1/3))
         if max(self.dstar.dat.data[:] < 1):
             raise ValueError('dstar value less than 1')
         elif max(self.dstar.dat.data[:] < 4):

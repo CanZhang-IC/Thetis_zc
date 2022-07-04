@@ -1,0 +1,3514 @@
+nohup: ignoring input
+firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
+Using constant wetting and drying parameter (value 0.50)
+WARNING Slope effect angle correction only applies to bedload transport which is not used in this simulation
+WARNING Slope effect magnitude correction only applies to bedload transport which is not used in this simulation
+Element family: dg-dg, degree: 1
+2D cell type: triangle
+2D mesh: 19381 vertices, 35994 elements
+Horizontal element size: 74.49 ... 1070.55 m
+Number of 2D elevation DOFs: 107982
+Number of 2D velocity DOFs: 215964
+Number of cores: 4
+Elevation DOFs per core: ~26995.0
+dt = 300
+Coupled time integrator: CoupledMatchingTimeIntegrator2D
+  Shallow Water time integrator: CrankNicolson
+  Sediment time integrator: CrankNicolson
+Using time integrator: CoupledMatchingTimeIntegrator2D
+/home/can/firedrake/lib/python3.9/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.9/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.9/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.9/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.9/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.9/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.9/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.9/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+    0     0 T=      0.00 eta norm: 36050.8447 u norm: 29828.4903  0.00
+sediment_2d mass rel. error  0.0000e+00
+volume2d rel. error  0.0000e+00
+  0 SNES Function norm 3.252120420754e+06 
+  1 SNES Function norm 4.894074941037e+02 
+    1     1 T=    300.00 eta norm: 35806.5166 u norm: 30995.1282 11.06
+sediment_2d mass rel. error -9.9908e-01
+volume2d rel. error  2.7935e-03
+  0 SNES Function norm 2.963315829435e+06 
+  1 SNES Function norm 2.093811613584e+02 
+    2     2 T=    600.00 eta norm: 35867.3883 u norm: 32215.2369  5.74
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.5768e-03
+  0 SNES Function norm 2.935207792415e+06 
+  1 SNES Function norm 8.427643252227e+01 
+    3     3 T=    900.00 eta norm: 36215.5711 u norm: 33464.7871  5.11
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.3478e-03
+  0 SNES Function norm 2.912886358997e+06 
+  1 SNES Function norm 5.097392665269e+01 
+    4     4 T=   1200.00 eta norm: 36830.7428 u norm: 34731.5595  4.33
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.1103e-02
+  0 SNES Function norm 2.886972644935e+06 
+  1 SNES Function norm 4.045856049060e+01 
+    5     5 T=   1500.00 eta norm: 37690.8669 u norm: 35999.0973  4.22
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.3839e-02
+  0 SNES Function norm 2.857210743196e+06 
+  1 SNES Function norm 3.680437032935e+01 
+    6     6 T=   1800.00 eta norm: 38772.9926 u norm: 37252.9291  4.73
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.6555e-02
+  0 SNES Function norm 2.823744132882e+06 
+  1 SNES Function norm 3.533004811777e+01 
+    7     7 T=   2100.00 eta norm: 40053.9033 u norm: 38481.8044  4.48
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.9249e-02
+  0 SNES Function norm 2.786601665733e+06 
+  1 SNES Function norm 3.388534103800e+01 
+    8     8 T=   2400.00 eta norm: 41510.2722 u norm: 39676.8842  3.87
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.1920e-02
+  0 SNES Function norm 2.745813076492e+06 
+  1 SNES Function norm 3.204972646036e+01 
+    9     9 T=   2700.00 eta norm: 43118.6471 u norm: 40830.8825  4.78
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.4567e-02
+  0 SNES Function norm 2.701406639581e+06 
+  1 SNES Function norm 2.998087641965e+01 
+   10    10 T=   3000.00 eta norm: 44855.7153 u norm: 41937.7259  5.25
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.7187e-02
+  0 SNES Function norm 2.653533629583e+06 
+  1 SNES Function norm 2.789636246183e+01 
+   11    11 T=   3300.00 eta norm: 46698.8378 u norm: 42992.4110  4.66
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.9777e-02
+  0 SNES Function norm 2.602388826568e+06 
+  1 SNES Function norm 2.593368481925e+01 
+   12    12 T=   3600.00 eta norm: 48626.6023 u norm: 43990.5563  4.53
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.2333e-02
+  0 SNES Function norm 2.548246627510e+06 
+  1 SNES Function norm 2.413553712025e+01 
+   13    13 T=   3900.00 eta norm: 50619.1666 u norm: 44928.1258  4.30
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.4851e-02
+  0 SNES Function norm 2.491308782012e+06 
+  1 SNES Function norm 2.248322296144e+01 
+   14    14 T=   4200.00 eta norm: 52658.2753 u norm: 45800.8666  5.02
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.7325e-02
+  0 SNES Function norm 2.431806199652e+06 
+  1 SNES Function norm 2.093451705303e+01 
+   15    15 T=   4500.00 eta norm: 54727.0025 u norm: 46603.8780  4.79
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.9751e-02
+  0 SNES Function norm 2.369818642055e+06 
+  1 SNES Function norm 1.944967711123e+01 
+   16    16 T=   4800.00 eta norm: 56809.3187 u norm: 47332.0163  5.19
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.2123e-02
+  0 SNES Function norm 2.305575031742e+06 
+  1 SNES Function norm 1.800360862687e+01 
+   17    17 T=   5100.00 eta norm: 58889.6968 u norm: 47980.3437  4.15
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.4435e-02
+  0 SNES Function norm 2.239501374437e+06 
+  1 SNES Function norm 1.658990074619e+01 
+   18    18 T=   5400.00 eta norm: 60952.8681 u norm: 48544.8682  5.10
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.6679e-02
+  0 SNES Function norm 2.172229977974e+06 
+  1 SNES Function norm 1.521729874873e+01 
+   19    19 T=   5700.00 eta norm: 62983.7974 u norm: 49022.8375  4.58
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.8849e-02
+  0 SNES Function norm 2.104253584503e+06 
+  1 SNES Function norm 1.390271290626e+01 
+   20    20 T=   6000.00 eta norm: 64967.8332 u norm: 49412.7134  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.0940e-02
+  0 SNES Function norm 2.036117643925e+06 
+  1 SNES Function norm 1.266401734656e+01 
+   21    21 T=   6300.00 eta norm: 66890.9796 u norm: 49714.1271  4.94
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.2943e-02
+  0 SNES Function norm 1.968159436409e+06 
+  1 SNES Function norm 1.151519300851e+01 
+   22    22 T=   6600.00 eta norm: 68740.2373 u norm: 49927.5031  4.09
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.4854e-02
+  0 SNES Function norm 1.901220780391e+06 
+  1 SNES Function norm 1.046308406933e+01 
+   23    23 T=   6900.00 eta norm: 70503.9070 u norm: 50053.3876  4.65
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.6667e-02
+  0 SNES Function norm 1.836428425154e+06 
+  1 SNES Function norm 9.506576309691e+00 
+   24    24 T=   7200.00 eta norm: 72171.8267 u norm: 50093.6281  4.86
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.8378e-02
+  0 SNES Function norm 1.773833323408e+06 
+  1 SNES Function norm 8.637151504615e+00 
+   25    25 T=   7500.00 eta norm: 73735.4286 u norm: 50049.1007  4.66
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.9982e-02
+  0 SNES Function norm 1.714514160124e+06 
+  1 SNES Function norm 7.841682574923e+00 
+   26    26 T=   7800.00 eta norm: 75187.6352 u norm: 49920.8527  3.94
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.1475e-02
+  0 SNES Function norm 1.659529064149e+06 
+  1 SNES Function norm 7.107067284025e+00 
+   27    27 T=   8100.00 eta norm: 76522.7438 u norm: 49710.2978  4.67
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.2854e-02
+  0 SNES Function norm 1.609939199984e+06 
+  1 SNES Function norm 6.423934565645e+00 
+   28    28 T=   8400.00 eta norm: 77736.2279 u norm: 49418.5866  4.92
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.4116e-02
+  0 SNES Function norm 1.566852183552e+06 
+  1 SNES Function norm 5.787066968937e+00 
+   29    29 T=   8700.00 eta norm: 78824.5959 u norm: 49046.6050  4.70
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.5258e-02
+  0 SNES Function norm 1.531065732763e+06 
+  1 SNES Function norm 5.194361007092e+00 
+   30    30 T=   9000.00 eta norm: 79785.2580 u norm: 48595.2962  4.30
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.6279e-02
+  0 SNES Function norm 1.503032445910e+06 
+  1 SNES Function norm 4.645955794407e+00 
+   31    31 T=   9300.00 eta norm: 80616.3774 u norm: 48065.4564  4.69
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.7178e-02
+  0 SNES Function norm 1.483706161840e+06 
+  1 SNES Function norm 4.142781539995e+00 
+   32    32 T=   9600.00 eta norm: 81316.7103 u norm: 47458.1766  5.00
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.7952e-02
+  0 SNES Function norm 1.473658257321e+06 
+  1 SNES Function norm 3.684123703013e+00 
+   33    33 T=   9900.00 eta norm: 81885.4465 u norm: 46775.4904  4.33
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.8601e-02
+  0 SNES Function norm 1.473363894916e+06 
+  1 SNES Function norm 3.266398183901e+00 
+   34    34 T=  10200.00 eta norm: 82322.0090 u norm: 46020.0032  4.12
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.9125e-02
+  0 SNES Function norm 1.482802219325e+06 
+  1 SNES Function norm 2.884711562754e+00 
+   35    35 T=  10500.00 eta norm: 82625.9093 u norm: 45193.8597  4.81
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.9523e-02
+  0 SNES Function norm 1.501433940819e+06 
+  1 SNES Function norm 2.535469622542e+00 
+   36    36 T=  10800.00 eta norm: 82796.7172 u norm: 44299.0245  4.74
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.9795e-02
+  0 SNES Function norm 1.528889462946e+06 
+  1 SNES Function norm 2.217737484735e+00 
+   37    37 T=  11100.00 eta norm: 82834.1242 u norm: 43337.5550  4.82
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.9941e-02
+  0 SNES Function norm 1.564820085147e+06 
+  1 SNES Function norm 1.933584299852e+00 
+   38    38 T=  11400.00 eta norm: 82738.0433 u norm: 42311.7887  4.20
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.9961e-02
+  0 SNES Function norm 1.608548062613e+06 
+  1 SNES Function norm 1.687777657733e+00 
+   39    39 T=  11700.00 eta norm: 82508.6958 u norm: 41224.5932  4.21
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.9854e-02
+  0 SNES Function norm 1.659248564658e+06 
+  1 SNES Function norm 1.487706377272e+00 
+   40    40 T=  12000.00 eta norm: 82146.6632 u norm: 40079.1931  4.64
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.9622e-02
+  0 SNES Function norm 1.715893816502e+06 
+  1 SNES Function norm 1.343480109353e+00 
+   41    41 T=  12300.00 eta norm: 81652.9246 u norm: 38878.8947  5.30
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.9264e-02
+  0 SNES Function norm 1.777462502840e+06 
+  1 SNES Function norm 1.265895815481e+00 
+   42    42 T=  12600.00 eta norm: 81028.8909 u norm: 37627.2374  4.81
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.8781e-02
+  0 SNES Function norm 1.843090913129e+06 
+  1 SNES Function norm 1.261983943279e+00 
+   43    43 T=  12900.00 eta norm: 80276.4142 u norm: 36328.0937  4.27
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.8174e-02
+  0 SNES Function norm 1.911755636964e+06 
+  1 SNES Function norm 1.330786319387e+00 
+   44    44 T=  13200.00 eta norm: 79397.7557 u norm: 34985.5124  5.15
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.7444e-02
+  0 SNES Function norm 1.982789446896e+06 
+  1 SNES Function norm 1.464071004286e+00 
+   45    45 T=  13500.00 eta norm: 78395.5301 u norm: 33604.1134  4.98
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.6593e-02
+  0 SNES Function norm 2.055541792095e+06 
+  1 SNES Function norm 1.651384295798e+00 
+   46    46 T=  13800.00 eta norm: 77272.6702 u norm: 32189.3702  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.5620e-02
+  0 SNES Function norm 2.129241935981e+06 
+  1 SNES Function norm 1.884157927112e+00 
+   47    47 T=  14100.00 eta norm: 76032.4240 u norm: 30747.7786  4.49
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.4528e-02
+  0 SNES Function norm 2.203290052206e+06 
+  1 SNES Function norm 2.157296759458e+00 
+   48    48 T=  14400.00 eta norm: 74678.3867 u norm: 29286.8409  4.40
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.3318e-02
+  0 SNES Function norm 2.277163553817e+06 
+  1 SNES Function norm 2.469175232640e+00 
+   49    49 T=  14700.00 eta norm: 73214.5546 u norm: 27815.7428  4.75
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.1991e-02
+  0 SNES Function norm 2.350273075301e+06 
+  1 SNES Function norm 2.820341616079e+00 
+   50    50 T=  15000.00 eta norm: 71645.3928 u norm: 26345.8694  4.83
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.0549e-02
+  0 SNES Function norm 2.422241217471e+06 
+  1 SNES Function norm 3.212632528998e+00 
+   51    51 T=  15300.00 eta norm: 69975.9308 u norm: 24891.1547  4.68
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.8994e-02
+  0 SNES Function norm 2.492721422945e+06 
+  1 SNES Function norm 3.648767601336e+00 
+   52    52 T=  15600.00 eta norm: 68211.8845 u norm: 23468.3984  4.09
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.7327e-02
+  0 SNES Function norm 2.561321644723e+06 
+  1 SNES Function norm 4.131910829960e+00 
+   53    53 T=  15900.00 eta norm: 66359.8004 u norm: 22097.9296  4.92
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.5550e-02
+  0 SNES Function norm 2.627700955076e+06 
+  1 SNES Function norm 4.664949332940e+00 
+   54    54 T=  16200.00 eta norm: 64427.2041 u norm: 20804.2175  5.02
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.3666e-02
+  0 SNES Function norm 2.691563642150e+06 
+  1 SNES Function norm 5.250210269319e+00 
+   55    55 T=  16500.00 eta norm: 62422.7841 u norm: 19616.4065  4.81
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.1679e-02
+  0 SNES Function norm 2.752633461190e+06 
+  1 SNES Function norm 5.889368471721e+00 
+   56    56 T=  16800.00 eta norm: 60356.6251 u norm: 18568.6164  4.22
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.9589e-02
+  0 SNES Function norm 2.810653868994e+06 
+  1 SNES Function norm 6.583914361742e+00 
+   57    57 T=  17100.00 eta norm: 58240.4717 u norm: 17698.7673  4.48
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.7403e-02
+  0 SNES Function norm 2.865425407239e+06 
+  1 SNES Function norm 7.335393195975e+00 
+   58    58 T=  17400.00 eta norm: 56088.0381 u norm: 17045.9763  4.78
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.5122e-02
+  0 SNES Function norm 2.916748557741e+06 
+  1 SNES Function norm 8.146479372536e+00 
+   59    59 T=  17700.00 eta norm: 53915.3246 u norm: 16646.0438  4.93
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.2752e-02
+  0 SNES Function norm 2.964440701079e+06 
+  1 SNES Function norm 9.022060676114e+00 
+   60    60 T=  18000.00 eta norm: 51740.9438 u norm: 16525.6670  4.27
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.0297e-02
+  0 SNES Function norm 3.008318126967e+06 
+  1 SNES Function norm 9.968076241570e+00 
+   61    61 T=  18300.00 eta norm: 49586.4496 u norm: 16696.9378  4.71
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.7763e-02
+  0 SNES Function norm 3.048209719853e+06 
+  1 SNES Function norm 1.099112998550e+01 
+   62    62 T=  18600.00 eta norm: 47476.6082 u norm: 17154.5957  4.50
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.5156e-02
+  0 SNES Function norm 3.083945746942e+06 
+  1 SNES Function norm 1.209808836431e+01 
+   63    63 T=  18900.00 eta norm: 45439.6080 u norm: 17877.7295  5.88
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.2480e-02
+  0 SNES Function norm 3.115394945531e+06 
+  1 SNES Function norm 1.329586060399e+01 
+   64    64 T=  19200.00 eta norm: 43507.1880 u norm: 18834.3585  5.23
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.9742e-02
+  0 SNES Function norm 3.142450295415e+06 
+  1 SNES Function norm 1.459170574408e+01 
+   65    65 T=  19500.00 eta norm: 41714.5513 u norm: 19987.2644  4.53
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.6948e-02
+  0 SNES Function norm 3.165019944604e+06 
+  1 SNES Function norm 1.599372010350e+01 
+   66    66 T=  19800.00 eta norm: 40099.8949 u norm: 21298.6951  4.30
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.4104e-02
+  0 SNES Function norm 3.183040131782e+06 
+  1 SNES Function norm 1.751091994821e+01 
+   67    67 T=  20100.00 eta norm: 38703.3413 u norm: 22733.1442  4.39
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.1215e-02
+  0 SNES Function norm 3.196462809839e+06 
+  1 SNES Function norm 1.915320430185e+01 
+   68    68 T=  20400.00 eta norm: 37565.0946 u norm: 24259.1031  4.63
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.8287e-02
+  0 SNES Function norm 3.205268125790e+06 
+  1 SNES Function norm 2.092887481372e+01 
+   69    69 T=  20700.00 eta norm: 36722.7926 u norm: 25849.2390  3.90
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.5325e-02
+  0 SNES Function norm 3.209438981751e+06 
+  1 SNES Function norm 2.284737025889e+01 
+   70    70 T=  21000.00 eta norm: 36208.2123 u norm: 27480.2398  4.41
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.2335e-02
+  0 SNES Function norm 3.208975674401e+06 
+  1 SNES Function norm 2.491853407874e+01 
+   71    71 T=  21300.00 eta norm: 36043.9003 u norm: 29132.2197  4.73
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  9.3222e-03
+  0 SNES Function norm 3.203889348505e+06 
+  1 SNES Function norm 2.715318790908e+01 
+   72    72 T=  21600.00 eta norm: 36240.5007 u norm: 30788.3101  4.55
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.2913e-03
+  0 SNES Function norm 3.194202868212e+06 
+  1 SNES Function norm 2.956325984625e+01 
+   73    73 T=  21900.00 eta norm: 36795.5772 u norm: 32434.1671  4.12
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.2472e-03
+  0 SNES Function norm 3.179963083215e+06 
+  1 SNES Function norm 3.216047467709e+01 
+   74    74 T=  22200.00 eta norm: 37694.3128 u norm: 34057.6655  4.44
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.9483e-04
+  0 SNES Function norm 3.161220315998e+06 
+  1 SNES Function norm 3.495355839902e+01 
+   75    75 T=  22500.00 eta norm: 38911.8734 u norm: 35648.2814  4.72
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.8613e-03
+  0 SNES Function norm 3.138006841934e+06 
+  1 SNES Function norm 3.794740691223e+01 
+   76    76 T=  22800.00 eta norm: 40416.6496 u norm: 37196.8064  4.28
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.9165e-03
+  0 SNES Function norm 3.110363358942e+06 
+  1 SNES Function norm 4.114184143474e+01 
+   77    77 T=  23100.00 eta norm: 42173.5502 u norm: 38695.0170  4.13
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -8.9665e-03
+  0 SNES Function norm 3.078373310705e+06 
+  1 SNES Function norm 4.452968645944e+01 
+   78    78 T=  23400.00 eta norm: 44146.7089 u norm: 40135.7474  4.58
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.2007e-02
+  0 SNES Function norm 3.042122334005e+06 
+  1 SNES Function norm 4.809891894333e+01 
+   79    79 T=  23700.00 eta norm: 46301.4529 u norm: 41512.4731  4.56
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.5033e-02
+  0 SNES Function norm 3.001738182726e+06 
+  1 SNES Function norm 5.182947765618e+01 
+   80    80 T=  24000.00 eta norm: 48605.4850 u norm: 42819.6464  4.73
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.8041e-02
+  0 SNES Function norm 2.957422227993e+06 
+  1 SNES Function norm 5.569222381499e+01 
+   81    81 T=  24300.00 eta norm: 51029.4511 u norm: 44052.7216  4.26
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.1026e-02
+  0 SNES Function norm 2.909343709315e+06 
+  1 SNES Function norm 5.964882575860e+01 
+   82    82 T=  24600.00 eta norm: 53547.0436 u norm: 45208.1385  4.52
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.3983e-02
+  0 SNES Function norm 2.857670722914e+06 
+  1 SNES Function norm 6.365401537642e+01 
+   83    83 T=  24900.00 eta norm: 56134.8027 u norm: 46283.1100  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.6909e-02
+  0 SNES Function norm 2.802568066921e+06 
+  1 SNES Function norm 6.766024166260e+01 
+   84    84 T=  25200.00 eta norm: 58771.7709 u norm: 47275.5129  4.81
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.9797e-02
+  0 SNES Function norm 2.744242995981e+06 
+  1 SNES Function norm 7.162237046663e+01 
+   85    85 T=  25500.00 eta norm: 61439.1581 u norm: 48183.6267  4.99
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.2645e-02
+  0 SNES Function norm 2.682925855027e+06 
+  1 SNES Function norm 7.550038771930e+01 
+   86    86 T=  25800.00 eta norm: 64120.0531 u norm: 49006.2529  4.04
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.5445e-02
+  0 SNES Function norm 2.618894292166e+06 
+  1 SNES Function norm 7.925751815932e+01 
+   87    87 T=  26100.00 eta norm: 66799.1871 u norm: 49742.3610  4.49
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.8194e-02
+  0 SNES Function norm 2.552438023184e+06 
+  1 SNES Function norm 8.285771154430e+01 
+   88    88 T=  26400.00 eta norm: 69462.7311 u norm: 50391.2115  4.68
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.0886e-02
+  0 SNES Function norm 2.483795239188e+06 
+  1 SNES Function norm 8.626178583081e+01 
+   89    89 T=  26700.00 eta norm: 72098.0557 u norm: 50952.0180  4.92
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.3516e-02
+  0 SNES Function norm 2.413289887430e+06 
+  1 SNES Function norm 8.942611233557e+01 
+   90    90 T=  27000.00 eta norm: 74693.4662 u norm: 51424.4636  3.78
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.6078e-02
+  0 SNES Function norm 2.341272110561e+06 
+  1 SNES Function norm 9.230532393537e+01 
+   91    91 T=  27300.00 eta norm: 77237.9456 u norm: 51808.7215  4.35
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.8567e-02
+  0 SNES Function norm 2.268100538373e+06 
+  1 SNES Function norm 9.485571840818e+01 
+   92    92 T=  27600.00 eta norm: 79720.9733 u norm: 52105.3982  4.55
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.0977e-02
+  0 SNES Function norm 2.194119767498e+06 
+  1 SNES Function norm 9.703685412284e+01 
+   93    93 T=  27900.00 eta norm: 82132.4397 u norm: 52315.5021  3.98
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.3304e-02
+  0 SNES Function norm 2.119676417589e+06 
+  1 SNES Function norm 9.881285006154e+01 
+   94    94 T=  28200.00 eta norm: 84462.6565 u norm: 52440.5197  4.70
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.5541e-02
+  0 SNES Function norm 2.045318990841e+06 
+  1 SNES Function norm 1.001516254242e+02 
+   95    95 T=  28500.00 eta norm: 86702.4293 u norm: 52482.3505  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.7684e-02
+  0 SNES Function norm 1.971524380755e+06 
+  1 SNES Function norm 1.010267562346e+02 
+   96    96 T=  28800.00 eta norm: 88843.1437 u norm: 52442.9075  4.40
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.9728e-02
+  0 SNES Function norm 1.899156475530e+06 
+  1 SNES Function norm 1.014244602309e+02 
+   97    97 T=  29100.00 eta norm: 90876.8453 u norm: 52324.4183  4.07
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.1668e-02
+  0 SNES Function norm 1.828906845748e+06 
+  1 SNES Function norm 1.013524617522e+02 
+   98    98 T=  29400.00 eta norm: 92796.2694 u norm: 52129.0972  4.52
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.3499e-02
+  0 SNES Function norm 1.761531211450e+06 
+  1 SNES Function norm 1.008539270873e+02 
+   99    99 T=  29700.00 eta norm: 94594.8429 u norm: 51859.2357  4.76
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.5216e-02
+  0 SNES Function norm 1.698065536405e+06 
+  1 SNES Function norm 1.000232899284e+02 
+  100   100 T=  30000.00 eta norm: 96266.6617 u norm: 51516.6735  4.33
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.6817e-02
+  0 SNES Function norm 1.639699258582e+06 
+  1 SNES Function norm 9.900591353122e+01 
+  101   101 T=  30300.00 eta norm: 97806.4226 u norm: 51102.9690  4.16
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.8297e-02
+  0 SNES Function norm 1.587389121103e+06 
+  1 SNES Function norm 9.798066066285e+01 
+  102   102 T=  30600.00 eta norm: 99209.3511 u norm: 50619.6450  4.32
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.9652e-02
+  0 SNES Function norm 1.542018504917e+06 
+  1 SNES Function norm 9.711908890550e+01 
+  103   103 T=  30900.00 eta norm: 100471.1292 u norm: 50068.6050  4.24
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.0879e-02
+  0 SNES Function norm 1.504504140245e+06 
+  1 SNES Function norm 9.653931199142e+01 
+  104   104 T=  31200.00 eta norm: 101587.8404 u norm: 49452.3444  4.59
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.1976e-02
+  0 SNES Function norm 1.475574815649e+06 
+  1 SNES Function norm 9.628295340817e+01 
+  105   105 T=  31500.00 eta norm: 102555.9268 u norm: 48773.9875  4.37
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.2938e-02
+  0 SNES Function norm 1.455887774361e+06 
+  1 SNES Function norm 9.632195837194e+01 
+  106   106 T=  31800.00 eta norm: 103372.1534 u norm: 48037.1402  4.82
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.3765e-02
+  0 SNES Function norm 1.446034756128e+06 
+  1 SNES Function norm 9.658437930757e+01 
+  107   107 T=  32100.00 eta norm: 104033.5860 u norm: 47245.6520  4.54
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.4452e-02
+  0 SNES Function norm 1.447313405209e+06 
+  1 SNES Function norm 9.698917125072e+01 
+  108   108 T=  32400.00 eta norm: 104537.6076 u norm: 46403.4511  4.13
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.4999e-02
+  0 SNES Function norm 1.459622374916e+06 
+  1 SNES Function norm 9.748185922860e+01 
+  109   109 T=  32700.00 eta norm: 104881.9573 u norm: 45514.6821  4.43
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.5402e-02
+  0 SNES Function norm 1.482689651630e+06 
+  1 SNES Function norm 9.806791693268e+01 
+  110   110 T=  33000.00 eta norm: 105064.7498 u norm: 44582.6056  4.76
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.5661e-02
+  0 SNES Function norm 1.514014840924e+06 
+  1 SNES Function norm 9.883077882904e+01 
+  111   111 T=  33300.00 eta norm: 105084.5470 u norm: 43609.5886  4.96
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.5773e-02
+  0 SNES Function norm 1.553461301937e+06 
+  1 SNES Function norm 9.992499315885e+01 
+  112   112 T=  33600.00 eta norm: 104940.4493 u norm: 42597.8034  4.36
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.5739e-02
+  0 SNES Function norm 1.601875574171e+06 
+  1 SNES Function norm 1.015413026202e+02 
+  113   113 T=  33900.00 eta norm: 104632.1630 u norm: 41548.8129  4.17
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.5557e-02
+  0 SNES Function norm 1.657012255362e+06 
+  1 SNES Function norm 1.038449249576e+02 
+  114   114 T=  34200.00 eta norm: 104160.0548 u norm: 40463.9045  4.54
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.5228e-02
+  0 SNES Function norm 1.718472518811e+06 
+  1 SNES Function norm 1.068832733047e+02 
+  115   115 T=  34500.00 eta norm: 103525.1688 u norm: 39345.2942  4.62
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.4752e-02
+  0 SNES Function norm 1.786095018567e+06 
+  1 SNES Function norm 1.105025798472e+02 
+  116   116 T=  34800.00 eta norm: 102729.2019 u norm: 38196.0214  4.43
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.4132e-02
+  0 SNES Function norm 1.858627238192e+06 
+  1 SNES Function norm 1.143283241442e+02 
+  117   117 T=  35100.00 eta norm: 101774.4606 u norm: 37020.1804  4.72
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.3369e-02
+  0 SNES Function norm 1.935040199035e+06 
+  1 SNES Function norm 1.178459667135e+02 
+  118   118 T=  35400.00 eta norm: 100663.8086 u norm: 35823.0368  4.84
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.2464e-02
+  0 SNES Function norm 2.014364960935e+06 
+  1 SNES Function norm 1.205661445802e+02 
+  119   119 T=  35700.00 eta norm: 99400.6294 u norm: 34610.9627  4.85
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.1420e-02
+  0 SNES Function norm 2.095829212200e+06 
+  1 SNES Function norm 1.222018519150e+02 
+  120   120 T=  36000.00 eta norm: 97988.8156 u norm: 33390.9427  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.0240e-02
+  0 SNES Function norm 2.178716336467e+06 
+  1 SNES Function norm 1.227753134169e+02 
+  121   121 T=  36300.00 eta norm: 96432.7791 u norm: 32170.7055  4.81
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.8926e-02
+  0 SNES Function norm 2.262368384759e+06 
+  1 SNES Function norm 1.225935623045e+02 
+  122   122 T=  36600.00 eta norm: 94737.4743 u norm: 30958.5218  4.18
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.7479e-02
+  0 SNES Function norm 2.346123288639e+06 
+  1 SNES Function norm 1.221051400311e+02 
+  123   123 T=  36900.00 eta norm: 92908.4130 u norm: 29763.4032  4.67
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.5904e-02
+  0 SNES Function norm 2.429446980910e+06 
+  1 SNES Function norm 1.217233575121e+02 
+  124   124 T=  37200.00 eta norm: 90951.6661 u norm: 28595.4814  4.56
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.4201e-02
+  0 SNES Function norm 2.511778067035e+06 
+  1 SNES Function norm 1.217077932918e+02 
+  125   125 T=  37500.00 eta norm: 88873.8374 u norm: 27466.2819  4.42
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.2373e-02
+  0 SNES Function norm 2.592595490919e+06 
+  1 SNES Function norm 1.221420237351e+02 
+  126   126 T=  37800.00 eta norm: 86682.0223 u norm: 26388.3637  3.92
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.0425e-02
+  0 SNES Function norm 2.671498674339e+06 
+  1 SNES Function norm 1.229818505204e+02 
+  127   127 T=  38100.00 eta norm: 84383.7671 u norm: 25376.1661  4.53
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.8359e-02
+  0 SNES Function norm 2.747997399614e+06 
+  1 SNES Function norm 1.241234550624e+02 
+  128   128 T=  38400.00 eta norm: 81987.0594 u norm: 24446.4659  4.45
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.6179e-02
+  0 SNES Function norm 2.821738843687e+06 
+  1 SNES Function norm 1.254555850242e+02 
+  129   129 T=  38700.00 eta norm: 79500.3896 u norm: 23617.8798  4.08
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.3889e-02
+  0 SNES Function norm 2.892478956824e+06 
+  1 SNES Function norm 1.268996654662e+02 
+  130   130 T=  39000.00 eta norm: 76932.8793 u norm: 22910.1022  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.1492e-02
+  0 SNES Function norm 2.960048074816e+06 
+  1 SNES Function norm 1.284217626295e+02 
+  131   131 T=  39300.00 eta norm: 74294.4859 u norm: 22343.0738  4.85
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.8995e-02
+  0 SNES Function norm 3.024332140558e+06 
+  1 SNES Function norm 1.300180419210e+02 
+  132   132 T=  39600.00 eta norm: 71596.2982 u norm: 21935.5787  4.54
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.6400e-02
+  0 SNES Function norm 3.085248470199e+06 
+  1 SNES Function norm 1.316930877615e+02 
+  133   133 T=  39900.00 eta norm: 68850.8924 u norm: 21703.3312  3.98
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.3714e-02
+  0 SNES Function norm 3.142645843638e+06 
+  1 SNES Function norm 1.334297067956e+02 
+  134   134 T=  40200.00 eta norm: 66072.7232 u norm: 21657.7348  4.71
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.0941e-02
+  0 SNES Function norm 3.196327168970e+06 
+  1 SNES Function norm 1.351512366231e+02 
+  135   135 T=  40500.00 eta norm: 63278.5527 u norm: 21804.3345  4.77
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.8088e-02
+  0 SNES Function norm 3.246069461385e+06 
+  1 SNES Function norm 1.366844622161e+02 
+  136   136 T=  40800.00 eta norm: 60487.8624 u norm: 22142.4477  5.56
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.5159e-02
+  0 SNES Function norm 3.291681198936e+06 
+  1 SNES Function norm 1.377510062537e+02 
+  137   137 T=  41100.00 eta norm: 57723.2576 u norm: 22665.3927  4.59
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.2161e-02
+  0 SNES Function norm 3.332967917745e+06 
+  1 SNES Function norm 1.380051797951e+02 
+  138   138 T=  41400.00 eta norm: 55010.8127 u norm: 23361.5715  4.11
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.9102e-02
+  0 SNES Function norm 3.369766387662e+06 
+  1 SNES Function norm 1.371092139943e+02 
+  139   139 T=  41700.00 eta norm: 52380.3269 u norm: 24215.7092  4.68
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.5986e-02
+  0 SNES Function norm 3.401910099407e+06 
+  1 SNES Function norm 1.348208498662e+02 
+  140   140 T=  42000.00 eta norm: 49865.4270 u norm: 25210.0682  4.27
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.2823e-02
+  0 SNES Function norm 3.429277906019e+06 
+  1 SNES Function norm 1.310579968352e+02 
+  141   141 T=  42300.00 eta norm: 47503.4686 u norm: 26325.7248  5.08
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.9618e-02
+  0 SNES Function norm 3.451762428001e+06 
+  1 SNES Function norm 1.259167193175e+02 
+  142   142 T=  42600.00 eta norm: 45335.1315 u norm: 27543.6199  4.32
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.6379e-02
+  0 SNES Function norm 3.469283393274e+06 
+  1 SNES Function norm 1.196430761179e+02 
+  143   143 T=  42900.00 eta norm: 43403.4857 u norm: 28845.2139  4.32
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.3111e-02
+  0 SNES Function norm 3.481798125690e+06 
+  1 SNES Function norm 1.125697598185e+02 
+  144   144 T=  43200.00 eta norm: 41752.3767 u norm: 30212.9024  4.83
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -9.8203e-03
+  0 SNES Function norm 3.489293104727e+06 
+  1 SNES Function norm 1.050540891503e+02 
+  145   145 T=  43500.00 eta norm: 40423.9523 u norm: 31630.0246  4.86
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.5127e-03
+  0 SNES Function norm 3.491788907550e+06 
+  1 SNES Function norm 9.742100168409e+01 
+  146   146 T=  43800.00 eta norm: 39455.3472 u norm: 33081.1664  4.94
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.1932e-03
+  0 SNES Function norm 3.489337316361e+06 
+  1 SNES Function norm 8.993327611037e+01 
+  147   147 T=  44100.00 eta norm: 38874.9506 u norm: 34552.3586  4.01
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.3368e-04
+  0 SNES Function norm 3.481981379765e+06 
+  1 SNES Function norm 8.278345472328e+01 
+  148   148 T=  44400.00 eta norm: 38698.9942 u norm: 36030.9630  4.98
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.4632e-03
+  0 SNES Function norm 3.469756224820e+06 
+  1 SNES Function norm 7.609568898095e+01 
+  149   149 T=  44700.00 eta norm: 38929.3907 u norm: 37505.8060  4.53
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.7911e-03
+  0 SNES Function norm 3.452726347517e+06 
+  1 SNES Function norm 6.993102684695e+01 
+  150   150 T=  45000.00 eta norm: 39553.5712 u norm: 38966.9776  4.87
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.0113e-02
+  0 SNES Function norm 3.431006192016e+06 
+  1 SNES Function norm 6.430034840346e+01 
+  151   151 T=  45300.00 eta norm: 40546.4246 u norm: 40405.7086  4.52
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.3425e-02
+  0 SNES Function norm 3.404671251379e+06 
+  1 SNES Function norm 5.917392886621e+01 
+  152   152 T=  45600.00 eta norm: 41873.7173 u norm: 41814.3750  3.92
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.6722e-02
+  0 SNES Function norm 3.373763659096e+06 
+  1 SNES Function norm 5.450368365966e+01 
+  153   153 T=  45900.00 eta norm: 43496.0207 u norm: 43186.0996  4.74
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.0000e-02
+  0 SNES Function norm 3.338373283400e+06 
+  1 SNES Function norm 5.023301938037e+01 
+  154   154 T=  46200.00 eta norm: 45372.2571 u norm: 44514.6515  4.69
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.3256e-02
+  0 SNES Function norm 3.298513626943e+06 
+  1 SNES Function norm 4.630563858364e+01 
+  155   155 T=  46500.00 eta norm: 47462.4362 u norm: 45794.0401  4.65
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.6485e-02
+  0 SNES Function norm 3.254358824308e+06 
+  1 SNES Function norm 4.266875071218e+01 
+  156   156 T=  46800.00 eta norm: 49729.4334 u norm: 47018.7928  4.20
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.9683e-02
+  0 SNES Function norm 3.206049567478e+06 
+  1 SNES Function norm 3.927960693471e+01 
+  157   157 T=  47100.00 eta norm: 52139.8366 u norm: 48183.7041  4.59
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.2846e-02
+  0 SNES Function norm 3.153779595700e+06 
+  1 SNES Function norm 3.610733279000e+01 
+  158   158 T=  47400.00 eta norm: 54664.0084 u norm: 49283.3129  5.09
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.5970e-02
+  0 SNES Function norm 3.097693316061e+06 
+  1 SNES Function norm 3.313437673763e+01 
+  159   159 T=  47700.00 eta norm: 57275.5849 u norm: 50312.2717  4.63
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.9050e-02
+  0 SNES Function norm 3.037979193988e+06 
+  1 SNES Function norm 3.035455595773e+01 
+  160   160 T=  48000.00 eta norm: 59950.6719 u norm: 51265.6355  4.26
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.2082e-02
+  0 SNES Function norm 2.974838501378e+06 
+  1 SNES Function norm 2.776642978394e+01 
+  161   161 T=  48300.00 eta norm: 62667.1230 u norm: 52139.1291  4.58
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.5060e-02
+  0 SNES Function norm 2.908235336996e+06 
+  1 SNES Function norm 2.537000157162e+01 
+  162   162 T=  48600.00 eta norm: 65404.0878 u norm: 52929.7991  4.68
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.7979e-02
+  0 SNES Function norm 2.838472645173e+06 
+  1 SNES Function norm 2.316447637379e+01 
+  163   163 T=  48900.00 eta norm: 68141.8575 u norm: 53635.2173  4.83
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.0832e-02
+  0 SNES Function norm 2.766193697946e+06 
+  1 SNES Function norm 2.114697024215e+01 
+  164   164 T=  49200.00 eta norm: 70861.8774 u norm: 54255.0774  5.10
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.3614e-02
+  0 SNES Function norm 2.691659849712e+06 
+  1 SNES Function norm 1.931017133914e+01 
+  165   165 T=  49500.00 eta norm: 73546.9568 u norm: 54789.4905  4.16
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.6317e-02
+  0 SNES Function norm 2.615200571675e+06 
+  1 SNES Function norm 1.764029987727e+01 
+  166   166 T=  49800.00 eta norm: 76181.2718 u norm: 55237.9812  5.11
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.8937e-02
+  0 SNES Function norm 2.536833223005e+06 
+  1 SNES Function norm 1.611570910519e+01 
+  167   167 T=  50100.00 eta norm: 78750.4149 u norm: 55600.0271  4.40
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.1466e-02
+  0 SNES Function norm 2.457004359112e+06 
+  1 SNES Function norm 1.470870766505e+01 
+  168   168 T=  50400.00 eta norm: 81241.6707 u norm: 55875.9034  4.43
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.3900e-02
+  0 SNES Function norm 2.376496915892e+06 
+  1 SNES Function norm 1.339491765272e+01 
+  169   169 T=  50700.00 eta norm: 83644.0558 u norm: 56065.8002  4.17
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.6234e-02
+  0 SNES Function norm 2.296135908695e+06 
+  1 SNES Function norm 1.216180380267e+01 
+  170   170 T=  51000.00 eta norm: 85948.2193 u norm: 56169.8869  4.15
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.8464e-02
+  0 SNES Function norm 2.215604493499e+06 
+  1 SNES Function norm 1.100923056468e+01 
+  171   171 T=  51300.00 eta norm: 88146.3033 u norm: 56187.7450  4.48
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.0585e-02
+  0 SNES Function norm 2.135984621826e+06 
+  1 SNES Function norm 9.943618211898e+00 
+  172   172 T=  51600.00 eta norm: 90231.7580 u norm: 56118.9603  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.2594e-02
+  0 SNES Function norm 2.058459221605e+06 
+  1 SNES Function norm 8.970504645464e+00 
+  173   173 T=  51900.00 eta norm: 92199.1943 u norm: 55964.0347  4.07
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.4488e-02
+  0 SNES Function norm 1.983696052838e+06 
+  1 SNES Function norm 8.090175527281e+00 
+  174   174 T=  52200.00 eta norm: 94044.2030 u norm: 55724.0458  4.67
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.6264e-02
+  0 SNES Function norm 1.912442878743e+06 
+  1 SNES Function norm 7.296199413376e+00 
+  175   175 T=  52500.00 eta norm: 95763.0796 u norm: 55400.1946  4.62
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.7920e-02
+  0 SNES Function norm 1.845710703768e+06 
+  1 SNES Function norm 6.577991323144e+00 
+  176   176 T=  52800.00 eta norm: 97352.5981 u norm: 54994.2789  4.24
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.9454e-02
+  0 SNES Function norm 1.784640378164e+06 
+  1 SNES Function norm 5.923942733055e+00 
+  177   177 T=  53100.00 eta norm: 98809.7506 u norm: 54508.3123  4.18
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.0864e-02
+  0 SNES Function norm 1.730246955186e+06 
+  1 SNES Function norm 5.323269528665e+00 
+  178   178 T=  53400.00 eta norm: 100131.5643 u norm: 53944.2749  4.85
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.2146e-02
+  0 SNES Function norm 1.683434412975e+06 
+  1 SNES Function norm 4.767372570203e+00 
+  179   179 T=  53700.00 eta norm: 101315.0617 u norm: 53303.6393  4.86
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.3300e-02
+  0 SNES Function norm 1.644997184516e+06 
+  1 SNES Function norm 4.250715402442e+00 
+  180   180 T=  54000.00 eta norm: 102357.3668 u norm: 52587.3388  4.19
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.4323e-02
+  0 SNES Function norm 1.615891565788e+06 
+  1 SNES Function norm 3.770314088143e+00 
+  181   181 T=  54300.00 eta norm: 103255.8552 u norm: 51796.8656  4.70
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.5215e-02
+  0 SNES Function norm 1.597008116027e+06 
+  1 SNES Function norm 3.326036846268e+00 
+  182   182 T=  54600.00 eta norm: 104008.2942 u norm: 50934.0412  4.31
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.5973e-02
+  0 SNES Function norm 1.588620484935e+06 
+  1 SNES Function norm 2.918630667726e+00 
+  183   183 T=  54900.00 eta norm: 104612.9137 u norm: 50001.4300  4.57
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.6597e-02
+  0 SNES Function norm 1.591118796381e+06 
+  1 SNES Function norm 2.549067234876e+00 
+  184   184 T=  55200.00 eta norm: 105068.4572 u norm: 49001.6354  4.10
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.7085e-02
+  0 SNES Function norm 1.604338202808e+06 
+  1 SNES Function norm 2.217704328723e+00 
+  185   185 T=  55500.00 eta norm: 105374.2275 u norm: 47937.5683  4.38
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.7439e-02
+  0 SNES Function norm 1.627715900848e+06 
+  1 SNES Function norm 1.924280562890e+00 
+  186   186 T=  55800.00 eta norm: 105530.0686 u norm: 46811.8711  4.42
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.7656e-02
+  0 SNES Function norm 1.659852643916e+06 
+  1 SNES Function norm 1.668561131386e+00 
+  187   187 T=  56100.00 eta norm: 105536.2627 u norm: 45627.5185  4.30
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.7738e-02
+  0 SNES Function norm 1.700003744821e+06 
+  1 SNES Function norm 1.451243803411e+00 
+  188   188 T=  56400.00 eta norm: 105393.4466 u norm: 44387.3874  4.41
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.7685e-02
+  0 SNES Function norm 1.747775056068e+06 
+  1 SNES Function norm 1.274867380196e+00 
+  189   189 T=  56700.00 eta norm: 105102.5640 u norm: 43094.3016  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.7496e-02
+  0 SNES Function norm 1.802183997375e+06 
+  1 SNES Function norm 1.144340952270e+00 
+  190   190 T=  57000.00 eta norm: 104664.8485 u norm: 41750.8937  4.83
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.7174e-02
+  0 SNES Function norm 1.862485695942e+06 
+  1 SNES Function norm 1.066651099681e+00 
+  191   191 T=  57300.00 eta norm: 104081.7865 u norm: 40360.4805  5.38
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.6719e-02
+  0 SNES Function norm 1.927207440797e+06 
+  1 SNES Function norm 1.048151713997e+00 
+  192   192 T=  57600.00 eta norm: 103355.0259 u norm: 38927.6730  4.56
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.6131e-02
+  0 SNES Function norm 1.995432149322e+06 
+  1 SNES Function norm 1.090358135887e+00 
+  193   193 T=  57900.00 eta norm: 102486.2747 u norm: 37457.7057  4.06
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.5412e-02
+  0 SNES Function norm 2.066621667989e+06 
+  1 SNES Function norm 1.188459373715e+00 
+  194   194 T=  58200.00 eta norm: 101477.2376 u norm: 35956.5694  4.59
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.4562e-02
+  0 SNES Function norm 2.139668411249e+06 
+  1 SNES Function norm 1.334367156618e+00 
+  195   195 T=  58500.00 eta norm: 100329.5821 u norm: 34431.3494  4.67
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.3582e-02
+  0 SNES Function norm 2.213793607438e+06 
+  1 SNES Function norm 1.520857410900e+00 
+  196   196 T=  58800.00 eta norm: 99044.9483 u norm: 32890.2117  5.17
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.2474e-02
+  0 SNES Function norm 2.288571254378e+06 
+  1 SNES Function norm 1.743809496266e+00 
+  197   197 T=  59100.00 eta norm: 97625.0409 u norm: 31342.4489  4.33
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.1237e-02
+  0 SNES Function norm 2.363528845621e+06 
+  1 SNES Function norm 2.001917987772e+00 
+  198   198 T=  59400.00 eta norm: 96071.8173 u norm: 29798.7702  4.54
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.9872e-02
+  0 SNES Function norm 2.438135610839e+06 
+  1 SNES Function norm 2.295200025582e+00 
+  199   199 T=  59700.00 eta norm: 94387.7432 u norm: 28271.3713  4.66
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.8381e-02
+  0 SNES Function norm 2.511827819916e+06 
+  1 SNES Function norm 2.623542711703e+00 
+  200   200 T=  60000.00 eta norm: 92576.0705 u norm: 26774.3800  4.57
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.6765e-02
+  0 SNES Function norm 2.584184660769e+06 
+  1 SNES Function norm 2.986161951048e+00 
+  201   201 T=  60300.00 eta norm: 90641.0752 u norm: 25324.4643  4.38
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.5025e-02
+  0 SNES Function norm 2.654812897189e+06 
+  1 SNES Function norm 3.381826530162e+00 
+  202   202 T=  60600.00 eta norm: 88588.2068 u norm: 23941.4739  4.33
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.3165e-02
+  0 SNES Function norm 2.723334356326e+06 
+  1 SNES Function norm 3.809548813319e+00 
+  203   203 T=  60900.00 eta norm: 86424.1284 u norm: 22648.8488  4.63
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.1189e-02
+  0 SNES Function norm 2.789413228447e+06 
+  1 SNES Function norm 4.268727157180e+00 
+  204   204 T=  61200.00 eta norm: 84156.6886 u norm: 21473.8569  4.67
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.9100e-02
+  0 SNES Function norm 2.852702145208e+06 
+  1 SNES Function norm 4.759613435116e+00 
+  205   205 T=  61500.00 eta norm: 81794.8284 u norm: 20447.3771  4.74
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.6904e-02
+  0 SNES Function norm 2.912883104827e+06 
+  1 SNES Function norm 5.283251263534e+00 
+  206   206 T=  61800.00 eta norm: 79348.4781 u norm: 19602.7267  4.32
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.4606e-02
+  0 SNES Function norm 2.969668231626e+06 
+  1 SNES Function norm 5.841393875605e+00 
+  207   207 T=  62100.00 eta norm: 76828.4660 u norm: 18973.3537  4.86
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.2212e-02
+  0 SNES Function norm 3.022802887348e+06 
+  1 SNES Function norm 6.436507153975e+00 
+  208   208 T=  62400.00 eta norm: 74246.4485 u norm: 18589.0923  4.61
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.9728e-02
+  0 SNES Function norm 3.072058352308e+06 
+  1 SNES Function norm 7.071296739805e+00 
+  209   209 T=  62700.00 eta norm: 71614.8988 u norm: 18471.5576  4.66
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.7161e-02
+  0 SNES Function norm 3.117235688656e+06 
+  1 SNES Function norm 7.749199559633e+00 
+  210   210 T=  63000.00 eta norm: 68947.1484 u norm: 18630.1207  4.18
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.4517e-02
+  0 SNES Function norm 3.158197416759e+06 
+  1 SNES Function norm 8.474243158283e+00 
+  211   211 T=  63300.00 eta norm: 66257.4688 u norm: 19060.2668  4.32
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.1803e-02
+  0 SNES Function norm 3.194858641837e+06 
+  1 SNES Function norm 9.249679666017e+00 
+  212   212 T=  63600.00 eta norm: 63561.2194 u norm: 19744.4371  4.54
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.9023e-02
+  0 SNES Function norm 3.227095597149e+06 
+  1 SNES Function norm 1.007786170912e+01 
+  213   213 T=  63900.00 eta norm: 60875.0541 u norm: 20655.3859  4.64
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.6185e-02
+  0 SNES Function norm 3.254796415736e+06 
+  1 SNES Function norm 1.096109687316e+01 
+  214   214 T=  64200.00 eta norm: 58217.1850 u norm: 21760.3998  4.11
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.3294e-02
+  0 SNES Function norm 3.277911164190e+06 
+  1 SNES Function norm 1.190187162240e+01 
+  215   215 T=  64500.00 eta norm: 55607.6961 u norm: 23025.3793  4.96
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.0355e-02
+  0 SNES Function norm 3.296402430915e+06 
+  1 SNES Function norm 1.290391930791e+01 
+  216   216 T=  64800.00 eta norm: 53068.8770 u norm: 24417.5253  4.70
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.7374e-02
+  0 SNES Function norm 3.310241710777e+06 
+  1 SNES Function norm 1.397078947837e+01 
+  217   217 T=  65100.00 eta norm: 50625.5810 u norm: 25906.6077  4.51
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.4355e-02
+  0 SNES Function norm 3.319404128606e+06 
+  1 SNES Function norm 1.510749390648e+01 
+  218   218 T=  65400.00 eta norm: 48305.4930 u norm: 27465.7324  3.92
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.1303e-02
+  0 SNES Function norm 3.323912290430e+06 
+  1 SNES Function norm 1.631894854775e+01 
+  219   219 T=  65700.00 eta norm: 46139.2239 u norm: 29071.3469  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.8223e-02
+  0 SNES Function norm 3.323803655898e+06 
+  1 SNES Function norm 1.761022031207e+01 
+  220   220 T=  66000.00 eta norm: 44160.1230 u norm: 30702.9414  4.47
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.5119e-02
+  0 SNES Function norm 3.319092336688e+06 
+  1 SNES Function norm 1.898641801134e+01 
+  221   221 T=  66300.00 eta norm: 42403.6133 u norm: 32342.7753  4.90
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.1997e-02
+  0 SNES Function norm 3.309791653392e+06 
+  1 SNES Function norm 2.045272235301e+01 
+  222   222 T=  66600.00 eta norm: 40905.8814 u norm: 33975.5911  4.03
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.8860e-02
+  0 SNES Function norm 3.295923175798e+06 
+  1 SNES Function norm 2.201310461301e+01 
+  223   223 T=  66900.00 eta norm: 39701.8242 u norm: 35588.1102  4.67
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.5713e-02
+  0 SNES Function norm 3.277485900459e+06 
+  1 SNES Function norm 2.367064364040e+01 
+  224   224 T=  67200.00 eta norm: 38822.3070 u norm: 37168.6168  4.78
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.2561e-02
+  0 SNES Function norm 3.254558006706e+06 
+  1 SNES Function norm 2.542640069126e+01 
+  225   225 T=  67500.00 eta norm: 38291.0377 u norm: 38706.7453  4.66
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  9.4088e-03
+  0 SNES Function norm 3.227177912310e+06 
+  1 SNES Function norm 2.727810501525e+01 
+  226   226 T=  67800.00 eta norm: 38121.7029 u norm: 40193.0181  4.18
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.2607e-03
+  0 SNES Function norm 3.195410621062e+06 
+  1 SNES Function norm 2.922227180880e+01 
+  227   227 T=  68100.00 eta norm: 38316.0737 u norm: 41618.6064  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.1215e-03
+  0 SNES Function norm 3.159327105082e+06 
+  1 SNES Function norm 3.125386958587e+01 
+  228   228 T=  68400.00 eta norm: 38863.5793 u norm: 42976.0764  4.96
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.2176e-06
+  0 SNES Function norm 3.119034573988e+06 
+  1 SNES Function norm 3.336596146717e+01 
+  229   229 T=  68700.00 eta norm: 39742.5434 u norm: 44259.6221  4.64
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.1117e-03
+  0 SNES Function norm 3.074763951958e+06 
+  1 SNES Function norm 3.554718670438e+01 
+  230   230 T=  69000.00 eta norm: 40922.7021 u norm: 45464.7528  4.25
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.1962e-03
+  0 SNES Function norm 3.026706007549e+06 
+  1 SNES Function norm 3.778160020106e+01 
+  231   231 T=  69300.00 eta norm: 42368.3096 u norm: 46587.9392  4.25
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -9.2532e-03
+  0 SNES Function norm 2.975005139188e+06 
+  1 SNES Function norm 4.005109803620e+01 
+  232   232 T=  69600.00 eta norm: 44041.2011 u norm: 47626.6202  4.44
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.2278e-02
+  0 SNES Function norm 2.919794902017e+06 
+  1 SNES Function norm 4.233910476082e+01 
+  233   233 T=  69900.00 eta norm: 45903.3318 u norm: 48578.9752  4.72
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.5266e-02
+  0 SNES Function norm 2.861352779498e+06 
+  1 SNES Function norm 4.463220837403e+01 
+  234   234 T=  70200.00 eta norm: 47918.5823 u norm: 49443.7772  4.25
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.8212e-02
+  0 SNES Function norm 2.799986596915e+06 
+  1 SNES Function norm 4.691997704347e+01 
+  235   235 T=  70500.00 eta norm: 50053.7331 u norm: 50220.0482  4.66
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.1112e-02
+  0 SNES Function norm 2.736007527812e+06 
+  1 SNES Function norm 4.919415353385e+01 
+  236   236 T=  70800.00 eta norm: 52278.7928 u norm: 50907.3070  4.35
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.3960e-02
+  0 SNES Function norm 2.669669219025e+06 
+  1 SNES Function norm 5.144722069362e+01 
+  237   237 T=  71100.00 eta norm: 54566.9219 u norm: 51505.4779  4.49
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.6751e-02
+  0 SNES Function norm 2.601234054512e+06 
+  1 SNES Function norm 5.366587508458e+01 
+  238   238 T=  71400.00 eta norm: 56894.1326 u norm: 52014.8826  4.12
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.9481e-02
+  0 SNES Function norm 2.530991166196e+06 
+  1 SNES Function norm 5.582468836526e+01 
+  239   239 T=  71700.00 eta norm: 59238.9069 u norm: 52436.2522  4.43
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.2142e-02
+  0 SNES Function norm 2.459136966396e+06 
+  1 SNES Function norm 5.788295478135e+01 
+  240   240 T=  72000.00 eta norm: 61581.8165 u norm: 52770.2374  4.52
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.4731e-02
+  0 SNES Function norm 2.386050213403e+06 
+  1 SNES Function norm 5.978786951718e+01 
+  241   241 T=  72300.00 eta norm: 63905.2257 u norm: 53017.6504  4.69
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.7241e-02
+  0 SNES Function norm 2.312036364123e+06 
+  1 SNES Function norm 6.148190467800e+01 
+  242   242 T=  72600.00 eta norm: 66193.0649 u norm: 53179.6424  4.02
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.9667e-02
+  0 SNES Function norm 2.237507328192e+06 
+  1 SNES Function norm 6.291640977066e+01 
+  243   243 T=  72900.00 eta norm: 68430.6338 u norm: 53257.5242  4.68
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.2004e-02
+  0 SNES Function norm 2.162749084932e+06 
+  1 SNES Function norm 6.405943507944e+01 
+  244   244 T=  73200.00 eta norm: 70604.4480 u norm: 53252.5710  4.84
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.4245e-02
+  0 SNES Function norm 2.088369534522e+06 
+  1 SNES Function norm 6.489986025304e+01 
+  245   245 T=  73500.00 eta norm: 72702.1759 u norm: 53166.6857  4.88
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.6386e-02
+  0 SNES Function norm 2.014816030044e+06 
+  1 SNES Function norm 6.545171451576e+01 
+  246   246 T=  73800.00 eta norm: 74712.6270 u norm: 53001.9383  4.37
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.8422e-02
+  0 SNES Function norm 1.942867036443e+06 
+  1 SNES Function norm 6.575030777438e+01 
+  247   247 T=  74100.00 eta norm: 76625.7627 u norm: 52760.7249  4.48
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.0347e-02
+  0 SNES Function norm 1.873225294782e+06 
+  1 SNES Function norm 6.584658103785e+01 
+  248   248 T=  74400.00 eta norm: 78432.7558 u norm: 52445.2675  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.2158e-02
+  0 SNES Function norm 1.806844514228e+06 
+  1 SNES Function norm 6.580685070161e+01 
+  249   249 T=  74700.00 eta norm: 80126.0107 u norm: 52057.6074  5.20
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.3850e-02
+  0 SNES Function norm 1.744591244512e+06 
+  1 SNES Function norm 6.570732708300e+01 
+  250   250 T=  75000.00 eta norm: 81699.0883 u norm: 51599.6622  4.77
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.5420e-02
+  0 SNES Function norm 1.687250522508e+06 
+  1 SNES Function norm 6.562431748414e+01 
+  251   251 T=  75300.00 eta norm: 83146.5701 u norm: 51073.5997  4.12
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.6865e-02
+  0 SNES Function norm 1.635549593324e+06 
+  1 SNES Function norm 6.561560245236e+01 
+  252   252 T=  75600.00 eta norm: 84463.8814 u norm: 50481.8193  4.48
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.8182e-02
+  0 SNES Function norm 1.590407307833e+06 
+  1 SNES Function norm 6.570537380116e+01 
+  253   253 T=  75900.00 eta norm: 85647.1289 u norm: 49827.0498  4.53
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.9369e-02
+  0 SNES Function norm 1.552433743033e+06 
+  1 SNES Function norm 6.588088967063e+01 
+  254   254 T=  76200.00 eta norm: 86692.9601 u norm: 49112.3418  4.19
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.0423e-02
+  0 SNES Function norm 1.522341765210e+06 
+  1 SNES Function norm 6.610271367161e+01 
+  255   255 T=  76500.00 eta norm: 87598.4561 u norm: 48340.8942  4.01
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.1343e-02
+  0 SNES Function norm 1.500865466142e+06 
+  1 SNES Function norm 6.632119729645e+01 
+  256   256 T=  76800.00 eta norm: 88361.0799 u norm: 47516.0176  4.62
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.2127e-02
+  0 SNES Function norm 1.489278225237e+06 
+  1 SNES Function norm 6.648852404904e+01 
+  257   257 T=  77100.00 eta norm: 88978.6452 u norm: 46641.2794  4.98
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.2775e-02
+  0 SNES Function norm 1.487910274887e+06 
+  1 SNES Function norm 6.656087068164e+01 
+  258   258 T=  77400.00 eta norm: 89449.2864 u norm: 45719.4751  3.80
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.3284e-02
+  0 SNES Function norm 1.495713990797e+06 
+  1 SNES Function norm 6.649379774496e+01 
+  259   259 T=  77700.00 eta norm: 89771.4738 u norm: 44753.0341  4.78
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.3654e-02
+  0 SNES Function norm 1.512709936674e+06 
+  1 SNES Function norm 6.622940846981e+01 
+  260   260 T=  78000.00 eta norm: 89944.0407 u norm: 43743.9767  4.93
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.3884e-02
+  0 SNES Function norm 1.538043855872e+06 
+  1 SNES Function norm 6.569908146693e+01 
+  261   261 T=  78300.00 eta norm: 89966.2269 u norm: 42694.0437  4.36
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.3974e-02
+  0 SNES Function norm 1.570344809182e+06 
+  1 SNES Function norm 6.484075133361e+01 
+  262   262 T=  78600.00 eta norm: 89837.7480 u norm: 41605.4001  4.17
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.3924e-02
+  0 SNES Function norm 1.610494796598e+06 
+  1 SNES Function norm 6.362073894501e+01 
+  263   263 T=  78900.00 eta norm: 89558.8585 u norm: 40480.6511  4.27
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.3735e-02
+  0 SNES Function norm 1.657898109597e+06 
+  1 SNES Function norm 6.205219579619e+01 
+  264   264 T=  79200.00 eta norm: 89130.4089 u norm: 39322.7908  4.89
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.3408e-02
+  0 SNES Function norm 1.711445616312e+06 
+  1 SNES Function norm 6.020621252613e+01 
+  265   265 T=  79500.00 eta norm: 88553.8883 u norm: 38135.9135  4.47
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.2943e-02
+  0 SNES Function norm 1.770180976517e+06 
+  1 SNES Function norm 5.821829700787e+01 
+  266   266 T=  79800.00 eta norm: 87831.4419 u norm: 36925.3380  4.42
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.2344e-02
+  0 SNES Function norm 1.833060687806e+06 
+  1 SNES Function norm 5.629015538236e+01 
+  267   267 T=  80100.00 eta norm: 86965.8681 u norm: 35697.2844  4.53
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.1611e-02
+  0 SNES Function norm 1.899361806465e+06 
+  1 SNES Function norm 5.467679121338e+01 
+  268   268 T=  80400.00 eta norm: 85960.6042 u norm: 34458.4510  4.49
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.0747e-02
+  0 SNES Function norm 1.968185803424e+06 
+  1 SNES Function norm 5.364347078844e+01 
+  269   269 T=  80700.00 eta norm: 84819.7051 u norm: 33215.8504  4.53
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.9753e-02
+  0 SNES Function norm 2.038610244776e+06 
+  1 SNES Function norm 5.339180554147e+01 
+  270   270 T=  81000.00 eta norm: 83547.8082 u norm: 31976.9504  4.40
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.8631e-02
+  0 SNES Function norm 2.109938728677e+06 
+  1 SNES Function norm 5.398432034753e+01 
+  271   271 T=  81300.00 eta norm: 82150.0762 u norm: 30749.9017  4.09
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.7384e-02
+  0 SNES Function norm 2.181527936663e+06 
+  1 SNES Function norm 5.532000244595e+01 
+  272   272 T=  81600.00 eta norm: 80632.1337 u norm: 29543.5715  4.95
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.6014e-02
+  0 SNES Function norm 2.252804258845e+06 
+  1 SNES Function norm 5.718140231624e+01 
+  273   273 T=  81900.00 eta norm: 79000.0025 u norm: 28368.1892  4.83
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.4524e-02
+  0 SNES Function norm 2.323125074404e+06 
+  1 SNES Function norm 5.931772756896e+01 
+  274   274 T=  82200.00 eta norm: 77260.0537 u norm: 27235.4890  4.59
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.2915e-02
+  0 SNES Function norm 2.391899468845e+06 
+  1 SNES Function norm 6.151063527350e+01 
+  275   275 T=  82500.00 eta norm: 75419.0017 u norm: 26158.6336  4.19
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.1192e-02
+  0 SNES Function norm 2.458656237365e+06 
+  1 SNES Function norm 6.360355094729e+01 
+  276   276 T=  82800.00 eta norm: 73483.9457 u norm: 25153.0223  4.89
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.9358e-02
+  0 SNES Function norm 2.523105453366e+06 
+  1 SNES Function norm 6.550624767693e+01 
+  277   277 T=  83100.00 eta norm: 71462.4702 u norm: 24235.7481  5.06
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.7416e-02
+  0 SNES Function norm 2.585049893960e+06 
+  1 SNES Function norm 6.718938849821e+01 
+  278   278 T=  83400.00 eta norm: 69362.8025 u norm: 23424.9757  4.66
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.5371e-02
+  0 SNES Function norm 2.644349133530e+06 
+  1 SNES Function norm 6.867747393082e+01 
+  279   279 T=  83700.00 eta norm: 67194.0231 u norm: 22739.2951  4.28
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.3227e-02
+  0 SNES Function norm 2.700845332118e+06 
+  1 SNES Function norm 7.004355149093e+01 
+  280   280 T=  84000.00 eta norm: 64966.3335 u norm: 22197.0082  4.74
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.0989e-02
+  0 SNES Function norm 2.754370800829e+06 
+  1 SNES Function norm 7.138804636928e+01 
+  281   281 T=  84300.00 eta norm: 62691.3618 u norm: 21814.5899  4.64
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.8663e-02
+  0 SNES Function norm 2.804721683206e+06 
+  1 SNES Function norm 7.280766399290e+01 
+  282   282 T=  84600.00 eta norm: 60382.4992 u norm: 21605.2215  4.94
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.6252e-02
+  0 SNES Function norm 2.851699279493e+06 
+  1 SNES Function norm 7.436161207148e+01 
+  283   283 T=  84900.00 eta norm: 58055.2209 u norm: 21577.8970  4.24
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.3764e-02
+  0 SNES Function norm 2.895065307080e+06 
+  1 SNES Function norm 7.604394288863e+01 
+  284   284 T=  85200.00 eta norm: 55727.3650 u norm: 21735.9568  4.14
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.1203e-02
+  0 SNES Function norm 2.934591774861e+06 
+  1 SNES Function norm 7.775708110906e+01 
+  285   285 T=  85500.00 eta norm: 53419.3352 u norm: 22077.0200  4.67
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.8577e-02
+  0 SNES Function norm 2.970075712142e+06 
+  1 SNES Function norm 7.931225570129e+01 
+  286   286 T=  85800.00 eta norm: 51154.2454 u norm: 22593.1846  4.92
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.5891e-02
+  0 SNES Function norm 3.001345271477e+06 
+  1 SNES Function norm 8.047356038037e+01 
+  287   287 T=  86100.00 eta norm: 48957.9259 u norm: 23272.0834  4.48
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.3153e-02
+  0 SNES Function norm 3.028231769281e+06 
+  1 SNES Function norm 8.102173340538e+01 
+  288   288 T=  86400.00 eta norm: 46858.7622 u norm: 24098.0158  4.32
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.0369e-02
+  0 SNES Function norm 3.050591945522e+06 
+  1 SNES Function norm 8.080029259819e+01 
+  289   289 T=  86700.00 eta norm: 44887.3366 u norm: 25053.2500  4.88
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.7547e-02
+  0 SNES Function norm 3.068319888627e+06 
+  1 SNES Function norm 7.974592494898e+01 
+  290   290 T=  87000.00 eta norm: 43075.7911 u norm: 26119.3178  4.77
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.4692e-02
+  0 SNES Function norm 3.081344591319e+06 
+  1 SNES Function norm 7.788923265250e+01 
+  291   291 T=  87300.00 eta norm: 41456.9196 u norm: 27277.8322  4.51
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.1812e-02
+  0 SNES Function norm 3.089647765996e+06 
+  1 SNES Function norm 7.533831490353e+01 
+  292   292 T=  87600.00 eta norm: 40062.8698 u norm: 28511.1855  4.37
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -8.9114e-03
+  0 SNES Function norm 3.093219052574e+06 
+  1 SNES Function norm 7.224580912947e+01 
+  293   293 T=  87900.00 eta norm: 38923.4817 u norm: 29802.5312  4.64
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.9968e-03
+  0 SNES Function norm 3.092082040201e+06 
+  1 SNES Function norm 6.878225694424e+01 
+  294   294 T=  88200.00 eta norm: 38064.3084 u norm: 31136.0867  5.32
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.0726e-03
+  0 SNES Function norm 3.086290200118e+06 
+  1 SNES Function norm 6.510964874665e+01 
+  295   295 T=  88500.00 eta norm: 37504.6092 u norm: 32497.3319  4.51
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.4355e-04
+  0 SNES Function norm 3.075930074465e+06 
+  1 SNES Function norm 6.136660430400e+01 
+  296   296 T=  88800.00 eta norm: 37255.6266 u norm: 33873.1109  4.85
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.7861e-03
+  0 SNES Function norm 3.061070706775e+06 
+  1 SNES Function norm 5.766189279099e+01 
+  297   297 T=  89100.00 eta norm: 37319.5103 u norm: 35251.5345  4.14
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.7121e-03
+  0 SNES Function norm 3.041777971947e+06 
+  1 SNES Function norm 5.407042394159e+01 
+  298   298 T=  89400.00 eta norm: 37689.1783 u norm: 36622.1498  4.25
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.6303e-03
+  0 SNES Function norm 3.018134310852e+06 
+  1 SNES Function norm 5.063639753214e+01 
+  299   299 T=  89700.00 eta norm: 38349.1639 u norm: 37975.7287  4.58
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.1537e-02
+  0 SNES Function norm 2.990257278465e+06 
+  1 SNES Function norm 4.737858859874e+01 
+  300   300 T=  90000.00 eta norm: 39277.3331 u norm: 39303.8691  4.27
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.4427e-02
+  0 SNES Function norm 2.958273237983e+06 
+  1 SNES Function norm 4.429741699498e+01 
+  301   301 T=  90300.00 eta norm: 40447.0676 u norm: 40599.0206  4.40
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.7296e-02
+  0 SNES Function norm 2.922304298062e+06 
+  1 SNES Function norm 4.138047006287e+01 
+  302   302 T=  90600.00 eta norm: 41829.4322 u norm: 41854.3055  4.77
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.0142e-02
+  0 SNES Function norm 2.882356446704e+06 
+  1 SNES Function norm 3.861088882648e+01 
+  303   303 T=  90900.00 eta norm: 43394.9887 u norm: 43063.3913  4.58
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.2959e-02
+  0 SNES Function norm 2.838558657309e+06 
+  1 SNES Function norm 3.597320740426e+01 
+  304   304 T=  91200.00 eta norm: 45115.1203 u norm: 44220.7861  4.91
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.5744e-02
+  0 SNES Function norm 2.791003302511e+06 
+  1 SNES Function norm 3.345633413927e+01 
+  305   305 T=  91500.00 eta norm: 46962.8904 u norm: 45321.8442  4.20
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.8492e-02
+  0 SNES Function norm 2.740032758987e+06 
+  1 SNES Function norm 3.104964313535e+01 
+  306   306 T=  91800.00 eta norm: 48913.4925 u norm: 46361.7970  5.11
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.1200e-02
+  0 SNES Function norm 2.685855157492e+06 
+  1 SNES Function norm 2.874618534574e+01 
+  307   307 T=  92100.00 eta norm: 50944.3260 u norm: 47335.4931  4.89
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.3864e-02
+  0 SNES Function norm 2.628588416291e+06 
+  1 SNES Function norm 2.654556534523e+01 
+  308   308 T=  92400.00 eta norm: 53034.7475 u norm: 48237.8351  4.63
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.6479e-02
+  0 SNES Function norm 2.568522207027e+06 
+  1 SNES Function norm 2.445304126726e+01 
+  309   309 T=  92700.00 eta norm: 55165.6336 u norm: 49064.1644  4.95
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.9041e-02
+  0 SNES Function norm 2.505770498476e+06 
+  1 SNES Function norm 2.247729686327e+01 
+  310   310 T=  93000.00 eta norm: 57318.9851 u norm: 49810.4600  4.07
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.1544e-02
+  0 SNES Function norm 2.440660341654e+06 
+  1 SNES Function norm 2.062613855182e+01 
+  311   311 T=  93300.00 eta norm: 59477.6044 u norm: 50474.0191  4.58
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.3985e-02
+  0 SNES Function norm 2.373722811503e+06 
+  1 SNES Function norm 1.890448845076e+01 
+  312   312 T=  93600.00 eta norm: 61624.9494 u norm: 51052.9882  4.76
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.6356e-02
+  0 SNES Function norm 2.305372769901e+06 
+  1 SNES Function norm 1.731353233643e+01 
+  313   313 T=  93900.00 eta norm: 63745.1523 u norm: 51545.8095  4.70
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.8653e-02
+  0 SNES Function norm 2.235961737261e+06 
+  1 SNES Function norm 1.585052354360e+01 
+  314   314 T=  94200.00 eta norm: 65823.1409 u norm: 51952.7013  3.98
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.0870e-02
+  0 SNES Function norm 2.166147049257e+06 
+  1 SNES Function norm 1.450856122233e+01 
+  315   315 T=  94500.00 eta norm: 67844.8183 u norm: 52273.8121  4.43
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.3001e-02
+  0 SNES Function norm 2.096127224550e+06 
+  1 SNES Function norm 1.327468275631e+01 
+  316   316 T=  94800.00 eta norm: 69797.1921 u norm: 52509.1838  4.58
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.5041e-02
+  0 SNES Function norm 2.026449750701e+06 
+  1 SNES Function norm 1.213116696575e+01 
+  317   317 T=  95100.00 eta norm: 71668.6813 u norm: 52659.2073  4.59
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.6984e-02
+  0 SNES Function norm 1.957990165073e+06 
+  1 SNES Function norm 1.106118291677e+01 
+  318   318 T=  95400.00 eta norm: 73449.3009 u norm: 52724.1149  4.07
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.8826e-02
+  0 SNES Function norm 1.891670995971e+06 
+  1 SNES Function norm 1.005382416803e+01 
+  319   319 T=  95700.00 eta norm: 75130.7145 u norm: 52704.3477  4.65
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.0563e-02
+  0 SNES Function norm 1.828241183296e+06 
+  1 SNES Function norm 9.106740815994e+00 
+  320   320 T=  96000.00 eta norm: 76706.1705 u norm: 52600.3504  4.59
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.2192e-02
+  0 SNES Function norm 1.768088936194e+06 
+  1 SNES Function norm 8.223606064775e+00 
+  321   321 T=  96300.00 eta norm: 78170.2802 u norm: 52412.5655  4.84
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.3708e-02
+  0 SNES Function norm 1.712450039688e+06 
+  1 SNES Function norm 7.409207052116e+00 
+  322   322 T=  96600.00 eta norm: 79518.8245 u norm: 52141.1400  4.02
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.5110e-02
+  0 SNES Function norm 1.662090537066e+06 
+  1 SNES Function norm 6.665261065239e+00 
+  323   323 T=  96900.00 eta norm: 80748.5193 u norm: 51786.6969  4.59
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.6396e-02
+  0 SNES Function norm 1.617918452122e+06 
+  1 SNES Function norm 5.988893787306e+00 
+  324   324 T=  97200.00 eta norm: 81856.7808 u norm: 51350.7800  4.57
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.7563e-02
+  0 SNES Function norm 1.581123327613e+06 
+  1 SNES Function norm 5.374428523342e+00 
+  325   325 T=  97500.00 eta norm: 82841.4094 u norm: 50835.0179  4.39
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.8610e-02
+  0 SNES Function norm 1.552449609357e+06 
+  1 SNES Function norm 4.814417589230e+00 
+  326   326 T=  97800.00 eta norm: 83700.3304 u norm: 50241.3262  4.21
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.9536e-02
+  0 SNES Function norm 1.532545463157e+06 
+  1 SNES Function norm 4.301373708051e+00 
+  327   327 T=  98100.00 eta norm: 84431.4812 u norm: 49571.5121  4.46
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.0338e-02
+  0 SNES Function norm 1.521913148822e+06 
+  1 SNES Function norm 3.829285139338e+00 
+  328   328 T=  98400.00 eta norm: 85032.8299 u norm: 48827.2119  4.50
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.1016e-02
+  0 SNES Function norm 1.520929282125e+06 
+  1 SNES Function norm 3.393903304282e+00 
+  329   329 T=  98700.00 eta norm: 85502.5164 u norm: 48010.0161  4.01
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.1568e-02
+  0 SNES Function norm 1.529598088007e+06 
+  1 SNES Function norm 2.992755037053e+00 
+  330   330 T=  99000.00 eta norm: 85838.9718 u norm: 47121.5458  4.46
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.1994e-02
+  0 SNES Function norm 1.547715107398e+06 
+  1 SNES Function norm 2.625003161253e+00 
+  331   331 T=  99300.00 eta norm: 86040.9877 u norm: 46163.6195  4.73
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.2293e-02
+  0 SNES Function norm 1.575169940713e+06 
+  1 SNES Function norm 2.291546645170e+00 
+  332   332 T=  99600.00 eta norm: 86107.7550 u norm: 45138.6187  4.90
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.2464e-02
+  0 SNES Function norm 1.611145323818e+06 
+  1 SNES Function norm 1.994685860668e+00 
+  333   333 T=  99900.00 eta norm: 86038.8932 u norm: 44049.6520  4.58
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.2508e-02
+  0 SNES Function norm 1.654900021041e+06 
+  1 SNES Function norm 1.738402343989e+00 
+  334   334 T= 100200.00 eta norm: 85834.4689 u norm: 42899.9356  4.24
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.2423e-02
+  0 SNES Function norm 1.705432196874e+06 
+  1 SNES Function norm 1.529009072799e+00 
+  335   335 T= 100500.00 eta norm: 85494.9708 u norm: 41692.8816  4.48
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.2211e-02
+  0 SNES Function norm 1.761709820447e+06 
+  1 SNES Function norm 1.375418261932e+00 
+  336   336 T= 100800.00 eta norm: 85021.2904 u norm: 40431.7170  4.55
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.1871e-02
+  0 SNES Function norm 1.822690993512e+06 
+  1 SNES Function norm 1.287628141822e+00 
+  337   337 T= 101100.00 eta norm: 84414.7215 u norm: 39119.8518  3.98
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.1404e-02
+  0 SNES Function norm 1.887136379119e+06 
+  1 SNES Function norm 1.272547270229e+00 
+  338   338 T= 101400.00 eta norm: 83676.9712 u norm: 37761.1027  4.34
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.0810e-02
+  0 SNES Function norm 1.954573576446e+06 
+  1 SNES Function norm 1.329828561546e+00 
+  339   339 T= 101700.00 eta norm: 82810.2007 u norm: 36359.6635  4.73
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.0091e-02
+  0 SNES Function norm 2.024194444009e+06 
+  1 SNES Function norm 1.451969822078e+00 
+  340   340 T= 102000.00 eta norm: 81817.0237 u norm: 34920.4567  4.52
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.9247e-02
+  0 SNES Function norm 2.095302306079e+06 
+  1 SNES Function norm 1.628448921850e+00 
+  341   341 T= 102300.00 eta norm: 80700.4571 u norm: 33448.7761  3.86
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.8280e-02
+  0 SNES Function norm 2.167393067733e+06 
+  1 SNES Function norm 1.850285710198e+00 
+  342   342 T= 102600.00 eta norm: 79463.8699 u norm: 31951.4214  4.89
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.7191e-02
+  0 SNES Function norm 2.239718371275e+06 
+  1 SNES Function norm 2.112131773327e+00 
+  343   343 T= 102900.00 eta norm: 78110.9492 u norm: 30436.7558  4.49
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.5983e-02
+  0 SNES Function norm 2.311743977202e+06 
+  1 SNES Function norm 2.412143212787e+00 
+  344   344 T= 103200.00 eta norm: 76645.6942 u norm: 28914.7428  4.50
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.4656e-02
+  0 SNES Function norm 2.383079044662e+06 
+  1 SNES Function norm 2.751040337140e+00 
+  345   345 T= 103500.00 eta norm: 75072.4434 u norm: 27397.1423  4.10
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.3213e-02
+  0 SNES Function norm 2.453293277203e+06 
+  1 SNES Function norm 3.131187115174e+00 
+  346   346 T= 103800.00 eta norm: 73395.9402 u norm: 25898.1376  4.52
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.1655e-02
+  0 SNES Function norm 2.521934933616e+06 
+  1 SNES Function norm 3.555627166393e+00 
+  347   347 T= 104100.00 eta norm: 71621.4613 u norm: 24434.7267  4.51
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.9985e-02
+  0 SNES Function norm 2.588744846926e+06 
+  1 SNES Function norm 4.027084782031e+00 
+  348   348 T= 104400.00 eta norm: 69755.0023 u norm: 23027.1532  4.42
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.8204e-02
+  0 SNES Function norm 2.653453674168e+06 
+  1 SNES Function norm 4.547077206289e+00 
+  349   349 T= 104700.00 eta norm: 67803.5185 u norm: 21699.7768  4.37
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.6315e-02
+  0 SNES Function norm 2.715749107180e+06 
+  1 SNES Function norm 5.115746519336e+00 
+  350   350 T= 105000.00 eta norm: 65775.1780 u norm: 20481.3939  4.91
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.4321e-02
+  0 SNES Function norm 2.775353411944e+06 
+  1 SNES Function norm 5.732315698305e+00 
+  351   351 T= 105300.00 eta norm: 63679.6121 u norm: 19405.3120  4.69
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.2224e-02
+  0 SNES Function norm 2.831988189750e+06 
+  1 SNES Function norm 6.396319174246e+00 
+  352   352 T= 105600.00 eta norm: 61528.1305 u norm: 18508.4064  4.64
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.0029e-02
+  0 SNES Function norm 2.885407520500e+06 
+  1 SNES Function norm 7.108326201360e+00 
+  353   353 T= 105900.00 eta norm: 59333.9222 u norm: 17828.5953  4.22
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.7739e-02
+  0 SNES Function norm 2.935388581336e+06 
+  1 SNES Function norm 7.870863362271e+00 
+  354   354 T= 106200.00 eta norm: 57112.2338 u norm: 17400.8848  4.57
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.5361e-02
+  0 SNES Function norm 2.981732772205e+06 
+  1 SNES Function norm 8.688608391518e+00 
+  355   355 T= 106500.00 eta norm: 54880.5412 u norm: 17251.8886  4.81
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.2898e-02
+  0 SNES Function norm 3.024242837714e+06 
+  1 SNES Function norm 9.568322195587e+00 
+  356   356 T= 106800.00 eta norm: 52658.7363 u norm: 17394.5082  4.87
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.0357e-02
+  0 SNES Function norm 3.062734947762e+06 
+  1 SNES Function norm 1.051750013324e+01 
+  357   357 T= 107100.00 eta norm: 50469.2893 u norm: 17825.1056  4.01
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.7744e-02
+  0 SNES Function norm 3.097041821873e+06 
+  1 SNES Function norm 1.154345666053e+01 
+  358   358 T= 107400.00 eta norm: 48337.3905 u norm: 18524.6774  4.95
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.5064e-02
+  0 SNES Function norm 3.127016475470e+06 
+  1 SNES Function norm 1.265278858829e+01 
+  359   359 T= 107700.00 eta norm: 46291.0809 u norm: 19462.7893  4.73
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.2324e-02
+  0 SNES Function norm 3.152548370706e+06 
+  1 SNES Function norm 1.385148053510e+01 
+  360   360 T= 108000.00 eta norm: 44361.2802 u norm: 20603.1074  4.62
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.9531e-02
+  0 SNES Function norm 3.173549274124e+06 
+  1 SNES Function norm 1.514529177779e+01 
+  361   361 T= 108300.00 eta norm: 42581.6110 u norm: 21908.1799  4.93
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.6689e-02
+  0 SNES Function norm 3.189961392688e+06 
+  1 SNES Function norm 1.653991669675e+01 
+  362   362 T= 108600.00 eta norm: 40987.8535 u norm: 23342.4307  3.79
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.3805e-02
+  0 SNES Function norm 3.201757402493e+06 
+  1 SNES Function norm 1.804188730371e+01 
+  363   363 T= 108900.00 eta norm: 39616.8797 u norm: 24874.0192  4.64
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.0884e-02
+  0 SNES Function norm 3.208913087729e+06 
+  1 SNES Function norm 1.965696202743e+01 
+  364   364 T= 109200.00 eta norm: 38504.9607 u norm: 26475.0907  4.71
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.7931e-02
+  0 SNES Function norm 3.211449825517e+06 
+  1 SNES Function norm 2.139242703250e+01 
+  365   365 T= 109500.00 eta norm: 37685.3800 u norm: 28121.8333  5.46
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.4952e-02
+  0 SNES Function norm 3.209391113349e+06 
+  1 SNES Function norm 2.325610271129e+01 
+  366   366 T= 109800.00 eta norm: 37185.6336 u norm: 29793.6904  4.64
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.1951e-02
+  0 SNES Function norm 3.202743595243e+06 
+  1 SNES Function norm 2.525685830477e+01 
+  367   367 T= 110100.00 eta norm: 37024.6324 u norm: 31473.0932  4.37
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.9337e-03
+  0 SNES Function norm 3.191528654659e+06 
+  1 SNES Function norm 2.740437636148e+01 
+  368   368 T= 110400.00 eta norm: 37210.5765 u norm: 33144.9125  4.66
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.9045e-03
+  0 SNES Function norm 3.175816775000e+06 
+  1 SNES Function norm 2.970849075746e+01 
+  369   369 T= 110700.00 eta norm: 37740.0770 u norm: 34796.0826  4.66
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.8679e-03
+  0 SNES Function norm 3.155685156138e+06 
+  1 SNES Function norm 3.217631433342e+01 
+  370   370 T= 111000.00 eta norm: 38598.7946 u norm: 36415.0556  4.73
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.7152e-04
+  0 SNES Function norm 3.131199264936e+06 
+  1 SNES Function norm 3.481167251919e+01 
+  371   371 T= 111300.00 eta norm: 39763.3915 u norm: 37991.4863  4.62
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.2094e-03
+  0 SNES Function norm 3.102407641298e+06 
+  1 SNES Function norm 3.761345194805e+01 
+  372   372 T= 111600.00 eta norm: 41204.2665 u norm: 39516.0928  4.30
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.2414e-03
+  0 SNES Function norm 3.069368885369e+06 
+  1 SNES Function norm 4.057508492590e+01 
+  373   373 T= 111900.00 eta norm: 42888.4072 u norm: 40980.3977  4.90
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -9.2634e-03
+  0 SNES Function norm 3.032191418045e+06 
+  1 SNES Function norm 4.368580117728e+01 
+  374   374 T= 112200.00 eta norm: 44781.8478 u norm: 42376.9027  5.09
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.2271e-02
+  0 SNES Function norm 2.990996956008e+06 
+  1 SNES Function norm 4.692863807493e+01 
+  375   375 T= 112500.00 eta norm: 46851.4972 u norm: 43699.5233  4.55
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.5260e-02
+  0 SNES Function norm 2.945963319772e+06 
+  1 SNES Function norm 5.027954308826e+01 
+  376   376 T= 112800.00 eta norm: 49066.3159 u norm: 44943.5170  4.20
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.8227e-02
+  0 SNES Function norm 2.897267748187e+06 
+  1 SNES Function norm 5.370587720282e+01 
+  377   377 T= 113100.00 eta norm: 51397.8367 u norm: 46105.1328  4.65
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.1167e-02
+  0 SNES Function norm 2.845066770453e+06 
+  1 SNES Function norm 5.716896611126e+01 
+  378   378 T= 113400.00 eta norm: 53820.2428 u norm: 47181.5714  4.73
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.4076e-02
+  0 SNES Function norm 2.789595079693e+06 
+  1 SNES Function norm 6.062718534458e+01 
+  379   379 T= 113700.00 eta norm: 56310.2122 u norm: 48170.7762  4.75
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.6949e-02
+  0 SNES Function norm 2.731131026623e+06 
+  1 SNES Function norm 6.403950801012e+01 
+  380   380 T= 114000.00 eta norm: 58846.6594 u norm: 49071.3106  4.61
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.9782e-02
+  0 SNES Function norm 2.669858690282e+06 
+  1 SNES Function norm 6.736883841191e+01 
+  381   381 T= 114300.00 eta norm: 61410.4891 u norm: 49882.5409  4.31
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.2570e-02
+  0 SNES Function norm 2.606016483006e+06 
+  1 SNES Function norm 7.058386295857e+01 
+  382   382 T= 114600.00 eta norm: 63984.3812 u norm: 50604.4705  4.59
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.5308e-02
+  0 SNES Function norm 2.539879856357e+06 
+  1 SNES Function norm 7.365834500108e+01 
+  383   383 T= 114900.00 eta norm: 66552.5608 u norm: 51237.0050  4.44
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.7989e-02
+  0 SNES Function norm 2.471702165080e+06 
+  1 SNES Function norm 7.656277899641e+01 
+  384   384 T= 115200.00 eta norm: 69100.5345 u norm: 51779.8840  4.41
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.0610e-02
+  0 SNES Function norm 2.401806368309e+06 
+  1 SNES Function norm 7.925392107930e+01 
+  385   385 T= 115500.00 eta norm: 71614.8285 u norm: 52233.1662  4.42
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.3163e-02
+  0 SNES Function norm 2.330456125535e+06 
+  1 SNES Function norm 8.167316066332e+01 
+  386   386 T= 115800.00 eta norm: 74082.7922 u norm: 52597.2570  4.63
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.5642e-02
+  0 SNES Function norm 2.257951517432e+06 
+  1 SNES Function norm 8.374928423422e+01 
+  387   387 T= 116100.00 eta norm: 76492.4784 u norm: 52873.0290  4.69
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.8043e-02
+  0 SNES Function norm 2.184702414021e+06 
+  1 SNES Function norm 8.541192286067e+01 
+  388   388 T= 116400.00 eta norm: 78832.5719 u norm: 53061.9286  4.57
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.0358e-02
+  0 SNES Function norm 2.111201513215e+06 
+  1 SNES Function norm 8.661080482191e+01 
+  389   389 T= 116700.00 eta norm: 81092.4320 u norm: 53166.1199  4.62
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.2582e-02
+  0 SNES Function norm 2.037878556122e+06 
+  1 SNES Function norm 8.732843772820e+01 
+  390   390 T= 117000.00 eta norm: 83262.1487 u norm: 53187.9830  5.02
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.4709e-02
+  0 SNES Function norm 1.965489962749e+06 
+  1 SNES Function norm 8.758850690869e+01 
+  391   391 T= 117300.00 eta norm: 85332.6520 u norm: 53129.9562  4.96
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.6734e-02
+  0 SNES Function norm 1.894732154921e+06 
+  1 SNES Function norm 8.745217548143e+01 
+  392   392 T= 117600.00 eta norm: 87295.8048 u norm: 52994.5146  4.92
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.8653e-02
+  0 SNES Function norm 1.826186010608e+06 
+  1 SNES Function norm 8.700148071704e+01 
+  393   393 T= 117900.00 eta norm: 89144.4338 u norm: 52784.1062  4.35
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.0459e-02
+  0 SNES Function norm 1.760513918818e+06 
+  1 SNES Function norm 8.633156341064e+01 
+  394   394 T= 118200.00 eta norm: 90872.2924 u norm: 52500.9733  4.32
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.2149e-02
+  0 SNES Function norm 1.698651590319e+06 
+  1 SNES Function norm 8.555198123491e+01 
+  395   395 T= 118500.00 eta norm: 92473.9867 u norm: 52146.8729  4.77
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.3720e-02
+  0 SNES Function norm 1.641552400490e+06 
+  1 SNES Function norm 8.478258538902e+01 
+  396   396 T= 118800.00 eta norm: 93944.8497 u norm: 51723.3507  4.79
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.5168e-02
+  0 SNES Function norm 1.590330219115e+06 
+  1 SNES Function norm 8.413970850693e+01 
+  397   397 T= 119100.00 eta norm: 95280.8068 u norm: 51232.3374  4.69
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.6489e-02
+  0 SNES Function norm 1.545862850722e+06 
+  1 SNES Function norm 8.370374932603e+01 
+  398   398 T= 119400.00 eta norm: 96478.2728 u norm: 50676.0942  4.17
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.7682e-02
+  0 SNES Function norm 1.509157185335e+06 
+  1 SNES Function norm 8.349424536182e+01 
+  399   399 T= 119700.00 eta norm: 97534.0839 u norm: 50056.8167  4.59
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.8744e-02
+  0 SNES Function norm 1.481316264936e+06 
+  1 SNES Function norm 8.347446780140e+01 
+  400   400 T= 120000.00 eta norm: 98445.4508 u norm: 49376.6808  4.45
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.9672e-02
+  0 SNES Function norm 1.463221749131e+06 
+  1 SNES Function norm 8.358115679232e+01 
+  401   401 T= 120300.00 eta norm: 99209.9314 u norm: 48638.0901  4.49
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.0466e-02
+  0 SNES Function norm 1.455341545577e+06 
+  1 SNES Function norm 8.375638960338e+01 
+  402   402 T= 120600.00 eta norm: 99825.3985 u norm: 47843.2818  4.12
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.1123e-02
+  0 SNES Function norm 1.457738879989e+06 
+  1 SNES Function norm 8.396953461761e+01 
+  403   403 T= 120900.00 eta norm: 100289.9910 u norm: 46994.2208  4.73
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.1643e-02
+  0 SNES Function norm 1.469932827550e+06 
+  1 SNES Function norm 8.422858938074e+01 
+  404   404 T= 121200.00 eta norm: 100602.0642 u norm: 46092.7215  4.55
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.2023e-02
+  0 SNES Function norm 1.491829356001e+06 
+  1 SNES Function norm 8.458559920847e+01 
+  405   405 T= 121500.00 eta norm: 100760.1442 u norm: 45140.9505  4.83
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.2264e-02
+  0 SNES Function norm 1.523228796511e+06 
+  1 SNES Function norm 8.513405142105e+01 
+  406   406 T= 121800.00 eta norm: 100762.9223 u norm: 44141.4946  4.45
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.2365e-02
+  0 SNES Function norm 1.563357969010e+06 
+  1 SNES Function norm 8.599118465394e+01 
+  407   407 T= 122100.00 eta norm: 100609.3088 u norm: 43097.5583  4.64
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.2325e-02
+  0 SNES Function norm 1.611555141766e+06 
+  1 SNES Function norm 8.725827506165e+01 
+  408   408 T= 122400.00 eta norm: 100298.5346 u norm: 42013.0087  4.91
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.2144e-02
+  0 SNES Function norm 1.667208557936e+06 
+  1 SNES Function norm 8.897551827855e+01 
+  409   409 T= 122700.00 eta norm: 99830.2766 u norm: 40891.9650  4.84
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.1821e-02
+  0 SNES Function norm 1.729385591097e+06 
+  1 SNES Function norm 9.108438723244e+01 
+  410   410 T= 123000.00 eta norm: 99204.7910 u norm: 39739.0695  4.48
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.1357e-02
+  0 SNES Function norm 1.796821655019e+06 
+  1 SNES Function norm 9.342611693189e+01 
+  411   411 T= 123300.00 eta norm: 98423.0208 u norm: 38559.1566  4.06
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.0751e-02
+  0 SNES Function norm 1.868548629492e+06 
+  1 SNES Function norm 9.577513687935e+01 
+  412   412 T= 123600.00 eta norm: 97486.6619 u norm: 37357.3738  4.58
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.0005e-02
+  0 SNES Function norm 1.943666081673e+06 
+  1 SNES Function norm 9.789114588852e+01 
+  413   413 T= 123900.00 eta norm: 96398.1764 u norm: 36138.9380  5.32
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.9119e-02
+  0 SNES Function norm 2.021317893320e+06 
+  1 SNES Function norm 9.957736950574e+01 
+  414   414 T= 124200.00 eta norm: 95160.7625 u norm: 34909.3067  5.05
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.8094e-02
+  0 SNES Function norm 2.100615025380e+06 
+  1 SNES Function norm 1.007303059058e+02 
+  415   415 T= 124500.00 eta norm: 93778.2903 u norm: 33674.4422  4.92
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.6931e-02
+  0 SNES Function norm 2.180702940192e+06 
+  1 SNES Function norm 1.013676207217e+02 
+  416   416 T= 124800.00 eta norm: 92255.2233 u norm: 32440.9402  4.10
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.5633e-02
+  0 SNES Function norm 2.260782217528e+06 
+  1 SNES Function norm 1.016202432857e+02 
+  417   417 T= 125100.00 eta norm: 90596.5198 u norm: 31216.1879  4.48
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.4203e-02
+  0 SNES Function norm 2.340418456056e+06 
+  1 SNES Function norm 1.016957312401e+02 
+  418   418 T= 125400.00 eta norm: 88807.5550 u norm: 30008.9506  4.79
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.2641e-02
+  0 SNES Function norm 2.419174694554e+06 
+  1 SNES Function norm 1.018218801536e+02 
+  419   419 T= 125700.00 eta norm: 86894.0823 u norm: 28830.0813  4.94
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.0953e-02
+  0 SNES Function norm 2.496751073783e+06 
+  1 SNES Function norm 1.021795112625e+02 
+  420   420 T= 126000.00 eta norm: 84862.2447 u norm: 27691.8198  4.86
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.9140e-02
+  0 SNES Function norm 2.572889302003e+06 
+  1 SNES Function norm 1.028535852773e+02 
+  421   421 T= 126300.00 eta norm: 82718.6412 u norm: 26608.0593  3.93
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.7207e-02
+  0 SNES Function norm 2.647295126442e+06 
+  1 SNES Function norm 1.038245131599e+02 
+  422   422 T= 126600.00 eta norm: 80470.4668 u norm: 25594.1301  4.88
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.5157e-02
+  0 SNES Function norm 2.719651038120e+06 
+  1 SNES Function norm 1.050018135715e+02 
+  423   423 T= 126900.00 eta norm: 78125.7088 u norm: 24666.5924  4.85
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.2995e-02
+  0 SNES Function norm 2.789629580974e+06 
+  1 SNES Function norm 1.062777612238e+02 
+  424   424 T= 127200.00 eta norm: 75693.3930 u norm: 23843.0470  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.0726e-02
+  0 SNES Function norm 2.856932280714e+06 
+  1 SNES Function norm 1.075773873206e+02 
+  425   425 T= 127500.00 eta norm: 73183.8458 u norm: 23141.5730  3.97
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.8354e-02
+  0 SNES Function norm 2.921365223106e+06 
+  1 SNES Function norm 1.088745369073e+02 
+  426   426 T= 127800.00 eta norm: 70608.9479 u norm: 22580.5095  4.79
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.5885e-02
+  0 SNES Function norm 2.982696335066e+06 
+  1 SNES Function norm 1.101683634195e+02 
+  427   427 T= 128100.00 eta norm: 67982.3723 u norm: 22177.0025  4.90
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.3324e-02
+  0 SNES Function norm 3.040659272995e+06 
+  1 SNES Function norm 1.114521886987e+02 
+  428   428 T= 128400.00 eta norm: 65319.7860 u norm: 21945.6087  4.20
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.0678e-02
+  0 SNES Function norm 3.095010757243e+06 
+  1 SNES Function norm 1.126895422671e+02 
+  429   429 T= 128700.00 eta norm: 62639.0104 u norm: 21896.9085  4.12
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.7951e-02
+  0 SNES Function norm 3.145513432844e+06 
+  1 SNES Function norm 1.137869764000e+02 
+  430   430 T= 129000.00 eta norm: 59960.1816 u norm: 22036.5245  4.45
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.5151e-02
+  0 SNES Function norm 3.191931509769e+06 
+  1 SNES Function norm 1.145753391814e+02 
+  431   431 T= 129300.00 eta norm: 57305.8884 u norm: 22364.5655  4.66
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.2284e-02
+  0 SNES Function norm 3.234067224005e+06 
+  1 SNES Function norm 1.148298829950e+02 
+  432   432 T= 129600.00 eta norm: 54701.3171 u norm: 22875.3522  4.24
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.9355e-02
+  0 SNES Function norm 3.271722523880e+06 
+  1 SNES Function norm 1.143249964145e+02 
+  433   433 T= 129900.00 eta norm: 52174.3393 u norm: 23558.5116  4.32
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.6373e-02
+  0 SNES Function norm 3.304761887386e+06 
+  1 SNES Function norm 1.128952883965e+02 
+  434   434 T= 130200.00 eta norm: 49755.5340 u norm: 24399.8520  4.68
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.3342e-02
+  0 SNES Function norm 3.333068247727e+06 
+  1 SNES Function norm 1.104787919665e+02 
+  435   435 T= 130500.00 eta norm: 47478.0860 u norm: 25382.1881  4.93
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.0269e-02
+  0 SNES Function norm 3.356580170467e+06 
+  1 SNES Function norm 1.071230104652e+02 
+  436   436 T= 130800.00 eta norm: 45377.4470 u norm: 26487.2605  4.30
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.7159e-02
+  0 SNES Function norm 3.375244434414e+06 
+  1 SNES Function norm 1.029680066514e+02 
+  437   437 T= 131100.00 eta norm: 43490.6438 u norm: 27696.3382  4.19
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.4020e-02
+  0 SNES Function norm 3.389042081580e+06 
+  1 SNES Function norm 9.820935672867e+01 
+  438   438 T= 131400.00 eta norm: 41855.1543 u norm: 28990.9796  4.72
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.0855e-02
+  0 SNES Function norm 3.397966040828e+06 
+  1 SNES Function norm 9.305623456315e+01 
+  439   439 T= 131700.00 eta norm: 40507.2539 u norm: 30353.5831  4.83
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.6693e-03
+  0 SNES Function norm 3.402030750214e+06 
+  1 SNES Function norm 8.770208876321e+01 
+  440   440 T= 132000.00 eta norm: 39479.8632 u norm: 31767.4689  4.97
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.4680e-03
+  0 SNES Function norm 3.401290214618e+06 
+  1 SNES Function norm 8.230513983319e+01 
+  441   441 T= 132300.00 eta norm: 38799.9466 u norm: 33217.1030  4.10
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.2552e-03
+  0 SNES Function norm 3.395795814653e+06 
+  1 SNES Function norm 7.698422969518e+01 
+  442   442 T= 132600.00 eta norm: 38485.9564 u norm: 34688.0939  5.21
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.9650e-03
+  0 SNES Function norm 3.385595842413e+06 
+  1 SNES Function norm 7.182427272916e+01 
+  443   443 T= 132900.00 eta norm: 38545.7695 u norm: 36167.3758  4.82
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.1883e-03
+  0 SNES Function norm 3.370789634846e+06 
+  1 SNES Function norm 6.688175302027e+01 
+  444   444 T= 133200.00 eta norm: 38975.7200 u norm: 37643.1499  5.05
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.4105e-03
+  0 SNES Function norm 3.351409827325e+06 
+  1 SNES Function norm 6.218788804209e+01 
+  445   445 T= 133500.00 eta norm: 39761.0506 u norm: 39104.7840  4.71
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.1627e-02
+  0 SNES Function norm 3.327493238320e+06 
+  1 SNES Function norm 5.775488952791e+01 
+  446   446 T= 133800.00 eta norm: 40877.6428 u norm: 40542.8455  3.79
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.4835e-02
+  0 SNES Function norm 3.299069536568e+06 
+  1 SNES Function norm 5.357794733803e+01 
+  447   447 T= 134100.00 eta norm: 42294.5381 u norm: 41948.9064  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.8029e-02
+  0 SNES Function norm 3.266173618504e+06 
+  1 SNES Function norm 4.964578344935e+01 
+  448   448 T= 134400.00 eta norm: 43976.6881 u norm: 43315.0773  4.69
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.1205e-02
+  0 SNES Function norm 3.228831507173e+06 
+  1 SNES Function norm 4.594628254762e+01 
+  449   449 T= 134700.00 eta norm: 45887.4060 u norm: 44634.4561  4.16
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.4359e-02
+  0 SNES Function norm 3.187145804837e+06 
+  1 SNES Function norm 4.246500659483e+01 
+  450   450 T= 135000.00 eta norm: 47990.3895 u norm: 45900.8238  4.67
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.7487e-02
+  0 SNES Function norm 3.141218699070e+06 
+  1 SNES Function norm 3.918902903580e+01 
+  451   451 T= 135300.00 eta norm: 50251.2157 u norm: 47109.1403  4.62
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.0584e-02
+  0 SNES Function norm 3.091328650056e+06 
+  1 SNES Function norm 3.610902586434e+01 
+  452   452 T= 135600.00 eta norm: 52638.1886 u norm: 48254.5388  4.70
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.3647e-02
+  0 SNES Function norm 3.037576280389e+06 
+  1 SNES Function norm 3.321978813459e+01 
+  453   453 T= 135900.00 eta norm: 55122.5564 u norm: 49332.1006  4.44
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.6671e-02
+  0 SNES Function norm 2.980140435674e+06 
+  1 SNES Function norm 3.052038665769e+01 
+  454   454 T= 136200.00 eta norm: 57678.2357 u norm: 50337.2819  4.64
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.9650e-02
+  0 SNES Function norm 2.919274587128e+06 
+  1 SNES Function norm 2.801092380690e+01 
+  455   455 T= 136500.00 eta norm: 60281.3591 u norm: 51265.7563  4.69
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.2579e-02
+  0 SNES Function norm 2.854854718754e+06 
+  1 SNES Function norm 2.569052473654e+01 
+  456   456 T= 136800.00 eta norm: 62909.9038 u norm: 52113.8552  4.42
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.5452e-02
+  0 SNES Function norm 2.787265316530e+06 
+  1 SNES Function norm 2.355586826196e+01 
+  457   457 T= 137100.00 eta norm: 65543.4770 u norm: 52878.9782  4.42
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.8263e-02
+  0 SNES Function norm 2.717266261274e+06 
+  1 SNES Function norm 2.160098605882e+01 
+  458   458 T= 137400.00 eta norm: 68163.2847 u norm: 53559.2320  4.57
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.1004e-02
+  0 SNES Function norm 2.645155226303e+06 
+  1 SNES Function norm 1.981495750931e+01 
+  459   459 T= 137700.00 eta norm: 70752.1802 u norm: 54153.6143  4.64
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.3670e-02
+  0 SNES Function norm 2.571002293653e+06 
+  1 SNES Function norm 1.818042780973e+01 
+  460   460 T= 138000.00 eta norm: 73294.7246 u norm: 54661.6529  4.66
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.6252e-02
+  0 SNES Function norm 2.495072235316e+06 
+  1 SNES Function norm 1.667378066629e+01 
+  461   461 T= 138300.00 eta norm: 75777.2055 u norm: 55083.2138  4.80
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.8746e-02
+  0 SNES Function norm 2.417774312670e+06 
+  1 SNES Function norm 1.526847437765e+01 
+  462   462 T= 138600.00 eta norm: 78187.6658 u norm: 55418.2203  4.05
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.1146e-02
+  0 SNES Function norm 2.339570288060e+06 
+  1 SNES Function norm 1.394187817913e+01 
+  463   463 T= 138900.00 eta norm: 80515.8345 u norm: 55666.2165  4.47
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.3448e-02
+  0 SNES Function norm 2.261100391292e+06 
+  1 SNES Function norm 1.268185562977e+01 
+  464   464 T= 139200.00 eta norm: 82752.9471 u norm: 55827.5804  5.11
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.5647e-02
+  0 SNES Function norm 2.183085229915e+06 
+  1 SNES Function norm 1.148859676820e+01 
+  465   465 T= 139500.00 eta norm: 84891.5346 u norm: 55902.2050  4.70
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.7741e-02
+  0 SNES Function norm 2.106222961317e+06 
+  1 SNES Function norm 1.037181083716e+01 
+  466   466 T= 139800.00 eta norm: 86925.1069 u norm: 55889.9823  4.32
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.9726e-02
+  0 SNES Function norm 2.031472501730e+06 
+  1 SNES Function norm 9.343951215205e+00 
+  467   467 T= 140100.00 eta norm: 88847.9582 u norm: 55791.0313  4.72
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.1601e-02
+  0 SNES Function norm 1.959719607478e+06 
+  1 SNES Function norm 8.412745839442e+00 
+  468   468 T= 140400.00 eta norm: 90655.0593 u norm: 55605.7644  4.77
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.3364e-02
+  0 SNES Function norm 1.891545035038e+06 
+  1 SNES Function norm 7.577991705760e+00 
+  469   469 T= 140700.00 eta norm: 92341.9378 u norm: 55335.0442  4.67
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.5010e-02
+  0 SNES Function norm 1.827802520503e+06 
+  1 SNES Function norm 6.832221491019e+00 
+  470   470 T= 141000.00 eta norm: 93904.5550 u norm: 54980.0835  4.49
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.6540e-02
+  0 SNES Function norm 1.769522736973e+06 
+  1 SNES Function norm 6.163569654251e+00 
+  471   471 T= 141300.00 eta norm: 95339.2417 u norm: 54542.9071  3.91
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.7949e-02
+  0 SNES Function norm 1.717683940927e+06 
+  1 SNES Function norm 5.558717618859e+00 
+  472   472 T= 141600.00 eta norm: 96642.6314 u norm: 54025.9804  4.79
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.9235e-02
+  0 SNES Function norm 1.673187837601e+06 
+  1 SNES Function norm 5.005177555975e+00 
+  473   473 T= 141900.00 eta norm: 97811.6086 u norm: 53431.7076  4.62
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.0397e-02
+  0 SNES Function norm 1.636849905397e+06 
+  1 SNES Function norm 4.492985320991e+00 
+  474   474 T= 142200.00 eta norm: 98843.3353 u norm: 52761.5631  4.62
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.1431e-02
+  0 SNES Function norm 1.608807033839e+06 
+  1 SNES Function norm 4.015304218634e+00 
+  475   475 T= 142500.00 eta norm: 99735.3022 u norm: 52016.4857  4.19
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.2336e-02
+  0 SNES Function norm 1.589379953287e+06 
+  1 SNES Function norm 3.568245301168e+00 
+  476   476 T= 142800.00 eta norm: 100485.4315 u norm: 51197.9819  4.63
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.3110e-02
+  0 SNES Function norm 1.579830135021e+06 
+  1 SNES Function norm 3.151505607469e+00 
+  477   477 T= 143100.00 eta norm: 101092.1884 u norm: 50308.4284  5.04
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.3753e-02
+  0 SNES Function norm 1.580347387227e+06 
+  1 SNES Function norm 2.766146346113e+00 
+  478   478 T= 143400.00 eta norm: 101554.6277 u norm: 49350.6300  4.44
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.4263e-02
+  0 SNES Function norm 1.591268095879e+06 
+  1 SNES Function norm 2.413925368149e+00 
+  479   479 T= 143700.00 eta norm: 101872.3374 u norm: 48327.2347  3.83
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.4641e-02
+  0 SNES Function norm 1.611874376165e+06 
+  1 SNES Function norm 2.096702369362e+00 
+  480   480 T= 144000.00 eta norm: 102045.3742 u norm: 47240.4380  4.76
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.4886e-02
+  0 SNES Function norm 1.641537012464e+06 
+  1 SNES Function norm 1.816368172661e+00 
+  481   481 T= 144300.00 eta norm: 102074.1930 u norm: 46092.8995  4.39
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.4999e-02
+  0 SNES Function norm 1.679647958823e+06 
+  1 SNES Function norm 1.575085349580e+00 
+  482   482 T= 144600.00 eta norm: 101959.5469 u norm: 44887.3557  4.32
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.4980e-02
+  0 SNES Function norm 1.725423128404e+06 
+  1 SNES Function norm 1.375813666805e+00 
+  483   483 T= 144900.00 eta norm: 101702.3440 u norm: 43626.6413  4.11
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.4831e-02
+  0 SNES Function norm 1.777985025818e+06 
+  1 SNES Function norm 1.222991055282e+00 
+  484   484 T= 145200.00 eta norm: 101303.5401 u norm: 42313.7623  4.91
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.4551e-02
+  0 SNES Function norm 1.836377994360e+06 
+  1 SNES Function norm 1.122803353616e+00 
+  485   485 T= 145500.00 eta norm: 100764.1036 u norm: 40952.0587  4.63
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.4142e-02
+  0 SNES Function norm 1.899635620836e+06 
+  1 SNES Function norm 1.081539412114e+00 
+  486   486 T= 145800.00 eta norm: 100085.0404 u norm: 39545.3997  4.27
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.3603e-02
+  0 SNES Function norm 1.966777507241e+06 
+  1 SNES Function norm 1.102488142326e+00 
+  487   487 T= 146100.00 eta norm: 99267.4290 u norm: 38098.6354  4.41
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.2935e-02
+  0 SNES Function norm 2.036862809903e+06 
+  1 SNES Function norm 1.183458019242e+00 
+  488   488 T= 146400.00 eta norm: 98312.4268 u norm: 36617.6037  4.62
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.2139e-02
+  0 SNES Function norm 2.109068080606e+06 
+  1 SNES Function norm 1.317692482460e+00 
+  489   489 T= 146700.00 eta norm: 97221.2729 u norm: 35108.9638  4.64
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.1214e-02
+  0 SNES Function norm 2.182554192271e+06 
+  1 SNES Function norm 1.497710365598e+00 
+  490   490 T= 147000.00 eta norm: 95995.3288 u norm: 33580.3936  4.07
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.0160e-02
+  0 SNES Function norm 2.256631531515e+06 
+  1 SNES Function norm 1.718034577660e+00 
+  491   491 T= 147300.00 eta norm: 94636.1735 u norm: 32040.5238  4.30
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.8979e-02
+  0 SNES Function norm 2.330763482780e+06 
+  1 SNES Function norm 1.975836910767e+00 
+  492   492 T= 147600.00 eta norm: 93145.7509 u norm: 30499.1888  4.46
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.7670e-02
+  0 SNES Function norm 2.404490341390e+06 
+  1 SNES Function norm 2.269826810775e+00 
+  493   493 T= 147900.00 eta norm: 91526.5626 u norm: 28967.5280  4.47
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.6235e-02
+  0 SNES Function norm 2.477346434647e+06 
+  1 SNES Function norm 2.599175996119e+00 
+  494   494 T= 148200.00 eta norm: 89781.8794 u norm: 27458.3557  4.36
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.4675e-02
+  0 SNES Function norm 2.548898440792e+06 
+  1 SNES Function norm 2.962805197312e+00 
+  495   495 T= 148500.00 eta norm: 87915.9454 u norm: 25986.7977  4.57
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.2991e-02
+  0 SNES Function norm 2.618766916116e+06 
+  1 SNES Function norm 3.359370810246e+00 
+  496   496 T= 148800.00 eta norm: 85934.1361 u norm: 24570.9169  4.57
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.1187e-02
+  0 SNES Function norm 2.686588529440e+06 
+  1 SNES Function norm 3.787860707342e+00 
+  497   497 T= 149100.00 eta norm: 83843.0293 u norm: 23232.2762  4.43
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.9267e-02
+  0 SNES Function norm 2.752032203105e+06 
+  1 SNES Function norm 4.247909800428e+00 
+  498   498 T= 149400.00 eta norm: 81650.3951 u norm: 21996.3878  4.27
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.7234e-02
+  0 SNES Function norm 2.814806649385e+06 
+  1 SNES Function norm 4.739931209960e+00 
+  499   499 T= 149700.00 eta norm: 79365.1343 u norm: 20892.6517  4.53
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.5094e-02
+  0 SNES Function norm 2.874621648908e+06 
+  1 SNES Function norm 5.265221308267e+00 
+  500   500 T= 150000.00 eta norm: 76997.1865 u norm: 19953.9570  5.07
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.2852e-02
+  0 SNES Function norm 2.931206920048e+06 
+  1 SNES Function norm 5.825599730307e+00 
+  501   501 T= 150300.00 eta norm: 74557.4475 u norm: 19214.7885  4.21
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.0514e-02
+  0 SNES Function norm 2.984321418847e+06 
+  1 SNES Function norm 6.423467250667e+00 
+  502   502 T= 150600.00 eta norm: 72057.7084 u norm: 18708.1707  4.11
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.8087e-02
+  0 SNES Function norm 3.033764548016e+06 
+  1 SNES Function norm 7.061642077554e+00 
+  503   503 T= 150900.00 eta norm: 69510.6444 u norm: 18461.2420  4.40
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.5575e-02
+  0 SNES Function norm 3.079357102804e+06 
+  1 SNES Function norm 7.743497751108e+00 
+  504   504 T= 151200.00 eta norm: 66929.8689 u norm: 18490.3910  4.85
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.2986e-02
+  0 SNES Function norm 3.120952213350e+06 
+  1 SNES Function norm 8.473270052902e+00 
+  505   505 T= 151500.00 eta norm: 64330.0415 u norm: 18798.0688  4.48
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.0325e-02
+  0 SNES Function norm 3.158416384510e+06 
+  1 SNES Function norm 9.254818208478e+00 
+  506   506 T= 151800.00 eta norm: 61727.0213 u norm: 19372.5830  4.21
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.7598e-02
+  0 SNES Function norm 3.191607464123e+06 
+  1 SNES Function norm 1.009146510074e+01 
+  507   507 T= 152100.00 eta norm: 59138.1004 u norm: 20190.1427  4.48
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.4811e-02
+  0 SNES Function norm 3.220418920380e+06 
+  1 SNES Function norm 1.098649927894e+01 
+  508   508 T= 152400.00 eta norm: 56582.2758 u norm: 21219.4274  4.79
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.1969e-02
+  0 SNES Function norm 3.244793014631e+06 
+  1 SNES Function norm 1.194332491002e+01 
+  509   509 T= 152700.00 eta norm: 54080.5441 u norm: 22426.1213  4.40
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.9077e-02
+  0 SNES Function norm 3.264650998901e+06 
+  1 SNES Function norm 1.296601636005e+01 
+  510   510 T= 153000.00 eta norm: 51656.2031 u norm: 23776.0778  4.54
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.6142e-02
+  0 SNES Function norm 3.279932219244e+06 
+  1 SNES Function norm 1.405936999005e+01 
+  511   511 T= 153300.00 eta norm: 49335.1412 u norm: 25237.4113  4.75
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.3166e-02
+  0 SNES Function norm 3.290597020690e+06 
+  1 SNES Function norm 1.522736290868e+01 
+  512   512 T= 153600.00 eta norm: 47146.0176 u norm: 26781.4382  4.99
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.0156e-02
+  0 SNES Function norm 3.296625767696e+06 
+  1 SNES Function norm 1.647449906736e+01 
+  513   513 T= 153900.00 eta norm: 45120.2392 u norm: 28383.0326  4.46
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.7116e-02
+  0 SNES Function norm 3.298052183817e+06 
+  1 SNES Function norm 1.780517894946e+01 
+  514   514 T= 154200.00 eta norm: 43291.5800 u norm: 30020.3493  4.17
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.4051e-02
+  0 SNES Function norm 3.294891480070e+06 
+  1 SNES Function norm 1.922457239379e+01 
+  515   515 T= 154500.00 eta norm: 41695.2860 u norm: 31674.4021  4.64
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.0965e-02
+  0 SNES Function norm 3.287162002374e+06 
+  1 SNES Function norm 2.073864840665e+01 
+  516   516 T= 154800.00 eta norm: 40366.5237 u norm: 33328.8295  4.85
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.7863e-02
+  0 SNES Function norm 3.274897319273e+06 
+  1 SNES Function norm 2.235376002424e+01 
+  517   517 T= 155100.00 eta norm: 39338.1242 u norm: 34969.4919  4.82
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.4749e-02
+  0 SNES Function norm 3.258115641258e+06 
+  1 SNES Function norm 2.407517252684e+01 
+  518   518 T= 155400.00 eta norm: 38637.7792 u norm: 36583.8963  4.28
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.1629e-02
+  0 SNES Function norm 3.236886937122e+06 
+  1 SNES Function norm 2.590746451188e+01 
+  519   519 T= 155700.00 eta norm: 38285.0760 u norm: 38160.7916  5.11
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  8.5062e-03
+  0 SNES Function norm 3.211303210601e+06 
+  1 SNES Function norm 2.785077537979e+01 
+  520   520 T= 156000.00 eta norm: 38289.0848 u norm: 39689.8580  4.76
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.3858e-03
+  0 SNES Function norm 3.181379970083e+06 
+  1 SNES Function norm 2.990279106500e+01 
+  521   521 T= 156300.00 eta norm: 38647.0704 u norm: 41161.7580  4.82
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.2721e-03
+  0 SNES Function norm 3.147173630543e+06 
+  1 SNES Function norm 3.205822393654e+01 
+  522   522 T= 156600.00 eta norm: 39344.7536 u norm: 42568.1566  4.93
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -8.3040e-04
+  0 SNES Function norm 3.108851964968e+06 
+  1 SNES Function norm 3.430885250723e+01 
+  523   523 T= 156900.00 eta norm: 40358.0300 u norm: 43902.5530  4.97
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.9173e-03
+  0 SNES Function norm 3.066579515898e+06 
+  1 SNES Function norm 3.664220800160e+01 
+  524   524 T= 157200.00 eta norm: 41655.7325 u norm: 45159.8171  4.07
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.9842e-03
+  0 SNES Function norm 3.020503593572e+06 
+  1 SNES Function norm 3.904137845454e+01 
+  525   525 T= 157500.00 eta norm: 43202.6666 u norm: 46335.8550  4.59
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.0027e-02
+  0 SNES Function norm 2.970806404191e+06 
+  1 SNES Function norm 4.148690721222e+01 
+  526   526 T= 157800.00 eta norm: 44962.2940 u norm: 47427.5798  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.3040e-02
+  0 SNES Function norm 2.917761389863e+06 
+  1 SNES Function norm 4.396045932163e+01 
+  527   527 T= 158100.00 eta norm: 46898.7719 u norm: 48432.8142  4.55
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.6021e-02
+  0 SNES Function norm 2.861636013992e+06 
+  1 SNES Function norm 4.644651706732e+01 
+  528   528 T= 158400.00 eta norm: 48978.2805 u norm: 49349.9867  4.34
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.8963e-02
+  0 SNES Function norm 2.802630804828e+06 
+  1 SNES Function norm 4.893170768492e+01 
+  529   529 T= 158700.00 eta norm: 51169.7505 u norm: 50178.3168  5.00
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.1862e-02
+  0 SNES Function norm 2.740958545879e+06 
+  1 SNES Function norm 5.140414058546e+01 
+  530   530 T= 159000.00 eta norm: 53445.1073 u norm: 50917.2469  4.86
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.4714e-02
+  0 SNES Function norm 2.676854569288e+06 
+  1 SNES Function norm 5.385249514680e+01 
+  531   531 T= 159300.00 eta norm: 55779.1756 u norm: 51566.6716  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.7514e-02
+  0 SNES Function norm 2.610581017407e+06 
+  1 SNES Function norm 5.626400835769e+01 
+  532   532 T= 159600.00 eta norm: 58149.4088 u norm: 52126.5453  4.42
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.0255e-02
+  0 SNES Function norm 2.542444986483e+06 
+  1 SNES Function norm 5.861908274674e+01 
+  533   533 T= 159900.00 eta norm: 60535.5359 u norm: 52597.0474  4.29
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.2934e-02
+  0 SNES Function norm 2.472707018256e+06 
+  1 SNES Function norm 6.088580410071e+01 
+  534   534 T= 160200.00 eta norm: 62919.1987 u norm: 52978.7641  4.63
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.5543e-02
+  0 SNES Function norm 2.401592131646e+06 
+  1 SNES Function norm 6.301836856382e+01 
+  535   535 T= 160500.00 eta norm: 65283.6531 u norm: 53272.3724  4.72
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.8078e-02
+  0 SNES Function norm 2.329382417598e+06 
+  1 SNES Function norm 6.495596447295e+01 
+  536   536 T= 160800.00 eta norm: 67613.5310 u norm: 53478.9096  4.46
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.0533e-02
+  0 SNES Function norm 2.256411290227e+06 
+  1 SNES Function norm 6.663220864683e+01 
+  537   537 T= 161100.00 eta norm: 69894.6781 u norm: 53599.8897  4.30
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.2902e-02
+  0 SNES Function norm 2.183062838348e+06 
+  1 SNES Function norm 6.798807637663e+01 
+  538   538 T= 161400.00 eta norm: 72114.0465 u norm: 53637.1913  4.48
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.5180e-02
+  0 SNES Function norm 2.109768433325e+06 
+  1 SNES Function norm 6.898335352046e+01 
+  539   539 T= 161700.00 eta norm: 74259.6204 u norm: 53592.8111  4.73
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.7362e-02
+  0 SNES Function norm 2.037316533490e+06 
+  1 SNES Function norm 6.961169870235e+01 
+  540   540 T= 162000.00 eta norm: 76320.4144 u norm: 53469.3453  4.61
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.9441e-02
+  0 SNES Function norm 1.966254118995e+06 
+  1 SNES Function norm 6.990800105133e+01 
+  541   541 T= 162300.00 eta norm: 78286.5302 u norm: 53269.2170  4.23
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.1414e-02
+  0 SNES Function norm 1.897285835873e+06 
+  1 SNES Function norm 6.993804567564e+01 
+  542   542 T= 162600.00 eta norm: 80149.1956 u norm: 52994.7018  4.53
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.3276e-02
+  0 SNES Function norm 1.831140843419e+06 
+  1 SNES Function norm 6.978955153752e+01 
+  543   543 T= 162900.00 eta norm: 81900.7720 u norm: 52647.6530  4.59
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.5022e-02
+  0 SNES Function norm 1.768541336457e+06 
+  1 SNES Function norm 6.956370024084e+01 
+  544   544 T= 163200.00 eta norm: 83534.7058 u norm: 52229.6945  4.78
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.6649e-02
+  0 SNES Function norm 1.710203536006e+06 
+  1 SNES Function norm 6.936285740548e+01 
+  545   545 T= 163500.00 eta norm: 85045.4253 u norm: 51742.7203  4.24
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.8154e-02
+  0 SNES Function norm 1.656939469471e+06 
+  1 SNES Function norm 6.927256354601e+01 
+  546   546 T= 163800.00 eta norm: 86428.2071 u norm: 51189.0096  4.68
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.9533e-02
+  0 SNES Function norm 1.609190094740e+06 
+  1 SNES Function norm 6.934071155296e+01 
+  547   547 T= 164100.00 eta norm: 87679.0133 u norm: 50571.2223  4.51
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.0785e-02
+  0 SNES Function norm 1.567768817944e+06 
+  1 SNES Function norm 6.956744361110e+01 
+  548   548 T= 164400.00 eta norm: 88794.3360 u norm: 49892.5410  4.74
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.1907e-02
+  0 SNES Function norm 1.534165767212e+06 
+  1 SNES Function norm 6.991238603178e+01 
+  549   549 T= 164700.00 eta norm: 89771.1315 u norm: 49156.7471  3.80
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.2897e-02
+  0 SNES Function norm 1.509222988442e+06 
+  1 SNES Function norm 7.031441784711e+01 
+  550   550 T= 165000.00 eta norm: 90606.8153 u norm: 48367.9733  4.66
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.3753e-02
+  0 SNES Function norm 1.493736344060e+06 
+  1 SNES Function norm 7.071379140938e+01 
+  551   551 T= 165300.00 eta norm: 91299.2040 u norm: 47529.8862  4.53
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.4474e-02
+  0 SNES Function norm 1.487527672302e+06 
+  1 SNES Function norm 7.106146604945e+01 
+  552   552 T= 165600.00 eta norm: 91846.4748 u norm: 46645.0865  4.24
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.5059e-02
+  0 SNES Function norm 1.489395497302e+06 
+  1 SNES Function norm 7.131925132810e+01 
+  553   553 T= 165900.00 eta norm: 92247.1887 u norm: 45714.8460  4.57
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.5507e-02
+  0 SNES Function norm 1.499742189051e+06 
+  1 SNES Function norm 7.144418120917e+01 
+  554   554 T= 166200.00 eta norm: 92500.2911 u norm: 44740.5011  5.33
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.5817e-02
+  0 SNES Function norm 1.519135684004e+06 
+  1 SNES Function norm 7.137823790686e+01 
+  555   555 T= 166500.00 eta norm: 92605.1219 u norm: 43722.9139  4.56
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.5989e-02
+  0 SNES Function norm 1.545619731002e+06 
+  1 SNES Function norm 7.105429699592e+01 
+  556   556 T= 166800.00 eta norm: 92561.4392 u norm: 42663.4938  4.57
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.6023e-02
+  0 SNES Function norm 1.580410005694e+06 
+  1 SNES Function norm 7.041374487156e+01 
+  557   557 T= 167100.00 eta norm: 92369.4337 u norm: 41564.6189  4.52
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.5921e-02
+  0 SNES Function norm 1.623035970567e+06 
+  1 SNES Function norm 6.942518441900e+01 
+  558   558 T= 167400.00 eta norm: 92029.7458 u norm: 40429.2970  4.29
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.5682e-02
+  0 SNES Function norm 1.672381863766e+06 
+  1 SNES Function norm 6.809722247587e+01 
+  559   559 T= 167700.00 eta norm: 91543.4880 u norm: 39261.5192  4.89
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.5308e-02
+  0 SNES Function norm 1.727483144027e+06 
+  1 SNES Function norm 6.648929154526e+01 
+  560   560 T= 168000.00 eta norm: 90912.2782 u norm: 38066.4605  4.68
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.4801e-02
+  0 SNES Function norm 1.787297139770e+06 
+  1 SNES Function norm 6.472481912435e+01 
+  561   561 T= 168300.00 eta norm: 90138.2714 u norm: 36849.9983  4.85
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.4162e-02
+  0 SNES Function norm 1.851040299122e+06 
+  1 SNES Function norm 6.300050226000e+01 
+  562   562 T= 168600.00 eta norm: 89224.1917 u norm: 35618.2359  4.65
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.3393e-02
+  0 SNES Function norm 1.917783066791e+06 
+  1 SNES Function norm 6.156963668214e+01 
+  563   563 T= 168900.00 eta norm: 88173.3545 u norm: 34377.5075  4.33
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.2494e-02
+  0 SNES Function norm 1.986598070948e+06 
+  1 SNES Function norm 6.068509971380e+01 
+  564   564 T= 169200.00 eta norm: 86989.6643 u norm: 33134.3403  4.79
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.1469e-02
+  0 SNES Function norm 2.056824130009e+06 
+  1 SNES Function norm 6.051603943322e+01 
+  565   565 T= 169500.00 eta norm: 85677.5846 u norm: 31895.8898  4.68
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.0319e-02
+  0 SNES Function norm 2.127722211266e+06 
+  1 SNES Function norm 6.108489813508e+01 
+  566   566 T= 169800.00 eta norm: 84242.0632 u norm: 30670.2094  4.80
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.9045e-02
+  0 SNES Function norm 2.198565415665e+06 
+  1 SNES Function norm 6.227231141262e+01 
+  567   567 T= 170100.00 eta norm: 82688.4452 u norm: 29466.0295  4.07
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.7650e-02
+  0 SNES Function norm 2.268865965490e+06 
+  1 SNES Function norm 6.388101841477e+01 
+  568   568 T= 170400.00 eta norm: 81022.3972 u norm: 28293.4311  4.71
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.6136e-02
+  0 SNES Function norm 2.337907723589e+06 
+  1 SNES Function norm 6.570964401550e+01 
+  569   569 T= 170700.00 eta norm: 79249.8614 u norm: 27164.6337  4.58
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.4506e-02
+  0 SNES Function norm 2.405224118864e+06 
+  1 SNES Function norm 6.759479284659e+01 
+  570   570 T= 171000.00 eta norm: 77377.0677 u norm: 26093.5445  4.73
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.2764e-02
+  0 SNES Function norm 2.470509733860e+06 
+  1 SNES Function norm 6.942139612147e+01 
+  571   571 T= 171300.00 eta norm: 75410.5937 u norm: 25096.0692  4.11
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.0912e-02
+  0 SNES Function norm 2.533494844365e+06 
+  1 SNES Function norm 7.112120293715e+01 
+  572   572 T= 171600.00 eta norm: 73357.4841 u norm: 24189.7589  4.42
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.8955e-02
+  0 SNES Function norm 2.594041409559e+06 
+  1 SNES Function norm 7.267262270606e+01 
+  573   573 T= 171900.00 eta norm: 71225.4300 u norm: 23392.8841  4.35
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.6896e-02
+  0 SNES Function norm 2.652101007001e+06 
+  1 SNES Function norm 7.410779926585e+01 
+  574   574 T= 172200.00 eta norm: 69022.9893 u norm: 22724.1074  4.25
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.4740e-02
+  0 SNES Function norm 2.707464486188e+06 
+  1 SNES Function norm 7.550525666572e+01 
+  575   575 T= 172500.00 eta norm: 66759.8652 u norm: 22201.4224  4.03
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.2492e-02
+  0 SNES Function norm 2.759913722561e+06 
+  1 SNES Function norm 7.696786291213e+01 
+  576   576 T= 172800.00 eta norm: 64447.2225 u norm: 21840.9195  4.19
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.0156e-02
+  0 SNES Function norm 2.809232652085e+06 
+  1 SNES Function norm 7.858440755256e+01 
+  577   577 T= 173100.00 eta norm: 62098.0007 u norm: 21655.4898  4.59
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.7738e-02
+  0 SNES Function norm 2.855198801398e+06 
+  1 SNES Function norm 8.039615078582e+01 
+  578   578 T= 173400.00 eta norm: 59727.1832 u norm: 21653.5112  3.99
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.5244e-02
+  0 SNES Function norm 2.897559390152e+06 
+  1 SNES Function norm 8.236222230976e+01 
+  579   579 T= 173700.00 eta norm: 57352.0065 u norm: 21837.5710  4.45
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.2678e-02
+  0 SNES Function norm 2.936109812841e+06 
+  1 SNES Function norm 8.433475139013e+01 
+  580   580 T= 174000.00 eta norm: 54992.1015 u norm: 22204.5186  4.59
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.0048e-02
+  0 SNES Function norm 2.970655784385e+06 
+  1 SNES Function norm 8.607432028277e+01 
+  581   581 T= 174300.00 eta norm: 52669.5648 u norm: 22745.8077  4.76
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.7361e-02
+  0 SNES Function norm 3.001032238020e+06 
+  1 SNES Function norm 8.730884688121e+01 
+  582   582 T= 174600.00 eta norm: 50408.9138 u norm: 23448.5461  4.17
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.4622e-02
+  0 SNES Function norm 3.027079561987e+06 
+  1 SNES Function norm 8.780460782699e+01 
+  583   583 T= 174900.00 eta norm: 48236.9243 u norm: 24296.7433  4.65
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.1839e-02
+  0 SNES Function norm 3.048671241575e+06 
+  1 SNES Function norm 8.741141526593e+01 
+  584   584 T= 175200.00 eta norm: 46182.3345 u norm: 25272.4259  4.42
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.9018e-02
+  0 SNES Function norm 3.065708658279e+06 
+  1 SNES Function norm 8.608628757008e+01 
+  585   585 T= 175500.00 eta norm: 44275.3507 u norm: 26356.9819  4.92
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.6166e-02
+  0 SNES Function norm 3.078147443925e+06 
+  1 SNES Function norm 8.388747617685e+01 
+  586   586 T= 175800.00 eta norm: 42546.9578 u norm: 27532.1778  4.53
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.3289e-02
+  0 SNES Function norm 3.085979359895e+06 
+  1 SNES Function norm 8.095113755599e+01 
+  587   587 T= 176100.00 eta norm: 41027.9458 u norm: 28780.4122  4.04
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.0393e-02
+  0 SNES Function norm 3.089206259066e+06 
+  1 SNES Function norm 7.745401348281e+01 
+  588   588 T= 176400.00 eta norm: 39747.5997 u norm: 30084.8609  4.73
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.4826e-03
+  0 SNES Function norm 3.087856138343e+06 
+  1 SNES Function norm 7.358542779867e+01 
+  589   589 T= 176700.00 eta norm: 38732.0933 u norm: 31429.8063  4.77
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.5627e-03
+  0 SNES Function norm 3.081997984970e+06 
+  1 SNES Function norm 6.952013782006e+01 
+  590   590 T= 177000.00 eta norm: 38002.7024 u norm: 32800.8669  4.30
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.6378e-03
+  0 SNES Function norm 3.071702199233e+06 
+  1 SNES Function norm 6.540543562690e+01 
+  591   591 T= 177300.00 eta norm: 37574.0767 u norm: 34184.9353  4.72
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.2881e-03
+  0 SNES Function norm 3.057038479886e+06 
+  1 SNES Function norm 6.135441104634e+01 
+  592   592 T= 177600.00 eta norm: 37452.8842 u norm: 35570.1826  4.95
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.2108e-03
+  0 SNES Function norm 3.038070361668e+06 
+  1 SNES Function norm 5.744370041083e+01 
+  593   593 T= 177900.00 eta norm: 37637.1453 u norm: 36946.3663  4.80
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.1262e-03
+  0 SNES Function norm 3.014881925142e+06 
+  1 SNES Function norm 5.371727243427e+01 
+  594   594 T= 178200.00 eta norm: 38116.4440 u norm: 38304.4011  4.79
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.0030e-02
+  0 SNES Function norm 2.987583442737e+06 
+  1 SNES Function norm 5.019178625650e+01 
+  595   595 T= 178500.00 eta norm: 38873.0641 u norm: 39635.9877  4.24
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.2919e-02
+  0 SNES Function norm 2.956298844338e+06 
+  1 SNES Function norm 4.686439204693e+01 
+  596   596 T= 178800.00 eta norm: 39883.7438 u norm: 40933.7395  4.70
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.5788e-02
+  0 SNES Function norm 2.921129580910e+06 
+  1 SNES Function norm 4.371843312256e+01 
+  597   597 T= 179100.00 eta norm: 41121.6794 u norm: 42190.8236  4.82
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.8634e-02
+  0 SNES Function norm 2.882053307784e+06 
+  1 SNES Function norm 4.073573428352e+01 
+  598   598 T= 179400.00 eta norm: 42558.4169 u norm: 43401.0412  4.65
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.1452e-02
+  0 SNES Function norm 2.839183195410e+06 
+  1 SNES Function norm 3.790077250390e+01 
+  599   599 T= 179700.00 eta norm: 44165.4192 u norm: 44559.1523  4.55
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.4239e-02
+  0 SNES Function norm 2.792658408701e+06 
+  1 SNES Function norm 3.520143771735e+01 
+  600   600 T= 180000.00 eta norm: 45915.2270 u norm: 45660.7946  4.23
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.6991e-02
+  0 SNES Function norm 2.742811770767e+06 
+  1 SNES Function norm 3.262724541911e+01 
+  601   601 T= 180300.00 eta norm: 47782.1539 u norm: 46701.5134  4.97
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.9705e-02
+  0 SNES Function norm 2.689773652600e+06 
+  1 SNES Function norm 3.017191204337e+01 
+  602   602 T= 180600.00 eta norm: 49742.5406 u norm: 47676.2757  4.37
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.2375e-02
+  0 SNES Function norm 2.633718170910e+06 
+  1 SNES Function norm 2.783453584085e+01 
+  603   603 T= 180900.00 eta norm: 51774.5961 u norm: 48580.0653  4.27
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.4999e-02
+  0 SNES Function norm 2.574899578756e+06 
+  1 SNES Function norm 2.561929143987e+01 
+  604   604 T= 181200.00 eta norm: 53858.0569 u norm: 49408.0865  4.26
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.7571e-02
+  0 SNES Function norm 2.513347182344e+06 
+  1 SNES Function norm 2.353374737294e+01 
+  605   605 T= 181500.00 eta norm: 55973.8395 u norm: 50156.3818  4.83
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.0087e-02
+  0 SNES Function norm 2.449512516301e+06 
+  1 SNES Function norm 2.158463794272e+01 
+  606   606 T= 181800.00 eta norm: 58103.7694 u norm: 50822.3050  5.30
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.2541e-02
+  0 SNES Function norm 2.384056434814e+06 
+  1 SNES Function norm 1.977613316884e+01 
+  607   607 T= 182100.00 eta norm: 60230.4512 u norm: 51404.1430  4.51
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.4929e-02
+  0 SNES Function norm 2.317239571040e+06 
+  1 SNES Function norm 1.810841291630e+01 
+  608   608 T= 182400.00 eta norm: 62337.3001 u norm: 51901.0380  3.98
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.7243e-02
+  0 SNES Function norm 2.249046980658e+06 
+  1 SNES Function norm 1.657757042140e+01 
+  609   609 T= 182700.00 eta norm: 64408.6648 u norm: 52312.2099  4.77
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.9480e-02
+  0 SNES Function norm 2.180310908241e+06 
+  1 SNES Function norm 1.517527144696e+01 
+  610   610 T= 183000.00 eta norm: 66429.9736 u norm: 52637.9341  4.69
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.1633e-02
+  0 SNES Function norm 2.111385161806e+06 
+  1 SNES Function norm 1.388723073492e+01 
+  611   611 T= 183300.00 eta norm: 68387.9801 u norm: 52878.7537  4.75
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.3697e-02
+  0 SNES Function norm 2.042648017643e+06 
+  1 SNES Function norm 1.269518292678e+01 
+  612   612 T= 183600.00 eta norm: 70271.0022 u norm: 53035.0560  4.37
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.5667e-02
+  0 SNES Function norm 1.974785078205e+06 
+  1 SNES Function norm 1.158152629029e+01 
+  613   613 T= 183900.00 eta norm: 72069.0146 u norm: 53106.9639  4.83
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.7539e-02
+  0 SNES Function norm 1.908596641771e+06 
+  1 SNES Function norm 1.053419039779e+01 
+  614   614 T= 184200.00 eta norm: 73773.6570 u norm: 53094.9569  4.98
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.9308e-02
+  0 SNES Function norm 1.844959333437e+06 
+  1 SNES Function norm 9.549765252165e+00 
+  615   615 T= 184500.00 eta norm: 75378.1266 u norm: 52999.5233  4.58
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.0972e-02
+  0 SNES Function norm 1.784637660715e+06 
+  1 SNES Function norm 8.631420613085e+00 
+  616   616 T= 184800.00 eta norm: 76876.9653 u norm: 52821.0279  5.00
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.2528e-02
+  0 SNES Function norm 1.728311727625e+06 
+  1 SNES Function norm 7.784508544180e+00 
+  617   617 T= 185100.00 eta norm: 78265.8562 u norm: 52560.0626  4.07
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.3973e-02
+  0 SNES Function norm 1.676581892825e+06 
+  1 SNES Function norm 7.011563855509e+00 
+  618   618 T= 185400.00 eta norm: 79541.3890 u norm: 52217.0655  4.70
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.5305e-02
+  0 SNES Function norm 1.630511947410e+06 
+  1 SNES Function norm 6.310333246404e+00 
+  619   619 T= 185700.00 eta norm: 80700.8176 u norm: 51793.1867  4.82
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.6523e-02
+  0 SNES Function norm 1.590802981379e+06 
+  1 SNES Function norm 5.674793065742e+00 
+  620   620 T= 186000.00 eta norm: 81741.8126 u norm: 51290.3072  5.69
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.7624e-02
+  0 SNES Function norm 1.558581765033e+06 
+  1 SNES Function norm 5.096437450682e+00 
+  621   621 T= 186300.00 eta norm: 82662.2082 u norm: 50710.5919  4.76
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.8608e-02
+  0 SNES Function norm 1.534330063862e+06 
+  1 SNES Function norm 4.566456849403e+00 
+  622   622 T= 186600.00 eta norm: 83459.8628 u norm: 50056.0450  4.29
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.9472e-02
+  0 SNES Function norm 1.518422874385e+06 
+  1 SNES Function norm 4.077703736312e+00 
+  623   623 T= 186900.00 eta norm: 84132.6536 u norm: 49328.2780  4.58
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.0215e-02
+  0 SNES Function norm 1.511290786582e+06 
+  1 SNES Function norm 3.625122303491e+00 
+  624   624 T= 187200.00 eta norm: 84678.5961 u norm: 48528.7414  4.50
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.0836e-02
+  0 SNES Function norm 1.513094926146e+06 
+  1 SNES Function norm 3.205940953955e+00 
+  625   625 T= 187500.00 eta norm: 85095.9936 u norm: 47659.0653  4.33
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.1335e-02
+  0 SNES Function norm 1.523937353484e+06 
+  1 SNES Function norm 2.819219300142e+00 
+  626   626 T= 187800.00 eta norm: 85383.5379 u norm: 46720.8962  4.25
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.1709e-02
+  0 SNES Function norm 1.543637990340e+06 
+  1 SNES Function norm 2.465846668344e+00 
+  627   627 T= 188100.00 eta norm: 85540.3436 u norm: 45716.6650  4.23
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.1960e-02
+  0 SNES Function norm 1.571835199799e+06 
+  1 SNES Function norm 2.147641436879e+00 
+  628   628 T= 188400.00 eta norm: 85565.9717 u norm: 44649.1740  4.80
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.2087e-02
+  0 SNES Function norm 1.607846124308e+06 
+  1 SNES Function norm 1.867514109065e+00 
+  629   629 T= 188700.00 eta norm: 85460.4538 u norm: 43521.7569  4.39
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.2090e-02
+  0 SNES Function norm 1.650689561526e+06 
+  1 SNES Function norm 1.629826044106e+00 
+  630   630 T= 189000.00 eta norm: 85224.2612 u norm: 42337.5162  4.35
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.1968e-02
+  0 SNES Function norm 1.699480339079e+06 
+  1 SNES Function norm 1.440897167340e+00 
+  631   631 T= 189300.00 eta norm: 84858.2497 u norm: 41099.6245  4.85
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.1724e-02
+  0 SNES Function norm 1.753546752275e+06 
+  1 SNES Function norm 1.308826532282e+00 
+  632   632 T= 189600.00 eta norm: 84363.6236 u norm: 39811.3953  5.07
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.1356e-02
+  0 SNES Function norm 1.811601108804e+06 
+  1 SNES Function norm 1.241567646796e+00 
+  633   633 T= 189900.00 eta norm: 83741.9148 u norm: 38476.3626  4.45
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.0866e-02
+  0 SNES Function norm 1.872812129289e+06 
+  1 SNES Function norm 1.243296177267e+00 
+  634   634 T= 190200.00 eta norm: 82994.9863 u norm: 37098.2966  4.65
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.0255e-02
+  0 SNES Function norm 1.936543665095e+06 
+  1 SNES Function norm 1.311667488331e+00 
+  635   635 T= 190500.00 eta norm: 82125.0413 u norm: 35681.7748  4.09
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.9523e-02
+  0 SNES Function norm 2.002167134093e+06 
+  1 SNES Function norm 1.438901058730e+00 
+  636   636 T= 190800.00 eta norm: 81134.6164 u norm: 34232.2376  4.41
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.8672e-02
+  0 SNES Function norm 2.069030565820e+06 
+  1 SNES Function norm 1.615563427600e+00 
+  637   637 T= 191100.00 eta norm: 80026.5508 u norm: 32755.7342  4.77
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.7702e-02
+  0 SNES Function norm 2.136408482218e+06 
+  1 SNES Function norm 1.834126002301e+00 
+  638   638 T= 191400.00 eta norm: 78803.9591 u norm: 31259.5447  4.69
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.6616e-02
+  0 SNES Function norm 2.203779396926e+06 
+  1 SNES Function norm 2.090259733381e+00 
+  639   639 T= 191700.00 eta norm: 77470.2142 u norm: 29752.4360  4.18
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.5415e-02
+  0 SNES Function norm 2.270743569660e+06 
+  1 SNES Function norm 2.382449061362e+00 
+  640   640 T= 192000.00 eta norm: 76028.9583 u norm: 28244.9703  4.56
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.4100e-02
+  0 SNES Function norm 2.336805693258e+06 
+  1 SNES Function norm 2.711152402166e+00 
+  641   641 T= 192300.00 eta norm: 74484.1604 u norm: 26749.7313  4.43
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.2673e-02
+  0 SNES Function norm 2.401531723588e+06 
+  1 SNES Function norm 3.077937554721e+00 
+  642   642 T= 192600.00 eta norm: 72840.2236 u norm: 25281.6019  4.31
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  6.1136e-02
+  0 SNES Function norm 2.464646605813e+06 
+  1 SNES Function norm 3.484469303920e+00 
+  643   643 T= 192900.00 eta norm: 71102.1518 u norm: 23858.2067  4.28
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.9491e-02
+  0 SNES Function norm 2.525880026006e+06 
+  1 SNES Function norm 3.931542979318e+00 
+  644   644 T= 193200.00 eta norm: 69275.7680 u norm: 22500.4998  4.71
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.7739e-02
+  0 SNES Function norm 2.584958986926e+06 
+  1 SNES Function norm 4.418793198578e+00 
+  645   645 T= 193500.00 eta norm: 67367.9356 u norm: 21233.1547  4.72
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.5884e-02
+  0 SNES Function norm 2.641608648594e+06 
+  1 SNES Function norm 4.944855111743e+00 
+  646   646 T= 193800.00 eta norm: 65386.7592 u norm: 20085.0198  4.43
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.3928e-02
+  0 SNES Function norm 2.695563987191e+06 
+  1 SNES Function norm 5.508307833517e+00 
+  647   647 T= 194100.00 eta norm: 63341.7501 u norm: 19088.8768  4.38
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  5.1876e-02
+  0 SNES Function norm 2.746589924331e+06 
+  1 SNES Function norm 6.108732762379e+00 
+  648   648 T= 194400.00 eta norm: 61243.9596 u norm: 18280.1522  4.68
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.9732e-02
+  0 SNES Function norm 2.794472832883e+06 
+  1 SNES Function norm 6.747046047108e+00 
+  649   649 T= 194700.00 eta norm: 59106.0851 u norm: 17694.1589  4.64
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.7501e-02
+  0 SNES Function norm 2.839006806051e+06 
+  1 SNES Function norm 7.426203671774e+00 
+  650   650 T= 195000.00 eta norm: 56942.5490 u norm: 17361.6451  4.69
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.5186e-02
+  0 SNES Function norm 2.880003105040e+06 
+  1 SNES Function norm 8.150830767953e+00 
+  651   651 T= 195300.00 eta norm: 54769.5901 u norm: 17303.7337  4.29
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.2796e-02
+  0 SNES Function norm 2.917275580285e+06 
+  1 SNES Function norm 8.926705974865e+00 
+  652   652 T= 195600.00 eta norm: 52605.3659 u norm: 17527.4690  4.96
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.0334e-02
+  0 SNES Function norm 2.950658366696e+06 
+  1 SNES Function norm 9.759210298611e+00 
+  653   653 T= 195900.00 eta norm: 50470.0478 u norm: 18024.5286  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.7807e-02
+  0 SNES Function norm 2.979993586366e+06 
+  1 SNES Function norm 1.065283468038e+01 
+  654   654 T= 196200.00 eta norm: 48385.9241 u norm: 18773.0220  4.66
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.5220e-02
+  0 SNES Function norm 3.005156381113e+06 
+  1 SNES Function norm 1.161104995806e+01 
+  655   655 T= 196500.00 eta norm: 46377.5092 u norm: 19741.7759  4.56
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  3.2581e-02
+  0 SNES Function norm 3.026058455041e+06 
+  1 SNES Function norm 1.263666255280e+01 
+  656   656 T= 196800.00 eta norm: 44471.5939 u norm: 20895.5151  4.12
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.9893e-02
+  0 SNES Function norm 3.042633686957e+06 
+  1 SNES Function norm 1.373221807998e+01 
+  657   657 T= 197100.00 eta norm: 42697.1578 u norm: 22198.7567  4.80
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.7164e-02
+  0 SNES Function norm 3.054850642681e+06 
+  1 SNES Function norm 1.490023337518e+01 
+  658   658 T= 197400.00 eta norm: 41085.0193 u norm: 23618.3295  4.79
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.4398e-02
+  0 SNES Function norm 3.062684513156e+06 
+  1 SNES Function norm 1.614343235430e+01 
+  659   659 T= 197700.00 eta norm: 39667.1414 u norm: 25124.6129  4.61
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  2.1599e-02
+  0 SNES Function norm 3.066133064683e+06 
+  1 SNES Function norm 1.746398558572e+01 
+  660   660 T= 198000.00 eta norm: 38475.4426 u norm: 26691.7748  4.42
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.8774e-02
+  0 SNES Function norm 3.065236954174e+06 
+  1 SNES Function norm 1.886483947807e+01 
+  661   661 T= 198300.00 eta norm: 37540.0715 u norm: 28297.6068  4.43
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.5927e-02
+  0 SNES Function norm 3.060013454853e+06 
+  1 SNES Function norm 2.034925023648e+01 
+  662   662 T= 198600.00 eta norm: 36887.2537 u norm: 29922.8859  4.76
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.3062e-02
+  0 SNES Function norm 3.050467654585e+06 
+  1 SNES Function norm 2.192124830846e+01 
+  663   663 T= 198900.00 eta norm: 36536.9617 u norm: 31551.1137  4.86
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.0184e-02
+  0 SNES Function norm 3.036651741869e+06 
+  1 SNES Function norm 2.358547772532e+01 
+  664   664 T= 199200.00 eta norm: 36500.8487 u norm: 33168.1292  3.86
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  7.2966e-03
+  0 SNES Function norm 3.018635627661e+06 
+  1 SNES Function norm 2.534597824966e+01 
+  665   665 T= 199500.00 eta norm: 36780.9469 u norm: 34761.6727  4.82
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  4.4052e-03
+  0 SNES Function norm 2.996479907514e+06 
+  1 SNES Function norm 2.720453361004e+01 
+  666   666 T= 199800.00 eta norm: 37369.4927 u norm: 36320.7885  4.62
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error  1.5136e-03
+  0 SNES Function norm 2.970254965548e+06 
+  1 SNES Function norm 2.916009516214e+01 
+  667   667 T= 200100.00 eta norm: 38249.9212 u norm: 37835.6394  5.33
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.3739e-03
+  0 SNES Function norm 2.940020230557e+06 
+  1 SNES Function norm 3.120736282219e+01 
+  668   668 T= 200400.00 eta norm: 39398.7692 u norm: 39297.4883  4.84
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.2532e-03
+  0 SNES Function norm 2.905832068553e+06 
+  1 SNES Function norm 3.333755303835e+01 
+  669   669 T= 200700.00 eta norm: 40788.0029 u norm: 40698.3243  4.30
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -7.1203e-03
+  0 SNES Function norm 2.867822898862e+06 
+  1 SNES Function norm 3.553920009245e+01 
+  670   670 T= 201000.00 eta norm: 42387.2824 u norm: 42031.2158  4.50
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -9.9711e-03
+  0 SNES Function norm 2.826114743682e+06 
+  1 SNES Function norm 3.779695465032e+01 
+  671   671 T= 201300.00 eta norm: 44165.8999 u norm: 43290.4961  4.87
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.2801e-02
+  0 SNES Function norm 2.780897139883e+06 
+  1 SNES Function norm 4.008998628224e+01 
+  672   672 T= 201600.00 eta norm: 46094.1716 u norm: 44471.7417  5.20
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.5607e-02
+  0 SNES Function norm 2.732338454015e+06 
+  1 SNES Function norm 4.239193706664e+01 
+  673   673 T= 201900.00 eta norm: 48144.2463 u norm: 45571.5293  4.70
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -1.8384e-02
+  0 SNES Function norm 2.680621376324e+06 
+  1 SNES Function norm 4.467381170853e+01 
+  674   674 T= 202200.00 eta norm: 50290.4478 u norm: 46587.3049  4.10
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.1129e-02
+  0 SNES Function norm 2.625982926216e+06 
+  1 SNES Function norm 4.690731198122e+01 
+  675   675 T= 202500.00 eta norm: 52509.3377 u norm: 47517.1650  4.67
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.3836e-02
+  0 SNES Function norm 2.568712348911e+06 
+  1 SNES Function norm 4.906793528116e+01 
+  676   676 T= 202800.00 eta norm: 54779.6099 u norm: 48359.8045  4.65
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.6502e-02
+  0 SNES Function norm 2.509008372968e+06 
+  1 SNES Function norm 5.113683031736e+01 
+  677   677 T= 203100.00 eta norm: 57081.9338 u norm: 49114.8412  4.95
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -2.9122e-02
+  0 SNES Function norm 2.447131368929e+06 
+  1 SNES Function norm 5.310094209151e+01 
+  678   678 T= 203400.00 eta norm: 59398.7739 u norm: 49782.5663  4.60
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.1690e-02
+  0 SNES Function norm 2.383359079091e+06 
+  1 SNES Function norm 5.495131318631e+01 
+  679   679 T= 203700.00 eta norm: 61714.1844 u norm: 50363.2487  4.56
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.4202e-02
+  0 SNES Function norm 2.317956457206e+06 
+  1 SNES Function norm 5.667463300801e+01 
+  680   680 T= 204000.00 eta norm: 64013.5592 u norm: 50856.9903  4.53
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.6652e-02
+  0 SNES Function norm 2.251241269039e+06 
+  1 SNES Function norm 5.824348081249e+01 
+  681   681 T= 204300.00 eta norm: 66283.3770 u norm: 51263.9781  4.94
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -3.9035e-02
+  0 SNES Function norm 2.183469862222e+06 
+  1 SNES Function norm 5.961429534765e+01 
+  682   682 T= 204600.00 eta norm: 68511.0065 u norm: 51584.6494  4.40
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.1345e-02
+  0 SNES Function norm 2.114976299079e+06 
+  1 SNES Function norm 6.072961810478e+01 
+  683   683 T= 204900.00 eta norm: 70684.5786 u norm: 51819.8166  4.07
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.3576e-02
+  0 SNES Function norm 2.046202585800e+06 
+  1 SNES Function norm 6.153148712797e+01 
+  684   684 T= 205200.00 eta norm: 72792.9209 u norm: 51970.8729  4.57
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.5722e-02
+  0 SNES Function norm 1.977587207147e+06 
+  1 SNES Function norm 6.198247250273e+01 
+  685   685 T= 205500.00 eta norm: 74825.5664 u norm: 52039.8294  4.53
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.7779e-02
+  0 SNES Function norm 1.909578512618e+06 
+  1 SNES Function norm 6.208100951507e+01 
+  686   686 T= 205800.00 eta norm: 76772.7938 u norm: 52028.8930  4.52
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -4.9741e-02
+  0 SNES Function norm 1.842957218302e+06 
+  1 SNES Function norm 6.186780479312e+01 
+  687   687 T= 206100.00 eta norm: 78625.7086 u norm: 51940.3903  4.23
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.1603e-02
+  0 SNES Function norm 1.778392986673e+06 
+  1 SNES Function norm 6.141996602269e+01 
+  688   688 T= 206400.00 eta norm: 80376.3497 u norm: 51776.7410  4.71
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.3360e-02
+  0 SNES Function norm 1.716507337848e+06 
+  1 SNES Function norm 6.082990206078e+01 
+  689   689 T= 206700.00 eta norm: 82017.7472 u norm: 51540.3883  4.91
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.5008e-02
+  0 SNES Function norm 1.657972554121e+06 
+  1 SNES Function norm 6.018613288715e+01 
+  690   690 T= 207000.00 eta norm: 83543.9160 u norm: 51233.6323  4.66
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.6544e-02
+  0 SNES Function norm 1.603673529071e+06 
+  1 SNES Function norm 5.956586032860e+01 
+  691   691 T= 207300.00 eta norm: 84949.8072 u norm: 50858.3454  3.95
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.7962e-02
+  0 SNES Function norm 1.554431152119e+06 
+  1 SNES Function norm 5.902959469892e+01 
+  692   692 T= 207600.00 eta norm: 86231.1907 u norm: 50416.0897  4.64
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -5.9262e-02
+  0 SNES Function norm 1.511246122333e+06 
+  1 SNES Function norm 5.861502479121e+01 
+  693   693 T= 207900.00 eta norm: 87384.5080 u norm: 49908.7081  5.01
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.0439e-02
+  0 SNES Function norm 1.474937324063e+06 
+  1 SNES Function norm 5.832797966795e+01 
+  694   694 T= 208200.00 eta norm: 88406.7337 u norm: 49338.3969  5.11
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.1492e-02
+  0 SNES Function norm 1.446299608859e+06 
+  1 SNES Function norm 5.814271153640e+01 
+  695   695 T= 208500.00 eta norm: 89295.2697 u norm: 48707.2964  5.31
+sediment_2d mass rel. error -1.0000e+00
+volume2d rel. error -6.2420e-02
+  0 SNES Function norm 1.426245689707e+06 
+  1 SNES Function norm 5.801864830866e+01 

@@ -15,7 +15,7 @@ import h5py
 
 class CableCostGA(object):
     
-    def __init__(self, turbine_locations, substation_location = [[0,0]], capacity = 7, pop_size = 80, num_iter = 200, convergence_definition = 20, converged = False, show_prog = False, show_result = False, figname ='fig'): 
+    def __init__(self, turbine_locations, substation_location = [[0,0]], capacity = 6, pop_size = 80, num_iter = 200, convergence_definition = 20, converged = False, show_prog = False, show_result = False, figname ='fig'): 
         self.turbine_locations = []
         for i in range(int(len(turbine_locations)/2)):
             self.turbine_locations.append([turbine_locations[2*i],turbine_locations[2*i+1]])      
@@ -98,9 +98,9 @@ class CableCostGA(object):
     
     def rand_breaks(self, n, min_route, n_routes, n_breaks):
         '''Produces a list of random, but valid, route-breaks'''
-        RB = [np.random.random_integers(min_route, self.capacity)]
+        RB = [np.random.randint(min_route, self.capacity+1)]
         for i in range(1, n_breaks):
-            RB.append(np.random.random_integers(min_route, self.capacity) + RB[i-1])
+            RB.append(np.random.randint(min_route, self.capacity+1) + RB[i-1])
         if RB[-1] < (n - self.capacity):
             short = (n - self.capacity) - RB[-1]
             add_each = int(np.ceil(0.5 + short / len(RB)))
@@ -529,11 +529,15 @@ if __name__ == '__main__':
     #      for y in np.arange(site_y1+20, site_y2-20, 50):
     #          turbine_locations.append(x)
     #          turbine_locations.append(y)
-    turbine_locations=[443352.0, 3322768.3347583604, 443352.0, 3322835.0, 443374.1113270062, 3322801.6676603947, 443437.56298443285, 3322834.999867297, 443417.7407217903, 3322800.2574864584, 443396.2227036166, 3322834.999972416, 443506.38903723174, 3322806.188887035, 443478.63952297514, 3322835.0, 443459.95853204705, 3322799.6303443755, 443486.30872563156, 3322769.533489844, 443564.5730315057, 3322798.5286971047, 443534.138643771, 3322835.0, 443394.8434891821, 3322767.4596569347, 443439.5975496541, 3322765.1974341725, 443531.93248310627, 3322775.4060471654, 443580.99988955917, 3322835.0]
-    landpointlocation =[444000,3323000]
+    turbine_locations=[[443285.232752254, 3322701.82872359], [443251.030737921, 3322795.79798567], [443216.828723589, 3322889.76724775], [443322.820457085, 3322715.50952932], [443288.618442753, 3322809.4787914], [443254.41642842, 3322903.44805348], [443360.408161917, 3322729.19033505], [443326.206147584, 3322823.15959713], [443292.004133252, 3322917.12885921], [443397.995866748, 3322742.87114079], [443363.793852416, 3322836.84040287], [443329.591838083, 3322930.80966495], [443435.58357158, 3322756.55194652], [443401.381557247, 3322850.5212086], [443367.179542915, 3322944.49047068], [443473.171276411, 3322770.23275225], [443438.969262079, 3322864.20201433], [443404.767247746, 3322958.17127641]]
+    turbine_locations = [x for coord in turbine_locations for x in coord]
+    landpointlocation = [444000,3323000]
     CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = True, show_result = True, figname='ideal_cable')
-    print ('Cable length:',CC.compute_cable_cost())
+    # print ('Cable length:',CC.compute_cable_cost())
     print(CC.compute_cable_cost_order())
+    # for i in range(10):
+    #     print(np.random.random_integers(4.75,7),np.random.randint(4.75,7))
+
 
 
     # count = 0

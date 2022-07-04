@@ -39,18 +39,26 @@ def get_detectors(mesh2d):
 
 if __name__ == "__main__":
     mesh2d = Mesh('./mesh/mesh.msh')  # mesh file
-    import pandas as pd
-    df_file = pd.read_excel('./location.xlsx',usecols="M:N")
-    print(df_file.keys())
-    xx = np.array(df_file['X.1'][30:48])
-    yy = np.array(df_file['Y.1'][30:48])
+    # import pandas as pd
+    # df_file = pd.read_excel('./location.xlsx',usecols="M:N")
+    # print(df_file.keys())
+    # xx = np.array(df_file['X.1'][89:107])
+    # yy = np.array(df_file['Y.1'][89:107])
+    xmin,ymin,xmax,ymax = 443340, 3322634, 443592, 3322848 
+    locations = [[444000,3323000]]
+    for x in range(xmin+20,xmax-20,60):
+        for y in range(ymin+20,ymax-20,120):
+            locations.append([x,y])
+    for x in range(xmin+20+30,xmax-20,60):
+        for y in range(ymin+20+60,ymax-20,120):
+            locations.append([x,y])
     names = []
-    for i in range(len(xx)):
+    for i in range(len(locations)):
         names.append('point ' + str(i))
-    locations = []
-    for x,y in zip(xx,yy):
-        locations.append([x,y])
-    print(list(locations))
+    # locations = []
+    # for x,y in zip(xx,yy):
+    #     locations.append([x,y])
+    # print(list(locations))
 
 
     # locations, names = get_detectors(mesh2d)

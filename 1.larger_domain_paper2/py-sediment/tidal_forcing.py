@@ -3,7 +3,7 @@ import uptide.tidal_netcdf
 import datetime
 import utm
 
-main_dir = '/media/can/can_disk/thetis_new/Git_mythetis/'
+main_dir = '../../..'
 #constituents = ['M2', 'S2', 'N2', 'K2', 'K1', 'O1', 'P1', 'Q1', 'M4', 'MS4', 'MN4' ]
 constituents = ['Q1', 'O1', 'P1', 'K1', 'N2', 'M2', 'S2', 'K2']
 tide = uptide.Tides(constituents)

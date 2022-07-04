@@ -12,7 +12,7 @@ import yagmail
 import rmse_r2
 import h5py
 
-t_start = time.time()
+start_time = time.time()
 
 file_dir = '../../'
 
@@ -22,8 +22,8 @@ file_dir = '../../'
 
 P_factor = 1.0
 
-output_dir = '../../../outputs/1.energy/discrete/rectangular'
-
+output_dir = '../../../outputs/1.energy/discrete/rectangular-90'
+print_output(output_dir[17:])
 mesh2d = Mesh(file_dir+'mesh-vs_otf_oe1/mesh.msh')
 
 #timestepping options
@@ -31,7 +31,7 @@ dt = 5*60 # reduce this if solver does not converge
 t_export = 30*60 
 # t_end = 1555200
 # t_end = 1216800+ 13*60*60 # spring
-t_end = 885600 + 60*60 # middle
+t_end = 885600 + 13*60*60 # middle
 # t_end = 612000 + 13*60*60 # neap
 
 
@@ -121,15 +121,15 @@ farm_options.turbine_options.diameter = 20
 # farm_options.turbine_options.A_support = H/2
 farm_options.upwind_correction = True
 
-xmin,ymin,xmax,ymax = 443340, 3322634, 443592, 3322848 
+xmin,ymin,xmax,ymax = 443100, 3322600, 443600, 3323100 
 
-turbine_location = [[443256.267665092, 3322682.60303213], [443216.93534861, 3322790.66768352], [443177.603032127, 3322898.73233491], [443299.493525648, 3322698.33595872], [443260.161209166, 3322806.40061011], [443220.828892683, 3322914.4652615], [443342.719386204, 3322714.06888531], [443303.387069722, 3322822.1335367], [443264.054753239, 3322930.19818809], [443385.945246761, 3322729.80181191], [443346.612930278, 3322837.8664633], [443307.280613796, 3322945.93111469], [443429.171107317, 3322745.5347385], [443389.838790834, 3322853.59938989], [443350.506474352, 3322961.66404128], [443472.396967873, 3322761.26766509], [443433.06465139, 3322869.33231648], [443393.732334908, 3322977.39696787]]
+turbine_location = [[443285.232752254, 3322701.82872359], [443251.030737921, 3322795.79798567], [443216.828723589, 3322889.76724775], [443322.820457085, 3322715.50952932], [443288.618442753, 3322809.4787914], [443254.41642842, 3322903.44805348], [443360.408161917, 3322729.19033505], [443326.206147584, 3322823.15959713], [443292.004133252, 3322917.12885921], [443397.995866748, 3322742.87114079], [443363.793852416, 3322836.84040287], [443329.591838083, 3322930.80966495], [443435.58357158, 3322756.55194652], [443401.381557247, 3322850.5212086], [443367.179542915, 3322944.49047068], [443473.171276411, 3322770.23275225], [443438.969262079, 3322864.20201433], [443404.767247746, 3322958.17127641]]
 farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
 
 farm_options.considering_yaw = True
 
 
-farm_options.turbine_axis = [Constant(100) for i in range(len(farm_options.turbine_coordinates))] + [Constant(280) for i in range(len(farm_options.turbine_coordinates))]
+farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbine_coordinates))] + [Constant(270) for i in range(len(farm_options.turbine_coordinates))]
 
 # result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-yaw_op-P_factor_'+str(P_factor)+'-5min_e&v-from0.8-17-2'
 # comm = MPI.COMM_WORLD
@@ -250,21 +250,21 @@ if 1:
     optimise_layout_only = False
     d = farm_options.turbine_options.diameter
 
-    lb = [90]*int(len(farm_options.turbine_axis)/2) + [270]*int(len(farm_options.turbine_axis)/2) 
-    ub = [270]*int(len(farm_options.turbine_axis)/2) + [450]*int(len(farm_options.turbine_axis)/2) 
+    lb = [0]*int(len(farm_options.turbine_axis)/2) + [180]*int(len(farm_options.turbine_axis)/2) 
+    ub = [180]*int(len(farm_options.turbine_axis)/2) + [360]*int(len(farm_options.turbine_axis)/2) 
 
     
     td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 200, 'ptol': 1e-3})
 
 
-t_end = time.time()
-print('time cost: {0:.2f}h'.format((t_end - t_start)/60/60))
+end_time = time.time()
+print_output('time cost: {0:.2f}h'.format((end_time - start_time)/60/60))
 
 if 1:
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
     if rank == 0 :
         yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
-        yag.send(to = ['623001493@qq.com'], subject = 'My computer', contents = [output_dir+' ###### '+ 'Time cose: {0:.2f}h.'.format((t_end-t_start)/60/60)])
+        yag.send(to = ['623001493@qq.com'], subject = output_dir[17:], contents = ['Time cose: {0:.2f}h.'.format((end_time-start_time)/60/60)])
     else:
         pass
