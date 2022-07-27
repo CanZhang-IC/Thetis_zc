@@ -1,5 +1,5 @@
 #! /bin/bash
-for i in $( seq 1 1 10)
+for i in $( seq 5 5 45)
 do 
     cp intermediate.py $i.py
     OMP_NUM_THREADS=1 mpirun -np 4 python $i.py 

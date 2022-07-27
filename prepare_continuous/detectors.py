@@ -33,7 +33,10 @@ def get_detectors(mesh2d):
     inproj = pyproj.Proj(init='epsg:4326') #lat / lon coords
     outproj = pyproj.Proj(init='epsg:32651') # 326 + utm zone number 
     gauge_xy = [pyproj.transform(inproj, outproj, lon, lat) for lat, lon in gauge_latlon] # convert latlon to utm xy
+    # for i in gauge_xy:
+    #     print_output(i)
     gauge_xy = [Constant(i) for i in gauge_xy]
+
     
     return select_and_move_detectors(mesh2d, gauge_xy, unique_names, maximum_distance=10e3)#Select those detectors that are within the domain and/or move them to the nearest cell centre within the domain
 

@@ -6,5 +6,5 @@
 #     #rm $i.py
 # done
 # OMP_NUM_THREADS=1 mpirun -np 4 python all-op.py
-# OMP_NUM_THREADS=1 mpirun -np 4 python rectangular-op-yaw.py
-OMP_NUM_THREADS=1 mpirun -np 4 python staggered-op-yaw.py
+OMP_NUM_THREADS=1 mpirun -np 4 python rectangular-op-yaw.py
+# OMP_NUM_THREADS=1 mpirun -np 4 python staggered-op-yaw.py

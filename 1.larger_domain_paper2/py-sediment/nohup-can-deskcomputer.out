@@ -71212,3 +71212,116 @@ volume2d rel. error  1.0289e-02
   0 SNES Function norm 2.411910884184e+06 
   1 SNES Function norm 2.289051133546e+01 
   0 SNES Function norm 2.378635069855e+06 
+  1 SNES Function norm 2.400247044755e+01 
+  0 SNES Function norm 2.342421445017e+06 
+  1 SNES Function norm 2.511282636186e+01 
+  0 SNES Function norm 2.303428226516e+06 
+  1 SNES Function norm 2.621167732658e+01 
+  0 SNES Function norm 2.261845691955e+06 
+  1 SNES Function norm 2.728592142599e+01 
+  858  5148 T=1544400.00 eta norm: 43409.1530 u norm: 40249.0079  6.89
+sediment_2d mass rel. error  1.2313e+04
+volume2d rel. error -4.0248e-03
+  0 SNES Function norm 2.217807901515e+06 
+  1 SNES Function norm 2.832048555380e+01 
+  0 SNES Function norm 2.171474859477e+06 
+  1 SNES Function norm 2.930151823846e+01 
+  0 SNES Function norm 2.123067799734e+06 
+  1 SNES Function norm 3.022008495831e+01 
+  0 SNES Function norm 2.072815357711e+06 
+  1 SNES Function norm 3.107307951630e+01 
+  0 SNES Function norm 2.020927001447e+06 
+  1 SNES Function norm 3.186256760275e+01 
+  0 SNES Function norm 1.967631874867e+06 
+  1 SNES Function norm 3.259273682894e+01 
+  859  5154 T=1546200.00 eta norm: 55300.0211 u norm: 45701.5690  6.09
+sediment_2d mass rel. error  1.4250e+04
+volume2d rel. error -1.7197e-02
+  0 SNES Function norm 1.913102792461e+06 
+  1 SNES Function norm 3.326695669404e+01 
+  0 SNES Function norm 1.857602552190e+06 
+  1 SNES Function norm 3.388102499527e+01 
+  0 SNES Function norm 1.801424034629e+06 
+  1 SNES Function norm 3.441890139410e+01 
+  0 SNES Function norm 1.744880827294e+06 
+  1 SNES Function norm 3.485524342178e+01 
+  0 SNES Function norm 1.688308815163e+06 
+  1 SNES Function norm 3.515805936466e+01 
+  0 SNES Function norm 1.632088548286e+06 
+  1 SNES Function norm 3.529888096851e+01 
+  860  5160 T=1548000.00 eta norm: 66324.3094 u norm: 48497.2490  6.26
+sediment_2d mass rel. error  1.7380e+04
+volume2d rel. error -2.8436e-02
+  0 SNES Function norm 1.576573261804e+06 
+  1 SNES Function norm 3.526095265830e+01 
+  0 SNES Function norm 1.522123093821e+06 
+  1 SNES Function norm 3.504164420499e+01 
+  0 SNES Function norm 1.469180910220e+06 
+  1 SNES Function norm 3.465319870611e+01 
+  0 SNES Function norm 1.418208019745e+06 
+  1 SNES Function norm 3.412588433550e+01 
+  0 SNES Function norm 1.370151241702e+06 
+  1 SNES Function norm 3.351101757988e+01 
+  0 SNES Function norm 1.325228009843e+06 
+  1 SNES Function norm 3.287129001057e+01 
+  861  5166 T=1549800.00 eta norm: 74767.1268 u norm: 48628.9910  5.89
+sediment_2d mass rel. error  2.1098e+04
+volume2d rel. error -3.6855e-02
+  0 SNES Function norm 1.284356033579e+06 
+  1 SNES Function norm 3.226681113607e+01 
+  0 SNES Function norm 1.248224836801e+06 
+  1 SNES Function norm 3.173795076931e+01 
+  0 SNES Function norm 1.217413540712e+06 
+  1 SNES Function norm 3.129498368023e+01 
+  0 SNES Function norm 1.192386019544e+06 
+  1 SNES Function norm 3.091898879022e+01 
+  0 SNES Function norm 1.173655248212e+06 
+  1 SNES Function norm 3.057255615288e+01 
+  0 SNES Function norm 1.161510227246e+06 
+  1 SNES Function norm 3.021487316415e+01 
+  862  5172 T=1551600.00 eta norm: 79551.7448 u norm: 46404.7811  5.87
+sediment_2d mass rel. error  2.5635e+04
+volume2d rel. error -4.1787e-02
+  0 SNES Function norm 1.156231380691e+06 
+  1 SNES Function norm 2.981513101244e+01 
+  0 SNES Function norm 1.157553963589e+06 
+  1 SNES Function norm 2.935820660555e+01 
+  0 SNES Function norm 1.166270476148e+06 
+  1 SNES Function norm 2.884402824606e+01 
+  0 SNES Function norm 1.182417667391e+06 
+  1 SNES Function norm 2.828231664316e+01 
+  0 SNES Function norm 1.204196121962e+06 
+  1 SNES Function norm 2.768705997102e+01 
+  0 SNES Function norm 1.231830859899e+06 
+  1 SNES Function norm 2.707466574833e+01 
+  863  5178 T=1553400.00 eta norm: 80311.2476 u norm: 42225.7116  5.41
+sediment_2d mass rel. error  3.2731e+04
+volume2d rel. error -4.2979e-02
+  0 SNES Function norm 1.264347515344e+06 
+  1 SNES Function norm 2.646448057418e+01 
+  0 SNES Function norm 1.299719484359e+06 
+  1 SNES Function norm 2.587683520999e+01 
+  0 SNES Function norm 1.339338407432e+06 
+  1 SNES Function norm 2.533595124907e+01 
+  0 SNES Function norm 1.382987074861e+06 
+  1 SNES Function norm 2.487348576651e+01 
+  0 SNES Function norm 1.429781939471e+06 
+  1 SNES Function norm 2.452736790415e+01 
+  0 SNES Function norm 1.479190072384e+06 
+  1 SNES Function norm 2.433775793264e+01 
+  864  5184 T=1555200.00 eta norm: 77045.8114 u norm: 36633.5392  5.37
+sediment_2d mass rel. error  4.5157e+04
+volume2d rel. error -4.0434e-02
+time cost: 1.40h
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/home/can/firedrake/lib/python3.7/site-packages/pyproj/crs/crs.py:131: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)

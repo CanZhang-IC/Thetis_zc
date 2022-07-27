@@ -1,5 +1,5 @@
 #! /bin/bash
-for i in $( seq 10 40 100)
+for i in $( seq 90 40 100)
 do 
     cp cable_op.py $i.py
     OMP_NUM_THREADS=1 mpirun -np 4 python $i.py &

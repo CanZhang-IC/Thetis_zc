@@ -8,7 +8,7 @@ import numpy as np
 from math import sqrt,atan
 
 thetisfilenames=[
-        'restart_30min-e&v','restart_5min-e&v'
+        'continuous-sediment-exner'
       ]
 names_30min = ['restart_30min','restart_30min-e&v']
 
@@ -86,22 +86,26 @@ for stationname in stationnames:
 
     ### Read Thetis data ###  
     for (ii,filename) in enumerate(thetisfilenames):    
-        det_file = '../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/'+filename+"/diagnostic_detectors.hdf5"
+        det_file = '../../outputs/0.validation/'+filename+"/diagnostic_detectors.hdf5"
         df = h5py.File(det_file, 'r+')
         xvelocity=[]
         yvelocity=[]
         for name, data in df.items():
             if name == stationname:
-                xvelocity.append(data[:,1])
-                yvelocity.append(data[:,2])
+                # print(data[-20:,1])
+                xvelocity.append(data[:3402,1])
+                yvelocity.append(data[:3402,2])
 
-        if filename == 'restart_5min-e&v':
-            det_file = '../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/'+filename+"-2/diagnostic_detectors.hdf5"
+
+        if filename == 'continuous-sediment-exner':
+            det_file = '../../outputs/0.validation/'+filename+"2/diagnostic_detectors.hdf5"
             df = h5py.File(det_file,'r+')
             for name, data in df.items():
                 if name == stationname:
-                    xvelocity[0]=np.append(xvelocity[0],data[6:,1])
-                    yvelocity[0]=np.append(yvelocity[0],data[6:,2])
+                    # print(data[0:6,1])
+                    xvelocity[0]=np.append(xvelocity[0],data[:,1])
+                    yvelocity[0]=np.append(yvelocity[0],data[:,2])
+            
         
         thetis_velocity=[]
         for i in range(len(xvelocity[0])):

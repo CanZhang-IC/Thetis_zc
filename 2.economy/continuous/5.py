@@ -9,22 +9,14 @@ import prepare_continuous.utm, prepare_continuous.myboundary, prepare_continuous
 import os
 import time
 import yagmail
-import rmse_sediment
 
 start_time = time.time()
 
 get_index = os.path.basename(sys.argv[0])
 BE = float(get_index[:-3])
-# BE = 5.0
 
-
-###spring:676,middle:492,neap:340###
-start_time_point = 486
-
-output_dir = '../../../outputs/3.environment/zhoushan-continuous-forward/'+str(BE)[:-2]
+output_dir = '../../../outputs/2.economy/continuous/intermediate/BE'+str(BE)[:-2]
 print_output(output_dir[17:])
-
-
 
 file_dir = '../../'
 mesh2d = Mesh(file_dir+'mesh_continuous/mesh.msh')
@@ -32,10 +24,11 @@ mesh2d = Mesh(file_dir+'mesh_continuous/mesh.msh')
 dt = 5*60 # reduce this if solver does not converge
 t_export = 30*60 
 # t_end = 1555200
-t_end = 492*t_export+ 301*dt
+# t_end = 1216800+ 13*60*60 # spring
+t_end = 885600 + 13*60*60 # middle
+# t_end = 612000 + 13*60*60 # neap
 
-
-test_gradient, optimise = 0,0
+test_gradient, optimise = 0,1
 
 turbine_area_PhyID = 2
 
@@ -53,11 +46,11 @@ h_viscosity = Function(P1, name='viscosity')
 chk.load(h_viscosity)
 chk.close()
 
-# #manning = Function(P1,name='manning')
-# chk = DumbCheckpoint(file_dir+'prepare_continuous/manning', mode=FILE_READ)
-# manning = Function(bathymetry2d.function_space(), name='manning')
-# chk.load(manning)
-# chk.close()
+#manning = Function(P1,name='manning')
+chk = DumbCheckpoint(file_dir+'prepare_continuous/manning', mode=FILE_READ)
+manning = Function(bathymetry2d.function_space(), name='manning')
+chk.load(manning)
+chk.close()
 
 #account for Coriolis code
 def coriolis(mesh, lat,):
@@ -78,29 +71,6 @@ coriolis_2d =coriolis(mesh2d, 30)
 # --- create solver ---
 solver_obj = solver2d.FlowSolver2d(mesh2d, bathymetry2d)
 options = solver_obj.options
-
-sediment_size,morfac,diffusivity,morphological_viscosity = 40*1e-6,1,0.01,1e-6
-options.sediment_model_options.c_bstar_constant = 15/1000
-options.sediment_model_options.solve_suspended_sediment = True
-options.sediment_model_options.use_bedload = False
-options.sediment_model_options.solve_exner = False
-# options.sediment_model_options.use_angle_correction = True
-# options.sediment_model_options.use_slope_mag_correction = True
-# options.sediment_model_options.use_secondary_current = True
-# options.sediment_model_options.use_advective_velocity_correction = False
-
-options.sediment_model_options.use_sediment_conservative_form = True
-options.sediment_model_options.average_sediment_size = sediment_size
-options.sediment_model_options.bed_reference_height = 4*sediment_size
-options.sediment_model_options.morphological_acceleration_factor = Constant(morfac)
-options.sediment_model_options.morphological_viscosity = Constant(morphological_viscosity)
-options.sediment_model_options.porosity = Constant(0.4)
-options.horizontal_viscosity = h_viscosity
-# define parameters
-options.nikuradse_bed_roughness = Constant(3*sediment_size)
-options.horizontal_diffusivity = Constant(diffusivity)
-options.norm_smoother = Constant(1)
-
 options.cfl_2d = 1.0
 options.use_nonlinear_equations = True
 options.simulation_export_time = t_export
@@ -108,22 +78,17 @@ options.simulation_end_time = t_end
 options.coriolis_frequency = coriolis_2d
 options.output_directory = output_dir
 options.check_volume_conservation_2d = True
-if options.sediment_model_options.solve_suspended_sediment:
-    options.fields_to_export = ['sediment_2d', 'uv_2d', 'elev_2d']  # note exporting bathymetry must be done through export func
-    options.fields_to_export_hdf5 = ['sediment_2d', 'uv_2d', 'elev_2d']
-    options.sediment_model_options.check_sediment_conservation = True
-else:
-    options.fields_to_export = ['uv_2d', 'elev_2d']  # note exporting bathymetry must be done through export func
-    options.fields_to_export_hdf5 = ['uv_2d', 'elev_2d']
+options.fields_to_export = ['uv_2d', 'elev_2d']
+options.fields_to_export_hdf5 = ['uv_2d', 'elev_2d']
 options.element_family = "dg-dg"
 options.timestepper_type = 'CrankNicolson'
 options.timestepper_options.implicitness_theta = 1 #Implicitness parameter, default 0.5
 options.timestepper_options.use_semi_implicit_linearization = True#If True use a linearized semi-implicit scheme
 options.use_wetting_and_drying = True #Wetting and drying is included through the modified bathymetry formulation of Karna et al. (2011). 
 options.wetting_and_drying_alpha = Constant(0.5) #need to check if this is a good value
-# options.manning_drag_coefficient = manning 
+options.manning_drag_coefficient = manning 
 #options.quadratic_drag_coefficient = Constant(0.0025)
-# options.horizontal_viscosity = h_viscosity #the viscosity 'cushion' we created in initialisation & loaded above
+options.horizontal_viscosity = h_viscosity #the viscosity 'cushion' we created in initialisation & loaded above
 #Epshteyn and Riviere (2007). Estimation of penalty parameters for symmetric interior penalty Galerkin methods. Journal of Computational and Applied Mathematics, 206(2):843-872. http://dx.doi.org/10.1016/j.cam.2006.08.029
 options.use_grad_div_viscosity_term = True
 options.use_grad_depth_viscosity_term = False
@@ -136,7 +101,21 @@ options.timestepper_options.solver_parameters = {'snes_monitor': None,
                                                  'mat_type': 'aij'
                                                  }
 
+# set boundary/initial conditions code
+tidal_elev = Function(bathymetry2d.function_space())
+tidal_v = Function(VectorFunctionSpace(mesh2d,"CG",1))
+solver_obj.bnd_functions['shallow_water'] = {
+        200: {'elev': tidal_elev,'uv':tidal_v},  #set open boundaries to tidal_elev function
+  }
 
+def update_forcings(t):
+  with timed_stage('update forcings'):
+    print_output("Updating tidal field at t={}".format(t))
+    elev = prepare_continuous.myboundary.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
+    tidal_elev.project(elev) 
+    v = prepare_continuous.myboundary.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
+    tidal_v.project(v)
+    print_output("Done updating tidal field")
 
 # a density function (to be optimised below) that specifies the number of turbines per unit area
 turbine_density = Function(get_functionspace(mesh2d, "CG", 1), name='turbine_density')
@@ -155,12 +134,9 @@ farm_options.break_even_wattage = BE/10
 options.tidal_turbine_farms[turbine_area_PhyID] = farm_options
 
 # we first run the "forward" model with no turbines
-# turbine_density.assign(0.0)
-chk = DumbCheckpoint('../../../outputs/2.economy/continuous/intermediate/BE'+str(BE)[:-2]+'/optimal_density', mode=FILE_READ)
-op_t_d = Function(bathymetry2d.function_space(), name='optimal_density')
-chk.load(op_t_d)
-chk.close()
-turbine_density.project(op_t_d)
+turbine_density.assign(0.0)
+
+
 
 # create a density restricted to the farm
 # the turbine_density, which is the control that will be varied in the optimisation,
@@ -178,53 +154,11 @@ projector.project()
 cb = turbines.TurbineFunctionalCallback(solver_obj)
 solver_obj.add_callback(cb, 'timestep')
 
-# set boundary/initial conditions code
-def update_forcings(t):
-  with timed_stage('update forcings'):
-    print_output("Updating tidal field at t={}".format(t))
-    elev = prepare_continuous.myboundary.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
-    tidal_elev.project(elev) 
-    v = prepare_continuous.myboundary.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
-    tidal_v.project(v)
-    print_output("Done updating tidal field")
 
-
-tidal_elev = Function(bathymetry2d.function_space())
-tidal_v = Function(VectorFunctionSpace(mesh2d,"CG",1))
-solver_obj.bnd_functions['shallow_water'] = {
-        200: {'elev': tidal_elev,'uv':tidal_v},  #set open boundaries to tidal_elev function
-  }
-
-solver_obj.load_state(start_time_point,outputdir='../../../outputs/0.validation/continuous-4cores')
-
-# #place detectors code
-# locations, names = prepare_continuous.detectors.get_detectors(mesh2d)
-# cb_d = DetectorsCallback(solver_obj, locations, ['elev_2d', 'uv_2d','sediment_2d'], name='detectors',detector_names=names)
-# solver_obj.add_callback(cb_d, 'timestep')
-
-#Effected area location
-E_area_centre_point = [444500,3319900] #behind
-E_area_circle = 60
-
-# Operation of tidal turbine farm about each turbine output through a callback
-cb2 = rmse_sediment.RMSECallback(solver_obj,'../../../outputs/3.environment/zhoushan-continuous/486-d5-4', E_area_centre_point, E_area_circle,492*t_export)
-solver_obj.add_callback(cb2,'timestep')
-
-#Effected area location
-E_area_centre_point = [442700,3323760] #inside
-E_area_circle = 60
-
-# Operation of tidal turbine farm about each turbine output through a callback
-cb3 = rmse_sediment.RMSECallback(solver_obj,'../../../outputs/3.environment/zhoushan-continuous/486-d5-4', E_area_centre_point, E_area_circle,492*t_export)
-solver_obj.add_callback(cb3,'timestep')
-
-#Effected area location
-E_area_centre_point = [442973,3321135] #next to
-E_area_circle = 60
-
-# Operation of tidal turbine farm about each turbine output through a callback
-cb4 = rmse_sediment.RMSECallback(solver_obj,'../../../outputs/3.environment/zhoushan-continuous/486-d5-4', E_area_centre_point, E_area_circle,492*t_export)
-solver_obj.add_callback(cb4,'timestep')
+# run as normal (this run will be annotated by firedrake_adjoint)
+# solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
+###spring:676,middle:492,neap:340###
+solver_obj.load_state(492,outputdir='../../../outputs/0.validation/continuous-4cores')
 
 solver_obj.iterate(update_forcings=update_forcings)
 
@@ -241,19 +175,8 @@ print_output("Maximum turbine density = {}".format(max_density))
 # (maximize is also availble from pyadjoint but currently broken)
 # scaling = -1/assemble(max(farm_options.break_even_wattage, 100) * max_density * dx(turbine_area_PhyID, domain=mesh2d))
 # scaled_functional = scaling * cb.integrated_power
-effect_two = [cb2.RMSEaverage,cb3.RMSEaverage,cb4.RMSEaverage]
-scaled_functional = cb.average_profit[-1]/1705.2278273231757 #- effect_two/650.2471486206183
-print_output(effect_two)
-print_output(cb.average_profit[-1])
+scaled_functional = -cb.average_profit[-1]
 print_output(scaled_functional)
-
-if rank ==0:
-
-    with open('result-l_y.txt','a+') as f:
-        f.write(str(BE)+'\t')
-        f.write(str(cb.average_profit[-1])+'\t'+str(effect_two[0])+'\t'+str(effect_two[1])+'\t'+str(effect_two[2])+'\t')
-else:
-    pass
 # specifies the control we want to vary in the optimisation
 c = Control(turbine_density)
 
@@ -280,7 +203,7 @@ callback_list = optimisation.OptimisationCallbackList([
 # this reduces the functional J(u, td) to a function purely of the control td:
 # rf(td) = J(u(td), td) where the velocities u(td) of the entire simulation
 # are computed by replaying the forward model for any provided turbine density td
-rf = ReducedFunctional(-scaled_functional, c, derivative_cb_post=callback_list)
+rf = ReducedFunctional(scaled_functional, c, derivative_cb_post=callback_list)
 
 
 if test_gradient:
