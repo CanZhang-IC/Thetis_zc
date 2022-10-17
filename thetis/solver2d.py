@@ -688,7 +688,6 @@ class FlowSolver2d(FrozenClass):
                                    verbose=self.options.verbose > 0)
         e.exporters['uv_2d'].load(i_export, self.fields.uv_2d)
         e.exporters['elev_2d'].load(i_export, self.fields.elev_2d)
-        # e.exporters['sediment_2d'].load(i_export,self.fields.sediment_2d)
         self.assign_initial_conditions()
 
         # time stepper bookkeeping for export time step

@@ -6,4 +6,4 @@
 #     rm $i.py
 # done
 
-OMP_NUM_THREADS=1 mpirun -np 4 python run-thetis-sediment.py 
+OMP_NUM_THREADS=1 mpirun -np 4 python A_validation_nis.py 

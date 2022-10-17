@@ -1,9 +1,11 @@
 #! /bin/bash
-for i in $( seq 5 5 45)
-do 
-    cp intermediate.py $i.py
-    OMP_NUM_THREADS=1 mpirun -np 4 python $i.py 
-    rm $i.py
-done
-
-# OMP_NUM_THREADS=1 mpirun -np 4 python intermediate.py
+# for j in $( seq 5 10 50)
+# do
+# for i in $( seq 5 10 50)
+# do 
+#     cp forward-behind.py $i-$j.py
+#     OMP_NUM_THREADS=1 mpirun -np 4 python $i-$j.py 
+#     rm $i-$j.py
+# done
+# done
+OMP_NUM_THREADS=1 mpirun -np 4 python forward-behind.py

@@ -581,6 +581,7 @@ class CommonModelOptions(FrozenConfigurable):
 
 
 class SedimentModelOptions(FrozenHasTraits):
+    c_bstar_constant = NonNegativeFloat(allow_none=False, help='It is 0.015 for Van Rijin').tag(config=True)
     solve_exner = Bool(False, help='Solve exner equation for bed morphology').tag(config=True)
     solve_suspended_sediment = Bool(False, help='Solve suspended sediment transport equation').tag(config=True)
     use_sediment_conservative_form = Bool(False, help='Solve 2D sediment transport in the conservative form').tag(config=True)

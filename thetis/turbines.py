@@ -399,8 +399,28 @@ class TurbineFunctionalCallback(DiagnosticCallback):
             # cross_result = self.uv[0]*n[1] - self.uv[1]*n[0]
             # F_force = assemble(c_t * density * unorm * dot(self.uv,n) * dx)
             # Extar_force = assemble(30 * c_t * density  * cross_result  * dot(self.uv,n) * dx)
+
             F_force = 0
             Extar_force = 0
+
+            # density = farm.turbine_density
+            # n_ebb = as_vector((cos(farm.alpha_ebb),sin(farm.alpha_ebb)))
+            # n_flood = as_vector((cos(farm.alpha_flood),sin(farm.alpha_flood)))
+            # n = conditional(dot(self.uv,as_vector((0,1)))>0, n_ebb, n_flood)  
+            # c_t = farm.friction_coefficient(self.uv, self.depth)
+            # c_t_extra = farm.friction_coefficient_extra(self.uv,self.depth)
+            # unorm = abs(dot(self.uv, n))
+            # cross_result = self.uv[0]*n[1] - self.uv[1]*n[0]
+            # #速度方向与平板方向
+            # d_vp= dot(self.uv,n)
+            # #速度逆时针垂直方向与平板方向
+            # d_pvp = dot(as_vector((-self.uv[1],self.uv[0])),n)
+            # #额外力的方向
+            # y_direction = conditional(d_vp * d_pvp > 0, as_vector((-self.uv[1],self.uv[0])), as_vector((self.uv[1],-self.uv[0])))
+            # #不用考虑带有u_test的项,计算的力没有乘以水的密度
+            # F_force = assemble(c_t * density * dot(self.uv,self.uv)* dx)
+            # Extar_force =  assemble(30 * c_t_extra * density  * cross_result * dot(self.uv,n) /sqrt(dot(self.uv,self.uv))  / self.depth* dx)
+            
             
         return self.current_power, self.average_power, self.integrated_power, self.average_profit, F_force, Extar_force
 

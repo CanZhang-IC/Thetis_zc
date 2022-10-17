@@ -1,0 +1,5 @@
+dt = 20
+Using time integrator: CrankNicolson
+Number of turbines = 1.0000014528609065
+    0     0 T=      0.00 eta norm:     0.0000 u norm:     0.0000  0.00
+volume2d rel. error  0.0000e+00

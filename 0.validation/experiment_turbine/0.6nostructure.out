@@ -1,0 +1,853 @@
+nohup: ignoring input
+0.validation/experiment_turbine/0.6-nostructure/0.0
+Using default SIPG parameters
+dt = 30
+Using time integrator: CrankNicolson
+Number of turbines = 1.0000066060873403
+    0     0 T=      0.00 eta norm:     0.0000 u norm:     5.2178  0.00
+volume2d rel. error  0.0000e+00
+Updating tidal elevation at t = 30
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+  0 SNES Function norm 3.016090173861e-02 
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+  1 SNES Function norm 9.464973819137e-14 
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+pyop2:INFO Compiling wrapper...
+pyop2:INFO Compiling wrapper...done
+Current power, average power, integrated power and profit for each farm: [0.000546927938515627], [0.000546927938515627], [0.01640783815546881], [0.000546927938515627]. The force is 0.002116653683894562. The extra_force is 4.653206934214418e-06
+Updating tidal elevation at t = 60
+  0 SNES Function norm 1.231271138388e-02 
+  1 SNES Function norm 8.882177582679e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005894011092941641], [0.0005681645239048956], [0.034089871434293734], [0.0005681645239048956]. The force is 0.002227320840889353. The extra_force is 0.001109008731034923
+    1     2 T=     60.00 eta norm:     0.0285 u norm:     5.1916 39.68
+volume2d rel. error -3.1010e-03
+Updating tidal elevation at t = 90
+  0 SNES Function norm 3.523315680689e-03 
+  1 SNES Function norm 9.123319388730e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005902071844983493], [0.0005755120774360468], [0.05179608696924421], [0.0005755120774360468]. The force is 0.002229068030566863. The extra_force is 0.0008772166580889294
+Updating tidal elevation at t = 120
+  0 SNES Function norm 1.444917372259e-03 
+  1 SNES Function norm 9.231352799965e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005905807222560395], [0.000579279238641045], [0.0695135086369254], [0.000579279238641045]. The force is 0.002230009589133638. The extra_force is 0.0008502323958552921
+    2     4 T=    120.00 eta norm:     0.0270 u norm:     5.2044 11.36
+volume2d rel. error -2.9399e-03
+Updating tidal elevation at t = 150
+  0 SNES Function norm 5.642342363403e-04 
+  1 SNES Function norm 8.824486141358e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005901492885498534], [0.0005814532486228067], [0.087217987293421], [0.0005814532486228067]. The force is 0.0022289240620789992. The extra_force is 0.0008458655631444524
+Updating tidal elevation at t = 180
+  0 SNES Function norm 3.082443885670e-04 
+  1 SNES Function norm 9.679894678312e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899226234481593], [0.0005828648110936988], [0.10491566599686579], [0.0005828648110936988]. The force is 0.0022283534750360896. The extra_force is 0.0008453948202024615
+    3     6 T=    180.00 eta norm:     0.0267 u norm:     5.2028 10.74
+volume2d rel. error -2.9103e-03
+Updating tidal elevation at t = 210
+  0 SNES Function norm 1.580385697704e-04 
+  1 SNES Function norm 8.852050065298e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899052882366128], [0.0005838705935426865], [0.12261282464396417], [0.0005838705935426865]. The force is 0.0022283098172509205. The extra_force is 0.0008454738275002108
+Updating tidal elevation at t = 240
+  0 SNES Function norm 6.614059710092e-05 
+  1 SNES Function norm 9.633098540974e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899317843971244], [0.0005846282423994912], [0.1403107781758779], [0.0005846282423994912]. The force is 0.002228376519172811. The extra_force is 0.000845511193932122
+    4     8 T=    240.00 eta norm:     0.0268 u norm:     5.2028 10.03
+volume2d rel. error -2.9187e-03
+Updating tidal elevation at t = 270
+  0 SNES Function norm 2.673375524900e-05 
+  1 SNES Function norm 9.351121809678e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899434128129653], [0.0005852188168898772], [0.15800908056026686], [0.0005852188168898772]. The force is 0.0022284057954529996. The extra_force is 0.0008455069897086027
+Updating tidal elevation at t = 300
+  0 SNES Function norm 9.529818650825e-06 
+  1 SNES Function norm 8.157209446528e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899436318296588], [0.0005856912983838554], [0.17570738951515663], [0.0005856912983838554]. The force is 0.0022284063479147496. The extra_force is 0.0008454997368197699
+    5    10 T=    300.00 eta norm:     0.0268 u norm:     5.2029 10.75
+volume2d rel. error -2.9179e-03
+Updating tidal elevation at t = 330
+  0 SNES Function norm 2.806584139275e-06 
+  1 SNES Function norm 8.431180713400e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899420498590333], [0.0005860777303361444], [0.19340565101092763], [0.0005860777303361444]. The force is 0.002228402365454475. The extra_force is 0.0008454978198588524
+Updating tidal elevation at t = 360
+  0 SNES Function norm 8.863897782954e-07 
+  1 SNES Function norm 8.444667704574e-14 
+Current power, average power, integrated power and profit for each farm: [0.000589941478766643], [0.0005863997093720193], [0.21110389537392693], [0.0005863997093720193]. The force is 0.0022284009276282617. The extra_force is 0.0008454981983526616
+    6    12 T=    360.00 eta norm:     0.0268 u norm:     5.2029 10.96
+volume2d rel. error -2.9179e-03
+Updating tidal elevation at t = 390
+  0 SNES Function norm 2.674357209373e-07 
+  1 SNES Function norm 8.704399237377e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899415105548629], [0.0005866721556168534], [0.2288021406905728], [0.0005866721556168534]. The force is 0.002228401007600353. The extra_force is 0.0008454986020702878
+Updating tidal elevation at t = 420
+  0 SNES Function norm 6.027685648870e-08 
+  1 SNES Function norm 8.156415919841e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416036341053], [0.0005869056876180856], [0.24650038879959596], [0.0005869056876180856]. The force is 0.002228401241923446. The extra_force is 0.000845498685996102
+    7    14 T=    420.00 eta norm:     0.0268 u norm:     5.2029 11.55
+volume2d rel. error -2.9179e-03
+Updating tidal elevation at t = 450
+  0 SNES Function norm 2.793356812247e-08 
+  1 SNES Function norm 8.527321623624e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416311061454], [0.0005871080838506229], [0.2641986377327803], [0.0005871080838506229]. The force is 0.0022284013110909244. The extra_force is 0.0008454986567968273
+Updating tidal elevation at t = 480
+  0 SNES Function norm 8.588951900284e-09 
+  1 SNES Function norm 8.710750784025e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416272116698], [0.0005872851803106883], [0.28189688654913037], [0.0005872851803106883]. The force is 0.002228401301289443. The extra_force is 0.0008454986347041506
+    8    16 T=    480.00 eta norm:     0.0268 u norm:     5.2029 11.05
+volume2d rel. error -2.9179e-03
+Updating tidal elevation at t = 510
+  0 SNES Function norm 1.393691461548e-09 
+  1 SNES Function norm 8.933859876020e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416219407709], [0.000587441441583046], [0.2995951352073535], [0.000587441441583046]. The force is 0.002228401288019996. The extra_force is 0.0008454986312965215
+Updating tidal elevation at t = 540
+  0 SNES Function norm 1.359842610321e-09 
+  1 SNES Function norm 8.756240666010e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416206906845], [0.0005875803404223593], [0.31729338382807404], [0.0005875803404223593]. The force is 0.0022284012848725093. The extra_force is 0.0008454986332917656
+    9    18 T=    540.00 eta norm:     0.0268 u norm:     5.2029 10.56
+volume2d rel. error -2.9179e-03
+Updating tidal elevation at t = 570
+  0 SNES Function norm 3.719869591198e-10 
+  1 SNES Function norm 9.325203919644e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416210173969], [0.0005877046183484139], [0.3349916324585959], [0.0005877046183484139]. The force is 0.0022284012856948667. The extra_force is 0.0008454986344645665
+Updating tidal elevation at t = 600
+  0 SNES Function norm 8.448607387830e-11 
+  1 SNES Function norm 9.017331181182e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213087982], [0.0005878164684964331], [0.35268988109785987], [0.0005878164684964331]. The force is 0.002228401286428478. The extra_force is 0.0008454986345810013
+   10    20 T=    600.00 eta norm:     0.0268 u norm:     5.2029 10.89
+volume2d rel. error -2.9179e-03
+Updating tidal elevation at t = 630
+  0 SNES Function norm 7.549150445190e-11 
+  1 SNES Function norm 8.874899676403e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213619981], [0.0005879176662519362], [0.3703881297387198], [0.0005879176662519362]. The force is 0.0022284012865624305. The extra_force is 0.0008454986344528756
+Updating tidal elevation at t = 660
+  0 SNES Function norm 1.688203035411e-11 
+  1 SNES Function norm 9.030417519818e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213384857], [0.0005880096642104157], [0.3880863783788744], [0.0005880096642104157]. The force is 0.002228401286503246. The extra_force is 0.0008454986343920693
+   11    22 T=    660.00 eta norm:     0.0268 u norm:     5.2029 11.75
+volume2d rel. error -2.9179e-03
+Updating tidal elevation at t = 690
+  0 SNES Function norm 5.867755592915e-12 
+  1 SNES Function norm 9.089678349613e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213227881], [0.0005880936623457363], [0.40578462701855805], [0.0005880936623457363]. The force is 0.0022284012864637257. The extra_force is 0.00084549863438966
+Updating tidal elevation at t = 720
+  0 SNES Function norm 4.117513666615e-12 
+  1 SNES Function norm 9.045957046043e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213207696], [0.0005881706606363627], [0.42348287565818116], [0.0005881706606363627]. The force is 0.0022284012864586438. The extra_force is 0.0008454986343975317
+   12    24 T=    720.00 eta norm:     0.0268 u norm:     5.2029 12.42
+volume2d rel. error -2.9179e-03
+Updating tidal elevation at t = 750
+  0 SNES Function norm 7.355274589558e-13 
+  1 SNES Function norm 9.785717861459e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213223279], [0.0005882414990638013], [0.441181124297851], [0.0005882414990638013]. The force is 0.002228401286462566. The extra_force is 0.0008454986344005711
+Updating tidal elevation at t = 780
+  0 SNES Function norm 3.992205154359e-13 
+  1 SNES Function norm 8.562689283383e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213231529], [0.0005883068883814687], [0.4588793729375456], [0.0005883068883814687]. The force is 0.002228401286464644. The extra_force is 0.0008454986344005044
+   13    26 T=    780.00 eta norm:     0.0268 u norm:     5.2029 10.81
+volume2d rel. error -2.9179e-03
+Updating tidal elevation at t = 810
+  0 SNES Function norm 2.357099378749e-13 
+  1 SNES Function norm 9.092178669843e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213232133], [0.0005883674340459778], [0.476577621577242], [0.0005883674340459778]. The force is 0.002228401286464795. The extra_force is 0.0008454986343999786
+Updating tidal elevation at t = 840
+  0 SNES Function norm 9.595079009710e-14 
+  1 SNES Function norm 8.699729744182e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213231161], [0.0005884236550201613], [0.4942758702169355], [0.0005884236550201613]. The force is 0.0022284012864645505. The extra_force is 0.0008454986343999386
+   14    28 T=    840.00 eta norm:     0.0268 u norm:     5.2029 10.92
+volume2d rel. error -2.9179e-03
+Updating tidal elevation at t = 870
+  0 SNES Function norm 9.075944436171e-14 
+  1 SNES Function norm 8.664758341682e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213230727], [0.0005884759986857789], [0.5119741188566277], [0.0005884759986857789]. The force is 0.0022284012864644412. The extra_force is 0.0008454986343999004
+Updating tidal elevation at t = 900
+  0 SNES Function norm 8.789953974547e-14 
+  1 SNES Function norm 8.196318832972e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213230715], [0.0005885248527736887], [0.5296723674963199], [0.0005885248527736887]. The force is 0.0022284012864644386. The extra_force is 0.0008454986343998968
+   15    30 T=    900.00 eta norm:     0.0268 u norm:     5.2029 11.64
+volume2d rel. error -2.9179e-03
+Updating tidal elevation at t = 930
+  0 SNES Function norm 8.303329471371e-14 
+  1 SNES Function norm 8.648436925535e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213230777], [0.0005885705549849594], [0.5473706161360122], [0.0005885705549849594]. The force is 0.002228401286464454. The extra_force is 0.0008454986343999606
+Updating tidal elevation at t = 960
+  0 SNES Function norm 8.739043808435e-14 
+  1 SNES Function norm 8.764179399904e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213230825], [0.0005886134008080257], [0.5650688647757047], [0.0005886134008080257]. The force is 0.002228401286464466. The extra_force is 0.0008454986343999318
+   16    32 T=    960.00 eta norm:     0.0268 u norm:     5.2029 11.47
+volume2d rel. error -2.9179e-03
+Updating tidal elevation at t = 990
+  0 SNES Function norm 8.842206075095e-14 
+  1 SNES Function norm 8.435345544730e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213230804], [0.0005886536499145425], [0.5827671134153971], [0.0005886536499145425]. The force is 0.00222840128646446. The extra_force is 0.0008454986343999454
+Updating tidal elevation at t = 1020
+  0 SNES Function norm 8.524381007980e-14 
+  1 SNES Function norm 9.195741044275e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213230794], [0.0005886915314265584], [0.6004653620550895], [0.0005886915314265584]. The force is 0.002228401286464458. The extra_force is 0.0008454986343999008
+   17    34 T=   1020.00 eta norm:     0.0268 u norm:     5.2029 11.23
+volume2d rel. error -2.9179e-03
+Updating tidal elevation at t = 1050
+  0 SNES Function norm 9.275526661734e-14 
+  1 SNES Function norm 8.725983478375e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213230799], [0.0005887272482807446], [0.6181636106947819], [0.0005887272482807446]. The force is 0.0022284012864644594. The extra_force is 0.0008454986343999305
+Updating tidal elevation at t = 1080
+  0 SNES Function norm 8.787149816247e-14 
+  1 SNES Function norm 8.320712143422e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213230805], [0.000588760980865254], [0.6358618593344743], [0.000588760980865254]. The force is 0.00222840128646446. The extra_force is 0.0008454986343998846
+   18    36 T=   1080.00 eta norm:     0.0268 u norm:     5.2029 10.85
+volume2d rel. error -2.9179e-03
+Updating tidal elevation at t = 1110
+  0 SNES Function norm 8.386908538419e-14 
+  1 SNES Function norm 8.258328212451e-14 
+Current power, average power, integrated power and profit for each farm: [0.000589941621323079], [0.0005887928900668168], [0.6535601079741666], [0.0005887928900668168]. The force is 0.0022284012864644564. The extra_force is 0.0008454986343999411
+Updating tidal elevation at t = 1140
+  0 SNES Function norm 8.324002814481e-14 
+  1 SNES Function norm 8.405355623360e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213230783], [0.0005888231198367184], [0.671258356613859], [0.0005888231198367184]. The force is 0.0022284012864644547. The extra_force is 0.0008454986343999129
+   19    38 T=   1140.00 eta norm:     0.0268 u norm:     5.2029 11.25
+volume2d rel. error -2.9179e-03
+Updating tidal elevation at t = 1170
+  0 SNES Function norm 8.470204939968e-14 
+  1 SNES Function norm 8.842322419992e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213230766], [0.0005888517993620097], [0.6889566052535513], [0.0005888517993620097]. The force is 0.002228401286464451. The extra_force is 0.0008454986343999606
+Updating tidal elevation at t = 1200
+  0 SNES Function norm 8.907371273588e-14 
+  1 SNES Function norm 8.489890261853e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005899416213230787], [0.0005888790449110364], [0.7066548538932437], [0.0005888790449110364]. The force is 0.002228401286464456. The extra_force is 0.0008454986343999082
+   20    40 T=   1200.00 eta norm:     0.0268 u norm:     5.2029 10.41
+volume2d rel. error -2.9179e-03
+time cost: 4.28min
+time cost: 4.28min
+time cost: 4.28min
+time cost: 4.28min
+0.validation/experiment_turbine/0.6-nostructure/10.0
+Using default SIPG parameters
+dt = 30
+Using time integrator: CrankNicolson
+Number of turbines = 1.0000066060873403
+    0     0 T=      0.00 eta norm:     0.0000 u norm:     5.2178  0.00
+volume2d rel. error  0.0000e+00
+Updating tidal elevation at t = 30
+  0 SNES Function norm 8.353437690929e-02 
+  1 SNES Function norm 9.413178926027e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006113614870986388], [0.0006113614870986388], [0.018340844612959165], [0.0006113614870986388]. The force is 0.0023090537337590615. The extra_force is 0.04965120625041206
+Updating tidal elevation at t = 60
+  0 SNES Function norm 9.165844007523e-03 
+  1 SNES Function norm 9.191468453054e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006056604574126356], [0.0006085109722556372], [0.03651065833533823], [0.0006085109722556372]. The force is 0.002296797879054639. The extra_force is 0.05144430280311452
+    1     2 T=     60.00 eta norm:     0.0286 u norm:     5.1915 21.82
+volume2d rel. error -3.1101e-03
+Updating tidal elevation at t = 90
+  0 SNES Function norm 2.326917326866e-03 
+  1 SNES Function norm 8.835814141063e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006077903266920725], [0.0006082707570677822], [0.0547443681361004], [0.0006082707570677822]. The force is 0.002301934798347975. The extra_force is 0.0515250734989707
+Updating tidal elevation at t = 120
+  0 SNES Function norm 1.523623847331e-03 
+  1 SNES Function norm 8.769231969401e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006080461149235719], [0.0006082145965317297], [0.07298575158380756], [0.0006082145965317297]. The force is 0.0023025724239043137. The extra_force is 0.05154559866610904
+    2     4 T=    120.00 eta norm:     0.0271 u norm:     5.2046 10.87
+volume2d rel. error -2.9506e-03
+Updating tidal elevation at t = 150
+  0 SNES Function norm 6.617998635394e-04 
+  1 SNES Function norm 8.787744716206e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006075740163963854], [0.0006080864805046608], [0.09121297207569912], [0.0006080864805046608]. The force is 0.002301387111571758. The extra_force is 0.05153827700471392
+Updating tidal elevation at t = 180
+  0 SNES Function norm 3.877089402081e-04 
+  1 SNES Function norm 8.766178664591e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073311040807453], [0.0006079605844340082], [0.10943290519812147], [0.0006079605844340082]. The force is 0.0023007774093333593. The extra_force is 0.05153345827801796
+    3     6 T=    180.00 eta norm:     0.0268 u norm:     5.2030 10.72
+volume2d rel. error -2.9207e-03
+Updating tidal elevation at t = 210
+  0 SNES Function norm 2.039694348923e-04 
+  1 SNES Function norm 8.595400786678e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073105517274938], [0.0006078677226187918], [0.12765222174994628], [0.0006078677226187918]. The force is 0.0023007263639306546. The extra_force is 0.051533116185414146
+Updating tidal elevation at t = 240
+  0 SNES Function norm 8.722066079827e-05 
+  1 SNES Function norm 8.789746471831e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073378540535007], [0.0006078014890481304], [0.1458723573715513], [0.0006078014890481304]. The force is 0.0023007951328698657. The extra_force is 0.051533732688119935
+    4     8 T=    240.00 eta norm:     0.0269 u norm:     5.2030 11.31
+volume2d rel. error -2.9291e-03
+Updating tidal elevation at t = 270
+  0 SNES Function norm 3.436471938391e-05 
+  1 SNES Function norm 8.959919868726e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073501977000944], [0.0006077513455650153], [0.16409286330255413], [0.0006077513455650153]. The force is 0.0023008261257522044. The extra_force is 0.051534002287140473
+Updating tidal elevation at t = 300
+  0 SNES Function norm 1.220572002524e-05 
+  1 SNES Function norm 8.772922590082e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073505559562693], [0.0006077112666041406], [0.1823133799812422], [0.0006077112666041406]. The force is 0.002300826995029814. The extra_force is 0.05153400855147684
+    5    10 T=    300.00 eta norm:     0.0269 u norm:     5.2030 10.99
+volume2d rel. error -2.9283e-03
+Updating tidal elevation at t = 330
+  0 SNES Function norm 3.825046354373e-06 
+  1 SNES Function norm 8.717633274918e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073489242050603], [0.0006076783263860425], [0.20053384770739402], [0.0006076783263860425]. The force is 0.0023008228877746464. The extra_force is 0.051533972613883185
+Updating tidal elevation at t = 360
+  0 SNES Function norm 1.224272138759e-06 
+  1 SNES Function norm 8.553321746595e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073483175530096], [0.0006076508256499564], [0.21875429723398432], [0.0006076508256499564]. The force is 0.0023008213654490467. The extra_force is 0.05153395953378874
+    6    12 T=    360.00 eta norm:     0.0269 u norm:     5.2030 11.07
+volume2d rel. error -2.9283e-03
+Updating tidal elevation at t = 390
+  0 SNES Function norm 3.690492159057e-07 
+  1 SNES Function norm 8.096650249663e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073483446299946], [0.0006076275578791902], [0.23697474757288417], [0.0006076275578791902]. The force is 0.0023008214352098033. The extra_force is 0.05153396023756643
+Updating tidal elevation at t = 420
+  0 SNES Function norm 9.206666061411e-08 
+  1 SNES Function norm 9.041125344708e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484412808097], [0.0006076076209793059], [0.2551952008113085], [0.0006076076209793059]. The force is 0.002300821678370625. The extra_force is 0.051533962365499564
+    7    14 T=    420.00 eta norm:     0.0269 u norm:     5.2030 11.63
+volume2d rel. error -2.9283e-03
+Updating tidal elevation at t = 450
+  0 SNES Function norm 3.313239151832e-08 
+  1 SNES Function norm 8.804696193890e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484706829709], [0.0006075903442928836], [0.2734156549317976], [0.0006075903442928836]. The force is 0.00230082175210796. The extra_force is 0.05153396299803717
+Updating tidal elevation at t = 480
+  0 SNES Function norm 9.627182096227e-09 
+  1 SNES Function norm 8.457360597886e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484669476299], [0.0006075752269588052], [0.2916361089402265], [0.0006075752269588052]. The force is 0.0023008217426298116. The extra_force is 0.051533962910853826
+    8    16 T=    480.00 eta norm:     0.0269 u norm:     5.2030 10.99
+volume2d rel. error -2.9283e-03
+Updating tidal elevation at t = 510
+  0 SNES Function norm 1.659000621357e-09 
+  1 SNES Function norm 9.087290984359e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484614561486], [0.0006075618878115901], [0.309856562783911], [0.0006075618878115901]. The force is 0.0023008217288199625. The extra_force is 0.051533962790402024
+Updating tidal elevation at t = 540
+  0 SNES Function norm 1.381970758658e-09 
+  1 SNES Function norm 9.658907497494e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484601073942], [0.0006075500307169126], [0.32807701658713284], [0.0006075500307169126]. The force is 0.0023008217254402753. The extra_force is 0.051533962761576166
+    9    18 T=    540.00 eta norm:     0.0269 u norm:     5.2030 11.01
+volume2d rel. error -2.9283e-03
+Updating tidal elevation at t = 570
+  0 SNES Function norm 3.804458837413e-10 
+  1 SNES Function norm 9.149279071681e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484604317321], [0.0006075394217545348], [0.3462974704000848], [0.0006075394217545348]. The force is 0.002300821726260078. The extra_force is 0.05153396276895143
+Updating tidal elevation at t = 600
+  0 SNES Function norm 8.486263874940e-11 
+  1 SNES Function norm 9.132244840247e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607364717], [0.0006075298737036316], [0.36451792422217894], [0.0006075298737036316]. The force is 0.002300821727026122. The extra_force is 0.05153396277561678
+   10    20 T=    600.00 eta norm:     0.0269 u norm:     5.2030 12.71
+volume2d rel. error -2.9283e-03
+Updating tidal elevation at t = 630
+  0 SNES Function norm 7.610238836860e-11 
+  1 SNES Function norm 9.615716461545e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607946181], [0.0006075212349936785], [0.38273837804601746], [0.0006075212349936785]. The force is 0.002300821727171643. The extra_force is 0.05153396277684831
+Updating tidal elevation at t = 660
+  0 SNES Function norm 1.719829792972e-11 
+  1 SNES Function norm 8.592890216561e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607709022], [0.0006075133816199159], [0.4009588318691445], [0.0006075133816199159]. The force is 0.002300821727111806. The extra_force is 0.051533962776315806
+   11    22 T=    660.00 eta norm:     0.0269 u norm:     5.2030 11.03
+volume2d rel. error -2.9283e-03
+Updating tidal elevation at t = 690
+  0 SNES Function norm 5.849140623710e-12 
+  1 SNES Function norm 8.363037190284e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607544277], [0.0006075062111475034], [0.4191792856917773], [0.0006075062111475034]. The force is 0.002300821727070409. The extra_force is 0.051533962775956454
+Updating tidal elevation at t = 720
+  0 SNES Function norm 4.152031997120e-12 
+  1 SNES Function norm 8.522476170362e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607521718], [0.0006074996382143646], [0.43739973951434247], [0.0006074996382143646]. The force is 0.002300821727064776. The extra_force is 0.05153396277590942
+   12    24 T=    720.00 eta norm:     0.0269 u norm:     5.2030 11.33
+volume2d rel. error -2.9283e-03
+Updating tidal elevation at t = 750
+  0 SNES Function norm 7.507657438255e-13 
+  1 SNES Function norm 8.817232965777e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607537591], [0.0006074935911159403], [0.45562019333695525], [0.0006074935911159403]. The force is 0.0023008217270687765. The extra_force is 0.05153396277594481
+Updating tidal elevation at t = 780
+  0 SNES Function norm 3.965684234268e-13 
+  1 SNES Function norm 7.928823078676e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607546263], [0.0006074880091789667], [0.47384064715959406], [0.0006074880091789667]. The force is 0.002300821727070954. The extra_force is 0.0515339627759636
+   13    26 T=    780.00 eta norm:     0.0269 u norm:     5.2030 11.68
+volume2d rel. error -2.9283e-03
+Updating tidal elevation at t = 810
+  0 SNES Function norm 2.355441770930e-13 
+  1 SNES Function norm 8.454773689417e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607546964], [0.0006074828407188086], [0.49206110098223493], [0.0006074828407188086]. The force is 0.0023008217270711283. The extra_force is 0.05153396277596503
+Updating tidal elevation at t = 840
+  0 SNES Function norm 9.038802451843e-14 
+  1 SNES Function norm 9.187511432292e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607545974], [0.0006074780414343724], [0.5102815548048728], [0.0006074780414343724]. The force is 0.002300821727070879. The extra_force is 0.05153396277596285
+   14    28 T=    840.00 eta norm:     0.0269 u norm:     5.2030 11.29
+volume2d rel. error -2.9283e-03
+Updating tidal elevation at t = 870
+  0 SNES Function norm 9.559607798120e-14 
+  1 SNES Function norm 9.302448258858e-14 
+Current power, average power, integrated power and profit for each farm: [0.000607348460754552], [0.0006074735731350682], [0.5285020086275094], [0.0006074735731350682]. The force is 0.0023008217270707653. The extra_force is 0.05153396277596192
+Updating tidal elevation at t = 900
+  0 SNES Function norm 9.435489084289e-14 
+  1 SNES Function norm 8.976005900659e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607545508], [0.0006074694027223843], [0.5467224624501459], [0.0006074694027223843]. The force is 0.0023008217270707623. The extra_force is 0.051533962775961936
+   15    30 T=    900.00 eta norm:     0.0269 u norm:     5.2030 11.51
+volume2d rel. error -2.9283e-03
+Updating tidal elevation at t = 930
+  0 SNES Function norm 9.069865793454e-14 
+  1 SNES Function norm 9.210424255409e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607545553], [0.0006074655013685834], [0.5649429162727826], [0.0006074655013685834]. The force is 0.002300821727070773. The extra_force is 0.05153396277596199
+Updating tidal elevation at t = 960
+  0 SNES Function norm 9.283997674916e-14 
+  1 SNES Function norm 7.784874698949e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607545605], [0.0006074618438493952], [0.5831633700954194], [0.0006074618438493952]. The force is 0.002300821727070787. The extra_force is 0.05153396277596205
+   16    32 T=    960.00 eta norm:     0.0269 u norm:     5.2030 11.27
+volume2d rel. error -2.9283e-03
+Updating tidal elevation at t = 990
+  0 SNES Function norm 7.878975950956e-14 
+  1 SNES Function norm 8.328131802290e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607545612], [0.0006074584079980366], [0.6013838239180562], [0.0006074584079980366]. The force is 0.0023008217270707888. The extra_force is 0.05153396277596209
+Updating tidal elevation at t = 1020
+  0 SNES Function norm 8.417644368944e-14 
+  1 SNES Function norm 8.702407995383e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607545587], [0.0006074551742555813], [0.6196042777406929], [0.0006074551742555813]. The force is 0.0023008217270707827. The extra_force is 0.05153396277596209
+   17    34 T=   1020.00 eta norm:     0.0269 u norm:     5.2030 11.15
+volume2d rel. error -2.9283e-03
+Updating tidal elevation at t = 1050
+  0 SNES Function norm 8.756809384376e-14 
+  1 SNES Function norm 8.521838130939e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607545584], [0.0006074521252984092], [0.6378247315633296], [0.0006074521252984092]. The force is 0.002300821727070782. The extra_force is 0.05153396277596202
+Updating tidal elevation at t = 1080
+  0 SNES Function norm 8.580557162652e-14 
+  1 SNES Function norm 8.451161862841e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607545578], [0.0006074492457277467], [0.6560451853859663], [0.0006074492457277467]. The force is 0.00230082172707078. The extra_force is 0.05153396277596199
+   18    36 T=   1080.00 eta norm:     0.0269 u norm:     5.2030 10.87
+volume2d rel. error -2.9283e-03
+Updating tidal elevation at t = 1110
+  0 SNES Function norm 8.500210843141e-14 
+  1 SNES Function norm 8.180220438405e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607545592], [0.0006074465218095524], [0.6742656392086032], [0.0006074465218095524]. The force is 0.0023008217270707836. The extra_force is 0.05153396277596202
+Updating tidal elevation at t = 1140
+  0 SNES Function norm 8.261960309446e-14 
+  1 SNES Function norm 8.386383009706e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607545598], [0.0006074439412554737], [0.69248609303124], [0.0006074439412554737]. The force is 0.0023008217270707844. The extra_force is 0.051533962775961985
+   19    38 T=   1140.00 eta norm:     0.0269 u norm:     5.2030 11.11
+volume2d rel. error -2.9283e-03
+Updating tidal elevation at t = 1170
+  0 SNES Function norm 8.470792489740e-14 
+  1 SNES Function norm 8.589012228969e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607545583], [0.0006074414930375015], [0.7107065468538767], [0.0006074414930375015]. The force is 0.002300821727070781. The extra_force is 0.05153396277596204
+Updating tidal elevation at t = 1200
+  0 SNES Function norm 8.666236508000e-14 
+  1 SNES Function norm 8.827025485033e-14 
+Current power, average power, integrated power and profit for each farm: [0.0006073484607545578], [0.0006074391672304278], [0.7289270006765134], [0.0006074391672304278]. The force is 0.00230082172707078. The extra_force is 0.051533962775962006
+   20    40 T=   1200.00 eta norm:     0.0269 u norm:     5.2030 10.94
+volume2d rel. error -2.9283e-03
+time cost: 4.02min
+time cost: 4.02min
+time cost: 4.03min
+time cost: 4.02min
+0.validation/experiment_turbine/0.6-nostructure/20.0
+Using default SIPG parameters
+dt = 30
+Using time integrator: CrankNicolson
+Number of turbines = 1.0000066060873403
+    0     0 T=      0.00 eta norm:     0.0000 u norm:     5.2178  0.00
+volume2d rel. error  0.0000e+00
+Updating tidal elevation at t = 30
+  0 SNES Function norm 1.492668006169e-01 
+  1 SNES Function norm 9.119315722699e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005840917855426948], [0.0005840917855426948], [0.017522753566280844], [0.0005840917855426948]. The force is 0.0023296031324135445. The extra_force is 0.09241107717213035
+Updating tidal elevation at t = 60
+  0 SNES Function norm 2.221677407437e-02 
+  1 SNES Function norm 8.621670211282e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005659410408448227], [0.0005750164131937587], [0.03450098479162553], [0.0005750164131937587]. The force is 0.00230112200118315. The extra_force is 0.09748912290427503
+    1     2 T=     60.00 eta norm:     0.0285 u norm:     5.1918 15.24
+volume2d rel. error -3.1037e-03
+Updating tidal elevation at t = 90
+  0 SNES Function norm 4.896383410207e-03 
+  1 SNES Function norm 8.789306705852e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005575126709610992], [0.000569181832449539], [0.051226364920458504], [0.000569181832449539]. The force is 0.002276504258645329. The extra_force is 0.09818224369389664
+Updating tidal elevation at t = 120
+  0 SNES Function norm 1.928691828684e-03 
+  1 SNES Function norm 8.922204603604e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005547215581234217], [0.0005655667638680095], [0.06786801166416115], [0.0005655667638680095]. The force is 0.002268793358793569. The extra_force is 0.09835302306839347
+    2     4 T=    120.00 eta norm:     0.0272 u norm:     5.2049  7.29
+volume2d rel. error -2.9588e-03
+Updating tidal elevation at t = 150
+  0 SNES Function norm 8.457643403152e-04 
+  1 SNES Function norm 8.853677098722e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005536591894747705], [0.0005631852489893618], [0.08447778734840426], [0.0005631852489893618]. The force is 0.002266048160679481. The extra_force is 0.09838239030955018
+Updating tidal elevation at t = 180
+  0 SNES Function norm 5.415963219595e-04 
+  1 SNES Function norm 8.887790908401e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532899974689663], [0.0005615360404026291], [0.10107648727247324], [0.0005615360404026291]. The force is 0.0022650910906481317. The extra_force is 0.09838213063260795
+    3     6 T=    180.00 eta norm:     0.0269 u norm:     5.2034  6.98
+volume2d rel. error -2.9287e-03
+Updating tidal elevation at t = 210
+  0 SNES Function norm 3.111361591890e-04 
+  1 SNES Function norm 8.891092392670e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532349354864696], [0.0005603501682717492], [0.11767353533706734], [0.0005603501682717492]. The force is 0.0022649515752022507. The extra_force is 0.09838336487334873
+Updating tidal elevation at t = 240
+  0 SNES Function norm 1.482934253174e-04 
+  1 SNES Function norm 8.325227148790e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532507107708425], [0.000559462736084136], [0.13427105666019262], [0.000559462736084136]. The force is 0.0022649957099877497. The extra_force is 0.09838507022317593
+    4     8 T=    240.00 eta norm:     0.0270 u norm:     5.2034  7.04
+volume2d rel. error -2.9371e-03
+Updating tidal elevation at t = 270
+  0 SNES Function norm 6.361244705659e-05 
+  1 SNES Function norm 8.859447833210e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532601577518596], [0.000558773560713883], [0.1508688613927484], [0.000558773560713883]. The force is 0.002265021215492767. The extra_force is 0.09838576968877
+Updating tidal elevation at t = 300
+  0 SNES Function norm 2.511578905828e-05 
+  1 SNES Function norm 8.682021459115e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532603348574746], [0.0005582222381282422], [0.16746667143847266], [0.0005582222381282422]. The force is 0.002265021603137522. The extra_force is 0.09838583090255094
+    5    10 T=    300.00 eta norm:     0.0270 u norm:     5.2034  7.01
+volume2d rel. error -2.9363e-03
+Updating tidal elevation at t = 330
+  0 SNES Function norm 9.214586566284e-06 
+  1 SNES Function norm 8.814021469588e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532588811882435], [0.0005577710238609696], [0.18406443787411997], [0.0005577710238609696]. The force is 0.002265017675963703. The extra_force is 0.09838576695525567
+Updating tidal elevation at t = 360
+  0 SNES Function norm 3.217036745326e-06 
+  1 SNES Function norm 8.835275261724e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532583267434202], [0.0005573949657678405], [0.20066218767642258], [0.0005573949657678405]. The force is 0.0022650161977185307. The extra_force is 0.09838573972788542
+    6    12 T=    360.00 eta norm:     0.0270 u norm:     5.2034  7.21
+volume2d rel. error -2.9363e-03
+Updating tidal elevation at t = 390
+  0 SNES Function norm 1.049927533301e-06 
+  1 SNES Function norm 8.247276070097e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532583396942583], [0.0005570767637621803], [0.21725993786725034], [0.0005570767637621803]. The force is 0.0022650162408411165. The extra_force is 0.0983857403407756
+Updating tidal elevation at t = 420
+  0 SNES Function norm 3.175932685971e-07 
+  1 SNES Function norm 8.625452610062e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584229125837], [0.0005568040251300663], [0.23385769055462785], [0.0005568040251300663]. The force is 0.0022650164659179578. The extra_force is 0.09838574463411467
+    7    14 T=    420.00 eta norm:     0.0270 u norm:     5.2034  7.28
+volume2d rel. error -2.9363e-03
+Updating tidal elevation at t = 450
+  0 SNES Function norm 9.458448322383e-08 
+  1 SNES Function norm 8.620781694530e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584495792993], [0.0005565676534266818], [0.2504554440420068], [0.0005565676534266818]. The force is 0.0022650165369348715. The extra_force is 0.09838574606107017
+Updating tidal elevation at t = 480
+  0 SNES Function norm 2.637262971580e-08 
+  1 SNES Function norm 9.060049199302e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584468195459], [0.0005563608280137358], [0.26705319744659317], [0.0005563608280137358]. The force is 0.0022650165291000354. The extra_force is 0.0983857459445621
+    8    16 T=    480.00 eta norm:     0.0270 u norm:     5.2034  7.37
+volume2d rel. error -2.9363e-03
+Updating tidal elevation at t = 510
+  0 SNES Function norm 6.651243020502e-09 
+  1 SNES Function norm 8.726723523447e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584420565447], [0.0005561783347221362], [0.2836509507082895], [0.0005561783347221362]. The force is 0.00226501651625081. The extra_force is 0.09838574570186995
+Updating tidal elevation at t = 540
+  0 SNES Function norm 2.125526889139e-09 
+  1 SNES Function norm 8.880160448851e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584408188783], [0.0005560161183941775], [0.30024870393285585], [0.0005560161183941775]. The force is 0.0022650165129680655. The extra_force is 0.09838574563559217
+    9    18 T=    540.00 eta norm:     0.0270 u norm:     5.2034  7.04
+volume2d rel. error -2.9363e-03
+Updating tidal elevation at t = 570
+  0 SNES Function norm 5.608027469822e-10 
+  1 SNES Function norm 8.860081835869e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584410773286], [0.0005558709774827644], [0.31684645716517573], [0.0005558709774827644]. The force is 0.002265016513684597. The extra_force is 0.09838574564768887
+Updating tidal elevation at t = 600
+  0 SNES Function norm 1.291379265247e-10 
+  1 SNES Function norm 8.853118823545e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413437485], [0.0005557403506758136], [0.33344421040548816], [0.0005557403506758136]. The force is 0.0022650165144019077. The extra_force is 0.09838574566135813
+   10    20 T=    600.00 eta norm:     0.0270 u norm:     5.2034  7.08
+volume2d rel. error -2.9363e-03
+Updating tidal elevation at t = 630
+  0 SNES Function norm 7.892859675112e-11 
+  1 SNES Function norm 9.406204035720e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413982819], [0.0005556221645197407], [0.3500419636474366], [0.0005556221645197407]. The force is 0.0022650165145457696. The extra_force is 0.09838574566432207
+Updating tidal elevation at t = 660
+  0 SNES Function norm 1.831916751503e-11 
+  1 SNES Function norm 8.988106799963e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413788465], [0.0005555147225587909], [0.36663971688880204], [0.0005555147225587909]. The force is 0.0022650165144924217. The extra_force is 0.09838574566338139
+   11    22 T=    660.00 eta norm:     0.0270 u norm:     5.2034  7.22
+volume2d rel. error -2.9363e-03
+Updating tidal elevation at t = 690
+  0 SNES Function norm 5.654725603354e-12 
+  1 SNES Function norm 9.030117760094e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413643622], [0.0005554166233764245], [0.3832374701297329], [0.0005554166233764245]. The force is 0.002265016514453499. The extra_force is 0.0983857456626337
+Updating tidal elevation at t = 720
+  0 SNES Function norm 4.118080353983e-12 
+  1 SNES Function norm 9.298694215107e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413621716], [0.0005553266991258307], [0.39983522337059807], [0.0005553266991258307]. The force is 0.002265016514447773. The extra_force is 0.0983857456625116
+   12    24 T=    720.00 eta norm:     0.0270 u norm:     5.2034  7.17
+volume2d rel. error -2.9363e-03
+Updating tidal elevation at t = 750
+  0 SNES Function norm 7.783009955579e-13 
+  1 SNES Function norm 8.763827553978e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413634983], [0.0005552439688153374], [0.416432976611503], [0.0005552439688153374]. The force is 0.0022650165144513933. The extra_force is 0.09838574566257699
+Updating tidal elevation at t = 780
+  0 SNES Function norm 3.827617010142e-13 
+  1 SNES Function norm 9.176806775605e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413642663], [0.0005551676023749115], [0.433030729852431], [0.0005551676023749115]. The force is 0.002265016514453452. The extra_force is 0.09838574566261676
+   13    26 T=    780.00 eta norm:     0.0270 u norm:     5.2034  7.00
+volume2d rel. error -2.9363e-03
+Updating tidal elevation at t = 810
+  0 SNES Function norm 2.388237519891e-13 
+  1 SNES Function norm 9.621092958197e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413643411], [0.0005550968927078533], [0.44962848309336123], [0.0005550968927078533]. The force is 0.0022650165144536445. The extra_force is 0.0983857456626212
+Updating tidal elevation at t = 840
+  0 SNES Function norm 1.016055420882e-13 
+  1 SNES Function norm 8.858991471350e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413642563], [0.0005550312337312964], [0.46622623633428895], [0.0005550312337312964]. The force is 0.002265016514453414. The extra_force is 0.0983857456626169
+   14    28 T=    840.00 eta norm:     0.0270 u norm:     5.2034  6.63
+volume2d rel. error -2.9363e-03
+Updating tidal elevation at t = 870
+  0 SNES Function norm 9.209564013669e-14 
+  1 SNES Function norm 8.010204760663e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413642148], [0.0005549701029600177], [0.4828239895752154], [0.0005549701029600177]. The force is 0.0022650165144533028. The extra_force is 0.09838574566261475
+Updating tidal elevation at t = 900
+  0 SNES Function norm 8.145468146049e-14 
+  1 SNES Function norm 9.205398413727e-14 
+Current power, average power, integrated power and profit for each farm: [0.000553258441364213], [0.0005549130475734908], [0.49942174281614177], [0.0005549130475734908]. The force is 0.0022650165144532984. The extra_force is 0.09838574566261463
+   15    30 T=    900.00 eta norm:     0.0270 u norm:     5.2034  6.84
+volume2d rel. error -2.9363e-03
+Updating tidal elevation at t = 930
+  0 SNES Function norm 9.281714282372e-14 
+  1 SNES Function norm 9.574503807949e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413642175], [0.0005548596731796433], [0.5160194960570683], [0.0005548596731796433]. The force is 0.00226501651445331. The extra_force is 0.09838574566261486
+Updating tidal elevation at t = 960
+  0 SNES Function norm 9.647654477409e-14 
+  1 SNES Function norm 8.905869150136e-14 
+Current power, average power, integrated power and profit for each farm: [0.000553258441364219], [0.0005548096346854114], [0.5326172492979949], [0.0005548096346854114]. The force is 0.002265016514453315. The extra_force is 0.09838574566261502
+   16    32 T=    960.00 eta norm:     0.0270 u norm:     5.2034  6.90
+volume2d rel. error -2.9363e-03
+Updating tidal elevation at t = 990
+  0 SNES Function norm 8.994517902105e-14 
+  1 SNES Function norm 8.076837879715e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413642194], [0.0005547626288271934], [0.5492150025389215], [0.0005547626288271934]. The force is 0.002265016514453315. The extra_force is 0.098385745662615
+Updating tidal elevation at t = 1020
+  0 SNES Function norm 8.165140272209e-14 
+  1 SNES Function norm 9.099878083536e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413642199], [0.000554718388019459], [0.5658127557798481], [0.000554718388019459]. The force is 0.0022650165144533167. The extra_force is 0.09838574566261504
+   17    34 T=   1020.00 eta norm:     0.0270 u norm:     5.2034  6.85
+volume2d rel. error -2.9363e-03
+Updating tidal elevation at t = 1050
+  0 SNES Function norm 9.156491852475e-14 
+  1 SNES Function norm 8.622095038333e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413642208], [0.0005546766752578807], [0.5824105090207747], [0.0005546766752578807]. The force is 0.0022650165144533193. The extra_force is 0.09838574566261502
+Updating tidal elevation at t = 1080
+  0 SNES Function norm 8.679463300653e-14 
+  1 SNES Function norm 8.617078960621e-14 
+Current power, average power, integrated power and profit for each farm: [0.00055325844136422], [0.0005546372798719457], [0.5990082622617013], [0.0005546372798719457]. The force is 0.0022650165144533162. The extra_force is 0.09838574566261502
+   18    36 T=   1080.00 eta norm:     0.0270 u norm:     5.2034  6.88
+volume2d rel. error -2.9363e-03
+Updating tidal elevation at t = 1110
+  0 SNES Function norm 8.680477471543e-14 
+  1 SNES Function norm 8.112348751403e-14 
+Current power, average power, integrated power and profit for each farm: [0.000553258441364221], [0.0005546000139663315], [0.615606015502628], [0.0005546000139663315]. The force is 0.0022650165144533206. The extra_force is 0.09838574566261508
+Updating tidal elevation at t = 1140
+  0 SNES Function norm 8.190238893224e-14 
+  1 SNES Function norm 9.117507567651e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413642213], [0.0005545647094241707], [0.6322037687435546], [0.0005545647094241707]. The force is 0.0022650165144533206. The extra_force is 0.09838574566261508
+   19    38 T=   1140.00 eta norm:     0.0270 u norm:     5.2034  6.83
+volume2d rel. error -2.9363e-03
+Updating tidal elevation at t = 1170
+  0 SNES Function norm 9.170381888742e-14 
+  1 SNES Function norm 9.097118594947e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413642199], [0.0005545312153713514], [0.6488015219844812], [0.0005545312153713514]. The force is 0.0022650165144533162. The extra_force is 0.09838574566261493
+Updating tidal elevation at t = 1200
+  0 SNES Function norm 9.144922412211e-14 
+  1 SNES Function norm 8.326088906441e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005532584413642205], [0.0005544993960211732], [0.6653992752254078], [0.0005544993960211732]. The force is 0.0022650165144533193. The extra_force is 0.09838574566261502
+   20    40 T=   1200.00 eta norm:     0.0270 u norm:     5.2034  6.81
+volume2d rel. error -2.9363e-03
+time cost: 2.55min
+time cost: 2.55min
+time cost: 2.55min
+time cost: 2.55min
+0.validation/experiment_turbine/0.6-nostructure/30.0
+Using default SIPG parameters
+dt = 30
+Using time integrator: CrankNicolson
+Number of turbines = 1.0000066060873403
+    0     0 T=      0.00 eta norm:     0.0000 u norm:     5.2178  0.00
+volume2d rel. error  0.0000e+00
+Updating tidal elevation at t = 30
+  0 SNES Function norm 1.987821606165e-01 
+  1 SNES Function norm 9.278367947185e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005317607579022356], [0.0005317607579022356], [0.01595282273706707], [0.0005317607579022356]. The force is 0.0023715602175670503. The extra_force is 0.12461092241996699
+Updating tidal elevation at t = 60
+  0 SNES Function norm 4.292893056236e-02 
+  1 SNES Function norm 8.841136212889e-14 
+Current power, average power, integrated power and profit for each farm: [0.0005080473447637605], [0.000519904051332998], [0.031194243079979884], [0.000519904051332998]. The force is 0.0023877503308112943. The extra_force is 0.13043604445940846
+    1     2 T=     60.00 eta norm:     0.0283 u norm:     5.1926 15.33
+volume2d rel. error -3.0735e-03
+Updating tidal elevation at t = 90
+  0 SNES Function norm 1.640152173827e-02 
+  1 SNES Function norm 8.834802475882e-14 
+Current power, average power, integrated power and profit for each farm: [0.00047893948778211435], [0.0005062491968160368], [0.045562427713443314], [0.0005062491968160368]. The force is 0.0023050922895840858. The extra_force is 0.13352118179197026
+Updating tidal elevation at t = 120
+  0 SNES Function norm 5.922628073089e-03 
+  1 SNES Function norm 9.981662427584e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004635871795895639], [0.0004955836925094186], [0.05947004310113023], [0.0004955836925094186]. The force is 0.0022548628246819207. The extra_force is 0.1342387123592841
+    2     4 T=    120.00 eta norm:     0.0272 u norm:     5.2050  6.83
+volume2d rel. error -2.9563e-03
+Updating tidal elevation at t = 150
+  0 SNES Function norm 2.058465999006e-03 
+  1 SNES Function norm 8.955157648305e-14 
+Current power, average power, integrated power and profit for each farm: [0.00045831238598814607], [0.0004881294312051641], [0.07321941468077461], [0.0004881294312051641]. The force is 0.0022386871740013416. The extra_force is 0.13441251152541084
+Updating tidal elevation at t = 180
+  0 SNES Function norm 8.784569827782e-04 
+  1 SNES Function norm 8.719363085376e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004567887689995496], [0.0004829059875042284], [0.08692307775076111], [0.0004829059875042284]. The force is 0.0022345172119854137. The extra_force is 0.1344671164013127
+    3     6 T=    180.00 eta norm:     0.0270 u norm:     5.2038  6.49
+volume2d rel. error -2.9306e-03
+Updating tidal elevation at t = 210
+  0 SNES Function norm 4.928359310109e-04 
+  1 SNES Function norm 8.905132608371e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004564126494594746], [0.00047912122492640643], [0.10061545723454535], [0.00047912122492640643]. The force is 0.0022335047824350992. The extra_force is 0.13448306637773247
+Updating tidal elevation at t = 240
+  0 SNES Function norm 2.647665605720e-04 
+  1 SNES Function norm 8.978836876653e-14 
+Current power, average power, integrated power and profit for each farm: [0.00045633763188180276], [0.00047627327579583093], [0.11430558619099943], [0.00047627327579583093]. The force is 0.0022332996011034095. The extra_force is 0.13448742648182793
+    4     8 T=    240.00 eta norm:     0.0271 u norm:     5.2038  6.87
+volume2d rel. error -2.9387e-03
+Updating tidal elevation at t = 270
+  0 SNES Function norm 1.318845924927e-04 
+  1 SNES Function norm 8.436883498683e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563223924109599], [0.00047405651097528974], [0.12799525796332822], [0.00047405651097528974]. The force is 0.0022332642265407215. The extra_force is 0.13448960753661732
+Updating tidal elevation at t = 300
+  0 SNES Function norm 6.102065475176e-05 
+  1 SNES Function norm 9.359537708710e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563155618060357], [0.00047228241605836433], [0.1416847248175093], [0.00047228241605836433]. The force is 0.0022332459089873464. The extra_force is 0.1344902461348319
+    5    10 T=    300.00 eta norm:     0.0271 u norm:     5.2038  7.30
+volume2d rel. error -2.9381e-03
+Updating tidal elevation at t = 330
+  0 SNES Function norm 2.623022795011e-05 
+  1 SNES Function norm 8.584273369270e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563123670061211], [0.0004708305934172513], [0.15537409582769293], [0.0004708305934172513]. The force is 0.0022332359395082074. The extra_force is 0.13449023636673935
+Updating tidal elevation at t = 360
+  0 SNES Function norm 1.046474365656e-05 
+  1 SNES Function norm 9.181631565116e-14 
+Current power, average power, integrated power and profit for each farm: [0.00045631149943632264], [0.0004696206689188406], [0.16906344081078262], [0.0004696206689188406]. The force is 0.0022332333215737215. The extra_force is 0.13449020263616707
+    6    12 T=    360.00 eta norm:     0.0271 u norm:     5.2038  7.10
+volume2d rel. error -2.9380e-03
+Updating tidal elevation at t = 390
+  0 SNES Function norm 3.875522905553e-06 
+  1 SNES Function norm 9.304024676545e-14 
+Current power, average power, integrated power and profit for each farm: [0.00045631141957153327], [0.00046859688050750924], [0.1827527833979286], [0.00046859688050750924]. The force is 0.0022332331935074378. The extra_force is 0.13449021037161601
+Updating tidal elevation at t = 420
+  0 SNES Function norm 1.343882306426e-06 
+  1 SNES Function norm 8.485702074593e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114505597368], [0.00046771934979695406], [0.1964421269147207], [0.00046771934979695406]. The force is 0.0022332333167562903. The extra_force is 0.1344902188571967
+    7    14 T=    420.00 eta norm:     0.0271 u norm:     5.2038  6.97
+volume2d rel. error -2.9381e-03
+Updating tidal elevation at t = 450
+  0 SNES Function norm 4.425015847061e-07 
+  1 SNES Function norm 9.000979131287e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114598540747], [0.0004669588238007621], [0.21013147071034294], [0.0004669588238007621]. The force is 0.002233233344775773. The extra_force is 0.13449022118051535
+Updating tidal elevation at t = 480
+  0 SNES Function norm 1.393309138140e-07 
+  1 SNES Function norm 9.062389827549e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114552666621], [0.00046629336326738086], [0.2238208143683428], [0.00046629336326738086]. The force is 0.002233233329857458. The extra_force is 0.13449022120814536
+    8    16 T=    480.00 eta norm:     0.0271 u norm:     5.2038  7.03
+volume2d rel. error -2.9380e-03
+Updating tidal elevation at t = 510
+  0 SNES Function norm 4.223581431261e-08 
+  1 SNES Function norm 8.810088449413e-14 
+Current power, average power, integrated power and profit for each farm: [0.00045631145114812064], [0.0004657061919662479], [0.23751015790278643], [0.0004657061919662479]. The force is 0.0022332333169569557. The extra_force is 0.1344902209425902
+Updating tidal elevation at t = 540
+  0 SNES Function norm 1.249545244070e-08 
+  1 SNES Function norm 8.905042105269e-14 
+Current power, average power, integrated power and profit for each farm: [0.00045631145012736267], [0.0004651842618640876], [0.2511995014066073], [0.0004651842618640876]. The force is 0.0022332333137944204. The extra_force is 0.1344902208413033
+    9    18 T=    540.00 eta norm:     0.0271 u norm:     5.2038  7.12
+volume2d rel. error -2.9380e-03
+Updating tidal elevation at t = 570
+  0 SNES Function norm 3.594309172587e-09 
+  1 SNES Function norm 8.686531680363e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114503256957], [0.00046471727178311957], [0.26488884491637815], [0.00046471727178311957]. The force is 0.002233233314502853. The extra_force is 0.134490220850845
+Updating tidal elevation at t = 600
+  0 SNES Function norm 1.012216899575e-09 
+  1 SNES Function norm 8.990642681786e-14 
+Current power, average power, integrated power and profit for each farm: [0.00045631145052214155], [0.0004642969807200707], [0.2785781884320424], [0.0004642969807200707]. The force is 0.0022332333151569178. The extra_force is 0.1344902208712494
+   10    20 T=    600.00 eta norm:     0.0271 u norm:     5.2038  6.85
+volume2d rel. error -2.9380e-03
+Updating tidal elevation at t = 630
+  0 SNES Function norm 2.878083054691e-10 
+  1 SNES Function norm 8.789561926827e-14 
+Current power, average power, integrated power and profit for each farm: [0.00045631145055521324], [0.000463916717378887], [0.2922675319486988], [0.000463916717378887]. The force is 0.0022332333152575773. The extra_force is 0.13449022087671544
+Updating tidal elevation at t = 660
+  0 SNES Function norm 7.717596570146e-11 
+  1 SNES Function norm 9.322623259362e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114505378137], [0.0004635710234315655], [0.30595687546483324], [0.0004635710234315655]. The force is 0.002233233315196938. The extra_force is 0.1344902208756324
+   11    22 T=    660.00 eta norm:     0.0271 u norm:     5.2038  6.73
+volume2d rel. error -2.9380e-03
+Updating tidal elevation at t = 690
+  0 SNES Function norm 2.057766333359e-11 
+  1 SNES Function norm 8.341062714790e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114505269836], [0.0004632553898270185], [0.31964621898064277], [0.0004632553898270185]. The force is 0.002233233315161936. The extra_force is 0.13449022087454504
+Updating tidal elevation at t = 720
+  0 SNES Function norm 6.466547322683e-12 
+  1 SNES Function norm 8.485126654202e-14 
+Current power, average power, integrated power and profit for each farm: [0.00045631145052564266], [0.0004629660590227945], [0.33333556249641205], [0.0004629660590227945]. The force is 0.0022332333151582123. The extra_force is 0.13449022087433424
+   12    24 T=    720.00 eta norm:     0.0271 u norm:     5.2038  6.88
+volume2d rel. error -2.9380e-03
+Updating tidal elevation at t = 750
+  0 SNES Function norm 1.571899670537e-12 
+  1 SNES Function norm 8.501207754955e-14 
+Current power, average power, integrated power and profit for each farm: [0.00045631145052671233], [0.00046269987468295124], [0.3470249060122134], [0.00046269987468295124]. The force is 0.002233233315161849. The extra_force is 0.13449022087441362
+Updating tidal elevation at t = 780
+  0 SNES Function norm 5.189884857533e-13 
+  1 SNES Function norm 9.278455716645e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114505272746], [0.00046245416606157904], [0.36071424952803166], [0.00046245416606157904]. The force is 0.0022332333151636515. The extra_force is 0.13449022087447163
+   13    26 T=    780.00 eta norm:     0.0271 u norm:     5.2038  6.76
+volume2d rel. error -2.9380e-03
+Updating tidal elevation at t = 810
+  0 SNES Function norm 2.450765497702e-13 
+  1 SNES Function norm 8.957388882103e-14 
+Current power, average power, integrated power and profit for each farm: [0.00045631145052731293], [0.00046222665807882845], [0.37440359304385107], [0.00046222665807882845]. The force is 0.002233233315163748. The extra_force is 0.1344902208744807
+Updating tidal elevation at t = 840
+  0 SNES Function norm 9.806966151627e-14 
+  1 SNES Function norm 9.120551966124e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114505272448], [0.00046201540066627194], [0.3880929365596684], [0.00046201540066627194]. The force is 0.0022332333151635184. The extra_force is 0.1344902208744754
+   14    28 T=    840.00 eta norm:     0.0271 u norm:     5.2038  6.80
+volume2d rel. error -2.9380e-03
+Updating tidal elevation at t = 870
+  0 SNES Function norm 9.440406060602e-14 
+  1 SNES Function norm 8.509930515013e-14 
+Current power, average power, integrated power and profit for each farm: [0.00045631145052721616], [0.0004618187127304424], [0.4017822800754849], [0.0004618187127304424]. The force is 0.0022332333151634277. The extra_force is 0.13449022087447235
+Updating tidal elevation at t = 900
+  0 SNES Function norm 8.649284533427e-14 
+  1 SNES Function norm 8.640190433448e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114505272167], [0.00046163513732366823], [0.4154716235913014], [0.00046163513732366823]. The force is 0.00223323331516343. The extra_force is 0.13449022087447207
+   15    30 T=    900.00 eta norm:     0.0271 u norm:     5.2038  6.76
+volume2d rel. error -2.9380e-03
+Updating tidal elevation at t = 930
+  0 SNES Function norm 8.718494426221e-14 
+  1 SNES Function norm 8.751282936769e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114505272203], [0.00046146340549152475], [0.42916096710711804], [0.00046146340549152475]. The force is 0.0022332333151634425. The extra_force is 0.13449022087447232
+Updating tidal elevation at t = 960
+  0 SNES Function norm 8.826111663323e-14 
+  1 SNES Function norm 8.898350149702e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114505272218], [0.0004613024068988903], [0.4428503106229347], [0.0004613024068988903]. The force is 0.0022332333151634486. The extra_force is 0.13449022087447254
+   16    32 T=    960.00 eta norm:     0.0271 u norm:     5.2038  6.93
+volume2d rel. error -2.9380e-03
+Updating tidal elevation at t = 990
+  0 SNES Function norm 8.983252977180e-14 
+  1 SNES Function norm 8.986576634766e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114505272217], [0.0004611511657967185], [0.4565396541387513], [0.0004611511657967185]. The force is 0.002233233315163447. The extra_force is 0.13449022087447252
+Updating tidal elevation at t = 1020
+  0 SNES Function norm 9.083615546654e-14 
+  1 SNES Function norm 8.826775715305e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114505272202], [0.0004610088212299686], [0.47022899765456794], [0.0004610088212299686]. The force is 0.0022332333151634416. The extra_force is 0.13449022087447238
+   17    34 T=   1020.00 eta norm:     0.0271 u norm:     5.2038  6.73
+volume2d rel. error -2.9380e-03
+Updating tidal elevation at t = 1050
+  0 SNES Function norm 8.902357824554e-14 
+  1 SNES Function norm 8.823128538849e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114505272213], [0.0004608746106384615], [0.48391834117038457], [0.0004608746106384615]. The force is 0.002233233315163446. The extra_force is 0.1344902208744725
+Updating tidal elevation at t = 1080
+  0 SNES Function norm 8.857223964791e-14 
+  1 SNES Function norm 8.572977578644e-14 
+Current power, average power, integrated power and profit for each farm: [0.00045631145052721947], [0.000460747856190927], [0.49760768468620115], [0.000460747856190927]. The force is 0.00223323331516344. The extra_force is 0.13449022087447235
+   18    36 T=   1080.00 eta norm:     0.0271 u norm:     5.2038  6.98
+volume2d rel. error -2.9380e-03
+Updating tidal elevation at t = 1110
+  0 SNES Function norm 8.631635637413e-14 
+  1 SNES Function norm 8.566223703982e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114505272203], [0.0004606279533351511], [0.5112970282020177], [0.0004606279533351511]. The force is 0.0022332333151634425. The extra_force is 0.13449022087447238
+Updating tidal elevation at t = 1140
+  0 SNES Function norm 8.642014473904e-14 
+  1 SNES Function norm 8.738495516256e-14 
+Current power, average power, integrated power and profit for each farm: [0.00045631145052722007], [0.00046051436115599506], [0.5249863717178344], [0.00046051436115599506]. The force is 0.002233233315163442. The extra_force is 0.13449022087447238
+   19    38 T=   1140.00 eta norm:     0.0271 u norm:     5.2038  7.00
+volume2d rel. error -2.9380e-03
+Updating tidal elevation at t = 1170
+  0 SNES Function norm 8.788381942107e-14 
+  1 SNES Function norm 8.685916516743e-14 
+Current power, average power, integrated power and profit for each farm: [0.0004563114505272193], [0.00046040659421679573], [0.538675715233651], [0.00046040659421679573]. The force is 0.00223323331516344. The extra_force is 0.13449022087447232
+Updating tidal elevation at t = 1200
+  0 SNES Function norm 8.744548113744e-14 
+  1 SNES Function norm 8.048342727271e-14 
+Current power, average power, integrated power and profit for each farm: [0.00045631145052722007], [0.0004603042156245563], [0.5523650587494676], [0.0004603042156245563]. The force is 0.0022332333151634425. The extra_force is 0.13449022087447243
+   20    40 T=   1200.00 eta norm:     0.0271 u norm:     5.2038  7.12
+volume2d rel. error -2.9380e-03
+time cost: 2.52min
+time cost: 2.52min
+time cost: 2.52min
+time cost: 2.52min

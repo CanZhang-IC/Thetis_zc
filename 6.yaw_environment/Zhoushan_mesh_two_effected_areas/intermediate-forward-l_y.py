@@ -5,7 +5,7 @@ import numpy
 op2.init(log_level=INFO)
 import sys
 sys.path.append('../..')
-import prepare.utm, prepare.myboundary, prepare.detectors
+import prepare_8cores.utm, prepare_8cores.myboundary, prepare_8cores.detectors
 import os
 import time
 import yagmail
@@ -18,11 +18,11 @@ t_start = time.time()
 # namelength = len('intermediate-forward-l_y')
 # P_factor = float(get_index[namelength:-3])
 
-P_factor = 0.4
+P_factor = 0.2
 
 file_dir = '../../'
 
-output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/forward/intermediate-forward-l_y-P_factor_'+str(P_factor)+'-5min_e&v-location'
+output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/forward/test'#intermediate-forward-l_y-P_factor_'+str(P_factor)+'-5min_e&v-location'
 
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
@@ -37,19 +37,19 @@ t_end = 885600 + 13*60*60 # middle
 P1 = FunctionSpace(mesh2d, "CG", 1)
 
 # read bathymetry code
-chk = DumbCheckpoint(file_dir+'prepare/bathymetry', mode=FILE_READ)
+chk = DumbCheckpoint(file_dir+'prepare_8cores/bathymetry', mode=FILE_READ)
 bathymetry2d = Function(P1)
 chk.load(bathymetry2d, name='bathymetry')
 chk.close()
 
 #read viscosity / manning boundaries code
-chk = DumbCheckpoint(file_dir+'prepare/viscosity', mode=FILE_READ)
+chk = DumbCheckpoint(file_dir+'prepare_8cores/viscosity', mode=FILE_READ)
 h_viscosity = Function(P1, name='viscosity')
 chk.load(h_viscosity)
 chk.close()
 
 #manning = Function(P1,name='manning')
-chk = DumbCheckpoint(file_dir+'prepare/manning', mode=FILE_READ)
+chk = DumbCheckpoint(file_dir+'prepare_8cores/manning', mode=FILE_READ)
 manning = Function(bathymetry2d.function_space(), name='manning')
 chk.load(manning)
 chk.close()
@@ -62,7 +62,7 @@ def coriolis(mesh, lat,):
     f0 = 2 * Omega * sin(lat_r)
     beta = (1 / R) * 2 * Omega * cos(lat_r)
     x = SpatialCoordinate(mesh)
-    x_0, y_0, utm_zone, zone_letter = prepare.utm.from_latlon(lat, 0)
+    x_0, y_0, utm_zone, zone_letter = prepare_8cores.utm.from_latlon(lat, 0)
     coriolis_2d = Function(FunctionSpace(mesh, 'CG', 1), name="coriolis_2d")
     coriolis_2d.interpolate(f0 + beta * (x[1] - y_0))
     return coriolis_2d
@@ -132,8 +132,8 @@ xmin,ymin,xmax,ymax = 443340, 3322634, 443592, 3322848
 # farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
 # farm_options.considering_yaw = True
 # farm_options.turbine_axis = [Constant(180) for i in range(len(farm_options.turbine_coordinates))] + [Constant(360) for i in range(len(farm_options.turbine_coordinates))]
-
-result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-op-l_y-P_factor_'+str(P_factor)+'-5min_e&v-location'
+P_factor = 0.2
+result_output_dir = '../../../outputs/6.yaw_environment/Paper3/Zhoushan_mesh/optimisation/backhome-two_effected/intermediate-op-l_y-P_factor_'+str(P_factor)+'-5min_e&v'
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
@@ -147,11 +147,14 @@ else:
 all_controls = comm.bcast(all_controls,root = 0)
 iteration_numbers = comm.bcast(iteration_numbers, root = 0)
 
+# all_controls = [443360.0, 3322690.199398864, 443360.0, 3322801.057185337, 443398.56456814014, 3322730.9897922673, 443402.7897184729, 3322797.3498804253, 443478.8463476947, 3322691.3779740892, 443442.76368116407, 3322795.9068505764, 443520.0136685419, 3322721.0831093006, 443483.1985124768, 3322794.7539490387, 443378.48125964124, 3322765.582584537, 443426.970148385, 3322759.153002796, 443475.9733205909, 3322752.171974842, 443539.5357324468, 3322776.41971202, 97.65170472275126, 95.6487196630375, 90.0, 90.0, 90.0, 90.0, 90.0, 90.0, 95.17015337029356, 90.0, 90.0, 90.0, 270.0, 270.0, 270.0, 271.67575946825474, 270.0, 284.76936536896966, 300.0387744037381, 303.8393020206945, 270.0, 270.04710184671933, 293.9249601691419, 308.5399807623386]
+# iteration_numbers = 97
+
 farm_options.turbine_coordinates = [[Constant(all_controls[2*i]),Constant(all_controls[2*i+1])] for i in range(12)]
 
-farm_options.considering_yaw = False
-# flood_dir,ebb_dir = all_controls[24:36], all_controls[36:]
-# farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
+farm_options.considering_yaw = True
+flood_dir,ebb_dir = all_controls[24:36], all_controls[36:]
+farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
 
 farm_options.considering_individual_thrust_coefficient = False
 
@@ -162,9 +165,9 @@ options.discrete_tidal_turbine_farms[2] = farm_options
 def update_forcings(t):
   with timed_stage('update forcings'):
     print_output("Updating tidal field at t={}".format(t))
-    elev = prepare.myboundary.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
+    elev = prepare_8cores.myboundary.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
     tidal_elev.project(elev) 
-    v = prepare.myboundary.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
+    v = prepare_8cores.myboundary.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
     tidal_v.project(v)
     print_output("Done updating tidal field")
 

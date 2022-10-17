@@ -93,8 +93,8 @@ for stationname in stationnames:
         for name, data in df.items():
             if name == stationname:
                 # print(data[-20:,1])
-                xvelocity.append(data[:3402,1])
-                yvelocity.append(data[:3402,2])
+                xvelocity.append(data[:,1])
+                yvelocity.append(data[:,2])
 
 
         if filename == 'continuous-sediment-exner':

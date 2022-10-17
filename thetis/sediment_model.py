@@ -1,3 +1,4 @@
+from click import option
 from .utility import *
 from .log import warning
 
@@ -22,7 +23,7 @@ class CorrectiveVelocityFactor:
         :type ustar: :class:`Expression of functions`
         """
 
-        a = Constant(bed_reference_height/2)
+        a =Constant(bed_reference_height/2)
 
         kappa = physical_constants['von_karman']
 
@@ -102,6 +103,7 @@ class SedimentModel(object):
         self.average_size = options.sediment_model_options.average_sediment_size
         self.bed_reference_height = options.sediment_model_options.bed_reference_height
         self.rhos = options.sediment_model_options.sediment_density
+        self.c_bstar_constant = options.sediment_model_options.c_bstar_constant
 
         # define function spaces
         self.P1DG_2d = get_functionspace(mesh2d, "DG", 1)
@@ -130,8 +132,7 @@ class SedimentModel(object):
         # calculate critical shields parameter thetacr
         self.R = Constant(self.rhos/self.rhow - 1)
 
-        # self.dstar = Constant(self.average_size*((self.g*self.R)/(self.viscosity**2))**(1/3))
-        self.dstar = Constant(self.average_size*((self.g*self.R)/(1e-6**2))**(1/3))
+        self.dstar = Constant(self.average_size*((self.g*self.R)/(self.viscosity**2))**(1/3))
         if max(self.dstar.dat.data[:] < 1):
             raise ValueError('dstar value less than 1')
         elif max(self.dstar.dat.data[:] < 4):
@@ -197,10 +198,11 @@ class SedimentModel(object):
 
             intermediate_step = conditional(abs(rouse_number) > Constant(1e-04),
                                             B*(Constant(1)-B**min_value(rouse_number, Constant(3)))/min_value(rouse_number, Constant(3)), -B*ln(B))
+            
 
             self._add_interpolation_step('integrated_rouse',
-                                         max_value(conditional(intermediate_step > Constant(1e-12), Constant(1)/intermediate_step,
-                                                               Constant(1e12)), Constant(1)), V=self.P1DG_2d)
+                                         min_value(max_value(conditional(intermediate_step > Constant(1e-12), Constant(1)/intermediate_step,
+                                                               Constant(1e12)), Constant(1)),Constant(5)), V=self.P1DG_2d)
 
             # erosion flux - above critical velocity bed is eroded
             transport_stage_param = conditional(self.rhow*Constant(0.5)*self.qfc*self.unorm*self.mu > Constant(0),
@@ -210,6 +212,7 @@ class SedimentModel(object):
             self._add_interpolation_step('erosion_concentration', Constant(0.015)*(self.average_size/self.a)
                                          * ((max_value(transport_stage_param, Constant(0)))**1.5)
                                          / (self.dstar**0.3), V=self.P1DG_2d)
+
 
             if self.use_advective_velocity_correction:
                 correction_factor_model = CorrectiveVelocityFactor(self.fields.depth, ksp,
@@ -367,3 +370,6 @@ class SedimentModel(object):
         of the `uv` and `elev` functions, provided in __init__."""
         for step in self.update_steps.values():
             step()
+            # print_output('D:B1'+'\t'+str(self.fields.integrated_rouse.at((442416.06750038936, 3323689.309654328))))
+            # print_output('E:B1'+'\t'+str(self.fields.erosion_concentration.at((442416.06750038936, 3323689.309654328))))
+            

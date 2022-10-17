@@ -1,0 +1,13 @@
+[qmesh.mesh.gmsh] INFO: 20638 vertices 40492 elements
+[qmesh.mesh.gmsh] INFO: Writing 'mesh.msh'...
+[qmesh.mesh.gmsh] INFO: Done writing 'mesh.msh'
+[qmesh.mesh.gmsh] INFO: Stopped on Tue Sep 6 02:41:03 2022
+[qmesh.mesh] INFO: Mesh written to mesh.msh
+[qmesh.mesh] INFO: Reading mesh from mesh.msh
+[qmesh.mesh] INFO: Read in 19641 nodes.
+[qmesh.mesh] INFO: Read in 1534 2-node edges on boundaries.
+[qmesh.mesh] INFO: Read in 37929 3-node triangles.
+[qmesh.mesh] INFO: Removing duplicate edge definitions...
+[qmesh.mesh] INFO: Found 113658 edges...
+[qmesh.mesh] INFO: Creating line-shapefile mesh.shp
+[qmesh.vector] INFO: Writing file mesh.shp ...

@@ -15,7 +15,7 @@ import h5py
 
 class CableCostGA(object):
     
-    def __init__(self, turbine_locations, substation_location = [[0,0]], capacity = 6, pop_size = 80, num_iter = 200, convergence_definition = 20, converged = False, show_prog = False, show_result = False, figname ='fig'): 
+    def __init__(self, turbine_locations, substation_location = [[0,0]], capacity = 4, pop_size = 5000, num_iter = 1000, convergence_definition = 20, converged = False, show_prog = False, show_result = False, figname ='fig'): 
         self.turbine_locations = []
         for i in range(int(len(turbine_locations)/2)):
             self.turbine_locations.append([turbine_locations[2*i],turbine_locations[2*i+1]])      
@@ -265,8 +265,10 @@ class CableCostGA(object):
         best_chromosome = [copy.deepcopy(pop[0][MIndx]), copy.deepcopy(pop[1][MIndx])]
         dist_history = [global_min]
     
+        true_iteration = 0
         for iteration in range(self.num_iter):
             if not converged:
+                true_iteration += 1
                 if self.show_prog:
                     print ('Current Routing Length', global_min)
                 pop = self.breed_population(pop, D, n, min_route, n_routes, n_breaks, vertices, iteration)
@@ -283,7 +285,7 @@ class CableCostGA(object):
         if self.show_result:
             self.produce_plot(vertices, best_chromosome, global_min)
         #print ('GA Complete, Routing Length is: ', global_min)
-        return best_chromosome, global_min
+        return best_chromosome, global_min,true_iteration
         
     def compute_cable_cost(self):
         if len(self.turbine_locations) != len(self.turbine_locations_check):
@@ -291,7 +293,8 @@ class CableCostGA(object):
         else:
             out = self.run_GA()
             cost_out = out[1]
-        return cost_out
+            self.best_chromosome = out[0]
+        return cost_out,self.best_chromosome[0],self.best_chromosome[1],out[2]
 
     def compute_cable_cost_order(self):
         # if len(self.turbine_locations) != len(self.turbine_locations_check):
@@ -519,70 +522,28 @@ class Clarke_Wright(object):
         
         
 if __name__ == '__main__':
-    turbine_locations = []
-    # df = h5py.File('./diagnostic_controls.hdf5','r+')
-    # for name, data in df.items():
-    #     for i in data[-1]:
-    #         turbine_locations.append(i)
-    # site_x1, site_y1, site_x2, site_y2 = 443342 ,3322632, 443591, 3322845
-    # for x in np.arange(site_x1+20, site_x2-20, 60):
-    #      for y in np.arange(site_y1+20, site_y2-20, 50):
-    #          turbine_locations.append(x)
-    #          turbine_locations.append(y)
-    turbine_locations=[[443285.232752254, 3322701.82872359], [443251.030737921, 3322795.79798567], [443216.828723589, 3322889.76724775], [443322.820457085, 3322715.50952932], [443288.618442753, 3322809.4787914], [443254.41642842, 3322903.44805348], [443360.408161917, 3322729.19033505], [443326.206147584, 3322823.15959713], [443292.004133252, 3322917.12885921], [443397.995866748, 3322742.87114079], [443363.793852416, 3322836.84040287], [443329.591838083, 3322930.80966495], [443435.58357158, 3322756.55194652], [443401.381557247, 3322850.5212086], [443367.179542915, 3322944.49047068], [443473.171276411, 3322770.23275225], [443438.969262079, 3322864.20201433], [443404.767247746, 3322958.17127641]]
-    turbine_locations = [x for coord in turbine_locations for x in coord]
-    landpointlocation = [444000,3323000]
-    CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = True, show_result = True, figname='ideal_cable')
-    # print ('Cable length:',CC.compute_cable_cost())
-    print(CC.compute_cable_cost_order())
-    # for i in range(10):
-    #     print(np.random.random_integers(4.75,7),np.random.randint(4.75,7))
+    xmin,ymin,xmax,ymax = 443340, 3322634, 443592, 3322848 
+    import time
+    for x_space in [50]:
+        for pop_size in range(80,400,80):
+            time_s = time.time()
+            turbine_location = []
+            # for x in range(xmin,xmax,x_space):
+            #     for y in range(ymin,ymax,x_space):
+            #         turbine_location.append([x,y])
+            for x in range(xmin+20,xmax-20,x_space):
+                for y in range(ymin+20,ymax-20,x_space*2):
+                    turbine_location.append([x,y])
+            for x in range(xmin+20+int(x_space/2),xmax-20,x_space):
+                for y in range(ymin+20+x_space,ymax-20,x_space*2):
+                    turbine_location.append([x,y])
+            turbine_locations = [x for coord in turbine_location for x in coord]
+            landpointlocation = [444000,3323000]
 
-
-
-    # count = 0
-    # a = []
-    # b = []
-    # c = []
-    # plt.figure()
-    # while count < 2000:
-    #     np.random.seed()
-    #     turbine_locations = []
-    #     # df = h5py.File('../../outputs/ideal_cable/only_cable/diagnostic_controls.hdf5','r+')
-    #     # for name, data in df.items():
-    #     #     for i in data[-1]:
-    #     #         turbine_locations.append(i)
-    #     xall, yall = 0, 0
-    #     turbine_number =16
-    #     for i in range(turbine_number):
-    #         x = np.random.random_sample()
-    #         turbine_locations.append(750+x*500)
-    #         xall += 750+x*500
-    #         y = np.random.random_sample()
-    #         turbine_locations.append(150+y*300)
-    #         yall += 150+y*300
-    #     x_centre = xall/turbine_number
-    #     y_centre = yall/turbine_number
-    #     disall = 0
-    #     for i in range(int(len(turbine_locations)/2)):
-    #         dis = np.sqrt((x_centre-turbine_locations[2*i])**2+(y_centre-turbine_locations[2*i+1])**2)
-    #         disall += dis
-
-    #     landpointlocation = [500,0]
-    #     centretoland = np.sqrt((x_centre-landpointlocation[0])**2+(y_centre-landpointlocation[1])**2)
-    #     c.append(centretoland) 
-    #     CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = False, show_result = False)
-
-    #     minimum = CC.compute_cable_cost()
-    #     a.append(minimum)
-    #     b.append(centretoland)
-    #     print(count, minimum,disall,centretoland)
-        
-    #     plt.plot(minimum,0.5*disall/turbine_number+0.5*centretoland,'.')
-    #     plt.savefig('cscs.jpg',dpi=300)
-    #     count +=1
-
-    # plt.figure()
-    # plt.plot(a,b,'.')
-    # plt.savefig('cs.jpg',dpi=300)
+            fig_name = str(len(turbine_location))
+            CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = False, pop_size=pop_size, num_iter = 1000, convergence_definition = 20,show_result = True, figname='test'+str(pop_size))
+            # print ('Cable length:',CC.compute_cable_cost())
+            cost = CC.compute_cable_cost()
+            time_e = time.time()
+            print(len(turbine_location),pop_size,cost,time_e-time_s)
 

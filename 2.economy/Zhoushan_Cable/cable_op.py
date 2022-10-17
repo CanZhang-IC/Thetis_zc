@@ -4,24 +4,26 @@ from pyadjoint import minimize
 op2.init(log_level=INFO)
 import sys
 sys.path.append('../..')
-import prepare_vs_otf_oe1.utm, prepare_vs_otf_oe1.myboundary
+import prepare.utm, prepare.myboundary
 import prepare_cable.Hybrid_Code
 from prepare_cable.cable_overloaded import cablelength
 import numpy
 import time
 import yagmail
+import h5py
 
 start_time = time.time()
 
 get_index = os.path.basename(sys.argv[0])
 BE = float(get_index[:-3])
-# BE = 10.0
+# BE = 5.0
 
-output_dir = '../../../outputs/2.economy/discrete/intermediate/cable-BE-'+str(BE)[:-2]
+start_from_initial = True
+output_dir = '../../../outputs/2.economy/discrete/intermediate-step1-fromsame/yaw-cable-BE-'+str(BE)[:-2]
 print_output(output_dir[17:])
 
 file_dir = '../../'
-mesh2d = Mesh(file_dir+'mesh-vs_otf_oe1/mesh.msh')
+mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
 #timestepping options
 dt = 5*60 # reduce this if solver does not converge
@@ -34,19 +36,19 @@ t_end = 885600 + 13*60*60 # middle
 P1 = FunctionSpace(mesh2d, "CG", 1)
 
 # read bathymetry code
-chk = DumbCheckpoint(file_dir+'prepare_vs_otf_oe1/bathymetry', mode=FILE_READ)
+chk = DumbCheckpoint(file_dir+'prepare/bathymetry', mode=FILE_READ)
 bathymetry2d = Function(P1)
 chk.load(bathymetry2d, name='bathymetry')
 chk.close()
 
 #read viscosity / manning boundaries code
-chk = DumbCheckpoint(file_dir+'prepare_vs_otf_oe1/viscosity', mode=FILE_READ)
+chk = DumbCheckpoint(file_dir+'prepare/viscosity', mode=FILE_READ)
 h_viscosity = Function(P1, name='viscosity')
 chk.load(h_viscosity)
 chk.close()
 
 #manning = Function(P1,name='manning')
-chk = DumbCheckpoint(file_dir+'prepare_vs_otf_oe1/manning', mode=FILE_READ)
+chk = DumbCheckpoint(file_dir+'prepare/manning', mode=FILE_READ)
 manning = Function(bathymetry2d.function_space(), name='manning')
 chk.load(manning)
 chk.close()
@@ -59,7 +61,7 @@ def coriolis(mesh, lat,):
     f0 = 2 * Omega * sin(lat_r)
     beta = (1 / R) * 2 * Omega * cos(lat_r)
     x = SpatialCoordinate(mesh)
-    x_0, y_0, utm_zone, zone_letter = prepare_vs_otf_oe1.utm.from_latlon(lat, 0)
+    x_0, y_0, utm_zone, zone_letter = prepare.utm.from_latlon(lat, 0)
     coriolis_2d = Function(FunctionSpace(mesh, 'CG', 1), name="coriolis_2d")
     coriolis_2d.interpolate(f0 + beta * (x[1] - y_0))
     return coriolis_2d
@@ -102,7 +104,7 @@ options.timestepper_options.solver_parameters = {'snes_monitor': None,
 tidal_elev = Function(bathymetry2d.function_space())
 tidal_v = Function(VectorFunctionSpace(mesh2d,"CG",1))
 solver_obj.bnd_functions['shallow_water'] = {
-        200: {'elev': tidal_elev},  #set open boundaries to tidal_elev function
+        200: {'elev': tidal_elev,'uv': tidal_v},  #set open boundaries to tidal_elev function
   }
 
 
@@ -113,30 +115,62 @@ farm_options.turbine_options.thrust_coefficient = 0.6
 farm_options.turbine_options.diameter = 20
 farm_options.upwind_correction = True
 
-xmin,ymin,xmax,ymax = 443100, 3322600, 443600, 3323100 
 
-turbine_location = [[443285.232752254, 3322701.82872359], [443251.030737921, 3322795.79798567], [443216.828723589, 3322889.76724775], [443322.820457085, 3322715.50952932], [443288.618442753, 3322809.4787914], [443254.41642842, 3322903.44805348], [443360.408161917, 3322729.19033505], [443326.206147584, 3322823.15959713], [443292.004133252, 3322917.12885921], [443397.995866748, 3322742.87114079], [443363.793852416, 3322836.84040287], [443329.591838083, 3322930.80966495], [443435.58357158, 3322756.55194652], [443401.381557247, 3322850.5212086], [443367.179542915, 3322944.49047068], [443473.171276411, 3322770.23275225], [443438.969262079, 3322864.20201433], [443404.767247746, 3322958.17127641]]
-farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
+xmin,ymin,xmax,ymax = 443340, 3322634, 443592, 3322848 
 
-# when 'farm_options.considering_yaw' is False, 
-# the farm_options.turbine_axis would be an empty list, 
-# so only the coordinates are optimised.
-farm_options.considering_yaw =  True
-farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbine_coordinates))] + [Constant(270) for i in range(len(farm_options.turbine_coordinates))]
+if start_from_initial:
+    turbine_location = []
+    x_space = 60
+    for x in range(xmin+20,xmax-20,x_space):
+        for y in range(ymin+20,ymax-20,x_space*2):
+            turbine_location.append([x,y])
+    for x in range(xmin+20+int(x_space/2),xmax-20,x_space):
+        for y in range(ymin+20+x_space,ymax-20,x_space*2):
+            turbine_location.append([x,y])
+    farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
+
+    # when 'farm_options.considering_yaw' is False, 
+    # the farm_options.turbine_axis would be an empty list, 
+    # so only the coordinates are optimised.
+    farm_options.considering_yaw =  True
+    farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbine_coordinates))] + [Constant(270) for i in range(len(farm_options.turbine_coordinates))]
+else:
+    result_output_dir = '../../../outputs/2.economy/discrete/intermediate/yaw-cable-BE-'+str(float(BE+1))[:-2]
+    print('初始位置提取于',result_output_dir[17:])
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
+    if rank == 0:
+        def_file = h5py.File(result_output_dir+'/diagnostic_'+'controls'+'.hdf5','r+')
+        for name, data in def_file.items():
+            all_controls = list(data[-1])
+            iteration_numbers = len(data)
+    else:
+        all_controls = None
+        iteration_numbers = None
+    all_controls = comm.bcast(all_controls,root = 0)
+    iteration_numbers = comm.bcast(iteration_numbers, root = 0)
+
+    farm_options.turbine_coordinates = [[Constant(all_controls[2*i]),Constant(all_controls[2*i+1])] for i in range(18)]
+
+    farm_options.considering_yaw = True
+    # farm_options.turbine_axis = [Constant(100) for i in range(len(farm_options.turbine_coordinates))] + [Constant(280) for i in range(len(farm_options.turbine_coordinates))]
+    flood_dir,ebb_dir = all_controls[36:54], all_controls[54:]
+    farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
+
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
 
 def update_forcings(t):
   with timed_stage('update forcings'):
     print_output("Updating tidal field at t={}".format(t))
-    elev = prepare_vs_otf_oe1.myboundary.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
+    elev = prepare.myboundary.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
     tidal_elev.project(elev) 
-    v = prepare_vs_otf_oe1.myboundary.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
+    v = prepare.myboundary.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
     tidal_v.project(v)
     print_output("Done updating tidal field")
 
 ###spring:676,middle:492,neap:340###
-solver_obj.load_state(492, outputdir='../../../outputs/0.validation/vsotf-discrete-4cores')
+solver_obj.load_state(492, outputdir='../../../outputs/0.validation/discrete-4cores')
 #solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
 
 # Operation of tidal turbine farm through a callback
@@ -160,7 +194,7 @@ landpointlocation = [444000,3323000]
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
-    cableclass = prepare_cable.Hybrid_Code.CableCostGA(turbine_locations=turbine_locations, substation_location=landpointlocation,capacity = 6)
+    cableclass = prepare_cable.Hybrid_Code.CableCostGA(turbine_locations=turbine_locations, substation_location=landpointlocation,capacity = 4)
     order_w = cableclass.compute_cable_cost_order()
 else:
     order_w = []
@@ -174,7 +208,10 @@ c =[Control(x) for xy in farm_options.turbine_coordinates for x in xy] + [Contro
 turbine_density = Function(solver_obj.function_spaces.P1_2d, name='turbine_density')
 turbine_density.interpolate(solver_obj.tidal_farms[0].turbine_density)
 
-interest_functional = power_output-cablecost*BE/10
+
+maxoutput, maxcost = 1754,2144
+
+interest_functional = BE/10*power_output/maxoutput-(1-BE/10)*cablecost/maxcost
 # print(power_output, cablecost, interest_functional)
 # a number of callbacks to provide output during the optimisation iterations:
 # - ControlsExportOptimisationCallback export the turbine_friction values (the control)
@@ -247,10 +284,15 @@ if 1:
     lb = [Constant(i) for i in lb]
     ub = [Constant(i) for i in ub]
 
+    # lb = list(np.array([[xmin+d, ymin+d] for _ in farm_options.turbine_coordinates]).flatten())
+    # ub = list(np.array([[xmax-d, ymax-d] for _ in farm_options.turbine_coordinates]).flatten())
+    # lb = [Constant(i) for i in lb]
+    # ub = [Constant(i) for i in ub]
+
     mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, farm_options.individual_thrust_coefficient, 40. ,optimise_layout_only)
     
     td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
-            options={'maxiter': 200, 'pgtol': 1e-3})
+            options={'maxiter': 500, 'pgtol': 1e-3})
 
 end_time = time.time()
 print_output('time cost: {0:.2f}h'.format((end_time - start_time)/60/60))
