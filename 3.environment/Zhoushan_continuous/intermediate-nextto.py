@@ -14,16 +14,18 @@ import rmse_sediment
 start_time = time.time()
 
 get_index = os.path.basename(sys.argv[0])
-BE_e = float(get_index[:-3])
-BE = 5.0
+break_point = get_index.index('-')
+BE = float(get_index[break_point+1:-3])
+BE_sediment = float(get_index[:break_point])
+print(str(BE)[:-2]+'_'+str(BE_sediment)[:-2])
+# BE,BE_sediment = 0,0
 
 
 ###spring:676,middle:492,neap:340###
 start_time_point = 486
 
-output_dir = '../../../outputs/3.environment/zhoushan-continuous-op/nextto/'+str(BE)[:-2]+'_'+str(BE_e)[:-2]
+output_dir = '../../../outputs/3.environment/zhoushan-continuous-op/nextto_notfrom0/'+str(BE)[:-2]+'_'+str(BE_sediment)[:-2]
 print_output(output_dir[17:])
-
 
 
 file_dir = '../../'
@@ -155,12 +157,13 @@ farm_options.break_even_wattage = BE/10
 options.tidal_turbine_farms[turbine_area_PhyID] = farm_options
 
 # we first run the "forward" model with no turbines
-turbine_density.assign(0.0)
-# chk = DumbCheckpoint('../../../outputs/2.economy/continuous/intermediate/BE'+str(BE)[:-2]+'/optimal_density', mode=FILE_READ)
-# op_t_d = Function(bathymetry2d.function_space(), name='optimal_density')
-# chk.load(op_t_d)
-# chk.close()
-# turbine_density.project(op_t_d)
+# turbine_density.assign(0.0)
+# chk = DumbCheckpoint('../../../outputs/3.environment/zhoushan-continuous-op/nextto_notfrom0/'+str(BE)[:-2]+'_'+str(BE_sediment-25)[:-2]+'/optimal_density', mode=FILE_READ)
+chk = DumbCheckpoint('../../../outputs/2.economy/continuous/intermediate/BE'+str(BE)[:-2]+'/optimal_density', mode=FILE_READ)
+op_t_d = Function(bathymetry2d.function_space(), name='optimal_density')
+chk.load(op_t_d)
+chk.close()
+turbine_density.project(op_t_d)
 
 # create a density restricted to the farm
 # the turbine_density, which is the control that will be varied in the optimisation,
@@ -234,18 +237,13 @@ print_output("Maximum turbine density = {}".format(max_density))
 # (maximize is also availble from pyadjoint but currently broken)
 # scaling = -1/assemble(max(farm_options.break_even_wattage, 100) * max_density * dx(turbine_area_PhyID, domain=mesh2d))
 # scaled_functional = scaling * cb.integrated_power
-effect_two = [cb2.RMSEaverage]#,cb3.RMSEaverage,cb4.RMSEaverage]
-scaled_functional = cb.average_profit[-1]- effect_two[0] * BE_e/10
+effect_two = [cb2.RMSEaverage]
+profit_max,sediment_max = 26818.31114896429, 409.8897313653227*10
+scaled_functional = (1-BE_sediment/100)*cb.average_profit[-1]/profit_max*sediment_max- effect_two[0] * BE_sediment/100*10
 print_output(effect_two)
 print_output(cb.average_profit[-1])
 print_output(scaled_functional)
 
-if rank ==0:
-    with open('result-nextto.txt','a+') as f:
-        f.write(str(BE)+'\t')
-        f.write(str(cb.average_profit[-1])+'\t'+str(effect_two[0])+'\t'+str(effect_two[1])+'\t'+str(effect_two[2])+'\t')
-else:
-    pass
 # specifies the control we want to vary in the optimisation
 c = Control(turbine_density)
 
@@ -301,7 +299,7 @@ if optimise:
     # options, such as maxiter and pgtol can be passed on.
     chk = DumbCheckpoint(output_dir+'/optimal_density', mode=FILE_CREATE)
     td_opt = minimize(rf, bounds=[0, max_density],
-                      options={'maxiter': 500, 'gtol': 1e-4})
+                      options={'maxiter': 100, 'gtol': 1e-4})
 
     chk.store(td_opt, name='optimal_density')
     File(output_dir+'/optimal_density.pvd').write(td_opt)

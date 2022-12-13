@@ -1153,9 +1153,9 @@ Line Loop( 59 ) = {30};
 Line Loop( 60 ) = {31};
 Line Loop( 61 ) = {31};
 
-point_x = 442700;
-point_y = 3323760;
-area_circle = 100;
+point_x = 443893;//442587;
+point_y = 3323523;//3323059;
+area_circle = 120;
 //effected area 1
 Point(20021) = {point_x - area_circle, point_y - area_circle, 0};
 Point(20022) = {point_x + area_circle, point_y - area_circle, 0};

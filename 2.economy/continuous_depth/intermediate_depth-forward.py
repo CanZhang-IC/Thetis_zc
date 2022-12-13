@@ -28,7 +28,7 @@ t_export = 30*60
 t_end = 885600 + 13*60*60 # middle
 # t_end = 612000 + 13*60*60 # neap
 
-test_gradient, optimise = 0,1
+consider_water_depth = 1
 
 turbine_area_PhyID = 2
 
@@ -50,6 +50,11 @@ chk.close()
 chk = DumbCheckpoint(file_dir+'prepare_continuous/manning', mode=FILE_READ)
 manning = Function(bathymetry2d.function_space(), name='manning')
 chk.load(manning)
+chk.close()
+
+chk = DumbCheckpoint(file_dir+'prepare_continuous/breakeven_bathymetry', mode=FILE_READ)
+breakeven_bathymetry = Function(bathymetry2d.function_space(), name='breakeven_bathymetry')
+chk.load(breakeven_bathymetry)
 chk.close()
 
 #account for Coriolis code
@@ -131,8 +136,12 @@ farm_options.turbine_density = turbine_density
 # in such a way that the cost is expressed in kW which can be subtracted from the profit
 # which is calculated as the power extracted by the turbines
 farm_options.break_even_wattage = BE/10
-options.tidal_turbine_farms[turbine_area_PhyID] = farm_options
 
+if consider_water_depth:
+    farm_options.considering_b_e_water_depth = True
+    farm_options.b_e_water_depth = BE/10 * breakeven_bathymetry
+
+options.tidal_turbine_farms[turbine_area_PhyID] = farm_options
 # we first run the "forward" model with no turbines
 # turbine_density.assign(0.0)
 chk = DumbCheckpoint('../../../outputs/2.economy/continuous/intermediate_depth/BE'+str(BE)[:-2]+'/optimal_density', mode=FILE_READ)
@@ -159,7 +168,6 @@ projector.project()
 cb = turbines.TurbineFunctionalCallback(solver_obj)
 solver_obj.add_callback(cb, 'timestep')
 
-
 # run as normal (this run will be annotated by firedrake_adjoint)
 # solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
 ###spring:676,middle:492,neap:340###
@@ -180,12 +188,12 @@ rank = comm.Get_rank()
 if rank == 0:
     with open('result-l_y.txt','a+') as f:
         f.write(str(BE)+'\t')
-        f.write(str(scaled_functional)+'\t'+str(cb.average_power[-1]-cb.average_profit[-1])+'\t'+str(cb.average_power[-1])+'\n')
+        f.write(str(scaled_functional)+'\t'+str(cb.cost[-1])+str(cb.average_power[-1]-cb.average_profit[-1])+'\t'+str(cb.average_power[-1])+'\n')
 else:
     pass
 
 print_output(str(BE)+'\t')
-print_output(str(scaled_functional)+'\t'+str(cb.average_power[-1]-cb.average_profit[-1])+'\t'+str(cb.average_power[-1])+'\t')
+print_output(str(scaled_functional)+'\t'+str(cb.cost[-1])+'\t'+str(cb.average_power[-1]-cb.average_profit[-1])+'\t'+str(cb.average_power[-1])+'\t')
 
 
 end_time = time.time()

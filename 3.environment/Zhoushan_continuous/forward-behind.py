@@ -13,17 +13,17 @@ import rmse_sediment
 
 start_time = time.time()
 
-# get_index = os.path.basename(sys.argv[0])
-# break_point = get_index.index('-')
-# BE = float(get_index[break_point+1:-3])
-# BE_e = float(get_index[:break_point])
-# print(str(BE)[:-2]+'_'+str(BE_e)[:-2])
-BE = 25.0
-BE_e = 15.0
+get_index = os.path.basename(sys.argv[0])
+break_point = get_index.index('-')
+BE = float(get_index[break_point+1:-3])
+BE_sediment = float(get_index[:break_point])
+print(str(BE)[:-2]+'_'+str(BE_sediment)[:-2])
+# BE,BE_sediment = 45.0,0.0
+
 ###spring:676,middle:492,neap:340###
 start_time_point = 486
 
-output_dir = '../../../outputs/3.environment/zhoushan-continuous-forward/behind_notfrom0/'+str(BE)[:-2]+'_'+str(BE_e)[:-2]
+output_dir = '../../../outputs/3.environment/zhoushan-continuous-forward/behind/'+str(BE)[:-2]+'_'+str(BE_sediment)[:-2]
 print_output(output_dir[17:])
 
 
@@ -158,7 +158,8 @@ options.tidal_turbine_farms[turbine_area_PhyID] = farm_options
 
 # we first run the "forward" model with no turbines
 # turbine_density.assign(0.0)
-chk = DumbCheckpoint('../../../outputs/3.environment/zhoushan-continuous-op/behind_notfrom0/'+str(BE)[:-2]+'_'+str(BE_e)[:-2]+'/optimal_density', mode=FILE_READ)
+chk = DumbCheckpoint('../../../outputs/3.environment/zhoushan-continuous-op/behind_notfrom0/'+str(BE)[:-2]+'_'+str(BE_sediment)[:-2]+'/optimal_density', mode=FILE_READ)
+# chk = DumbCheckpoint('../../../outputs/2.economy/continuous/intermediate/BE'+str(BE)[:-2]+'/optimal_density', mode=FILE_READ)
 op_t_d = Function(bathymetry2d.function_space(), name='optimal_density')
 chk.load(op_t_d)
 chk.close()
@@ -244,7 +245,8 @@ solver_obj.iterate(update_forcings=update_forcings)
 # scaling = -1/assemble(max(farm_options.break_even_wattage, 100) * max_density * dx(turbine_area_PhyID, domain=mesh2d))
 # scaled_functional = scaling * cb.integrated_power
 effect_two = [cb2.RMSEaverage]
-scaled_functional = cb.average_profit[-1]- effect_two[0] * BE_e/10
+profit_max,sediment_max = 26818.31114896429, 4823.442122948473
+scaled_functional = (1-BE_sediment/100)*cb.average_profit[-1]/profit_max*sediment_max- effect_two[0] * BE_sediment/100
 print_output(effect_two)
 print_output(cb.average_profit[-1])
 print_output(scaled_functional)
@@ -253,14 +255,14 @@ comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
     with open('result-l_y.txt','a+') as f:
-        f.write(str(BE)+'\t'+str(BE_e)+'\t')
-        f.write(str(scaled_functional)+'\t'+str(cb.average_power[-1]-cb.average_profit[-1])+'\t'+str(cb.average_power[-1])+'\t'+str(effect_two)+'\t')
+        f.write(str(BE)+'\t'+str(BE_sediment)+'\t')
+        f.write(str(scaled_functional)+'\t'+str((cb.average_power[-1]-cb.average_profit[-1])/BE*10)+'\t'+str(cb.average_power[-1])+'\t'+str(effect_two)+'\n')
         # f.write(str(iteration_numbers) +'\n')
 else:
     pass
 
-print_output(str(BE)+'\t'+str(BE_e)+'\t')
-print_output(str(scaled_functional)+'\t'+str(cb.average_power[-1]-cb.average_profit[-1])+'\t'+str(cb.average_power[-1])+'\t'+str(effect_two)+'\t')
+print_output(str(BE)+'\t'+str(BE_sediment)+'\t')
+print_output(str(scaled_functional)+'\t'+str((cb.average_power[-1]-cb.average_profit[-1])/BE*10)+'\t'+str(cb.average_power[-1])+'\t'+str(effect_two)+'\t')
 
 
 end_time = time.time()

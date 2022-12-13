@@ -8,7 +8,7 @@ class RMSECallback(DiagnosticCallback):
     The RMSE between the interested sediment and simulated sediment
     """
     name = 'sediment_errors'
-    variable_names = ['RMSE']
+    variable_names = ['RMSEall', 'RMSEaverage', 'RMSE_current']
     def __init__(self,solver_obj,original_dir,E_area_centre_point, E_area_circle, start_time_point_of_dzx, **kwargs):
         """
         :arg solver_obj: a :class:`.FlowSolver2d` object containing the tidal_turbine_farms

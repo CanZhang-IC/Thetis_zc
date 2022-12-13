@@ -1099,8 +1099,8 @@ Line Loop( 60 ) = {31};
 Line Loop( 61 ) = {31};
 
 
-point_x = (443340+443592)/2;
-point_y = (3322848+3322634)/2-(214+400);
+point_x = 443786;
+point_y = 3322300;
 area_circle = 60;
 //effected area 1
 Point(20021) = {point_x - area_circle, point_y - area_circle, 0};
@@ -1115,8 +1115,8 @@ Line(2002102) = {20021, 20022};
 Line(2002103) = {20022, 20023};
 Line Loop(2002104) = {2002100, 2002101, 2002102, 2002103};
 
-point_x2 = (443340+443592)/2;
-point_y2 = (3322848+3322634)/2+(214+400);
+point_x2 = 442888;
+point_y2 = 3323940;
 area_circle = 60;
 //effected area 2
 Point(30021) = {point_x2 - area_circle, point_y2 - area_circle, 0};

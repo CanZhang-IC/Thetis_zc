@@ -12,7 +12,7 @@ zw = matplotlib.font_manager.FontProperties(fname='/media/can/can_disk/simsun.tt
 plt.rc('font',family='Times New Roman')
 
 thetisfilenames=[
-        'continuous-4cores','continuous-sediment-exner-tideforcing','discrete-4cores','discrete-4cores-tideforcing'
+        'continuous-4cores','continuous-4cores-tideforcing','discrete-4cores','discrete-4cores-tideforcing'
       ]
 
 names_30min = []
@@ -84,14 +84,14 @@ for stationname in stationnames:
         velocity_direction.append(float(both[i][1]))
     
     for i in range(3):
-        axs[i].plot( otf_time[i], velocity_direction[151*i:151*(i+1):3], 'ko', label='Measurement')
+        axs[i].plot( otf_time[i], velocity_direction[151*i:151*(i+1):3], 'ko', label='实测数据')
 
     
    
 
     for (ii,filename) in enumerate(thetisfilenames):    
         ### Read Thetis data ###        
-        det_file = '../../outputs/0.validation/'+filename+"/diagnostic_detectors.hdf5"
+        det_file = '../../../outputs/0.validation/'+filename+"/diagnostic_detectors.hdf5"
         df = h5py.File(det_file, 'r+')
         xvelocity=[]
         yvelocity=[]
@@ -100,7 +100,7 @@ for stationname in stationnames:
                 xvelocity.append(data[:,1])
                 yvelocity.append(data[:,2])
         if filename == 'restart_5min-e&v':
-            det_file = '../../outputs/0.validation/'+filename+"2/diagnostic_detectors.hdf5"
+            det_file = '../../../outputs/0.validation/'+filename+"2/diagnostic_detectors.hdf5"
             df = h5py.File(det_file,'r+')
             for name, data in df.items():
                 if name == stationname:

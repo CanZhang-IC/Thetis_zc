@@ -112,8 +112,8 @@ def update_forcings(t):
     print_output("Done updating tidal field")
 
 ###spring:676,middle:492,neap:340###
-# solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
-solver_obj.load_state(483, outputdir='../../../outputs/0.validation/discrete-4cores-1')
+solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
+# solver_obj.load_state(483, outputdir='../../../outputs/0.validation/discrete-4cores-1')
 
 #place detectors code
 with stop_annotating():

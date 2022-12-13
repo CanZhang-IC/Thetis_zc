@@ -31,7 +31,7 @@ dt = 5*60 # reduce this if solver does not converge
 t_export = 30*60 
 # t_end = 1555200
 # t_end = 1216800+ 13*60*60 # spring
-t_end = 885600 + 13*60*60 # middle
+t_end = 885600 + 10*60 # middle
 # t_end = 612000 + 13*60*60 # neap
 
 
@@ -219,7 +219,7 @@ def derivative_cb_pre(controls):
 rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list,
         eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
 
-if 0:
+if 1:
     # whenever the forward model is changed - for example different terms in the equation,
     # different types of boundary conditions, etc. - it is a good idea to test whether the
     # gradient computed by the adjoint is still correct, as some steps in the model may
@@ -232,15 +232,15 @@ if 0:
 
     # this tests whether the above Taylor series residual indeed converges to zero at 2nd order in h as h->0
    
-    m0 =  [Constant(x) for xy in farm_options.turbine_coordinates for x in xy] + [Constant(i) for i in farm_options.turbine_axis] + [Constant(i) for i in farm_options.individual_thrust_coefficient]
-    h0 =  [Constant(1) for xy in farm_options.turbine_coordinates for x in xy] + [Constant(1) for i in farm_options.turbine_axis] + [Constant(1) for i in farm_options.individual_thrust_coefficient]
+    m0 =  [Constant(x) for xy in farm_options.turbine_coordinates for x in xy] + [Constant(i) for i in farm_options.turbine_axis] 
+    h0 =  [Constant(1) for xy in farm_options.turbine_coordinates for x in xy] + [Constant(1) for i in farm_options.turbine_axis] 
 
     minconv = taylor_test(rf, m0, h0)
     print_output("Order of convergence with taylor test (should be 2) = {}".format(minconv))
 
     assert minconv > 1.95
 
-if 1:
+if 0:
     # Optimise the control for minimal functional (i.e. maximum profit)
     # with a gradient based optimisation algorithm using the reduced functional
     # to replay the model, and computing its derivative via the adjoint
@@ -264,7 +264,7 @@ if 1:
 end_time = time.time()
 print_output('time cost: {0:.2f}h'.format((end_time - start_time)/60/60))
 
-if 1:
+if 0:
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
     if rank == 0 :

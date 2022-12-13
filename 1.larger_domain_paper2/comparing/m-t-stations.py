@@ -29,7 +29,7 @@ for stationname in stationnames:
     for name, data in df.items():
         if name == stationname:
         	xvelocity.append(data[:,1])
-        	yvelocity.append(data[:,2])
+            yvelocity.append(data[:,2])
     thetis_velocity=[]
     for i in range(len(xvelocity[0])):
     	thetis_velocity.append(sqrt(xvelocity[0][i]**2+yvelocity[0][i]**2))
