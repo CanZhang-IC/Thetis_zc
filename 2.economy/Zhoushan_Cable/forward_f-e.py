@@ -172,8 +172,8 @@ def update_forcings(t):
     print_output("Done updating tidal field")
 
 ###spring:676,middle:492,neap:340###
-solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
-# solver_obj.load_state(492, outputdir='../../../outputs/0.validation/discrete-4cores')
+# solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
+solver_obj.load_state(492, outputdir='../../../outputs/0.validation/discrete-4cores')
 
 # Operation of tidal turbine farm through a callback
 cb = turbines.TurbineFunctionalCallback(solver_obj)
@@ -192,7 +192,7 @@ landpointlocation = [444000,3323000]
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
-    cableclass = prepare_cable.Hybrid_Code.CableCostGA(turbine_locations=turbine_locations, substation_location=landpointlocation,capacity = 6)
+    cableclass = prepare_cable.Hybrid_Code.CableCostGA(turbine_locations=turbine_locations, substation_location=landpointlocation,capacity = 4)
     order_w = cableclass.compute_cable_cost_order()
 else:
     order_w = []

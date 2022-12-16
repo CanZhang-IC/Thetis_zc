@@ -5,7 +5,7 @@ import numpy
 op2.init(log_level=INFO)
 import sys
 sys.path.append('../..')
-import prepare_vs_otf_oe1.utm, prepare_vs_otf_oe1.myboundary, prepare_vs_otf_oe1.detectors
+import prepare.utm, prepare.myboundary, prepare.detectors
 import os
 import time
 import yagmail
@@ -16,44 +16,51 @@ start_time = time.time()
 
 file_dir = '../../'
 
-# get_index = os.path.basename(sys.argv[0])
-# namelength = len('paper3_run')
-# spacing = float(get_index[namelength:-3])
-# t1_end, t2_end = 353, 366
-t1_end, t2_end = 502, 514
-# t1_end, t2_end = 687, 700
-spacing = 60.0
+get_index = os.path.basename(sys.argv[0])
+break_point = get_index.index('-')
+xspacing = float(get_index[:break_point])
+yspacing = float(get_index[break_point+1:-3])
+print(str(xspacing)[:-2]+'_'+str(yspacing)[:-2])
+# tide_periods = ['neap','middle','spring']
+tide_period = 'middle'
+if tide_period == 'neap':
+    t1_end, t2_end = 353, 366
+elif tide_period == 'middle':
+    t1_end, t2_end = 502, 514
+else:
+    t1_end, t2_end = 687, 700
+# xspacing,yspacing = 40.0,40.0
 
-output_dir = '../../../outputs/8.final/flood_ebb/spacing'+str(spacing)[:-2]
+output_dir = '../../../outputs/8.final/flood_ebb/'+str(tide_period)+'-xspacing'+str(xspacing)[:-2] + '-yspacing'+ str(yspacing)[:-2] 
 print_output(output_dir[17:])
-mesh2d = Mesh(file_dir+'mesh-vs_otf_oe1/mesh.msh')
+mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
 #timestepping options
 dt = 5*60 # reduce this if solver does not converge
 t_export = 30*60 
 # t_end = 1555200
 # t_end = 1216800+ 13*60*60 # spring
-t_end1 = t1_end*30*60 + 10*60# middle
-t_end2 = t2_end*30*60 + 10*60
+t_end1 = t1_end*30*60 + 60*60# middle
+t_end2 = t2_end*30*60 + 60*60
 # t_end = 612000 + 13*60*60 # neap
 
 
 P1 = FunctionSpace(mesh2d, "CG", 1)
 
 # read bathymetry code
-chk = DumbCheckpoint(file_dir+'prepare_vs_otf_oe1/bathymetry', mode=FILE_READ)
+chk = DumbCheckpoint(file_dir+'prepare/bathymetry', mode=FILE_READ)
 bathymetry2d = Function(P1)
 chk.load(bathymetry2d, name='bathymetry')
 chk.close()
 
 #read viscosity / manning boundaries code
-chk = DumbCheckpoint(file_dir+'prepare_vs_otf_oe1/viscosity', mode=FILE_READ)
+chk = DumbCheckpoint(file_dir+'prepare/viscosity', mode=FILE_READ)
 h_viscosity = Function(P1, name='viscosity')
 chk.load(h_viscosity)
 chk.close()
 
 #manning = Function(P1,name='manning')
-chk = DumbCheckpoint(file_dir+'prepare_vs_otf_oe1/manning', mode=FILE_READ)
+chk = DumbCheckpoint(file_dir+'prepare/manning', mode=FILE_READ)
 manning = Function(bathymetry2d.function_space(), name='manning')
 chk.load(manning)
 chk.close()
@@ -66,7 +73,7 @@ def coriolis(mesh, lat,):
     f0 = 2 * Omega * sin(lat_r)
     beta = (1 / R) * 2 * Omega * cos(lat_r)
     x = SpatialCoordinate(mesh)
-    x_0, y_0, utm_zone, zone_letter = prepare_vs_otf_oe1.utm.from_latlon(lat, 0)
+    x_0, y_0, utm_zone, zone_letter = prepare.utm.from_latlon(lat, 0)
     coriolis_2d = Function(FunctionSpace(mesh, 'CG', 1), name="coriolis_2d")
     coriolis_2d.interpolate(f0 + beta * (x[1] - y_0))
     return coriolis_2d
@@ -163,12 +170,12 @@ farm_options.turbine_options.diameter = 20
 # farm_options.turbine_options.A_support = H/2
 farm_options.upwind_correction = True
 
-xmin,ymin,xmax,ymax = 443096, 3322634, 443589, 3323062
+xmin,ymin,xmax,ymax = 443337, 3322632, 443587, 3322841
 
 d = farm_options.turbine_options.diameter
 turbine_location = []
-for x in range(xmin+1*d,xmax-1*d,int(spacing)):
-    for y in range(ymin+1*d,ymax-1*d,int(spacing)):
+for x in range(xmin+1*d,xmax-1*d,int(xspacing)):
+    for y in range(ymin+1*d,ymax-1*d,int(yspacing)):
         turbine_location.append((x,y))
 print_output(len(turbine_location))
 farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
@@ -207,22 +214,22 @@ options2.discrete_tidal_turbine_farms[2] = options.discrete_tidal_turbine_farms[
 def update_forcings(t):
   with timed_stage('update forcings'):
     print_output("Updating tidal field at t={}".format(t))
-    elev = prepare_vs_otf_oe1.myboundary.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
+    elev = prepare.myboundary.set_tidal_field(Function(bathymetry2d.function_space()), t, dt)
     tidal_elev.project(elev) 
-    v = prepare_vs_otf_oe1.myboundary.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
+    v = prepare.myboundary.set_velocity_field(Function(VectorFunctionSpace(mesh2d,"CG",1)),t,dt)
     tidal_v.project(v)
     print_output("Done updating tidal field")
 
 ###spring:676,middle:492,neap:340###
 # solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
-solver_obj.load_state(t1_end, outputdir='../../../outputs/0.validation/vsotf-discrete-4cores')
+solver_obj.load_state(t1_end, outputdir='../../../outputs/0.validation/discrete-4cores')
 # Operation of tidal turbine farm through a callback
 cb = turbines.TurbineFunctionalCallback(solver_obj)
 solver_obj.add_callback(cb, 'timestep')
 
 ###spring:676,middle:492,neap:340###
 # solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
-solver_obj2.load_state(t2_end, outputdir='../../../outputs/0.validation/vsotf-discrete-4cores')
+solver_obj2.load_state(t2_end, outputdir='../../../outputs/0.validation/discrete-4cores')
 # Operation of tidal turbine farm through a callback
 cb2 = turbines.TurbineFunctionalCallback(solver_obj2)
 solver_obj2.add_callback(cb2, 'timestep')
@@ -281,7 +288,7 @@ def derivative_cb_pre(controls):
 rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list,
         eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
 
-if 1:
+if 0:
     # whenever the forward model is changed - for example different terms in the equation,
     # different types of boundary conditions, etc. - it is a good idea to test whether the
     # gradient computed by the adjoint is still correct, as some steps in the model may
@@ -302,7 +309,7 @@ if 1:
 
     assert minconv > 1.95
 
-if 0:
+if 1:
     # Optimise the control for minimal functional (i.e. maximum profit)
     # with a gradient based optimisation algorithm using the reduced functional
     # to replay the model, and computing its derivative via the adjoint
@@ -326,7 +333,7 @@ if 0:
 end_time = time.time()
 print_output('time cost: {0:.2f}h'.format((end_time - start_time)/60/60))
 
-if 0:
+if 1:
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
     if rank == 0 :

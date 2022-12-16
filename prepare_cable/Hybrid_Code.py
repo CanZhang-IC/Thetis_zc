@@ -538,19 +538,20 @@ if __name__ == '__main__':
             # for x in range(xmin+20+int(x_space/2),xmax-20,x_space):
             #     for y in range(ymin+20+x_space,ymax-20,x_space*2):
             #         turbine_location.append([x,y])
-    BE = float(0.0)
-    result_output_dir = '/media/can/can_disk/thetis_new/Git_mythetis/outputs/2.economy/discrete/flood_ebb/cable-BE-'+str(BE)[:-2]
-    def_file = h5py.File(result_output_dir+'/diagnostic_'+'controls'+'.hdf5','r+')
-    for name, data in def_file.items():
-        all_controls = list(data[-1])
-    turbine_locations = all_controls[:24]#[x for coord in turbine_location for x in coord]
-    landpointlocation = [444000,3323000]
+    for BE in [0,2,4,6,8]:
+        BE = float(BE)
+        result_output_dir = '/media/can/can_disk/thetis_new/Git_mythetis/outputs/2.economy/discrete/flood_ebb/cable-BE-'+str(BE)[:-2]
+        def_file = h5py.File(result_output_dir+'/diagnostic_'+'controls'+'.hdf5','r+')
+        for name, data in def_file.items():
+            all_controls = list(data[-1])
+        turbine_locations = all_controls[:24]#[x for coord in turbine_location for x in coord]
+        landpointlocation = [444000,3323000]
 
-    # fig_name = str(len(turbine_location))
-    # CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = False, pop_size=pop_size, num_iter = 1000, convergence_definition = 20,show_result = True, figname='test'+str(pop_size))
-    CC = CableCostGA(turbine_locations, substation_location=landpointlocation,capacity = 4)
-    print ('Cable length:',CC.compute_cable_cost())
-    # cost = CC.compute_cable_cost()
-    # time_e = time.time()
-    # print(len(turbine_locations),pop_size,cost,time_e-time_s)
+        # fig_name = str(len(turbine_location))
+        # CC = CableCostGA(turbine_locations, substation_location=landpointlocation,show_prog = False, pop_size=pop_size, num_iter = 1000, convergence_definition = 20,show_result = True, figname='test'+str(pop_size))
+        CC = CableCostGA(turbine_locations, substation_location=landpointlocation,capacity = 4)
+        print ('Cable length:',CC.compute_cable_cost())
+        # cost = CC.compute_cable_cost()
+        # time_e = time.time()
+        # print(len(turbine_locations),pop_size,cost,time_e-time_s)
 

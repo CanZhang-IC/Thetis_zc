@@ -17,13 +17,13 @@ start_time = time.time()
 
 get_index = os.path.basename(sys.argv[0])
 BE = float(get_index[:-3])
-# BE = 0.0
+# BE = 2.0
 
 
-t1_end, t2_end = 504, 516
+t1_end, t2_end = 502, 514
 P_factor = 1.0
 file_dir = '../../'
-output_dir = '../../../outputs/3.environment/discrete/flood_ebb/y-BE-'+str(BE)[:-2]
+output_dir = '../../../outputs/3.environment/discrete/flood_ebb-yawonly/y-BE-'+str(BE)[:-2]
 print_output(output_dir[17:])
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
@@ -165,20 +165,7 @@ farm_options.upwind_correction = True
 xmin,ymin,xmax,ymax = 443340, 3322634, 443592, 3322848 
 
 
-# turbine_location = []
-# x_space = 60
-# for x in range(xmin+20,xmax-20,x_space):
-#     for y in range(ymin+20,ymax-20,x_space*2):
-#         turbine_location.append([x,y])
-# for x in range(xmin+20+int(x_space/2),xmax-20,x_space):
-#     for y in range(ymin+20+x_space,ymax-20,x_space*2):
-#         turbine_location.append([x,y])
-# farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
-
-# farm_options.considering_yaw = True
-# farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbine_coordinates))] + [Constant(270) for i in range(len(farm_options.turbine_coordinates))]
-
-result_output_dir = '../../../outputs/3.environment/discrete/flood_ebb/y-BE-'+str(BE-2)[:-2]
+result_output_dir = '../../../outputs/2.economy/discrete/flood_ebb/cable-BE-'+str(BE-2)[:-2]
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
@@ -194,10 +181,32 @@ iteration_numbers = comm.bcast(iteration_numbers, root = 0)
 
 farm_options.turbine_coordinates = [[Constant(all_controls[2*i]),Constant(all_controls[2*i+1])] for i in range(12)]
 
-farm_options.considering_yaw = True
-flood_dir,ebb_dir = all_controls[24:36], all_controls[36:]
+if int(BE) == 2:
 
-farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
+    farm_options.considering_yaw = True
+
+    flood_dir,ebb_dir = all_controls[24:36], all_controls[36:]
+
+    farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
+else:
+    result_output_dir = '../../../outputs/3.environment/discrete/flood_ebb-yawonly/y-BE-'+str(BE-2)[:-2]
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
+    if rank == 0:
+        def_file = h5py.File(result_output_dir+'/diagnostic_'+'controls'+'.hdf5','r+')
+        for name, data in def_file.items():
+            all_controls = list(data[-1])
+            iteration_numbers = len(data)
+    else:
+        all_controls = None
+        iteration_numbers = None
+    all_controls = comm.bcast(all_controls,root = 0)
+    iteration_numbers = comm.bcast(iteration_numbers, root = 0)
+
+    farm_options.considering_yaw = True
+    flood_dir,ebb_dir = all_controls[:12], all_controls[12:]
+
+    farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
 
 farm_options.considering_individual_thrust_coefficient = False
 
@@ -224,7 +233,7 @@ cb = turbines.TurbineFunctionalCallback(solver_obj)
 solver_obj.add_callback(cb, 'timestep')
 
 #Effected area location
-E_area_centre_point1 = [442888,3323940]
+E_area_centre_point1 = [443385,3323260]
 E_area_circle1 = 60
 
 E_area_centre_point2 = [443786,3322300]
@@ -234,15 +243,15 @@ E_area_circle2 = 60
 cb3 = rmse_r2.RMSECallback(solver_obj,'../../../outputs/0.validation/discrete-4cores', E_area_centre_point1, E_area_circle1)
 solver_obj.add_callback(cb3,'timestep')
 
-# # Operation of tidal turbine farm about each turbine output through a callback
-# cb4 = rmse_r3.RMSECallback(solver_obj,'../../../outputs/0.validation/discrete-4cores', E_area_centre_point2, E_area_circle2)
-# solver_obj.add_callback(cb4,'timestep')
+# Operation of tidal turbine farm about each turbine output through a callback
+cb4 = rmse_r3.RMSECallback(solver_obj,'../../../outputs/0.validation/discrete-4cores', E_area_centre_point2, E_area_circle2)
+solver_obj.add_callback(cb4,'timestep')
 
 # start computer forward model
 solver_obj.iterate(update_forcings=update_forcings)
 ###set up interest functional and control###
 power_output1= sum(cb.average_power)
-effect_two1 = cb3.RMSEaverage
+effect_two1 = (cb3.RMSEaverage + cb4.RMSEaverage)/2
 
 ###spring:676,middle:492,neap:340###
 # solver_obj.assign_initial_conditions(uv=as_vector((1e-7, 0.0)), elev=Constant(0.0))
@@ -251,9 +260,9 @@ solver_obj2.load_state(t2_end, outputdir='../../../outputs/0.validation/discrete
 cb2 = turbines.TurbineFunctionalCallback(solver_obj2)
 solver_obj2.add_callback(cb2, 'timestep')
 
-# # Operation of tidal turbine farm about each turbine output through a callback
-# cb5 = rmse_r2.RMSECallback(solver_obj2,'../../../outputs/0.validation/discrete-4cores', E_area_centre_point1, E_area_circle1)
-# solver_obj2.add_callback(cb5,'timestep')
+# Operation of tidal turbine farm about each turbine output through a callback
+cb5 = rmse_r2.RMSECallback(solver_obj2,'../../../outputs/0.validation/discrete-4cores', E_area_centre_point1, E_area_circle1)
+solver_obj2.add_callback(cb5,'timestep')
 
 
 # Operation of tidal turbine farm about each turbine output through a callback
@@ -264,21 +273,21 @@ solver_obj2.add_callback(cb6,'timestep')
 solver_obj2.iterate(update_forcings=update_forcings)
 ###set up interest functional and control###
 power_output2= sum(cb2.average_power)
-effect_two2 = cb6.RMSEaverage 
+effect_two2 = (cb5.RMSEaverage + cb6.RMSEaverage)/2
 
 power_output = (power_output1+power_output2)/2
-effect_two = (effect_two1+effect_two2)/2
+effect_two = effect_two1*2+effect_two2
 
-maxoutput, diff_uv = 3516.1413136621304, (3287.5225054565767+4479.962038685619)/2
+maxoutput, diff_uv = 3516.141313665352, (5602.319901599994+4479.962038698644)/2
 
 interest_functional = (1-BE/10)*power_output/maxoutput*diff_uv- effect_two * BE/10
 
-# print(power_output1,effect_two1)
-# print(power_output2,effect_two2)
+print(power_output1,effect_two1)
+print(power_output2,effect_two2)
 
 
 # specifies the control we want to vary in the optimisation
-c =[Control(x) for xy in farm_options.turbine_coordinates for x in xy] + [Control(x) for x in farm_options.turbine_axis]
+c =[Control(x) for x in farm_options.turbine_axis]
 # print(power_output, cablecost, interest_functional)
 # a number of callbacks to provide output during the optimisation iterations:
 # - ControlsExportOptimisationCallback export the turbine_friction values (the control)
@@ -299,10 +308,10 @@ callback_list = optimisation.OptimisationCallbackList([
     optimisation.DerivativeConstantControlOptimisationCallback(solver_obj, array_dim=len(c)),
     optimisation.UserExportOptimisationCallback(solver_obj, [turbine_density, solver_obj.fields.uv_2d]),
     optimisation.FunctionalOptimisationCallback(solver_obj),
-    turbines.TurbineOptimisationCallback(solver_obj, cb),
-    rmse_r2.RMSEOptimisationCallback(solver_obj,cb3),
-    turbines.TurbineOptimisationCallback(solver_obj2, cb2),
-    rmse_r3.RMSEOptimisationCallback(solver_obj2,cb6),
+    # turbines.TurbineOptimisationCallback(solver_obj, cb),
+    # rmse_r2.RMSEOptimisationCallback(solver_obj,cb3),
+    # turbines.TurbineOptimisationCallback(solver_obj2, cb2),
+    # rmse_r3.RMSEOptimisationCallback(solver_obj2,cb6),
 
     # turbines.EachTurbineOptimisationCallback(solver_obj,cb2),
 ])
@@ -321,7 +330,7 @@ def derivative_cb_pre(controls):
 rf = ReducedFunctional(-interest_functional, c, derivative_cb_post=callback_list,
         eval_cb_pre=eval_cb_pre, derivative_cb_pre=derivative_cb_pre)
 
-if BE - 2 == 0:
+if  0:
     # whenever the forward model is changed - for example different terms in the equation,
     # different types of boundary conditions, etc. - it is a good idea to test whether the
     # gradient computed by the adjoint is still correct, as some steps in the model may
@@ -334,8 +343,8 @@ if BE - 2 == 0:
 
     # this tests whether the above Taylor series residual indeed converges to zero at 2nd order in h as h->0
 
-    m0 =  [Constant(x) for xy in farm_options.turbine_coordinates for x in xy] + [Constant(i) for i in farm_options.turbine_axis]
-    h0 =  [Constant(1) for xy in farm_options.turbine_coordinates for x in xy] + [Constant(1) for i in farm_options.turbine_axis]
+    m0 =  [Constant(i) for i in farm_options.turbine_axis]
+    h0 =  [Constant(1) for i in farm_options.turbine_axis]
 
     minconv = taylor_test(rf, m0, h0)
     print_output("Order of convergence with taylor test (should be 2) = {}".format(minconv))
@@ -352,20 +361,12 @@ if 1:
     optimise_layout_only = False
     d = farm_options.turbine_options.diameter
 
-    lb = list(np.array([[xmin+d, ymin+d] for _ in farm_options.turbine_coordinates]).flatten()) + [0]*int(len(farm_options.turbine_axis)/2) + [180]*int(len(farm_options.turbine_axis)/2) 
-    ub = list(np.array([[xmax-d, ymax-d] for _ in farm_options.turbine_coordinates]).flatten()) + [180]*int(len(farm_options.turbine_axis)/2) + [360]*int(len(farm_options.turbine_axis)/2)
+    lb =  [0]*int(len(farm_options.turbine_axis)/2) + [180]*int(len(farm_options.turbine_axis)/2) 
+    ub =  [180]*int(len(farm_options.turbine_axis)/2) + [360]*int(len(farm_options.turbine_axis)/2)
     lb = [Constant(i) for i in lb]
     ub = [Constant(i) for i in ub]
 
-    # lb = list(np.array([[xmin+d, ymin+d] for _ in farm_options.turbine_coordinates]).flatten())
-    # ub = list(np.array([[xmax-d, ymax-d] for _ in farm_options.turbine_coordinates]).flatten())
-    # lb = [Constant(i) for i in lb]
-    # ub = [Constant(i) for i in ub]
-
-    mdc= turbines.MinimumDistanceConstraints(farm_options.turbine_coordinates, farm_options.turbine_axis, farm_options.individual_thrust_coefficient, 40. ,optimise_layout_only)
-    
-    td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub], constraints=mdc,
-            options={'maxiter': 200, 'pgtol': 1e-3})
+    td_opt = minimize(rf, method='SLSQP', bounds=[lb,ub],options={'maxiter': 200, 'ptol': 1e-3})
 
 end_time = time.time()
 print_output('time cost: {0:.2f}h'.format((end_time - start_time)/60/60))

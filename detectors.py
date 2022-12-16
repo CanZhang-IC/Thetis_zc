@@ -40,7 +40,7 @@ def get_detectors(mesh2d):
 if __name__ == "__main__":
     inproj = pyproj.Proj(init='epsg:4326') #lat / lon coords
     outproj = pyproj.Proj(init='epsg:32651') # 326 + utm zone number (51 for Korea)
-    gauge_latlon = [(30.0334,122.4098),(30.0373,122.4149)]
+    gauge_latlon = [(30.0334,122.4123),(30.0353,122.4149)]
     gauge_xy = [pyproj.transform(inproj, outproj, lon, lat) for lat, lon in gauge_latlon]
     print(gauge_xy)
     # mesh2d = Mesh('./mesh/mesh.msh')  # mesh file
