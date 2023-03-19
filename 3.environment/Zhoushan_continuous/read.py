@@ -9,9 +9,9 @@ thedir=os.getcwd()
 
 filenames = ['controls','derivatives','each_farm_optimisation','eachturbine','farm_optimisation','functional','turbine','volume2d']
 
-BE,BE_sediment = 25.0,25.0
+BE,BE_sediment = 5.0,25.0
 output_dir =  '../../../outputs/3.environment/zhoushan-continuous-op/behind_notfrom0/'+str(BE)[:-2]+'_'+str(BE_sediment)[:-2]
-df = h5py.File(output_dir+'/diagnostic_'+filenames[-4]+'.hdf5','r+')
+df = h5py.File(output_dir+'/diagnostic_'+filenames[-3]+'.hdf5','r+')
 # df = h5py.File(output_dir+'/diagnostic_sediment_errors.hdf5','r+')
 
 for name,data in df.items():

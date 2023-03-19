@@ -21,7 +21,7 @@ start_time = time.time()
 BE = 8.0#'start'
 
 
-output_dir = '../../../outputs/3.environment/discrete/flood_ebb-forward/y-BE-'+str(BE)[:-2]
+output_dir = '../../../outputs/test'#3.environment/discrete/flood_ebb-forward/y-BE-'+str(BE)[:-2]
 print_output(output_dir[17:])
 
 file_dir = '../../'
@@ -156,8 +156,6 @@ else:
 
     farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
 
-
-
 farm_options.considering_individual_thrust_coefficient = False
 #add turbines to SW_equations
 options.discrete_tidal_turbine_farms[2] = farm_options
@@ -179,9 +177,6 @@ solver_obj.load_state(492, outputdir='../../../outputs/0.validation/discrete-4co
 # Operation of tidal turbine farm through a callback
 cb = turbines.TurbineFunctionalCallback(solver_obj)
 solver_obj.add_callback(cb, 'timestep')
-
-
-
 
 #Effected area location
 E_area_centre_point1 = [443385,3323260]

@@ -16,13 +16,13 @@ start_time = time.time()
 
 get_index = os.path.basename(sys.argv[0])
 BE = float(get_index[:-3])
-# BE = 0.0
+# BE = 2.0
 
 
 t1_end, t2_end = 504, 516
 P_factor = 1.0
 file_dir = '../../'
-output_dir = '../../../outputs/2.economy/discrete/flood_ebb/cable-BE-'+str(BE)[:-2]
+output_dir = '../../../outputs/2.economy/discrete-4from3/flood_ebb/cable-BE-'+str(BE)[:-2]
 print_output(output_dir[17:])
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
 
@@ -161,17 +161,15 @@ farm_options.turbine_options.diameter = 20
 # farm_options.turbine_options.A_support = H/2
 farm_options.upwind_correction = True
 
-xmin,ymin,xmax,ymax = 443340, 3322634, 443592, 3322848 
+xmin,ymin,xmax,ymax = 443337, 3322632, 443587, 3322841
 
-
+d = farm_options.turbine_options.diameter
 turbine_location = []
-x_space = 60
-for x in range(xmin+20,xmax-20,x_space):
-    for y in range(ymin+20,ymax-20,x_space*2):
-        turbine_location.append([x,y])
-for x in range(xmin+20+int(x_space/2),xmax-20,x_space):
-    for y in range(ymin+20+x_space,ymax-20,x_space*2):
-        turbine_location.append([x,y])
+xspacing,yspacing = 60, 60
+for x in range(xmin+1*d,xmax-1*d,int(xspacing)):
+    for y in range(ymin+1*d,ymax-1*d,int(yspacing)):
+        turbine_location.append((x,y))
+print_output(len(turbine_location))
 farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
 
 farm_options.considering_yaw = True
@@ -179,7 +177,8 @@ farm_options.considering_yaw = True
 
 farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbine_coordinates))] + [Constant(270) for i in range(len(farm_options.turbine_coordinates))]
 
-# result_output_dir = '../../../outputs/2.economy/discrete/flood_ebb/cable-BE-'+str(BE-2)[:-2]
+# result_output_dir = '../../../outputs/2.economy/discrete-3/flood_ebb/cable-BE-'+str(BE-2)[:-2]
+# result_output_dir = '../../../outputs/2.economy/discrete-4from3/flood_ebb/cable-BE-10'
 # comm = MPI.COMM_WORLD
 # rank = comm.Get_rank()
 # if rank == 0:
@@ -196,11 +195,11 @@ farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbin
 # farm_options.turbine_coordinates = [[Constant(all_controls[2*i]),Constant(all_controls[2*i+1])] for i in range(12)]
 
 # farm_options.considering_yaw = True
-# flood_dir,ebb_dir = all_controls[24:36], all_controls[36:]
+# flood_dir,ebb_dir = all_controls[12:24], all_controls[36:]
 
 # farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
 
-farm_options.considering_individual_thrust_coefficient = False
+# farm_options.considering_individual_thrust_coefficient = False
 
 
 #add turbines to SW_equations
@@ -265,9 +264,9 @@ turbine_density = Function(solver_obj.function_spaces.P1_2d, name='turbine_densi
 turbine_density.interpolate(solver_obj.tidal_farms[0].turbine_density)
 
 shortestline = sqrt((444000-(443592-20))**2 + (3323000-(3322848-20))**2)
-capacity = maxoutput, maxcost = 3516.136691903067,	1968.6394624114741-3*shortestline
+maxoutput, maxcost = 3516.136691903067,	2526.2080571149295-4*shortestline
 power_output = (power_output1+power_output2)/2
-interest_functional = (1-BE/10)*power_output - BE/10*(cablecost-3*shortestline)/maxcost*maxoutput
+interest_functional = (1-BE/10)*power_output - BE/10*(cablecost-4*shortestline)/maxcost*maxoutput
 # print(power_output, cablecost, interest_functional)
 # a number of callbacks to provide output during the optimisation iterations:
 # - ControlsExportOptimisationCallback export the turbine_friction values (the control)
@@ -357,7 +356,7 @@ if 1:
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
     if rank == 0 :
-        yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
+        yag = yagmail.SMTP(user = '623001493@qq.com',password = 'tiypryoerjyhbeib', host = 'smtp.qq.com')
         yag.send(to = ['623001493@qq.com'], subject = output_dir[17:], contents = ['Time cose: {0:.2f}h.'.format((end_time-start_time)/60/60)])
     else:
         pass

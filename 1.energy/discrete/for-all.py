@@ -22,7 +22,7 @@ file_dir = '../../'
 
 P_factor = 1.0
 
-output_dir = '../../../outputs/1.energy/discrete/all-forward-f-e'
+output_dir = '../../../outputs/1.energy/discrete/test'
 print_output(output_dir[17:])
 mesh2d = Mesh(file_dir+'mesh-vs_otf_oe1/mesh.msh')
 
@@ -131,7 +131,7 @@ xmin,ymin,xmax,ymax = 443100, 3322600, 443600, 3323100
 
 # farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbine_coordinates))] + [Constant(270) for i in range(len(farm_options.turbine_coordinates))]
 
-result_output_dir = '../../../outputs/1.energy/discrete/flood_ebb/all-90'
+result_output_dir = '../../../outputs/1.energy/discrete/flood_ebb/op/all-90'
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
@@ -173,6 +173,9 @@ solver_obj.load_state(492, outputdir='../../../outputs/0.validation/vsotf-discre
 # Operation of tidal turbine farm through a callback
 cb = turbines.TurbineFunctionalCallback(solver_obj)
 solver_obj.add_callback(cb, 'timestep')
+
+cb2 = turbines.EachTurbineFunctionalCallback(solver_obj)
+solver_obj.add_callback(cb2,'timestep')
 
 # start computer forward model
 solver_obj.iterate(update_forcings=update_forcings)

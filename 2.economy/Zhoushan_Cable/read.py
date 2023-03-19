@@ -9,8 +9,8 @@ thedir=os.getcwd()
 
 filenames = ['controls','derivatives','each_farm_optimisation','eachturbine','farm_optimisation','functional','turbine','volume2d']
 
-BE = 1.0
-output_dir =  '../../../outputs/2.economy/discrete/flood_ebb/cable-BE-'+str(BE)[:-2]
+BE = 6.0
+output_dir =  '../../../outputs/2.economy/discrete-4from3/flood_ebb/cable-BE-'+str(BE)[:-2]
 df = h5py.File(output_dir+'/diagnostic_'+filenames[-3]+'.hdf5','r+')
 # df = h5py.File(output_dir+'/diagnostic_sediment_errors.hdf5','r+')
 

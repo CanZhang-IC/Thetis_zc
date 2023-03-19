@@ -18,22 +18,19 @@ start_time = time.time()
 
 get_index = os.path.basename(sys.argv[0])
 BE = float(get_index[:-3])
-# BE = 0.0#'start'
+# BE = 2.0#'start'
 
 
-output_dir = '../../../outputs/2.economy/discrete/flood_ebb-forward/cable-BE-'+str(BE)[:-2]
+output_dir = '../../../outputs/2.economy/close-discrete-3/flood_ebb-forward/cable-BE-'+str(BE)[:-2]
 print_output(output_dir[17:])
 
 file_dir = '../../'
 mesh2d = Mesh(file_dir+'mesh/mesh.msh')
-
 #timestepping options
 dt = 5*60 # reduce this if solver does not converge
 t_export = 30*60 
 # t_end = 1555200
-# t_end = 1216800+ 13*60*60 # spring
-t_end = 885600 + 13*60*60 # middle
-# t_end = 612000 + 13*60*60 # neap
+t_end = 492*t_export+ 13*60*60
 
 P1 = FunctionSpace(mesh2d, "CG", 1)
 
@@ -118,44 +115,27 @@ farm_options.turbine_options.thrust_coefficient = 0.6
 farm_options.turbine_options.diameter = 20
 farm_options.upwind_correction = True
 
-if BE == 'start':
-    xmin,ymin,xmax,ymax = 443340, 3322634, 443592, 3322848 
-    turbine_location = []
-    for x in range(xmin+20,xmax-20,60):
-        for y in range(ymin+20,ymax-20,120):
-            turbine_location.append([x,y])
-    for x in range(xmin+20+30,xmax-20,60):
-        for y in range(ymin+20+60,ymax-20,120):
-            turbine_location.append([x,y])
-    farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
+result_output_dir = '../../../outputs/2.economy/close-discrete-3/flood_ebb/cable-BE-'+str(BE)[:-2]
 
-    farm_options.considering_yaw = False
-
-    iteration_numbers = 0
-
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+if rank == 0:
+    def_file = h5py.File(result_output_dir+'/diagnostic_'+'controls'+'.hdf5','r+')
+    for name, data in def_file.items():
+        all_controls = list(data[-1])
+        iteration_numbers = len(data)
 else:
-    result_output_dir = '../../../outputs/2.economy/discrete/flood_ebb/cable-BE-'+str(BE)[:-2]
-    comm = MPI.COMM_WORLD
-    rank = comm.Get_rank()
-    if rank == 0:
-        def_file = h5py.File(result_output_dir+'/diagnostic_'+'controls'+'.hdf5','r+')
-        for name, data in def_file.items():
-            all_controls = list(data[-1])
-            iteration_numbers = len(data)
-    else:
-        all_controls = None
-        iteration_numbers = None
-    all_controls = comm.bcast(all_controls,root = 0)
-    iteration_numbers = comm.bcast(iteration_numbers, root = 0)
+    all_controls = None
+    iteration_numbers = None
+all_controls = comm.bcast(all_controls,root = 0)
+iteration_numbers = comm.bcast(iteration_numbers, root = 0)
 
-    farm_options.turbine_coordinates = [[Constant(all_controls[2*i]),Constant(all_controls[2*i+1])] for i in range(12)]
+farm_options.turbine_coordinates = [[Constant(all_controls[2*i]),Constant(all_controls[2*i+1])] for i in range(12)]
 
-    farm_options.considering_yaw = True
-    flood_dir,ebb_dir = all_controls[24:36], all_controls[36:]
+farm_options.considering_yaw = True
+flood_dir,ebb_dir = all_controls[24:36], all_controls[36:]
 
-    farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
-
-
+farm_options.turbine_axis = [Constant(i) for i in flood_dir] + [Constant(i) for i in ebb_dir]
 
 farm_options.considering_individual_thrust_coefficient = False
 #add turbines to SW_equations
@@ -185,14 +165,13 @@ solver_obj.iterate(update_forcings=update_forcings)
 ###set up interest functional and control###
 power_output= sum(cb.average_power)
 
-
 ###cable length###
 turbine_locations = [float(x) for xy in farm_options.turbine_coordinates for x in xy]
 landpointlocation = [444000,3323000]
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
-    cableclass = prepare_cable.Hybrid_Code.CableCostGA(turbine_locations=turbine_locations, substation_location=landpointlocation,capacity = 4)
+    cableclass = prepare_cable.Hybrid_Code.CableCostGA(turbine_locations=turbine_locations, substation_location=landpointlocation,capacity = 3)
     order_w = cableclass.compute_cable_cost_order()
 else:
     order_w = []
@@ -203,8 +182,8 @@ order_con = [Constant(i) for j in order_w for i in j]
 cablecost = cablelength([x for xy in farm_options.turbine_coordinates for x in xy],landpointlocation_con,order_con)
 
 ### interest function###
-shortestline = sqrt((444000-(443592-20))**2 + (3323000-(3322848-20))**2)
-capacity = maxoutput, maxcost = 3516.136691903067,	1968.6394624114741-3*shortestline
+shortestline = 0#sqrt((444000-(443592-20))**2 + (3323000-(3322848-20))**2)
+maxoutput, maxcost = 3516.136691903067,	1968.6394624114741-3*shortestline
 
 interest_functional = (1-BE/10)*power_output - BE/10*(cablecost-3*shortestline)/maxcost*maxoutput
 

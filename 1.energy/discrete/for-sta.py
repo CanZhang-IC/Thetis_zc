@@ -22,7 +22,7 @@ file_dir = '../../'
 
 P_factor = 1.0
 
-output_dir = '../../../outputs/1.energy/discrete/sta-forward-noyaw'
+output_dir = '../../../outputs/1.energy/discrete/test'
 print_output(output_dir[17:])
 mesh2d = Mesh(file_dir+'mesh-vs_otf_oe1/mesh.msh')
 
@@ -126,12 +126,12 @@ xmin,ymin,xmax,ymax = 443100, 3322600, 443600, 3323100
 turbine_location = [[443285.232752254, 3322701.82872359], [443232.236885506, 3322788.9575828], [443216.828723589, 3322889.76724775], [443322.820457085, 3322715.50952932], [443269.824590337, 3322802.63838853], [443254.41642842, 3322903.44805348], [443360.408161917, 3322729.19033505], [443307.412295169, 3322816.31919427], [443292.004133252, 3322917.12885921], [443397.995866748, 3322742.87114079], [443345.0, 3322830.0], [443329.591838083, 3322930.80966495], [443435.58357158, 3322756.55194652], [443382.587704831, 3322843.68080573], [443367.179542915, 3322944.49047068], [443473.171276411, 3322770.23275225], [443420.175409663, 3322857.36161147], [443404.767247746, 3322958.17127641]]
 farm_options.turbine_coordinates =[[Constant(xy[0]),Constant(xy[1])] for xy in turbine_location]
 
-farm_options.considering_yaw = False
+farm_options.considering_yaw = True
 
 
 # farm_options.turbine_axis = [Constant(90) for i in range(len(farm_options.turbine_coordinates))] + [Constant(270) for i in range(len(farm_options.turbine_coordinates))]
 
-result_output_dir = '../../../outputs/1.energy/discrete/flood_ebb/sta-90'
+result_output_dir = '../../../outputs/1.energy/discrete/flood_ebb/op/sta-90'
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 if rank == 0:
@@ -177,6 +177,9 @@ solver_obj.load_state(492, outputdir='../../../outputs/0.validation/vsotf-discre
 # Operation of tidal turbine farm through a callback
 cb = turbines.TurbineFunctionalCallback(solver_obj)
 solver_obj.add_callback(cb, 'timestep')
+
+cb2 = turbines.EachTurbineFunctionalCallback(solver_obj)
+solver_obj.add_callback(cb2,'timestep')
 
 # start computer forward model
 solver_obj.iterate(update_forcings=update_forcings)

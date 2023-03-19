@@ -1099,9 +1099,9 @@ Line Loop( 60 ) = {31};
 Line Loop( 61 ) = {31};
 
 
-point_x = 443385;
-point_y = 3323260;
-area_circle = 60;
+point_x = 444000;
+point_y = 3323000;
+area_circle = 5;
 //effected area 1
 Point(20021) = {point_x - area_circle, point_y - area_circle, 0};
 Point(20022) = {point_x + area_circle, point_y - area_circle, 0};
@@ -1115,21 +1115,21 @@ Line(2002102) = {20021, 20022};
 Line(2002103) = {20022, 20023};
 Line Loop(2002104) = {2002100, 2002101, 2002102, 2002103};
 
-point_x2 = 443786;
-point_y2 = 3322300;
-area_circle = 60;
-//effected area 2
-Point(30021) = {point_x2 - area_circle, point_y2 - area_circle, 0};
-Point(30022) = {point_x2 + area_circle, point_y2 - area_circle, 0};
-Point(30023) = {point_x2 + area_circle, point_y2 + area_circle, 0};
-Point(30024) = {point_x2 - area_circle, point_y2 + area_circle, 0};
+// point_x2 = 443786;
+// point_y2 = 3322300;
+// area_circle = 60;
+// //effected area 2
+// Point(30021) = {point_x2 - area_circle, point_y2 - area_circle, 0};
+// Point(30022) = {point_x2 + area_circle, point_y2 - area_circle, 0};
+// Point(30023) = {point_x2 + area_circle, point_y2 + area_circle, 0};
+// Point(30024) = {point_x2 - area_circle, point_y2 + area_circle, 0};
 
 
-Line(3002100) = {30023, 30024};
-Line(3002101) = {30024, 30021};
-Line(3002102) = {30021, 30022};
-Line(3002103) = {30022, 30023};
-Line Loop(3002104) = {3002100, 3002101, 3002102, 3002103};
+// Line(3002100) = {30023, 30024};
+// Line(3002101) = {30024, 30021};
+// Line(3002102) = {30021, 30022};
+// Line(3002103) = {30022, 30023};
+// Line Loop(3002104) = {3002100, 3002101, 3002102, 3002103};
 
 // Definitions of 2 surfaces:
 Plane Surface( 0 ) = {32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60};

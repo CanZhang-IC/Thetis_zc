@@ -34,7 +34,7 @@ mesh2d = Mesh(file_dir+'mesh_continuous/mesh.msh')
 dt = 5*60 # reduce this if solver does not converge
 t_export = 30*60 
 # t_end = 1555200
-t_end = 492*t_export+ 301*dt
+t_end = 492*t_export+ 13*60*60
 
 
 test_gradient, optimise = 0,1
@@ -206,7 +206,7 @@ solver_obj.load_state(start_time_point,outputdir='../../../outputs/0.validation/
 # solver_obj.add_callback(cb_d, 'timestep')
 
 #Effected area location
-E_area_centre_point = [[444500,3319900]] #behind
+E_area_centre_point = [[444500,3320800]] #behind
 E_area_circle = [200]
 
 # Operation of tidal turbine farm about each turbine output through a callback
@@ -245,8 +245,14 @@ print_output("Maximum turbine density = {}".format(max_density))
 # scaling = -1/assemble(max(farm_options.break_even_wattage, 100) * max_density * dx(turbine_area_PhyID, domain=mesh2d))
 # scaled_functional = scaling * cb.integrated_power
 effect_two = [cb2.RMSEaverage]
-profit_max,sediment_max = 26818.31114896429, 4823.442122948473
-scaled_functional = (1-BE_sediment/100)*cb.average_profit[-1]/profit_max*sediment_max- effect_two[0] * BE_sediment/100
+if BE - 5 == 0:
+    profit_max,sediment_max = 30979.69821,  54513.03909
+elif BE - 25 == 0:
+    profit_max,sediment_max = 29129.82268,	53619.17313
+elif BE - 45 == 0:
+    profit_max,sediment_max = 27355.68409,	51576.50981
+
+scaled_functional = (1-BE_sediment/100)*cb.average_profit[-1]/profit_max- effect_two[0] * BE_sediment/100/sediment_max
 print_output(effect_two)
 print_output(cb.average_profit[-1])
 print_output(scaled_functional)
@@ -319,7 +325,7 @@ if 1:
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
     if rank == 0 :
-        yag = yagmail.SMTP(user = '623001493@qq.com',password = 'ouehigyjxpidbbcj', host = 'smtp.qq.com')
+        yag = yagmail.SMTP(user = '623001493@qq.com',password = 'tiypryoerjyhbeib', host = 'smtp.qq.com')
         yag.send(to = ['623001493@qq.com'], subject = output_dir[17:], contents = ['Time cose: {0:.2f}h.'.format((end_time-start_time)/60/60)])
     else:
         pass
