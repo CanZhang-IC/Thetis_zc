@@ -1,0 +1,85 @@
+nohup: ignoring input
+Exporting to ../../outputs/3D/rectangular
+UFL:WARNING Discontinuous Lagrange element requested on triangle * interval, creating DQ element.
+Using default SIPG parameters
+Coupled time integrator: CoupledTwoStageRK
+  2D time integrator: ESDIRKTrapezoid
+  3D time integrator: SSPRK22ALE
+  3D implicit time integrator: BackwardEuler
+2D mesh: 12745 nodes, 25358 triangles
+3D mesh: 4 layers, 101432 prisms
+Horizontal element size: 1.76 ... 30.52 m
+Vertical element size: 10.000 ... 10.000 m
+Element family: dg-dg, degree: 1
+Number of tracer DOFs: 608592
+Number of cores: 8
+Tracer DOFs per core: ~76074.0
+  - dt 2d swe: 0.0038657836927133943
+  - dt h. advection: 0.02939166787261611
+  - dt v. advection: 249.9999999999983
+  - dt viscosity: 0.031099325052030263
+  - CFL adjusted dt: 2D: inf 3D: 0.02939166787261611
+  - chosen dt: 2D: 0.02939166787261611 3D: 0.02939166787261611
+  - adjusted dt: 2D: 0.02936857562408223 3D: 0.02936857562408223
+dt = 0.029369
+max h diff 1.142269366995626 - 253.8459831903309
+    0     0 T=      0.00 eta norm:     0.0000 u norm:     0.0000  0.00
+    1   681 T=     20.00 eta norm:   750.2034 u norm:     1.3456 854.27
+    2  1362 T=     40.00 eta norm:  1988.8291 u norm:    14.2801 880.16
+    3  2043 T=     60.00 eta norm:  3271.7160 u norm:    52.6019 894.22
+    4  2724 T=     80.00 eta norm:  3950.7464 u norm:   133.5882 891.40
+    5  3405 T=    100.00 eta norm:  3910.6812 u norm:   271.5204 889.24
+    6  4086 T=    120.00 eta norm:  3648.7961 u norm:   474.4371 892.22
+    7  4767 T=    140.00 eta norm:  3244.2933 u norm:   708.7463 889.61
+    8  5448 T=    160.00 eta norm:  2704.7251 u norm:   941.2437 889.51
+    9  6129 T=    180.00 eta norm:  2062.7378 u norm:  1142.5301 889.59
+   10  6810 T=    200.00 eta norm:  1387.7607 u norm:  1301.9936 889.61
+   11  7491 T=    220.00 eta norm:   890.1060 u norm:  1438.6671 889.71
+   12  8172 T=    240.00 eta norm:   548.9889 u norm:  1562.4769 889.78
+   13  8853 T=    260.00 eta norm:   355.4000 u norm:  1673.3165 889.01
+   14  9534 T=    280.00 eta norm:   269.3364 u norm:  1767.2685 888.70
+   15 10215 T=    300.00 eta norm:   204.2605 u norm:  1845.1894 888.50
+   16 10896 T=    320.00 eta norm:   143.2301 u norm:  1923.5271 886.94
+   17 11577 T=    340.00 eta norm:   128.2851 u norm:  2000.6168 887.41
+   18 12258 T=    360.00 eta norm:   116.9943 u norm:  2085.2514 887.23
+   19 12939 T=    380.00 eta norm:    96.0212 u norm:  2167.3875 887.78
+   20 13620 T=    400.00 eta norm:    65.7828 u norm:  2239.8326 887.69
+   21 14301 T=    420.00 eta norm:    47.9005 u norm:  2320.8443 887.51
+   22 14982 T=    440.00 eta norm:    49.8535 u norm:  2395.2205 888.04
+   23 15663 T=    460.00 eta norm:    59.7868 u norm:  2463.1289 887.40
+   24 16344 T=    480.00 eta norm:    68.7328 u norm:  2520.9795 887.87
+   25 17025 T=    500.00 eta norm:    73.9469 u norm:  2565.4100 888.22
+   26 17706 T=    520.00 eta norm:    75.8006 u norm:  2617.4827 887.79
+   27 18387 T=    540.00 eta norm:    75.0510 u norm:  2671.3118 887.93
+   28 19068 T=    560.00 eta norm:    72.7126 u norm:  2728.8266 887.08
+   29 19749 T=    580.00 eta norm:    69.6556 u norm:  2783.8295 888.02
+   30 20430 T=    600.00 eta norm:    66.5764 u norm:  2848.7355 887.45
+   31 21111 T=    620.00 eta norm:    63.9887 u norm:  2907.8187 890.08
+   32 21792 T=    640.00 eta norm:    61.9483 u norm:  2957.1710 887.90
+   33 22473 T=    660.00 eta norm:    60.3345 u norm:  3001.3035 887.46
+   34 23154 T=    680.00 eta norm:    58.9568 u norm:  3038.1413 887.65
+   35 23835 T=    700.00 eta norm:    57.7620 u norm:  3073.3122 887.38
+   36 24516 T=    720.00 eta norm:    56.9086 u norm:  3092.5701 888.69
+   37 25197 T=    740.00 eta norm:    56.2890 u norm:  3071.2473 888.63
+   38 25878 T=    760.00 eta norm:    55.8700 u norm:  3047.5631 889.01
+   39 26559 T=    780.00 eta norm:    55.7935 u norm:  3055.7747 887.91
+   40 27240 T=    800.00 eta norm:    55.8293 u norm:  3088.9211 888.12
+   41 27921 T=    820.00 eta norm:    56.1442 u norm:  3130.7857 888.37
+   42 28602 T=    840.00 eta norm:    56.7075 u norm:  3176.1356 887.67
+   43 29283 T=    860.00 eta norm:    56.8236 u norm:  3221.9892 887.30
+   44 29964 T=    880.00 eta norm:    56.7894 u norm:  3266.7030 899.04
+   45 30645 T=    900.00 eta norm:    56.3236 u norm:  3313.1114 890.18
+   46 31326 T=    920.00 eta norm:    55.1928 u norm:  3359.0716 902.37
+   47 32007 T=    940.00 eta norm:    53.9636 u norm:  3402.9620 901.07
+   48 32688 T=    960.00 eta norm:    52.7981 u norm:  3445.7945 896.57
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 14041 RUNNING AT can-deskcomputer
+=   EXIT CODE: 9
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Killed (signal 9)
+This typically refers to a problem with your application.
+Please see the FAQ page for debugging suggestions
